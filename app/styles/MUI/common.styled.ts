@@ -375,7 +375,9 @@ export const PrevNext = styled(Stack)(({ theme }) => ({
     right: '80px',
     top: '170px',
     "&.OurWorkPrevNext":{
-        position: 'unset'
+        position: 'relative',
+        right: '0px',
+        top: '0px',
     },
     "& .MuiButton-root": {
         borderRadius: "100px",
