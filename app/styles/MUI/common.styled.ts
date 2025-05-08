@@ -12,9 +12,9 @@ const breakpoints = {
 
 
 export const AppBarStyled = styled(AppBar)(({ theme }) => ({
-    // borderBottom: "1px solid",
-    // borderColor: theme.palette.custom?.border1,
-    backgroundColor: theme.palette.custom?.black,
+    borderBottom: "1px solid",
+    borderColor: theme.palette.custom?.border1,
+    backgroundColor: theme.palette.custom?.white2,
     boxShadow: 'unset',
     padding: "12px 80px",
     display: "flex",
@@ -403,9 +403,55 @@ export const PrevNext = styled(Stack)(({ theme }) => ({
     "& .MuiButton-root::after": {
         display: "none",
     },
+    "&.OurWorkPrevNext .MuiButton-root": {
+        borderColor: theme.palette.custom?.black,
+        backgroundColor: "transparent",
+    },
     [`@media (max-width: ${breakpoints.sm})`]: {
         right: '20px',
         top: '228px',
+    },
+}));
+
+export const OwlCarouselStyled = styled(Stack)(({ theme }) => ({
+    // "& .swiper-slide":{
+    //     width: '100% !important'
+    // },
+    "& .swiper-wrapper": {
+        alignItems: 'center'
+    },
+    "& .testimonial-boxUI": {
+        backgroundColor: theme.palette.custom?.border2,
+        padding: '36px 32px',
+        borderRadius: '8px',
+    },
+    "& .swiper-slide .MuiTypography-root": {
+        fontSize: '19px',
+        lineHeight: '30px'
+    },
+    "& .swiper-slide-next .MuiTypography-root": {
+        fontSize: '22px',
+        lineHeight: '34px'
+    },
+    "& .swiper-slide-active, & .swiper-slide-next ~ .swiper-slide": {
+        transform: 'scale(0.8)',
+        transitionDuration: '0.3s',
+        opacity: '0.6',
+    },
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+        "& .swiper-slide-next .MuiTypography-root": {
+            fontSize: '20px',
+            lineHeight: '30px'
+        },
+    },
+    [`@media (max-width: ${breakpoints.sm})`]: {
+        "& .swiper-slide-active, & .swiper-slide-next ~ .swiper-slide": {
+            transform: 'scale(1)',
+            opacity: '1',
+        },
+        "& .testimonial-boxUI":{
+            margin: "0 20px"
+        }
     },
 }));
 
