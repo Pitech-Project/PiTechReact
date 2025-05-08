@@ -9,6 +9,10 @@
     margin: 0;
   }
   
+  .case-studies .MuiAppBar-root{
+    background-color: #151515 !important;
+    border: unset;
+  }
 
  .MuiTypography-root.SubTitlemarginBottom, .SubTitlemarginBottom{
     margin-bottom: 140px;
