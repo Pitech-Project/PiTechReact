@@ -34,7 +34,7 @@ const TeamBusinessOffice = ({ title, afterbreaktitle, subtitle, buttondisplay }:
             {buttondisplay &&
                 <BusinessOfficeBox>
                     <video width="100%" height='100%' autoPlay muted loop>
-                        <source src="https://pi-tech-react.vercel.app/homepagevideo.mp4" type="video/mp4" />
+                        <source src="/homepagevideo.mp4" type="video/mp4" />
                     </video>
                 </BusinessOfficeBox>
             }
