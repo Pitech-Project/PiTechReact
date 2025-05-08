@@ -374,6 +374,9 @@ export const PrevNext = styled(Stack)(({ theme }) => ({
     position: 'absolute',
     right: '80px',
     top: '170px',
+    "&.OurWorkPrevNext":{
+        position: 'unset'
+    },
     "& .MuiButton-root": {
         borderRadius: "100px",
         height: "56px",
@@ -388,6 +391,10 @@ export const PrevNext = styled(Stack)(({ theme }) => ({
         transition: '0.5s',
     },
     "& .MuiButton-root:hover": {
+        borderColor: theme.palette.custom?.orange_600,
+    },
+    "&.OurWorkPrevNext .MuiButton-root:hover":{
+        backgroundColor: theme.palette.custom?.orange_600,
         borderColor: theme.palette.custom?.orange_600,
     },
     "& .MuiButton-root.swiper-button-prev": {
@@ -406,6 +413,9 @@ export const PrevNext = styled(Stack)(({ theme }) => ({
     "&.OurWorkPrevNext .MuiButton-root": {
         borderColor: theme.palette.custom?.black,
         backgroundColor: "transparent",
+    },
+    "&.OurWorkPrevNext .MuiButton-root svg path":{
+        fill: theme.palette.custom?.black,
     },
     [`@media (max-width: ${breakpoints.sm})`]: {
         right: '20px',
@@ -551,6 +561,10 @@ export const TestimonialBox = styled(Box)(({ theme }) => ({
         transform: 'scale(0.8)',
         transitionDuration: '0.3s',
         opacity: '0.6',
+    },
+    "&.OurWorkCarousel .swiper-slide-active, &.OurWorkCarousel .swiper-slide-next ~ .swiper-slide":{
+        transform: 'scale(1) !important',
+        opacity: '1 !important',
     },
     [`@media (max-width: ${breakpoints.smallDesktop})`]: {
         "& .swiper-slide-next .MuiTypography-root": {
