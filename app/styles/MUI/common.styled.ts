@@ -72,6 +72,7 @@ export const OutlineBtn = styled(Link)(({ theme }) => ({
     width: 'max-content',
     transition: '0.5s',
     textTransform: 'uppercase',
+    cursor: 'pointer',
     "& .MuiSvgIcon-root": {
         width: '18px',
         transition: '0.5s',
@@ -113,6 +114,7 @@ export const OutlineBtn1 = styled(Button)(({ theme }) => ({
     width: 'max-content',
     transition: '0.5s',
     textTransform: 'uppercase',
+    cursor: 'pointer',
     "& .MuiSvgIcon-root": {
         width: '18px',
         transition: '0.5s',
@@ -153,6 +155,7 @@ export const OutlineWhiteBtn = styled(Link)(({ theme }) => ({
     transition: '0.5s',
     width: 'max-content',
     textTransform: 'uppercase',
+    cursor: 'pointer',
     "& .MuiSvgIcon-root": {
         width: '18px',
         transition: '0.5s',
@@ -183,6 +186,7 @@ export const OutlineWhiteBtn1 = styled(Button)(({ theme }) => ({
     transition: '0.5s',
     width: 'max-content',
     textTransform: 'uppercase',
+    cursor: 'pointer',
     "& .MuiSvgIcon-root": {
         width: '18px',
         transition: '0.5s',
