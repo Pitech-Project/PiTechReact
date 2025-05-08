@@ -9,7 +9,7 @@ import { Services } from "@/components/services";
 import Testimonial from "@/components/testimonials";
 import SmoothTextSlider from "@/components/top-companies";
 import WhoWeAre from "@/components/who-we-are";
-// import OurWorkCarousel from "@/components/our-work-carousel";
+import OurWorkCarousel from "@/components/our-work-carousel";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
         <Count />
         <WhoWeAre title={"who we are "} buttondisplay={true} aboutus={false}/>
         <Services />
-        {/* <OurWorkCarousel /> */}
+        <OurWorkCarousel />
         <SmoothTextSlider />
         <Testimonial />
       </Box>
