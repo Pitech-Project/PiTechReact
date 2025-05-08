@@ -44,6 +44,7 @@ export default function JobOpenings() {
                     display={'block'}
                     className="jobTitle"
                     marginBottom={'16px'}
+                    sx={{cursor: 'pointer'}}
                   >
                     {job.title}
                   </Typography>
