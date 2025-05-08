@@ -5,7 +5,6 @@ import { BusinessOffice, BusinessOfficeBox, BusinessOfficeImg, FullStop, Outline
 import CallMadeIcon from '@mui/icons-material/CallMade';
 import { motion } from "framer-motion";
 
-
 type TeamBusinessOfficeType = {
     title: string;
     afterbreaktitle: string;
@@ -35,7 +34,7 @@ const TeamBusinessOffice = ({ title, afterbreaktitle, subtitle, buttondisplay }:
             {buttondisplay &&
                 <BusinessOfficeBox>
                     <video width="100%" height='100%' autoPlay muted loop>
-                        <source src="http://clients.pitesting.in/pitech/php-pitech/videos/homepagevideo.mp4" type="video/mp4" />
+                        <source src="https://pi-tech-react.vercel.app/homepagevideo.mp4" type="video/mp4" />
                     </video>
                 </BusinessOfficeBox>
             }
