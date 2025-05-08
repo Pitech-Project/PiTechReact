@@ -58,7 +58,9 @@ function Navbar() {
         },
       }}>
         <Toolbar sx={{ width: '100%', justifyContent: 'space-between', padding: '0 !important' }}>
-          <Image src={PiLogo} alt='logo' />
+          <HoveredLink className={isActive('/') ? 'active' : ''} href="/">
+            <Image src={PiLogo} alt='logo' />
+          </HoveredLink>
 
           <Box alignItems={'center'} sx={{ display: { xs: 'none', lg: 'flex' } }}>
             <HoveredLink className={isActive('/') ? 'active' : ''} href="/">Home</HoveredLink>
