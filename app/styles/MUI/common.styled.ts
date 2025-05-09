@@ -1,6 +1,6 @@
 "use client";
 
-import { Accordion, AppBar, Box, Button, Drawer, Grid, Link, Stack, styled, Typography } from "@mui/material";
+import { AppBar, Box, Button, Drawer, Grid, Link, Stack, styled, Typography } from "@mui/material";
 
 const breakpoints = {
     smallDesktop: "1535px",
@@ -11,10 +11,14 @@ const breakpoints = {
 };
 
 
+interface Props {
+    transformUp?: boolean
+}
+
 export const AppBarStyled = styled(AppBar)(({ theme }) => ({
-    borderBottom: "1px solid",
-    borderColor: theme.palette.custom?.border1,
-    backgroundColor: theme.palette.custom?.white2,
+    // borderBottom: "1px solid",
+    // borderColor: theme.palette.custom?.border1,
+    backgroundColor: theme.palette.custom?.black,
     boxShadow: 'unset',
     padding: "12px 80px",
     display: "flex",
@@ -33,17 +37,10 @@ export const AppBarStyled = styled(AppBar)(({ theme }) => ({
         background: '#f7941e',
         borderRadius: '50%',
         opacity: 0,
-        // -webkitTransform: 'translateX(-658px)',
         transform: 'translateX(-658px)',
-        // -webkitTransition: 'all 0.2s ease-in-out',
         transition: 'all 0.2s ease-in-out',
         marginTop: '31px',
     },
-    "& .LinkUI":{
-
-    },
-  
-      
     [`@media (max-width: ${breakpoints.tabletView})`]: {
         "&.MuiTypography-root.smallResWhiteBtn":{
             borderColor: theme.palette.custom?.white2,
@@ -55,7 +52,7 @@ export const AppBarStyled = styled(AppBar)(({ theme }) => ({
     },
 }));
 
-export const OutlineBtn = styled(Link)(({ theme }) => ({
+export const OutlineBtn = styled(Link)<Props>(({ theme, transformUp }) => ({
     border: "1px solid",
     borderColor: theme.palette.custom?.black,
     borderRadius: '100px',
@@ -76,9 +73,10 @@ export const OutlineBtn = styled(Link)(({ theme }) => ({
     "& .MuiSvgIcon-root": {
         width: '18px',
         transition: '0.5s',
+        marginLeft: '16px'
     },
     "&:hover .MuiSvgIcon-root": {
-        transform: 'translate(6px, -5px)'
+        transform: transformUp ? 'translate(6px, -3px)' : 'translate(6px, 0px)'
     },
     "&:hover": {
         borderColor: theme.palette.custom?.orange_600,
@@ -138,7 +136,7 @@ export const OutlineBtn1 = styled(Button)(({ theme }) => ({
     },
 }));
 
-export const OutlineWhiteBtn = styled(Link)(({ theme }) => ({
+export const OutlineWhiteBtn = styled(Link)<Props>(({ theme, transformUp }) => ({
     border: "1px solid",
     borderColor: theme.palette.custom?.white2,
     borderRadius: '100px',
@@ -159,9 +157,13 @@ export const OutlineWhiteBtn = styled(Link)(({ theme }) => ({
     "& .MuiSvgIcon-root": {
         width: '18px',
         transition: '0.5s',
+        marginLeft: '16px'
     },
     "&:hover .MuiSvgIcon-root": {
-        transform: 'translate(6px, -5px)'
+        transform: transformUp ? 'translate(6px, -3px)' : 'translate(6px, 0px)',
+    },
+    "&:hover .MuiSvgIcon-root path": {
+        fill: theme.palette.custom?.black,
     },
     "&:hover": {
         borderColor: theme.palette.custom?.orange_600,
@@ -186,7 +188,7 @@ export const OutlineWhiteBtn1 = styled(Button)(({ theme }) => ({
     transition: '0.5s',
     width: 'max-content',
     textTransform: 'uppercase',
-    cursor: 'pointer',
+     cursor: 'pointer',
     "& .MuiSvgIcon-root": {
         width: '18px',
         transition: '0.5s',
@@ -243,6 +245,10 @@ export const FullStop = styled(Typography)(({ theme }) => ({
     width: '14px',
     backgroundColor: theme.palette.custom?.orange_600,
     display: 'inline-block',
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+        height: '10px',
+        width: '10px',
+    },
     [`@media (max-width: ${breakpoints.md})`]: {
         height: '8px',
         width: '8px',
@@ -250,12 +256,12 @@ export const FullStop = styled(Typography)(({ theme }) => ({
 }));
 
 export const SubTypography = styled(Typography)(() => ({
-    margin: '24px 0 80px',
+    margin: '32px 0 80px',
     [`@media (max-width: ${breakpoints.tabletView})`]: {
         margin: '24px 0 0px',
     },
     [`@media (max-width: ${breakpoints.md})`]: {
-        margin: '16px 0 40px',
+        margin: '16px 0 0px',
     },
 }));
 
@@ -596,8 +602,8 @@ export const DirectionLink = styled(Link)(({theme}) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '40px',
-    width: '40px',
+    height: '16.4px',
+    width: '16.4px',
     transition: 'all 0.5s ease',
     "& svg": {
         transition: 'all 0.5s ease',
@@ -605,7 +611,6 @@ export const DirectionLink = styled(Link)(({theme}) => ({
         color: theme.palette.custom?.white2,
     },
     "&:hover svg": {
-        transform: 'translate(3px, -3px)',
         color: theme.palette.custom?.black,
     },
     "&:hover":{
@@ -640,6 +645,7 @@ export const LinkUI = styled(Link)(({ theme }) => ({
     marginBottom: '24px',
     wordBreak: 'break-word',
     cursor: 'pointer',
+    width: "max-content",
     "&:hover": {
         color: theme.palette.custom?.orange_600,
     },
@@ -674,6 +680,7 @@ export const LinkUI1 = styled(Link)(({ theme }) => ({
     textDecorationColor: theme.palette.custom?.white5,
     "&:hover": {
         color: theme.palette.custom?.orange_600,
+        textDecorationColor: theme.palette.custom?.orange_600,
     }
 }));
 
@@ -758,49 +765,30 @@ export const BusinessOfficeBox = styled(Box)(() => ({
 export const BusinessOffice = styled(Stack)(() => ({
     flexDirection: 'row',
     gap: '195px',
+    position: 'relative',
     "& .leftPanel": {
-        width: '750px',
+        width: '100%',
+        position:'absolute',
         paddingLeft: '80px',
-        margin: '300px 0 200px'
+        bottom: '50px',
+        left:'50px'
     },
     [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-        gap: '100px',
-        "& .leftPanel": {
-            width: '550px',
-        },
+     "& .leftPanel": {
+        bottom: '0px',
+    },
     },
     [`@media (max-width: ${breakpoints.tabletView})`]: {
         flexDirection: 'column',
         gap: 0 ,
         "& .leftPanel": {
             width: '100%',
+            position: 'unset',
             textAlign: 'center',
             order: 2,
             padding: '140px 52px',
              margin: '0'
         },
-        // backgroundImage: `url('/assets/img/Team_Business_Office.jpg')`,
-        // backgroundSize: "cover",
-        // backgroundPosition: "center",
-        // backgroundRepeat: "no-repeat",
-        // width: "100%",
-        // height: "150vh",
-        // position: 'relative',
-        // zIndex: 1,
-        // alignItems: 'baseline',
-        // "&::before": {
-        //     content: '""',
-        //     position: 'absolute',
-        //     height: '100%',
-        //     left: 0,
-        //     width: '100%',
-        //     backgroundImage: `url('/assets/img/bg-overlay.png')`,
-        //     zIndex: '-1',
-        // },
-        // "& .leftPanel": {
-        //     width: '100%',
-        //     paddingTop: '80px',
-        // },
     },
     [`@media (max-width: ${breakpoints.sm})`]: {
         "& .leftPanel": {
@@ -949,7 +937,7 @@ export const StyledCareersBanner = styled(Box)(() => ({
     backgroundPosition: "top",
     backgroundAttachment: 'fixed',
     backgroundRepeat: "no-repeat",
-    height: "900px",
+    height: "800px",
     position: 'relative',
     "&::before":{
         content: '""',
@@ -1035,8 +1023,14 @@ export const JobOpeningsPaper = styled(Link)(({theme}) => ({
         transition:'opacity 0.5s linear',
     },
     "&:hover .icon":{
-        display: 'block'
-    }
+        display: 'flex'
+    },
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+        "& .icon":{
+            height: '50px',
+            width: '50px',
+        },
+    },
 }));
 
 export const AccordionUI = styled(Box)(({ theme }) => ({
@@ -1179,3 +1173,38 @@ export const DrawerUI = styled(Drawer)(({theme}) => ({
 }
 
 }));
+
+export const CanvasContainer = styled(Box)(() => ({
+    width: 'calc(100vw - 160px)',
+    paddingBottom: '250px',
+    margin: '0 80px',
+    height: '810px',
+    marginTop: '-80px',
+    '& canvas': {
+      height: '810px !important',
+      width: '100% !important'
+    },
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+        height: '750px',
+        paddingBottom: '200px',
+        '& canvas': {
+            height: '750px !important',
+        },
+    },
+    [`@media (max-width: ${breakpoints.tabletView})`]: {
+        height: '450px',
+        width: '100%',
+        margin: 0,
+        paddingBottom: '0px',
+        '& canvas': {
+            height: '450px !important',
+        },
+    },
+}));
+
+export const BannerBox = styled(Box)(()=>({
+    transform: "translate(-50%, -50%)",
+    position: "absolute",
+    left: "50%",
+    top: '55%',
+}))
