@@ -14,6 +14,10 @@ import Image from "next/image";
 import { OuterSection, SmallFullStop } from "@/app/styles/MUI/common.styled";
 import { motion } from "framer-motion";
 
+interface Props {
+  homeSlider?: boolean
+}
+
 const src = [img1, img2, img3, img4, img5];
 
 const StyledSliderWrapper = styled(Box)(() => ({
@@ -25,7 +29,7 @@ const StyledSliderWrapper = styled(Box)(() => ({
   },
 }));
 
-const CompaniesSlider: React.FC = () => {
+const CompaniesSlider: React.FC<Props> = ({homeSlider}) => {
   const settings = {
     dots: false,
     arrows: false,
@@ -69,18 +73,20 @@ const CompaniesSlider: React.FC = () => {
   const isMdView = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Box>
-      <OuterSection textAlign={'center'}>
-        <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }} 
-        >
-          <Typography color='custom.black3' variant='body_4' marginBottom={2} fontWeight={600} letterSpacing={'2.4px'} display={'block'} textTransform={'uppercase'}>OUR CLIENTS <SmallFullStop /></Typography>
-          <Typography color='custom.black' variant='body_6' display={'block'} className=''>Trusted by top companies</Typography>
-        </motion.div>
-      </OuterSection>
+    <Box marginBottom={homeSlider ? 25 : 0}>
+      {homeSlider &&
+        <OuterSection textAlign={'center'}>
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }} 
+          >
+            <Typography color='custom.black3' variant='body_4' marginBottom={2} fontWeight={600} letterSpacing={'2.4px'} display={'block'} textTransform={'uppercase'}>OUR CLIENTS <SmallFullStop /></Typography>
+            <Typography color='custom.black' variant='body_6' display={'block'} className=''>Trusted by top companies</Typography>
+          </motion.div>
+        </OuterSection>
+      }
       <StyledSliderWrapper>
       <Slider {...settings}>
         {src.map((src, index) => (

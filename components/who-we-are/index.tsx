@@ -97,21 +97,14 @@ const WhoWeAre = ({ title, buttondisplay, aboutus }: WhoWeAreType) => {
                 </motion.div>
             </OuterSection>
             {!aboutus && (
-                <motion.div
-                    initial={{ opacity: 0, x: -100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                >
-                    <Box display='flex' alignItems='center' justifyContent='center' width='100%'>
-                        <Image
-                            src={TotalYears}
-                            className='img-fluid'
-                            alt='teamBusinessOffice'
-                            style={{ margin: '0 60px', height: isTabletView ? 'auto' : '', width: isTabletView ? '100%' : ''}}
-                        />
-                    </Box>
-                </motion.div>
+                <Box display='flex' alignItems='center' justifyContent='center' width='100%'>
+                    <Image
+                        src={TotalYears}
+                        className='img-fluid'
+                        alt='teamBusinessOffice'
+                        style={{ margin: '0 60px', height: isTabletView ? 'auto' : '', width: isTabletView ? '100%' : ''}}
+                    />
+                </Box>
             )}
         </>
     );

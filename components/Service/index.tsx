@@ -11,19 +11,19 @@ export const industries = [
   },
   {
     id: 2,
-    name: 'Application Development',
+    name: 'User Experience & Visual Design ',
   },
   {
     id: 3,
-    name: 'IT Infrastructure',
+    name: 'Application Development',
   },
   {
     id: 4,
-    name: 'User Experience & Visual Design',
+    name: 'Website Development',
   },
   {
     id: 5,
-    name: 'Website Development',
+    name: 'IT Infrastructure',
   },
   {
     id: 6,
@@ -60,12 +60,12 @@ export const Service = () => {
                   <Typography color='custom.black' margin={'16px 0 0'} display={'block'} variant='body_3'>
                     Building solutions for individuals, mid-size companies and global corporations ranging from small websites to complex web applications, as well as IT infrastructure support services in sectors such as finance, shipping, retail, consulting services and more, who require tailored technology solutions and personalized attention.
                   </Typography>
-                  <Stack flexDirection={'row'} flexWrap={'wrap'} rowGap={5}>
+                  <Stack flexDirection={'row'} flexWrap={'wrap'} rowGap={5} justifyContent="space-between">
                     {industries.map((industries) => (
-                      <Stack width={'50%'} key={industries.id}>
+                      <Stack width="calc(50% - 20px )" key={industries.id}>
                         <Stack flexDirection={'row'} alignItems={'baseline'} gap={1}>
-                          <Typography minWidth={'30px'} color='custom.black' variant="body_3" display={'block'}>{industries.id} <TooSmallFullStop /></Typography>
-                          <Typography color='custom.black' variant="body_3" display={'block'}>{industries.name}</Typography>
+                          <Typography minWidth={'30px'} color='custom.black' variant="body_3" display={'block'} fontWeight={600}>{industries.id} <TooSmallFullStop /></Typography>
+                          <Typography color='custom.black' variant="body_3" display={'block'} fontWeight={600}>{industries.name}</Typography>
                         </Stack>
                       </Stack>
                     ))}

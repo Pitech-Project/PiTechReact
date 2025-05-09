@@ -11,6 +11,7 @@ import Service5 from '../../public/assets/img/Services/service5.png'
 import Service6 from '../../public/assets/img/Services/service6.png'
 import { OuterSection, OutlineWhiteBtn, ServiceGrid, SmallFullStop } from "@/app/styles/MUI/common.styled";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export const products = [
     {
@@ -53,7 +54,7 @@ export const products = [
 
 
 export const Services = () => {
-
+    const router = useRouter()
     const isMdView = useMediaQuery(`(max-width:768px)`);
 
     return (
@@ -70,7 +71,7 @@ export const Services = () => {
                             <Typography color='custom.white4' variant='body_4' marginBottom={2} letterSpacing={'2.4px'} fontWeight={600} display={'block'}>SERVICES <SmallFullStop /></Typography>
                             <Typography color='custom.white2' variant='body_6' display={'block'}>Technology solutions offered</Typography>
                         </Stack>
-                        <OutlineWhiteBtn sx={{ marginTop: isMdView ? '48px' : '0' }} href="/contact">ABOUT US <CallMadeIcon sx={{ marginLeft: '8px' }} /></OutlineWhiteBtn>
+                        <OutlineWhiteBtn sx={{ marginTop: isMdView ? '48px' : '0' }} onClick={() => router.push('/about')}>ABOUT US <CallMadeIcon sx={{ marginLeft: '8px' }} /></OutlineWhiteBtn>
                     </Stack>
                 </motion.div>
 

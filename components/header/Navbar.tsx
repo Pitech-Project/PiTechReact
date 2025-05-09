@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { HoveredLink } from "./navbar-menu";
-import { Box, Drawer, IconButton, Stack, Toolbar, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Drawer, IconButton, Slide, Stack, Toolbar, Typography, useMediaQuery, useScrollTrigger, useTheme } from "@mui/material";
 import Image from "next/image";
 import { AppBarStyled, DrawerUI, OutlineBtnYellow } from "@/app/styles/MUI/common.styled";
 import PiLogo from '../../public/assets/img/header-logo.svg'
@@ -9,15 +9,25 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { usePathname } from 'next/navigation';
 import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
 
-export function NavbarComponent() {
+interface Props {
+  window?: () => Window;
+  children?: React.ReactElement<unknown>;
+}
+ 
+function HideOnScroll(props: Props) {
+  const { children, window } = props;
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+  });
+ 
   return (
-
-    <Navbar />
-
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children ?? <div />}
+    </Slide>
   );
 }
 
-function Navbar() {
+export function NavbarComponent(props: Props) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -36,8 +46,9 @@ function Navbar() {
     return null; // Don't render header on these pages
   }
 
+
   return (
-    <>
+    <HideOnScroll {...props} >
       <AppBarStyled position="sticky" sx={{
         "& .LinkUI": {
           fontWeight: 500,
@@ -94,7 +105,6 @@ function Navbar() {
           <OutlineBtnYellow sx={{ display: { xs: 'none', lg: 'flex' } }} href="/contact">GET IN TOUCH</OutlineBtnYellow>
         </Toolbar>
       </AppBarStyled>
-
-    </>
+      </HideOnScroll>
   );
 }

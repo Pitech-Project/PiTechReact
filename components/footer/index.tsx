@@ -43,7 +43,7 @@ const Footer = () => {
           <Grid size={{ xs: 12, lg: 5}}>
             <LinkUI2>Get in touch</LinkUI2>
             <LinkUI href="tel:+91 22 6292 3333">+91 22 6292 3333</LinkUI>
-            <LinkUI href="mailto:pitechniques@customersupport.com">pitechniques@customersupport.com</LinkUI>
+            <LinkUI href="mailto:pitechniques@customersupport.com" sx={{ textDecoration: "underline"}}>pitechniques@customersupport.com</LinkUI>
           </Grid>
 
           <Grid size={{ xs: 12, lg: 12, xl:3}}  className="TabletViewBorder">

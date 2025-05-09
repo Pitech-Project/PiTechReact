@@ -13,7 +13,7 @@ export const Challenges = () => {
         <Box bgcolor={'custom.black'}>
             <OuterGrid container spacing={5} justifyContent={'space-between'}>
                 <Grid size={{ xs: 12, lg: 11, xl: 9 }} offset={{ xs: 0, lg: 1, xl: 2 }}>
-                    <Grid container spacing={5} alignItems={'center'}>
+                    <Grid container spacing={5} >
                         <Grid size={{ xs: 12, md: 6 }}>
                             <Box>
                                 <motion.div
@@ -34,7 +34,7 @@ export const Challenges = () => {
                                 transition={{ duration: 1, ease: "easeOut" }}
                                 viewport={{ once: true, amount: 0.3 }}
                             >
-                                <Typography color='custom.white3' margin={'16px 0 0'} display={'block'} variant='body_3'>Some description regarding challenges that we were began as a small support services firm catering to individuals and home offices.
+                                <Typography color='custom.white3' display={'block'} variant='body_3'>Some description regarding challenges that we were began as a small support services firm catering to individuals and home offices.
                                     <br></br>
                                     <br></br>
                                     Over time, we have expanded to encompass multiple divisions specializing in software and web development, as well as IT infrastructure and support services.

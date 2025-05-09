@@ -10,7 +10,7 @@ const ReactP5Wrapper = dynamic(() => import('react-p5-wrapper').then(mod => mod.
   ssr: false,
 });
 
-const CareerImgAnimation: React.FC = () => {
+const HomeImgAnimation: React.FC = () => {
   const canvasParentRef = useRef<HTMLDivElement>(null);
   const [sketch, setSketch] = useState<Sketch | null>(null);
 
@@ -20,8 +20,8 @@ const CareerImgAnimation: React.FC = () => {
     const sketch: Sketch = (p: p5Types) => {
       let img: p5Types.Image;
       let dots: Dot[] = [];
-      const detailLevel = 12;
-      const minDotRadius = 0.1;
+      const detailLevel = 7;
+      const minDotRadius = 0.5;
       const maxDotRadius = 4;
       const dotColor = '#fff';
       const hoverColor = '#F7941E';
@@ -51,8 +51,8 @@ const CareerImgAnimation: React.FC = () => {
           this.color = color;
           this.originalColor = color;
 
-          this.maxspeed = isMobile ? 4 : 15;
-          this.maxforce = isMobile ? 0.15 : 0.8;
+          this.maxspeed = isMobile ? 8 : 5;
+          this.maxforce = isMobile ? 0.3 : 0.1;
           this.comfortZone = 100;
         }
 
@@ -97,7 +97,7 @@ const CareerImgAnimation: React.FC = () => {
       }
 
       p.preload = () => {
-        img = p.loadImage('https://i.postimg.cc/Hx4J1DDp/case-studies-banner2.avif');
+        img = p.loadImage('https://i.postimg.cc/hjhTdBSn/pawel-czerwinski-V5vtl-Id8s-Kw-unsplash.jpg');
       };
 
       p.setup = () => {
@@ -161,10 +161,10 @@ const CareerImgAnimation: React.FC = () => {
   if (!sketch) return null;
 
   return (
-    <CanvasContainer id="canvas-container" ref={canvasParentRef} >
+     <CanvasContainer id="canvas-container" ref={canvasParentRef} >
       <ReactP5Wrapper sketch={sketch} />
     </CanvasContainer>
-  );
+);
 };
 
-export default CareerImgAnimation;
+export default HomeImgAnimation;
