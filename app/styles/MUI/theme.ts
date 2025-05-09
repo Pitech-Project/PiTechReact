@@ -17,6 +17,7 @@ declare module "@mui/material/styles" {
 		year_count: React.CSSProperties;
 		year: React.CSSProperties;
 		Caption: React.CSSProperties;
+		Caption1: React.CSSProperties;
 		small_typography: React.CSSProperties;
 	}
 	interface TypographyVariantsOptions {
@@ -33,6 +34,7 @@ declare module "@mui/material/styles" {
 		year_count: React.CSSProperties;
 		year: React.CSSProperties;
 		Caption?: React.CSSProperties;
+		Caption1?: React.CSSProperties;
 		small_typography?: React.CSSProperties;
 	}
 
@@ -59,6 +61,7 @@ declare module "@mui/material/Typography" {
 		year_count: true;
 		year: true;
 		Caption: true;
+		Caption1: true;
 		small_typography: true;
 }
 }
@@ -96,7 +99,7 @@ declare module "@mui/material/styles" {
 
 const breakpoints = {
 	largescreen: "1920px",
-	smallDesktop: "1535px",
+	smallDesktop: "1536px",
 	lg: "1199px",
     md: '991px',
     sm: '768px',
@@ -232,6 +235,24 @@ const typography: ThemeOptions["typography"] = {
 		fontWeight: 400,
 		fontSize: "31px",
 		lineHeight: '40px',
+		letterSpacing: "0.15px",
+		[`@media (max-width: ${breakpoints.smallDesktop})`]: {
+			fontSize: "26px",
+			lineHeight: '36px',
+		},
+		[`@media (max-width: ${breakpoints.md})`]: {
+			fontSize: "25px",
+			lineHeight: '30px',
+		},
+		[`@media (max-width: ${breakpoints.md})`]: {
+			fontSize: "16px",
+			lineHeight: '24px',
+		},
+	},
+	Caption1: {
+		fontWeight: 400,
+		fontSize: "40px",
+		lineHeight: '52px',
 		letterSpacing: "0.15px",
 		[`@media (max-width: ${breakpoints.smallDesktop})`]: {
 			fontSize: "26px",
