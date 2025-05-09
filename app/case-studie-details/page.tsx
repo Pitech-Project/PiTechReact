@@ -14,7 +14,7 @@ export default function Page() {
   return (
     <>
       <ThemeProvider theme={lightTheme}>
-        <AlwaysKeepSimple darkTheme={false}/>
+        <AlwaysKeepSimple/>
         <AccessPlateforms />
         <Challenges />
         <FeaturesOfProject />
