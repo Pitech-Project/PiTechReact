@@ -5,7 +5,7 @@ import { BusinessOffice, BusinessOfficeBox, BusinessOfficeImg, FullStop, Outline
 import CallMadeIcon from '@mui/icons-material/CallMade';
 import dynamic from 'next/dynamic';
 
-//  const HomeImgAnimation = dynamic(() => import('../home-img-animation'), { ssr: false });
+ const HomeImgAnimation = dynamic(() => import('../home-img-animation'), { ssr: false });
 
 const HomeBanner = () => {
     const theme = useTheme();
@@ -36,7 +36,7 @@ const HomeBanner = () => {
                 </SubTypography>
                 <Box display={isTabletView ? 'flex' : 'block'} justifyContent={'center'}> <OutlineWhiteBtn className='smallResWhiteBtn' href="/contact">SOLUTIONS OFFERED <CallMadeIcon sx={{ marginLeft: '8px' }} /></OutlineWhiteBtn> </Box>
               </Box>
-              {/* <HomeImgAnimation /> */}
+              <HomeImgAnimation />
           
             </BusinessOffice>
         </>
