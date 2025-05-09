@@ -15,7 +15,7 @@ export default function Page() {
       <ThemeProvider theme={lightTheme}>
         <CraftingSolutions />
         <Service />
-        <SmoothTextSlider />
+        <SmoothTextSlider homeSlider={false}/>
         <ServicesSolution />
       </ThemeProvider>
     </>
