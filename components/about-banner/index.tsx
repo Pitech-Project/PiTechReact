@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material';
 import { BusinessOffice, FullStop, SubTypography } from '@/app/styles/MUI/common.styled';
 import dynamic from 'next/dynamic';
 
-const AboutImgAnimation = dynamic(() => import('../about-img-animation'), { ssr: false });
+// const AboutImgAnimation = dynamic(() => import('../about-img-animation'), { ssr: false });
 const AboutBanner = () => {
     return (
         <>
@@ -31,7 +31,7 @@ const AboutBanner = () => {
                     </SubTypography>
                 </Box>
 
-                <AboutImgAnimation />
+                {/* <AboutImgAnimation /> */}
             </BusinessOffice>
         </>
     );

@@ -3,7 +3,6 @@
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import {
   BusinessOffice,
-  CaseStudiesBannerImg,
   FullStop,
   SubTypography,
 } from '@/app/styles/MUI/common.styled';

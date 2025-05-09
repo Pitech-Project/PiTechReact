@@ -3,7 +3,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import p5Types from 'p5';
 import type { Sketch } from 'react-p5-wrapper';
-import { Box } from '@mui/material';
 import { CanvasContainer } from '@/app/styles/MUI/common.styled';
 
 const ReactP5Wrapper = dynamic(() => import('react-p5-wrapper').then(mod => mod.ReactP5Wrapper), {
@@ -11,7 +10,7 @@ const ReactP5Wrapper = dynamic(() => import('react-p5-wrapper').then(mod => mod.
 });
 
 const CareerImgAnimation: React.FC = () => {
-  const canvasParentRef = useRef<HTMLDivElement>(null);
+  const canvasParentRef1 = useRef<HTMLDivElement>(null);
   const [sketch, setSketch] = useState<Sketch | null>(null);
 
   useEffect(() => {
@@ -101,7 +100,7 @@ const CareerImgAnimation: React.FC = () => {
       };
 
       p.setup = () => {
-        const container = canvasParentRef.current;
+        const container = canvasParentRef1.current;
         if (!container) return;
 
         canvasW = container.offsetWidth;
@@ -161,7 +160,7 @@ const CareerImgAnimation: React.FC = () => {
   if (!sketch) return null;
 
   return (
-    <CanvasContainer id="canvas-container" ref={canvasParentRef} >
+       <CanvasContainer ref={canvasParentRef1} >
       <ReactP5Wrapper sketch={sketch} />
     </CanvasContainer>
   );

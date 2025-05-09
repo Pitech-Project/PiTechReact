@@ -10,7 +10,7 @@ const ReactP5Wrapper = dynamic(() => import('react-p5-wrapper').then(mod => mod.
 });
 
 const AboutImgAnimation: React.FC = () => {
-  const canvasParentRef = useRef<HTMLDivElement>(null);
+  const canvasParentRef2 = useRef<HTMLDivElement>(null);
   const [sketch, setSketch] = useState<Sketch | null>(null);
 
   useEffect(() => {
@@ -100,7 +100,7 @@ const AboutImgAnimation: React.FC = () => {
       };
 
       p.setup = () => {
-        const container = canvasParentRef.current;
+        const container = canvasParentRef2.current;
         if (!container) return;
 
         canvasW = container.offsetWidth;
@@ -160,7 +160,7 @@ const AboutImgAnimation: React.FC = () => {
   if (!sketch) return null;
 
   return (
-     <CanvasContainer id="canvas-container" ref={canvasParentRef} >
+     <CanvasContainer ref={canvasParentRef2} >
       <ReactP5Wrapper sketch={sketch} />
     </CanvasContainer>
 );

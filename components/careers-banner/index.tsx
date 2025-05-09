@@ -2,8 +2,11 @@
 
 import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
 import { BusinessOffice, FullStop, StyledCareersBanner, SubTypography } from '@/app/styles/MUI/common.styled';
-import CareerImgAnimation from '../career-img-animation';
+import dynamic from 'next/dynamic';
 
+const CareerImgAnimation = dynamic(() => import('../career-img-animation'), {
+  ssr: false,
+});
 export const CareersBanner = () => {
   const isMdView = useMediaQuery(`(max-width:768px)`);
     return (

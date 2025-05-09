@@ -3,7 +3,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import p5Types from 'p5';
 import type { Sketch } from 'react-p5-wrapper';
-import { Box } from '@mui/material';
 import { CanvasContainer } from '@/app/styles/MUI/common.styled';
 
 const ReactP5Wrapper = dynamic(() => import('react-p5-wrapper').then(mod => mod.ReactP5Wrapper), {
@@ -161,7 +160,7 @@ const ServicesImgAnimation: React.FC = () => {
   if (!sketch) return null;
 
   return (
-     <CanvasContainer id="canvas-container" ref={canvasParentRef} >
+   <CanvasContainer ref={canvasParentRef} >
       <ReactP5Wrapper sketch={sketch} />
     </CanvasContainer>
 );

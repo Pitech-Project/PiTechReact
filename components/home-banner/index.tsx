@@ -3,10 +3,9 @@
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { BusinessOffice, BusinessOfficeBox, BusinessOfficeImg, FullStop, OutlineBtn, OutlineWhiteBtn, SubTypography } from '@/app/styles/MUI/common.styled';
 import CallMadeIcon from '@mui/icons-material/CallMade';
-import { motion } from "framer-motion";
 import dynamic from 'next/dynamic';
 
- const HomeImgAnimation = dynamic(() => import('../home-img-animation'), { ssr: false });
+//  const HomeImgAnimation = dynamic(() => import('../home-img-animation'), { ssr: false });
 
 const HomeBanner = () => {
     const theme = useTheme();
@@ -37,7 +36,7 @@ const HomeBanner = () => {
                 </SubTypography>
                 <Box display={isTabletView ? 'flex' : 'block'} justifyContent={'center'}> <OutlineWhiteBtn className='smallResWhiteBtn' href="/contact">SOLUTIONS OFFERED <CallMadeIcon sx={{ marginLeft: '8px' }} /></OutlineWhiteBtn> </Box>
               </Box>
-              <HomeImgAnimation />
+              {/* <HomeImgAnimation /> */}
           
             </BusinessOffice>
         </>
