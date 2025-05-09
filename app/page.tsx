@@ -11,7 +11,7 @@ import WhoWeAre from "@/components/who-we-are";
 import OurWorkCarousel from "@/components/our-work-carousel";
 import HomeBanner from "@/components/home-banner";
 
-export default function Home(homeSlider: boolean) {
+export default function Home() {
   return (
     <ThemeProvider theme={lightTheme}>
       <Box bgcolor={'custom.bgcolor'}>
@@ -20,7 +20,7 @@ export default function Home(homeSlider: boolean) {
         <WhoWeAre title={"who we are "} buttondisplay={true} aboutus={false}/>
         <Services />
         <OurWorkCarousel />
-        <SmoothTextSlider homeSlider={homeSlider}/>
+        <SmoothTextSlider homeSlider={true}/>
         <Testimonial />
       </Box>
     </ThemeProvider>
