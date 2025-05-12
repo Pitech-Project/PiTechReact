@@ -35,11 +35,46 @@ export const AppBarStyled = styled(AppBar)(({ theme }) => ({
         width: '6px',
         height: '6px',
         background: '#f7941e',
-        borderRadius: '50%',
+        // borderRadius: '50%',
         opacity: 0,
         transform: 'translateX(-658px)',
         transition: 'all 0.2s ease-in-out',
         marginTop: '31px',
+    },
+   "div.menus .LinkUI.active" : {
+        position: 'relative'
+    },
+    "div.menus .LinkUI.active::before" : {
+        width: '6px',
+        height: '6px',
+        background: '#f7941e',
+        transition: 'all 0.2s ease-in-out',
+        position: 'absolute',
+        content: "''",
+        bottom: '-9px',
+        left: '50%'
+    },
+     "div .LinkUI:nth-of-type(1):hover ~ .dot" : {
+        transform: 'translateX(-495px)',
+        opacity: 1,
+    },
+     "div .LinkUI:nth-of-type(2):hover ~ .dot" : {
+        transform: 'translateX(-368px)',
+        opacity: 1,
+    },
+     "div .LinkUI:nth-of-type(3):hover ~ .dot" : {
+        transform: 'translateX(-220px)',
+        opacity: 1,
+    },
+    "div .LinkUI:nth-of-type(4):hover ~ .dot" : {
+        transform: 'translateX(-80px)',
+        opacity: 1,
+    },
+       "div .LinkUI:hover.active ~ .dot" : {
+        opacity: 0,
+    },
+    "div .LinkUI:hover":{
+       color: theme.palette.custom?.white2,
     },
     [`@media (max-width: ${breakpoints.tabletView})`]: {
         "&.MuiTypography-root.smallResWhiteBtn":{
@@ -259,6 +294,9 @@ export const SubTypography = styled(Typography)(() => ({
     margin: '32px 0 80px',
     [`@media (max-width: ${breakpoints.tabletView})`]: {
         margin: '24px 0 0px',
+        "&.subTitleSpacing":{
+            marginBottom: '24px'
+        }
     },
     [`@media (max-width: ${breakpoints.md})`]: {
         margin: '16px 0 0px',
@@ -287,7 +325,7 @@ export const CountOuterBox = styled(Stack)(({ theme }) => ({
     padding: '36px 98px',
     color: theme.palette.custom?.white1,
     width: 'max-content',
-    marginTop: '-105px',
+    marginTop: '-85px',
     [`@media (max-width: ${breakpoints.md})`]: {
         padding: '36px 75px',
         gap: '48px',
@@ -299,22 +337,6 @@ export const CountOuterBox = styled(Stack)(({ theme }) => ({
         gap: '48px',
         margin: '0 20px',
         width: '100%',
-        // flexDirection: 'column',
-        // gap: '16px',
-        // padding: '0px',
-        // background: 'unset',
-        // marginTop: '-50vh',
-        // position: 'relative',
-        // bottom: '24px',
-        // justifyContent: 'end',
-        // zIndex: 1,
-        // "& .CountBox": {
-        //     padding: '24px 24px 30px',
-        //     width: '100%',
-        //     textAlign: 'center',
-        //     background: 'linear-gradient(90deg, #1F1F1F 0%, #333333 17.3%)',
-        //     borderRadius: '16px',
-        // }
     },
 }));
 
@@ -349,7 +371,7 @@ export const OuterGrid = styled(Grid)(() => ({
     [`@media (max-width: ${breakpoints.smallDesktop1})`]: {
         margin: '0 80px 0 10px',
     },
-    [`@media (max-width: ${breakpoints.md})`]: {
+    [`@media (max-width: ${breakpoints.tabletView})`]: {
         padding: "80px 0px",
         margin: '0 32px',
     },
@@ -696,6 +718,7 @@ export const ScrollTopTop = styled(Box)(({ theme }) => ({
     border: '1px solid #f6f6f6',
     borderRadius: '100px',
     transition: '0.5s',
+    cursor:'pointer',
     "& svg": {
         transition: 'all 0.5s ease',
         width: '13px !important',
@@ -775,7 +798,7 @@ export const BusinessOffice = styled(Stack)(() => ({
     },
     [`@media (max-width: ${breakpoints.smallDesktop})`]: {
      "& .leftPanel": {
-        bottom: '0px',
+        bottom: '25px',
     },
     },
     [`@media (max-width: ${breakpoints.tabletView})`]: {
@@ -1185,10 +1208,10 @@ export const CanvasContainer = styled(Box)(() => ({
       width: '100% !important'
     },
     [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-        height: '750px',
+        height: '610px',
         paddingBottom: '200px',
         '& canvas': {
-            height: '750px !important',
+            height: '610px !important',
         },
     },
     [`@media (max-width: ${breakpoints.tabletView})`]: {
