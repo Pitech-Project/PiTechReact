@@ -31,7 +31,7 @@ export const CareersBanner = () => {
                   display="block"
                   color={'custom.white2'}
                 >
-                  Lookout for motivated, bright <br />& passionate individuals<FullStop />
+                  Lookout for motivated, bright <br />& passionate individuals <FullStop />
                 </Typography>
         
                 <SubTypography

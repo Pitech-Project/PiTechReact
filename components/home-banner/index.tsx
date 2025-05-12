@@ -10,6 +10,7 @@ import dynamic from 'next/dynamic';
 const HomeBanner = () => {
     const theme = useTheme();
     const isTabletView = useMediaQuery(theme.breakpoints.down('lg'));
+    const isSmallDesktop = useMediaQuery(theme.breakpoints.down('xl'));
 
     return (
         <>
@@ -31,10 +32,11 @@ const HomeBanner = () => {
                   variant="Caption1"
                   color="custom.white2"
                   display="block"
+                  className='subTitleSpacing'
                 >
                   Within every problem lies an opportunity
                 </SubTypography>
-                <Box display={isTabletView ? 'flex' : 'block'} justifyContent={'center'}> <OutlineWhiteBtn className='smallResWhiteBtn' href="/contact">SOLUTIONS OFFERED <CallMadeIcon sx={{ marginLeft: '8px' }} /></OutlineWhiteBtn> </Box>
+                <Box display={isTabletView ? 'flex' : 'block'} justifyContent={'center'} marginBottom={isTabletView? '0' : isSmallDesktop ? '120px' : '75px'}> <OutlineWhiteBtn className='smallResWhiteBtn' href="/contact">SOLUTIONS OFFERED <CallMadeIcon sx={{ marginLeft: '8px' }} /></OutlineWhiteBtn> </Box>
               </Box>
               <HomeImgAnimation />
           

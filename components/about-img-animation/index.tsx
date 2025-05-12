@@ -50,8 +50,8 @@ const AboutImgAnimation: React.FC = () => {
           this.color = color;
           this.originalColor = color;
 
-          this.maxspeed = isMobile ? 8 : 5;
-          this.maxforce = isMobile ? 0.3 : 0.1;
+          this.maxspeed = isMobile ? 12 : 10;
+          this.maxforce = isMobile ? 0.5 : 0.3;
           this.comfortZone = 100;
         }
 

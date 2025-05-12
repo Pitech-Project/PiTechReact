@@ -9,8 +9,8 @@ const ReactP5Wrapper = dynamic(() => import('react-p5-wrapper').then(mod => mod.
   ssr: false,
 });
 
-const ServicesImgAnimation: React.FC = () => {
-  const canvasParentRef = useRef<HTMLDivElement>(null);
+const CaseStudiesImgAnimation: React.FC = () => {
+  const canvasParentRef1 = useRef<HTMLDivElement>(null);
   const [sketch, setSketch] = useState<Sketch | null>(null);
 
   useEffect(() => {
@@ -19,8 +19,8 @@ const ServicesImgAnimation: React.FC = () => {
     const sketch: Sketch = (p: p5Types) => {
       let img: p5Types.Image;
       let dots: Dot[] = [];
-      const detailLevel = 7;
-      const minDotRadius = 0.5;
+      const detailLevel = 12;
+      const minDotRadius = 0.1;
       const maxDotRadius = 4;
       const dotColor = '#fff';
       const hoverColor = '#F7941E';
@@ -50,8 +50,8 @@ const ServicesImgAnimation: React.FC = () => {
           this.color = color;
           this.originalColor = color;
 
-          this.maxspeed = isMobile ? 12 : 10;
-          this.maxforce = isMobile ? 0.5 : 0.3;
+          this.maxspeed = isMobile ? 4 : 15;
+          this.maxforce = isMobile ? 0.15 : 0.8;
           this.comfortZone = 100;
         }
 
@@ -96,11 +96,11 @@ const ServicesImgAnimation: React.FC = () => {
       }
 
       p.preload = () => {
-        img = p.loadImage('https://i.postimg.cc/pXD7jCq6/services.avif');
+        img = p.loadImage('https://i.postimg.cc/jqzxmbv3/New-Project.jpg');
       };
 
       p.setup = () => {
-        const container = canvasParentRef.current;
+        const container = canvasParentRef1.current;
         if (!container) return;
 
         canvasW = container.offsetWidth;
@@ -160,10 +160,10 @@ const ServicesImgAnimation: React.FC = () => {
   if (!sketch) return null;
 
   return (
-   <CanvasContainer ref={canvasParentRef} >
+       <CanvasContainer ref={canvasParentRef1} >
       <ReactP5Wrapper sketch={sketch} />
     </CanvasContainer>
-);
+  );
 };
 
-export default ServicesImgAnimation;
+export default CaseStudiesImgAnimation;

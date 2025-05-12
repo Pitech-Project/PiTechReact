@@ -35,7 +35,14 @@ export function NavbarComponent(props: Props) {
 
   const pathname = usePathname();
 
-  const isActive = (href: string) => pathname === href;
+const isActivePath = (paths: string | string[]) => {
+  const currentPath = pathname;
+
+  // Convert single string to array
+  const pathList = Array.isArray(paths) ? paths : [paths];
+
+  return pathList.some(path => currentPath === path || currentPath.startsWith(path));
+};
   const theme = useTheme()
   const isSmallDesktopView = useMediaQuery(theme.breakpoints.down('xl'));
 
@@ -69,16 +76,16 @@ export function NavbarComponent(props: Props) {
         },
       }}>
         <Toolbar sx={{ width: '100%', justifyContent: 'space-between', padding: '0 !important' }}>
-          <HoveredLink className={isActive('/') ? 'active' : ''} href="/">
+          <HoveredLink className={isActivePath('/') ? 'active' : ''} href="/">
             <Image src={PiLogo} alt='logo' />
           </HoveredLink>
 
-          <Box alignItems={'center'} sx={{ display: { xs: 'none', lg: 'flex' } }}>
-            <HoveredLink className={isActive('/') ? 'active' : ''} href="/">Home</HoveredLink>
-            <HoveredLink className={isActive('/about') ? 'active' : ''} href="/about">About Us</HoveredLink>
-            <HoveredLink className={isActive('/services') ? 'active' : ''} href="/services">Services</HoveredLink>
-            <HoveredLink className={isActive('/case-studies') ? 'active' : ''} href="/case-studies">Case Studies</HoveredLink>
-            <HoveredLink className={isActive('/careers') ? 'active' : ''} href="/careers">Careers</HoveredLink>
+          <Box className="menus" alignItems={'center'} sx={{ display: { xs: 'none', lg: 'flex' } }}>
+            {/* <HoveredLink className={isActive('/') ? 'active' : ''} href="/">Home</HoveredLink> */}
+            <HoveredLink className={isActivePath('/about') ? 'active' : ''} href="/about">About Us</HoveredLink>
+            <HoveredLink className={isActivePath('/services') ? 'active' : ''} href="/services">Services</HoveredLink>
+            <HoveredLink className={isActivePath(['/case-studies' , '/case-studie-details']) ? 'active' : ''} href="/case-studies">Case Studies</HoveredLink>
+          <HoveredLink   className={isActivePath(['/careers', '/career-details']) ? 'active' : ''} href="/careers">Careers</HoveredLink>
             <Box className="dot"></Box>
           </Box>
 
@@ -93,11 +100,11 @@ export function NavbarComponent(props: Props) {
                 <ClearOutlinedIcon />
               </IconButton>
             </Stack>
-            <HoveredLink onClick={handleDrawerToggle} className={isActive('/') ? 'active' : ''} href="/">Home</HoveredLink>
-            <HoveredLink onClick={handleDrawerToggle} className={isActive('/about') ? 'active' : ''} href="/about">About Us</HoveredLink>
-            <HoveredLink onClick={handleDrawerToggle} className={isActive('/services') ? 'active' : ''} href="/services">Services</HoveredLink>
-            <HoveredLink onClick={handleDrawerToggle} className={isActive('/case-studies') ? 'active' : ''} href="/case-studies">Case Studies</HoveredLink>
-            <HoveredLink onClick={handleDrawerToggle} className={isActive('/careers') ? 'active' : ''} href="/careers">Careers</HoveredLink>
+            {/* <HoveredLink onClick={handleDrawerToggle} className={isActive('/') ? 'active' : ''} href="/">Home</HoveredLink> */}
+            <HoveredLink onClick={handleDrawerToggle} className={isActivePath('/about') ? 'active' : ''} href="/about">About Us</HoveredLink>
+            <HoveredLink onClick={handleDrawerToggle} className={isActivePath('/services') ? 'active' : ''} href="/services">Services</HoveredLink>
+            <HoveredLink onClick={handleDrawerToggle} className={isActivePath('/case-studies') ? 'active' : ''} href="/case-studies">Case Studies</HoveredLink>
+            <HoveredLink onClick={handleDrawerToggle} className={isActivePath('/careers') ? 'active' : ''} href="/careers">Careers</HoveredLink>
             <Box width={'fit-content'}>
               <OutlineBtnYellow href="/contact">GET IN TOUCH</OutlineBtnYellow>
             </Box>

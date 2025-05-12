@@ -10,7 +10,7 @@ import {
 import dynamic from 'next/dynamic';
 
 // Dynamically import the p5 animation component (client-only)
-const CareerImgAnimation = dynamic(() => import('../career-img-animation'), {
+const CaseStudiesImgAnimation = dynamic(() => import('../case-studies-img-animation'), {
   ssr: false,
 });
 
@@ -43,7 +43,7 @@ export const AlwaysKeepSimple = () => {
          <br></br>
         </SubTypography>
       </Box>
-        <CareerImgAnimation />
+        <CaseStudiesImgAnimation />
     </BusinessOffice>
   );
 };
