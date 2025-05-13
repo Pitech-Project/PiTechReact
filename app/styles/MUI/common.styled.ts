@@ -12,7 +12,7 @@ const breakpoints = {
 
 
 interface Props {
-    transformUp?: boolean
+    transformup?: boolean
 }
 
 export const AppBarStyled = styled(AppBar)(({ theme }) => ({
@@ -76,6 +76,24 @@ export const AppBarStyled = styled(AppBar)(({ theme }) => ({
     "div .LinkUI:hover":{
        color: theme.palette.custom?.white2,
     },
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+          "div .LinkUI:nth-of-type(1):hover ~ .dot" : {
+        transform: 'translateX(-439px)',
+        opacity: 1,
+        },
+        "div .LinkUI:nth-of-type(2):hover ~ .dot" : {
+            transform: 'translateX(-330px)',
+            opacity: 1,
+        },
+        "div .LinkUI:nth-of-type(3):hover ~ .dot" : {
+            transform: 'translateX(-198px)',
+            opacity: 1,
+        },
+        "div .LinkUI:nth-of-type(4):hover ~ .dot" : {
+            transform: 'translateX(-75px)',
+            opacity: 1,
+        },
+    },
     [`@media (max-width: ${breakpoints.tabletView})`]: {
         "&.MuiTypography-root.smallResWhiteBtn":{
             borderColor: theme.palette.custom?.white2,
@@ -87,11 +105,11 @@ export const AppBarStyled = styled(AppBar)(({ theme }) => ({
     },
 }));
 
-export const OutlineBtn = styled(Link)<Props>(({ theme, transformUp }) => ({
+export const OutlineBtn = styled(Link,{shouldForwardProp: (prop) => prop !== 'transformup',})<Props>(({ theme, transformup }) => ({
     border: "1px solid",
     borderColor: theme.palette.custom?.black,
     borderRadius: '100px',
-    padding: "12px 24px",
+    padding: "16px 24px",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -110,23 +128,36 @@ export const OutlineBtn = styled(Link)<Props>(({ theme, transformUp }) => ({
         transition: '0.5s',
         marginLeft: '16px'
     },
-    "&:hover .MuiSvgIcon-root": {
-        transform: transformUp ? 'translate(6px, -3px)' : 'translate(6px, 0px)'
+   "&:hover .MuiSvgIcon-root": {
+        transform: transformup ? 'translate(6px, -3px)' : 'translate(6px, 0px)'
     },
+
     "&:hover": {
+
         borderColor: theme.palette.custom?.orange_600,
+
         backgroundColor: theme.palette.custom?.orange_600,
+
         color: theme.palette.custom?.black,
+
     },
+
     "&.backarrow:hover .MuiSvgIcon-root": {
-        transform: 'translate(-8px, 0px) rotate(0deg)'
+
+        transform: 'translate(-8px, 0px) rotate(180deg)'
+
     },
-    // [`@media (max-width: ${breakpoints.tabletView})`]: {
-    //     "&.MuiTypography-root.smallResWhiteBtn":{
-    //         borderColor: theme.palette.custom?.white2,
-    //         color: theme.palette.custom?.white2,
-    //     },
-    // },
+
+    '&.backarrow .MuiSvgIcon-root':{
+
+        transform: "rotate(180deg)",
+
+        marginRight: "16px",
+
+        marginLeft: 0,
+
+    },
+
 }));
 
 
@@ -153,7 +184,7 @@ export const OutlineBtn1 = styled(Button)(({ theme }) => ({
         transition: '0.5s',
     },
     "&:hover .MuiSvgIcon-root": {
-        transform: 'translate(6px, -5px)'
+        transform: 'translate(6px, -3px)'
     },
     "&:hover": {
         borderColor: theme.palette.custom?.orange_600,
@@ -171,40 +202,76 @@ export const OutlineBtn1 = styled(Button)(({ theme }) => ({
     },
 }));
 
-export const OutlineWhiteBtn = styled(Link)<Props>(({ theme, transformUp }) => ({
+
+
+export const OutlineWhiteBtn = styled(Link,{shouldForwardProp: (prop) => prop !== 'transformup',})<Props>(({ theme, transformup }) => ({
+
     border: "1px solid",
+
     borderColor: theme.palette.custom?.white2,
+
     borderRadius: '100px',
-    padding: "12px 24px",
+
+    padding: "16px 24px",
+
     display: "flex",
+
     alignItems: "center",
+
     letterSpacing: '1.6px',
+
     justifyContent: "space-between",
+
     fontWeight: 500,
+
     fontSize: "14px",
+
     lineHeight: '14px',
+
     color: theme.palette.custom?.white2,
+
     textDecoration: 'unset',
+
     transition: '0.5s',
+
     width: 'max-content',
+
     textTransform: 'uppercase',
+
     cursor: 'pointer',
+
     "& .MuiSvgIcon-root": {
+
         width: '18px',
+
         transition: '0.5s',
+
         marginLeft: '16px'
+
     },
+
     "&:hover .MuiSvgIcon-root": {
-        transform: transformUp ? 'translate(6px, -3px)' : 'translate(6px, 0px)',
+
+        transform: transformup ? 'translate(6px, -3px)' : 'translate(6px, 0px)',
+
     },
+
     "&:hover .MuiSvgIcon-root path": {
+
         fill: theme.palette.custom?.black,
+
     },
+
     "&:hover": {
+
         borderColor: theme.palette.custom?.orange_600,
+
         backgroundColor: theme.palette.custom?.orange_600,
+
         color: theme.palette.custom?.black,
+
     }
+
 }));
 
 export const OutlineWhiteBtn1 = styled(Button)(({ theme }) => ({
@@ -229,7 +296,7 @@ export const OutlineWhiteBtn1 = styled(Button)(({ theme }) => ({
         transition: '0.5s',
     },
     "&:hover .MuiSvgIcon-root": {
-        transform: 'translate(6px, -5px)'
+        transform: 'translate(6px, -3px)'
     },
     "&:hover": {
         borderColor: theme.palette.custom?.orange_600,
