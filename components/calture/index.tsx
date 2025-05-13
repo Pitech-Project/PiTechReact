@@ -3,11 +3,14 @@
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { SmallFullStop, OutlineBtn, OuterSection } from '@/app/styles/MUI/common.styled';
 import CallMadeIcon from '@mui/icons-material/CallMade';
+import ArrowRightBlack from '../SVGIcons/arrowRightBlack';
+import { useRouter } from 'next/navigation';
 
 const Culture = () => {
 
-      const theme = useTheme();
-        const isTabletView = useMediaQuery(theme.breakpoints.down('md'));
+    const router = useRouter()
+    const theme = useTheme();
+    const isTabletView = useMediaQuery(theme.breakpoints.down('md'));
   
     return (
         <OuterSection flexDirection={isTabletView ? "column" : "row"} justifyContent="space-between" alignContent={'flex-start'}>
@@ -31,9 +34,7 @@ const Culture = () => {
                     At Pi Techniques, every employee is an integral part of our success, contributing to impactful projects that drive business transformation. Join us and be a part of a motivated team that is dedicated to excellence and making a difference in the tech world.
                 </Typography>
 
-                <OutlineBtn href="/contact">
-                JOB OPPORTUNITIES  <CallMadeIcon sx={{ marginLeft: '8px' }} />
-                </OutlineBtn>
+                <OutlineBtn onClick={() => router.push('/careers/#currentOpenings')} >JOB OPPORTUNITIES  <ArrowRightBlack /></OutlineBtn>
             </Box>
         </OuterSection>
     );

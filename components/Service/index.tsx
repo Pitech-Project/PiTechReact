@@ -3,6 +3,9 @@
 import { Grid, Stack, Typography } from "@mui/material";
 import { OuterGrid, OuterSection, SmallFullStop, TooSmallFullStop } from "@/app/styles/MUI/common.styled";
 import { motion } from "framer-motion";
+import { OutlineBtn } from "@/app/styles/MUI/common.styled - Copy";
+import { useRouter } from "next/navigation";
+import ArrowRightBlack from "../SVGIcons/arrowRightBlack";
 
 export const industries = [
   {
@@ -33,6 +36,7 @@ export const industries = [
 
 
 export const Service = () => {
+  const router = useRouter()
   return (
     <Stack>
       <OuterGrid container spacing={5} justifyContent={'space-between'}>
@@ -70,6 +74,7 @@ export const Service = () => {
                       </Stack>
                     ))}
                   </Stack>
+                  <OutlineBtn onClick={() => router.push('/contact')}>GET IN TOUCH <ArrowRightBlack /></OutlineBtn>
                 </Stack>
               </motion.div>
             </Grid>

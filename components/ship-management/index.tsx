@@ -1,12 +1,12 @@
 "use client"
 
 import Image from 'next/image';
-import { Box, Grid, Stack, Typography, useMediaQuery } from '@mui/material';
-import { SmallFullStop, OutlineBtn, OuterSection, ChipUI, OuterGrid } from '@/app/styles/MUI/common.styled';
-import CallMadeIcon from '@mui/icons-material/CallMade';
+import { Grid, Stack, Typography, useMediaQuery } from '@mui/material';
+import { SmallFullStop, OutlineBtn, ChipUI, OuterGrid } from '@/app/styles/MUI/common.styled';
 import ShipManagementImg from '../../public/assets/img/case-studies/ship-management.png'
 import { motion } from "framer-motion";
 import { useRouter } from 'next/navigation';
+import ArrowRightBlack from '../SVGIcons/arrowRightBlack';
 
 export const ShipManagement = () => {
     const router = useRouter();
@@ -32,7 +32,7 @@ export const ShipManagement = () => {
                                         <ChipUI>Mobile</ChipUI>
                                         <ChipUI>Tablet</ChipUI>
                                     </Stack>
-                                    <OutlineBtn onClick={() => router.push('/case-studie-details')}>VIEW CASE STUDY <CallMadeIcon sx={{ marginLeft: '8px' }} /></OutlineBtn>
+                                    <OutlineBtn onClick={() => router.push('/case-studie-details')}>VIEW CASE STUDY <ArrowRightBlack /></OutlineBtn>
                             </motion.div>
                             </Grid>
                             <Grid size={{ xs: 12, md: 6 }}>

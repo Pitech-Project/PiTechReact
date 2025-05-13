@@ -4,17 +4,22 @@
 
 import { Box, Stack, Typography } from '@mui/material';
 import { OutlineWhiteBtn, StyledCareerDetailsBanner } from '@/app/styles/MUI/common.styled';
-import CallMadeIcon from '@mui/icons-material/CallMade';
+import ArrowRightWhite from '../SVGIcons/arrowRightWhite';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export const CareerDetailsBanner = () => {
+    const searchParams = useSearchParams();
+    const title = searchParams?.get('title');
+    const router = useRouter();
+
     return (
         <StyledCareerDetailsBanner bgcolor={'custom.black'} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
             <Stack flexDirection={'row'} className='content'>
                 <Box width={'100%'} textAlign={'center'}>
-                    <Typography variant='count' fontWeight={500} color={'custom.white5'}>DevOps Engineer</Typography>
+                    <Typography variant='count' fontWeight={500} color={'custom.white5'}>{title}</Typography>
                     <Typography display={'block'} margin={'16px 0 40px'} variant='body_3' fontWeight={400} color={'custom.white5'}>JOB CODE: PI020</Typography>
                     <Stack flexDirection={'row'} justifyContent={'center'}>
-                        <OutlineWhiteBtn href="#">Apply <CallMadeIcon sx={{ marginLeft: '8px' }} /></OutlineWhiteBtn>
+                        <OutlineWhiteBtn onClick={()=> router.push(`/career-details?title=${(title)}#careerForm`)}>Apply <ArrowRightWhite /></OutlineWhiteBtn>
                     </Stack>
                 </Box>
             </Stack>

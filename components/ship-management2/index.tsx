@@ -3,10 +3,10 @@
 import Image from 'next/image';
 import { Box, Grid, Stack, Typography, useMediaQuery } from '@mui/material';
 import { SmallFullStop, OutlineWhiteBtn, OuterSection, ChipUI2, OuterGrid } from '@/app/styles/MUI/common.styled';
-import CallMadeIcon from '@mui/icons-material/CallMade';
 import ShipManagementImg from '../../public/assets/img/case-studies/mobile.png'
 import { motion } from "framer-motion";
 import { useRouter } from 'next/navigation';
+import ArrowRightWhite from '../SVGIcons/arrowRightWhite';
 
 
 export const ShipManagement2 = () => {
@@ -43,7 +43,7 @@ export const ShipManagement2 = () => {
                                         <ChipUI2>Mobile</ChipUI2>
                                         <ChipUI2>Tablet</ChipUI2>
                                     </Stack>
-                                    <OutlineWhiteBtn onClick={() => router.push('/case-studie-details')}>VIEW CASE STUDY <CallMadeIcon sx={{ marginLeft: '8px' }} /></OutlineWhiteBtn>
+                                    <OutlineWhiteBtn onClick={() => router.push('/case-studie-details')}>VIEW CASE STUDY <ArrowRightWhite /></OutlineWhiteBtn>
                             </motion.div>
                         </Grid>
                     </Grid>

@@ -10,6 +10,7 @@ import { AccordionUI, OuterSection, OutlineBtn, SmallFullStop, TooSmallFullStop 
 import { useRouter, useSearchParams } from 'next/navigation';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { Box, Grid } from '@mui/material';
+import ArrowRightBlack from '../SVGIcons/arrowRightBlack';
 
 const items = [
   '4+ years of experience',
@@ -30,7 +31,7 @@ export default function JobDetail() {
   return (
     <OuterSection sx={{ paddingBottom: 0, gap: 0 }}>
       <OutlineBtn className="backarrow" onClick={() => router.push('/careers')}>
-        <KeyboardBackspaceIcon sx={{ marginRight: '8px' }} /> Back to List
+        <ArrowRightBlack /> Back to List
       </OutlineBtn>
       <Typography margin={'40px 0 30px'} color="custom.black" variant="body_6" display="block">
         {title} <SmallFullStop />

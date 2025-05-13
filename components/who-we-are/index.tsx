@@ -8,14 +8,17 @@ import BusinessOffice from '../../public/assets/img/img1.jpg';
 import AboutUs from '../../public/assets/img/about-us/ourstory.svg';
 import TotalYears from '../../public/assets/img/water-mark.png';
 import { motion } from "framer-motion";
+import { useRouter } from 'next/navigation';
 
 type WhoWeAreType = {
     title: string;
     buttondisplay: boolean;
     aboutus: boolean;
+    transformup?: boolean
 };
 
-const WhoWeAre = ({ title, buttondisplay, aboutus }: WhoWeAreType) => {
+const WhoWeAre = ({ title, buttondisplay, aboutus, transformup }: WhoWeAreType) => {
+    const router = useRouter();
     const isTabletView = useMediaQuery(`(max-width:991px)`);
 
     return (
@@ -68,8 +71,8 @@ const WhoWeAre = ({ title, buttondisplay, aboutus }: WhoWeAreType) => {
                             </Typography>
                         )}
                         {buttondisplay && (
-                            <OutlineBtn href="/contact">
-                                ABOUT US <CallMadeIcon sx={{ marginLeft: '8px' }} />
+                            <OutlineBtn  onClick={()=> router.push('/about')} transformup={transformup}>
+                                ABOUT US <CallMadeIcon sx={{ marginLeft: '8px', height: 16 }} />
                             </OutlineBtn>
                         )}
                     </Box>

@@ -4,13 +4,18 @@ import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { BusinessOffice, BusinessOfficeBox, BusinessOfficeImg, FullStop, OutlineBtn, OutlineWhiteBtn, SubTypography } from '@/app/styles/MUI/common.styled';
 import CallMadeIcon from '@mui/icons-material/CallMade';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 
- const HomeImgAnimation = dynamic(() => import('../home-img-animation'), { ssr: false });
+const HomeImgAnimation = dynamic(() => import('../home-img-animation'), { ssr: false });
 
-const HomeBanner = () => {
+interface Props {
+  transformup?: boolean
+}
+
+const HomeBanner = ({transformup}: Props) => {
     const theme = useTheme();
+    const router = useRouter();
     const isTabletView = useMediaQuery(theme.breakpoints.down('lg'));
-    const isSmallDesktop = useMediaQuery(theme.breakpoints.down('xl'));
 
     return (
         <>
@@ -36,7 +41,7 @@ const HomeBanner = () => {
                 >
                   Within every problem lies an opportunity
                 </SubTypography>
-                <Box display={isTabletView ? 'flex' : 'block'} justifyContent={'center'} marginBottom={isTabletView? '0' : isSmallDesktop ? '120px' : '75px'}> <OutlineWhiteBtn className='smallResWhiteBtn' href="/contact">SOLUTIONS OFFERED <CallMadeIcon sx={{ marginLeft: '8px' }} /></OutlineWhiteBtn> </Box>
+                <Box display={isTabletView ? 'flex' : 'block'} justifyContent={'center'}> <OutlineWhiteBtn className='smallResWhiteBtn' onClick={()=> router.push('/services')} transformup={transformup}>SOLUTIONS OFFERED <CallMadeIcon sx={{ marginLeft: '8px', height: 16 }} /></OutlineWhiteBtn> </Box>
               </Box>
               <HomeImgAnimation />
           

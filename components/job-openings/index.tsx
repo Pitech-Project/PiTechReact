@@ -5,6 +5,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { JobOpeningsPaper, OuterSection, SmallFullStop } from "@/app/styles/MUI/common.styled";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import ArrowRightBlack from "../SVGIcons/arrowRightBlack";
 
 const jobOpenings = [
   { title: "DevOps Engineer", exp: "1 – 4 YRS OF EXPERIENCE",  },
@@ -19,7 +20,7 @@ export default function JobOpenings() {
      const theme = useTheme();
         const isTabletView = useMediaQuery(theme.breakpoints.down('md'));
   return (
-    <Box bgcolor={'custom.black2'}>
+    <Box bgcolor={'custom.black2'} id="currentOpenings">
       <OuterSection flexDirection={isTabletView ? 'column' : 'row'}>
         <Box flex={1} marginBottom={isTabletView ? '32px' : '0'}>
           <Typography color='custom.white4' variant='body_4' marginBottom={2} letterSpacing={'2.4px'} fontWeight={600} display={'block'}>VACANCIES <SmallFullStop /></Typography>
@@ -53,7 +54,7 @@ export default function JobOpenings() {
                   </Typography>
                 </Box>
                 <IconButton className="icon">
-                  <ArrowForwardIcon />
+                  <ArrowRightBlack />
                 </IconButton>
               </JobOpeningsPaper>
               </motion.div>
