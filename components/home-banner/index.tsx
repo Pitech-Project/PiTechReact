@@ -3,6 +3,7 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import {
   BusinessOffice,
+  FullStop,
   OutlineWhiteBtn,
   SubTypography,
 } from "@/app/styles/MUI/common.styled";
@@ -33,7 +34,7 @@ const HomeBanner = ({ transformup }: Props) => {
       >
         <Box className="leftPanel">
           <Typography variant="body_1" display="block" color={"custom.white2"}>
-            Commitment to <br></br> customised solutions
+            Commitment to <br></br> customised solutions <FullStop />
           </Typography>
 
           <SubTypography
