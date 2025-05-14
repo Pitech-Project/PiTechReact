@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Box, ThemeProvider } from "@mui/material";
 import { lightTheme } from "./styles/MUI/theme";
@@ -12,15 +12,21 @@ import OurWorkCarousel from "@/components/our-work-carousel";
 import HomeBanner from "@/components/home-banner";
 
 export default function Home() {
+  const transformup = true;
   return (
     <ThemeProvider theme={lightTheme}>
-      <Box bgcolor={'custom.bgcolor'}>
-        <HomeBanner />
+      <Box bgcolor={"custom.bgcolor"}>
+        <HomeBanner transformup={transformup} />
         <Count />
-        <WhoWeAre title={"who we are "} buttondisplay={true} aboutus={false}/>
-        <Services />
+        <WhoWeAre
+          title={"who we are "}
+          buttondisplay={true}
+          aboutus={false}
+          transformup={transformup}
+        />
+        <Services transformup={transformup} />
         <OurWorkCarousel />
-        <SmoothTextSlider homeSlider={true}/>
+        <SmoothTextSlider homeSlider={true} />
         <Testimonial />
       </Box>
     </ThemeProvider>
