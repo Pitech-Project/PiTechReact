@@ -1,13 +1,10 @@
-// "use client";
-
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./global/globals.css";
-import { NavbarComponent } from "@/components/header/Navbar";
-import Footer from "@/components/footer";
+import "./loader.css"
 import { ThemeProvider } from "@mui/material";
 import { lightTheme } from "./styles/MUI/theme";
-// import { usePathname } from 'next/navigation';
+import LayoutWrapper from "@/components/common/LayoutWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,19 +18,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const pathname = usePathname();
-  // const noHeaderPaths = ['/admin', '/register'];
-  // const shouldShowHeader = !noHeaderPaths.includes(pathname);
+
   return (
     <html lang="en" className="bg-black" >
     <body className={inter.className} style={{backgroundColor: '#f6f6f6'}}>
       <ThemeProvider theme={lightTheme}>
-        <NavbarComponent />
-        {children}
-        {/* <NewsLetterComponent/> */}
-        <Footer/>
-        </ThemeProvider>
-        </body>
+        <LayoutWrapper>{children}</LayoutWrapper>
+      </ThemeProvider>
+    </body>
     </html>
   );
 }
