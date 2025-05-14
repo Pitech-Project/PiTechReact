@@ -41,7 +41,7 @@ export default function Preloader() {
           }
           return next;
         });
-      }, 10500);
+      }, 500);
 
       return () => clearInterval(timer);
     }
