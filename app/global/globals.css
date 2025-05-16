@@ -3,7 +3,9 @@
 * {
     font-family: "DM Sans", serif;
   }
-
+html{
+  overflow: auto;
+}
   body{
     overflow-x: hidden;
     margin: 0;
