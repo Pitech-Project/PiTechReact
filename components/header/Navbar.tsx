@@ -5,7 +5,7 @@ import { Box, Drawer, IconButton, Slide, Stack, Toolbar, Typography, useMediaQue
 import Image from "next/image";
 import { AppBarStyled, DrawerUI, OutlineBtnYellow } from "@/app/styles/MUI/common.styled";
 import PiLogo from '../../public/assets/img/header-logo.svg';
-import PiLogoMobile from "../../../public/assets/img/logo-mobileview.svg";
+import PiLogoMobile from "../../public/assets/img/logo-mobileview.svg";
 import MenuIcon from '@mui/icons-material/Menu';
 import { usePathname } from 'next/navigation';
 import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
