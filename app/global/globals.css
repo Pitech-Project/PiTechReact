@@ -3,13 +3,16 @@
 * {
     font-family: "DM Sans", serif;
   }
-html{
+html, body{
   overflow: auto;
+  height: 100%;
 }
-  body{
-    overflow-x: hidden;
-    margin: 0;
-  }
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+   -webkit-overflow-scrolling: touch;
+}
 
  .MuiTypography-root.SubTitlemarginBottom, .SubTitlemarginBottom{
     margin-bottom: 140px;
