@@ -97,7 +97,7 @@ const isActivePath = (paths: string | string[]) => {
 
           <DrawerUI anchor="top" open={mobileOpen} onClose={handleDrawerToggle}>
             <Stack marginBottom={'56px'} flexDirection={'row'} alignItems={'center'} justifyContent={'space-between'}>
-           <Image src={isMobileView ? PiLogoMobile : PiLogo} alt="logo" />
+          {isMobilwView ?  <Image src={PiLogoMobile} alt="logo" /> :  <Image src={PiLogo} alt="logo" />}
               <IconButton onClick={handleDrawerToggle}>
                 <ClearOutlinedIcon />
               </IconButton>
