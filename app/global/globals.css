@@ -4,8 +4,10 @@
     font-family: "DM Sans", serif;
   }
 html, body{
-  overflow: auto;
-  height: 100%;
+  height: 100vh;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
 }
 
 body {
