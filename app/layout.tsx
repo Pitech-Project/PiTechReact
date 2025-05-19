@@ -21,6 +21,11 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="bg-black" >
+     <meta charSet="UTF-8" />
+    <meta name="description" content="pi tech" />
+    <meta name="keywords" content="pi tech" />
+    <meta name="author" content="pi tech" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <body className={inter.className} style={{backgroundColor: '#f6f6f6'}}>
       <ThemeProvider theme={lightTheme}>
         <LayoutWrapper>{children}</LayoutWrapper>
