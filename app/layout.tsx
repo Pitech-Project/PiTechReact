@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./global/globals.css";
-import "./loader.css"
+import "@/styles/global/globals.css";
+import "@/styles/loader.css";
 import { ThemeProvider } from "@mui/material";
-import { lightTheme } from "./styles/MUI/theme";
-import LayoutWrapper from "@/components/common/LayoutWrapper";
+import LayoutWrapper from "@/components/common/layoutWrapper";
+import { ReactNode } from "react";
+import { lightTheme } from "@/styles/MUI/theme";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,21 +17,22 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
-
   return (
-    <html lang="en" className="bg-black" >
-     <meta charSet="UTF-8" />
-    <meta name="description" content="pi tech" />
-    <meta name="keywords" content="pi tech" />
-    <meta name="author" content="pi tech" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <body className={inter.className} style={{backgroundColor: '#f6f6f6'}}>
-      <ThemeProvider theme={lightTheme}>
-        <LayoutWrapper>{children}</LayoutWrapper>
-      </ThemeProvider>
-    </body>
+    <html lang="en">
+      <head>
+        <meta charSet="UTF-8" />
+        <meta name="description" content="pi tech" />
+        <meta name="keywords" content="pi tech" />
+        <meta name="author" content="pi tech" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
+      <body className={inter.className} style={{ backgroundColor: "#f6f6f6" }}>
+        <ThemeProvider theme={lightTheme}>
+          <LayoutWrapper>{children}</LayoutWrapper>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

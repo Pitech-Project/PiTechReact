@@ -1,23 +1,18 @@
-"use client"
+"use client";
 
-import { lightTheme } from "@/app/styles/MUI/theme";
-import "../global/globals.css";
-import { ThemeProvider } from "@mui/material";
-import { CraftingSolutions } from "@/components/crafting-solutions";
-import { Service } from "@/components/Service";
-import SmoothTextSlider from "@/components/top-companies";
-import ServicesSolution from "@/components/Service-solutions";
+import "@/styles/global/globals.css";
+import { CraftingSolutions } from "@/components/Services/crafting-solutions";
+import { Service } from "@/components/home/Service";
+import SmoothTextSlider from "@/components/common/top-companies";
+import ServicesSolution from "@/components/Services/Service-solutions";
 
 export default function Page() {
-
   return (
     <>
-      <ThemeProvider theme={lightTheme}>
         <CraftingSolutions />
         <Service />
-        <SmoothTextSlider homeSlider={false}/>
+        <SmoothTextSlider homeSlider={false} />
         <ServicesSolution />
-      </ThemeProvider>
     </>
   );
 }

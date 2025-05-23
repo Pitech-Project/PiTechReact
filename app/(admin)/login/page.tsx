@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -6,21 +7,27 @@ import {
   BlackButton,
   CustomTextField,
   LoginContainer,
-} from "@/app/styles/MUI/login.styled";
-import { Typography, Box, FormControl, Card, CardContent, Button } from "@mui/material";
+} from "@/styles/MUI/login.styled";
+import {
+  Typography,
+  Box,
+  FormControl,
+  Card,
+  CardContent,
+  Button,
+} from "@mui/material";
 import Image from "next/image";
 import logo from "../../../public/assets/img/logo.png";
 
 export default function Login() {
   const router = useRouter();
-  const [isClient, setIsClient] = useState(false); // State to track if the component is mounted
+  const [isClient, setIsClient] = useState(false);
   const [usernameError, setUsernameError] = useState(false);
   const [usernameErrorMessage, setUsernameErrorMessage] = useState("");
   const [passwordError, setPasswordError] = useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
   const [apiErrorMessage, setApiErrorMessage] = useState("");
   const [sending, setSending] = useState(false);
-
 
   // ✅ Use `useEffect` to make sure the code runs only on the client side
   useEffect(() => {
@@ -46,7 +53,7 @@ export default function Login() {
     const res = await fetch("/auth-login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
-      credentials: 'include', 
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
     });
 
@@ -57,7 +64,6 @@ export default function Login() {
       const result = await res.json();
       setApiErrorMessage(result.message);
       setSending(false);
-
     }
   };
 
@@ -93,12 +99,7 @@ export default function Login() {
       <Card sx={{ minWidth: 400, margin: "auto" }}>
         <CardContent sx={{ textAlign: "center" }}>
           <Image src={logo} height={50} width={50} alt="logo" />
-          <Typography
-            component="h4"
-            variant="body_2"
-            fontWeight={500}
-            m={"24px 0"}
-          >
+          <Typography component="h4" variant="body_2_500" m={"24px 0"}>
             Login
           </Typography>
           {apiErrorMessage && (
@@ -148,25 +149,25 @@ export default function Login() {
                 color={passwordError ? "error" : "secondary"}
               />
             </FormControl>
-            { !sending ? 
-                <BlackButton
-                    sx={{ mt: 2 }}
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                >
-                    Login
-                </BlackButton>
-            : 
-                <Button
-                    fullWidth
-                    loading
-                    loadingPosition="start"
-                    variant="outlined"
-                >
-                    Please wait
-                </Button>
-            }
+            {!sending ? (
+              <BlackButton
+                sx={{ mt: 2 }}
+                type="submit"
+                fullWidth
+                variant="contained"
+              >
+                Login
+              </BlackButton>
+            ) : (
+              <Button
+                fullWidth
+                loading
+                loadingPosition="start"
+                variant="outlined"
+              >
+                Please wait
+              </Button>
+            )}
           </Box>
         </CardContent>
       </Card>

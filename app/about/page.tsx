@@ -1,27 +1,22 @@
-"use client"
+"use client";
 
-import { KeyIndustries } from "@/components/industries";
-import { OurProcess } from "@/components/our-process";
-import { OurTeam } from "@/components/our-team";
-import WhoWeAre from "@/components/who-we-are";
-import { WhyPI } from "@/components/why-PI";
-import "../global/globals.css";
-import { lightTheme } from "../styles/MUI/theme";
-import { ThemeProvider } from "@mui/material";
-import AboutBanner from "@/components/about-banner";
+import { KeyIndustries } from "@/components/about/industries";
+import { OurProcess } from "@/components/about/our-process";
+import WhoWeAre from "@/components/common/who-we-are";
+import { WhyPI } from "@/components/about/why-PI";
+import "@/styles/global/globals.css";
+import AboutBanner from "@/components/about/about-banner";
+import OurTeam from "@/components/about/our-team";
 
 export default function Page() {
-
   return (
     <>
-      <ThemeProvider theme={lightTheme}>
         <AboutBanner />
         <WhoWeAre title={"ABOUT US "} buttondisplay={false} aboutus={true} />
         <KeyIndustries />
         <OurProcess />
         <WhyPI />
         <OurTeam />
-      </ThemeProvider>
     </>
   );
 }
