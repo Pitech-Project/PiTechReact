@@ -8,27 +8,31 @@ interface Props {
   height?: string;
 }
 
-export const LottiePlayer = ({ src, width = "150px", height = "auto" }: Props) => {
+export const LottiePlayer = ({
+  src,
+  width = "150px",
+  height = "auto",
+}: Props) => {
   const ref = useRef<any>(null);
 
   useEffect(() => {
-    import('@dotlottie/player-component').then(() => {
+    import("@dotlottie/player-component").then(() => {
       const player = ref.current;
 
       if (!player) return;
 
-      customElements.whenDefined('dotlottie-player').then(() => {
+      customElements.whenDefined("dotlottie-player").then(() => {
         const observer = new IntersectionObserver(
           ([entry]) => {
             if (entry.isIntersecting) {
-              player.play?.(); 
+              player.play?.();
             } else {
               player.pause?.();
             }
           },
           {
             threshold: 0.5,
-          }
+          },
         );
 
         observer.observe(player);

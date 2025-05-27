@@ -1,5 +1,5 @@
 /* eslint-disable no-redeclare */
-"use client"; 
+"use client";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -112,7 +112,7 @@ const Testimonial: React.FC = () => {
           </Stack>
         </motion.div>
         <PrevNext>
-          <Button sx={{marginRight: '16px'}}>
+          <Button sx={{ marginRight: "16px" }}>
             <svg
               width="24"
               height="12"

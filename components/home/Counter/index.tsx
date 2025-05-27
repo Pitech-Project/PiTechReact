@@ -13,7 +13,7 @@ const Counter: React.FC<CounterProps> = ({ target, speed = 50 }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (count >= target) return; 
+    if (count >= target) return;
 
     const interval = setInterval(() => {
       setCount((prev) => prev + 1);

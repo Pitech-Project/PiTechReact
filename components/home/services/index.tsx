@@ -22,42 +22,54 @@ export const products = [
   {
     id: 1,
     name: SERVICES.SERVICES1,
-    img:  <LottiePlayer src="https://lottie.host/e099a1fa-cc41-4a4c-b468-45d1efaabd08/ZI74c8HxKR.lottie" />,
+    img: (
+      <LottiePlayer src="https://lottie.host/e099a1fa-cc41-4a4c-b468-45d1efaabd08/ZI74c8HxKR.lottie" />
+    ),
     description:
       "Custom application development tailored to meet your unique business needs. Our team of experienced developers combines technical expertise with creative problem-solving to deliver innovative and user-centric applications.",
   },
   {
     id: 2,
     name: SERVICES.SERVICES2,
-    img: <LottiePlayer src="https://lottie.host/9588ccb3-f1b5-448d-8940-605f112cbd84/ACvLh4sJQ4.lottie" />,
+    img: (
+      <LottiePlayer src="https://lottie.host/9588ccb3-f1b5-448d-8940-605f112cbd84/ACvLh4sJQ4.lottie" />
+    ),
     description:
       "High performance mobile applications, leveraging the latest technologies for seamless user experiences. Our end-to-end mobile development services ensure robust, scalable, and innovative solutions for both iOS and Android platforms.",
   },
   {
     id: 3,
     name: SERVICES.SERVICES3,
-    img: <LottiePlayer src="https://lottie.host/357aebd0-19ba-45bd-9058-dd4b9a2f8297/hr0mQTHeMm.lottie" />,
+    img: (
+      <LottiePlayer src="https://lottie.host/357aebd0-19ba-45bd-9058-dd4b9a2f8297/hr0mQTHeMm.lottie" />
+    ),
     description:
       "Website development services, creating custom, high quality websites that enhance your online presence and drive business growth. Our expert team ensures responsive and user friendly designs tailored to our client needs.",
   },
   {
     id: 4,
     name: SERVICES.SERVICES4,
-    img: <LottiePlayer src="https://lottie.host/8b9c39bd-c58f-4cf9-b147-492435685393/ScoJHZOyj9.lottie" />,
+    img: (
+      <LottiePlayer src="https://lottie.host/8b9c39bd-c58f-4cf9-b147-492435685393/ScoJHZOyj9.lottie" />
+    ),
     description:
       "Intuitive and visually stunning interfaces that captivate and engage users. Our expert team prioritizes usability and aesthetics, ensuring that every design enhances your brands digital presence and delivers a seamless, enjoyable user experience.",
   },
   {
     id: 5,
     name: SERVICES.SERVICES5,
-    img: <LottiePlayer src="https://lottie.host/5ddf6e19-2253-4413-a68a-4395b41fafd9/PyspVcKRLz.lottie" />,
+    img: (
+      <LottiePlayer src="https://lottie.host/5ddf6e19-2253-4413-a68a-4395b41fafd9/PyspVcKRLz.lottie" />
+    ),
     description:
       "Transforming complex data into actionable insights for your business. Our solutions enable you to make informed decisions, optimize operational performance and identify growth opportunities, helping you stay ahead in a competitive market.",
   },
   {
     id: 6,
     name: SERVICES.SERVICES6,
-    img: <LottiePlayer src="https://lottie.host/9274627e-7752-49fb-b054-f4d91750bf3e/sPhBzDgj8F.lottie" />,
+    img: (
+      <LottiePlayer src="https://lottie.host/9274627e-7752-49fb-b054-f4d91750bf3e/sPhBzDgj8F.lottie" />
+    ),
     description:
       "Secure and efficient management solutions tailored to your business needs. Our expert team ensures seamless operation and reliability, empowering your business to thrive in the digital landscape.",
   },
@@ -137,7 +149,7 @@ export const Services = ({ transformup }: Props) => {
                 >
                   {product.name}
                 </Typography>
-             
+
                 <Typography color="custom.white2">
                   {product.description}
                 </Typography>

@@ -1,5 +1,3 @@
-"use client"; 
-
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -116,7 +114,7 @@ const CompaniesSlider: React.FC<Props> = ({ homeSlider }) => {
                 },
               }}
             >
-              <Image src={src} alt={`Slide ${index + 1}`} />
+              <Image src={src} alt={`Slide ${index + 1}`} layout="intrinsic" />
             </Box>
           ))}
         </Slider>

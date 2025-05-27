@@ -113,7 +113,7 @@ export const OurOffice = () => {
                       href={ouroffices.link}
                       className=""
                     >
-                      <Image src={Arrow} alt="arrow" />
+                      <Image src={Arrow} alt="arrow" layout="intrinsic" />
                     </DirectionLink>
                   </Stack>
                 </OwlCarouselBox>

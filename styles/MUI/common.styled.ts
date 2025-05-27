@@ -410,28 +410,28 @@ export const IndustriesGrid = styled(Grid)(({ theme }) => ({
   backgroundColor: theme.palette.custom?.black,
   borderRadius: "8px",
   padding: "32px 32px 16px",
-  position: 'relative',
-    transition: "0.5s",
-  "& video":{
-    visibility: 'hidden',
-    position: 'absolute',
+  position: "relative",
+  transition: "0.5s",
+  "& video": {
+    visibility: "hidden",
+    position: "absolute",
     top: 0,
     left: 0,
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
     opacity: 0,
-    transition: 'opacity 0.5s ease, visibility 0.5s ease',
+    transition: "opacity 0.5s ease, visibility 0.5s ease",
     zIndex: 1,
   },
-  "&:hover video":{
-    visibility: 'visible',
+  "&:hover video": {
+    visibility: "visible",
     transition: "0.5s",
-     opacity: 1,
+    opacity: 1,
   },
-  "&:hover .IndustriesBox":{
-    visibility: 'hidden'
-  }
+  "&:hover .IndustriesBox": {
+    visibility: "hidden",
+  },
 }));
 
 export const IndustriesBox = styled(Box)(({ theme }) => ({
@@ -871,12 +871,12 @@ export const BusinessOffice = styled(Stack)(() => ({
 }));
 
 export const LeftPanel = styled(Box)(() => ({
-   width: "100%",
-    position: "absolute",
-    paddingLeft: "80px",
-    bottom: "50px",
-    left: "50px",
-      "& .leftPanel": {
+  width: "100%",
+  position: "absolute",
+  paddingLeft: "80px",
+  bottom: "50px",
+  left: "50px",
+  "& .leftPanel": {
     width: "100%",
     position: "absolute",
     paddingLeft: "80px",
@@ -884,19 +884,19 @@ export const LeftPanel = styled(Box)(() => ({
     left: "50px",
   },
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-      bottom: "25px",
+    bottom: "25px",
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
-      width: "100%",
-      position: "unset",
-      textAlign: "center",
-      order: 2,
-      padding: "140px 52px",
-      margin: "0",
+    width: "100%",
+    position: "unset",
+    textAlign: "center",
+    order: 2,
+    padding: "140px 52px",
+    margin: "0",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-      width: "100%",
-      padding: "80px 52px",
+    width: "100%",
+    padding: "80px 52px",
   },
 }));
 
@@ -945,13 +945,13 @@ export const OurTeamGrid = styled(Grid)(({ theme }) => ({
 }));
 
 export const Infromation = styled(Stack)(({ theme }) => ({
-    bottom: 0,
-    backgroundColor: theme.palette.custom?.black,
-    borderBottomLeftRadius: "16px",
-    borderBottomRightRadius: "16px",
-    width: "-webkit-fill-available",
-    padding: "16px 23px",
-    marginTop: "-7px",
+  bottom: 0,
+  backgroundColor: theme.palette.custom?.black,
+  borderBottomLeftRadius: "16px",
+  borderBottomRightRadius: "16px",
+  width: "-webkit-fill-available",
+  padding: "16px 23px",
+  marginTop: "-7px",
 }));
 
 export const ChipUI = styled(Typography)(({ theme }) => ({
@@ -1171,17 +1171,17 @@ export const AccordionUI = styled(Box)(({ theme }) => ({
 }));
 
 export const AccordionTitle = styled(Typography)(({ theme }) => ({
-    fontSize: "40px",
-    lineHeight: "52px",
-    fontWeight: 600,
-    color: theme.palette.custom?.black,
+  fontSize: "40px",
+  lineHeight: "52px",
+  fontWeight: 600,
+  color: theme.palette.custom?.black,
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-      fontSize: "32px",
-      lineHeight: "32px",
+    fontSize: "32px",
+    lineHeight: "32px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-      fontSize: "27px",
-      lineHeight: "32px",
+    fontSize: "27px",
+    lineHeight: "32px",
   },
 }));
 

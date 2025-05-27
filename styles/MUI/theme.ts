@@ -128,37 +128,37 @@ const breakpoints = {
   sm: "768px",
 };
 
-const body_3_400 ={
-    fontWeight: 400,
-    fontSize: "24px",
-    lineHeight: "36px",
-    letterSpacing: "0.15px",
-    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-      fontSize: "20px",
-      lineHeight: "32px",
-    },
-    [`@media (max-width: ${breakpoints.md})`]: {
-      fontSize: "18px",
-      lineHeight: "29px",
-    },
-    [`@media (max-width: ${breakpoints.md})`]: {
-      fontSize: "16px",
-      lineHeight: "24px",
-    },
-}
+const body_3_400 = {
+  fontWeight: 400,
+  fontSize: "24px",
+  lineHeight: "36px",
+  letterSpacing: "0.15px",
+  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+    fontSize: "20px",
+    lineHeight: "32px",
+  },
+  [`@media (max-width: ${breakpoints.md})`]: {
+    fontSize: "18px",
+    lineHeight: "29px",
+  },
+  [`@media (max-width: ${breakpoints.md})`]: {
+    fontSize: "16px",
+    lineHeight: "24px",
+  },
+};
 
 const overline_s = {
   fontWeight: 600,
   fontSize: "16px",
   letterSpacing: "0.15px",
-}
+};
 
 const body_2 = {
   fontWeight: 400,
   fontSize: "32px",
   lineHeight: "41.66px",
   letterSpacing: "0.15px",
-}
+};
 
 const body_4 = {
   fontWeight: 500,
@@ -169,13 +169,13 @@ const body_4 = {
     fontSize: "16px",
     lineHeight: "26px",
   },
-}
+};
 
 const body_5 = {
   fontSize: "31px",
   lineHeight: "40px",
   letterSpacing: "0.15px",
-}
+};
 
 const typography: ThemeOptions["typography"] = {
   overline_s_400: {

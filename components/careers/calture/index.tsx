@@ -32,11 +32,7 @@ const Culture = () => {
           culture <SmallFullStop />
         </Typography>
 
-        <Typography
-          color="custom.black"
-          variant="body_6"
-          display="block"
-        >
+        <Typography color="custom.black" variant="body_6" display="block">
           Working <br style={{ display: isTabletView ? "none" : "" }}></br>
           at Pi
         </Typography>

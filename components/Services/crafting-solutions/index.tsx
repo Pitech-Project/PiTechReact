@@ -6,7 +6,7 @@ import {
   LeftPanel,
   SubTypography,
 } from "@/styles/MUI/common.styled";
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 
 const ServicesImgAnimation = dynamic(

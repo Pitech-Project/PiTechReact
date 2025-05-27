@@ -77,7 +77,7 @@ export default function OurWorkCarousel() {
             flexDirection={"row"}
             alignItems={"end"}
             justifyContent={"space-between"}
-            sx={{ marginRight: { sm : "16px", md : "80px"}}}
+            sx={{ marginRight: { sm: "16px", md: "80px" } }}
           >
             <motion.div
               initial={{ opacity: 0, y: 100 }}

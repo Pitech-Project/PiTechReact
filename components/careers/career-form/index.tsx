@@ -1,5 +1,5 @@
 "use client";
- 
+
 import React, { useState } from "react";
 import {
   TextField,
@@ -25,7 +25,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import { apiUrl, fileExtension, careerFormFields } from "@/lib/constanst";
- 
+
 export type FormData = {
   name: string;
   lastname: string;
@@ -36,20 +36,20 @@ export type FormData = {
   appliedFor: string | null;
   appliedon: string;
 };
- 
+
 type FormErrors = Partial<Record<keyof FormData, string>>;
- 
+
 export default function CareerForm() {
   const searchParams = useSearchParams();
   const title = searchParams.get("title") || "";
- 
+
   const getCurrentDate = () =>
     new Date().toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
     });
- 
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     lastname: "",
@@ -60,15 +60,15 @@ export default function CareerForm() {
     appliedon: getCurrentDate(),
     resume: null,
   });
- 
+
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
   const saveApi = apiUrl.api.saveApi;
- 
+
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
     const { name, lastname, email, contactnumber, message, resume } = formData;
- 
+
     if (!name.trim()) newErrors.name = "Name is required.";
     if (!lastname.trim()) newErrors.lastname = "Last name is required.";
     if (!email.trim()) newErrors.email = "Email is required.";
@@ -84,40 +84,42 @@ export default function CareerForm() {
     } else if (resume.size > 100 * 1024 * 1024) {
       newErrors.resume = "File size exceeds 100MB.";
     }
- 
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
- 
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
- 
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
     setFormData((prev) => ({ ...prev, resume: file }));
     setErrors((prev) => ({ ...prev, resume: "" }));
   };
- 
+
   const handleRemoveFile = () => {
     setFormData((prev) => ({ ...prev, resume: null }));
-    const fileInput = document.getElementById("resume-upload") as HTMLInputElement;
+    const fileInput = document.getElementById(
+      "resume-upload",
+    ) as HTMLInputElement;
     if (fileInput) fileInput.value = "";
   };
- 
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
- 
+
     try {
       const response = await fetch(saveApi, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ data: formData, type: "career" }),
       });
- 
+
       if (response.ok) {
         setSubmitted(true);
         setFormData({
@@ -136,10 +138,10 @@ export default function CareerForm() {
       console.error("Error saving data:", error);
     }
   };
- 
+
   const theme = useTheme();
   const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
- 
+
   return (
     <OuterSection sx={{ paddingTop: 0 }}>
       <FormUI>
@@ -163,7 +165,10 @@ export default function CareerForm() {
                 label={
                   <Typography display="flex">
                     {item.label}
-                    <Typography component="span" sx={{ color: "custom.orange_600" }}>
+                    <Typography
+                      component="span"
+                      sx={{ color: "custom.orange_600" }}
+                    >
                       &nbsp;*
                     </Typography>
                   </Typography>
@@ -180,7 +185,7 @@ export default function CareerForm() {
               />
             </motion.div>
           ))}
- 
+
           <motion.div
             initial={{ opacity: 0, x: 300 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -191,7 +196,10 @@ export default function CareerForm() {
               label={
                 <Typography display="flex">
                   Message
-                  <Typography component="span" sx={{ color: "custom.orange_600" }}>
+                  <Typography
+                    component="span"
+                    sx={{ color: "custom.orange_600" }}
+                  >
                     &nbsp;*
                   </Typography>
                 </Typography>
@@ -208,7 +216,7 @@ export default function CareerForm() {
               autoComplete="off"
             />
           </motion.div>
- 
+
           <motion.div
             initial={{ opacity: 0, x: 300 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -241,7 +249,11 @@ export default function CareerForm() {
               {formData.resume && (
                 <Stack direction="row" alignItems="center" gap={1} mt="24px">
                   <AttachedFile>
-                    <Image src={AttachFile} alt="Attach File" />
+                    <Image
+                      src={AttachFile}
+                      alt="Attach File"
+                      layout="intrinsic"
+                    />
                     <Typography variant="body2" ml={2}>
                       {formData.resume.name}
                     </Typography>
@@ -252,10 +264,12 @@ export default function CareerForm() {
                   />
                 </Stack>
               )}
-              {errors.resume && <FormHelperText error>{errors.resume}</FormHelperText>}
+              {errors.resume && (
+                <FormHelperText error>{errors.resume}</FormHelperText>
+              )}
             </Box>
           </motion.div>
- 
+
           <motion.div
             initial={{ opacity: 0, x: 300 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -266,7 +280,7 @@ export default function CareerForm() {
               APPLY <CallMadeIcon sx={{ ml: "8px" }} />
             </OutlineBtn1>
           </motion.div>
- 
+
           {submitted && (
             <Typography color="green" mt={1}>
               Form submitted successfully!
@@ -277,4 +291,3 @@ export default function CareerForm() {
     </OuterSection>
   );
 }
- 

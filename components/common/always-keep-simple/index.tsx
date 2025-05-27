@@ -27,7 +27,7 @@ export const AlwaysKeepSimple = () => {
       justifyContent="space-between"
       alignItems="center"
     >
-       <LeftPanel>
+      <LeftPanel>
         <Typography
           variant="body_1"
           margin={isSmallDesktopView ? "0 auto" : "0"}

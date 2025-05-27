@@ -57,7 +57,9 @@ export function NavbarComponent(props: Props) {
 
   const isActivePath = (paths: string | string[]) => {
     const pathList = Array.isArray(paths) ? paths : [paths];
-    return pathList.some((path) => pathname === path || pathname.startsWith(path));
+    return pathList.some(
+      (path) => pathname === path || pathname.startsWith(path),
+    );
   };
 
   if (!shouldShowHeader) return null;
@@ -86,20 +88,44 @@ export function NavbarComponent(props: Props) {
       >
         <Toolbar sx={{ width: "100%", justifyContent: "space-between", p: 0 }}>
           <HoveredLink className={isActivePath("/") ? "active" : ""} href="/">
-            <Image src={isMobileView ? PiLogoMobile : PiLogo} alt="logo" />
+            <Image
+              src={isMobileView ? PiLogoMobile : PiLogo}
+              alt="logo"
+              layout="intrinsic"
+            />
           </HoveredLink>
 
-          <Box className="menus" alignItems="center" sx={{ display: { xs: "none", lg: "flex" } }}>
-            <HoveredLink className={isActivePath("/about") ? "active" : ""} href="/about">About Us</HoveredLink>
-            <HoveredLink className={isActivePath("/services") ? "active" : ""} href="/services">Services</HoveredLink>
+          <Box
+            className="menus"
+            alignItems="center"
+            sx={{ display: { xs: "none", lg: "flex" } }}
+          >
             <HoveredLink
-              className={isActivePath(["/case-studies", "/case-studie-details"]) ? "active" : ""}
+              className={isActivePath("/about") ? "active" : ""}
+              href="/about"
+            >
+              About Us
+            </HoveredLink>
+            <HoveredLink
+              className={isActivePath("/services") ? "active" : ""}
+              href="/services"
+            >
+              Services
+            </HoveredLink>
+            <HoveredLink
+              className={
+                isActivePath(["/case-studies", "/case-studie-details"])
+                  ? "active"
+                  : ""
+              }
               href="/case-studies"
             >
               Case Studies
             </HoveredLink>
             <HoveredLink
-              className={isActivePath(["/careers", "/career-details"]) ? "active" : ""}
+              className={
+                isActivePath(["/careers", "/career-details"]) ? "active" : ""
+              }
               href="/careers"
             >
               Careers
@@ -118,7 +144,12 @@ export function NavbarComponent(props: Props) {
           </IconButton>
 
           <DrawerUI anchor="top" open={mobileOpen} onClose={handleDrawerToggle}>
-            <Stack mb={7} direction="row" alignItems="center" justifyContent="space-between">
+            <Stack
+              mb={7}
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+            >
               <Image src={isMobileView ? PiLogoMobile : PiLogo} alt="logo" />
               <IconButton onClick={handleDrawerToggle}>
                 <ClearOutlinedIcon />
@@ -144,7 +175,10 @@ export function NavbarComponent(props: Props) {
             </Box>
           </DrawerUI>
 
-          <OutlineBtnYellow sx={{ display: { xs: "none", lg: "flex" } }} href="/contact">
+          <OutlineBtnYellow
+            sx={{ display: { xs: "none", lg: "flex" } }}
+            href="/contact"
+          >
             GET IN TOUCH
           </OutlineBtnYellow>
         </Toolbar>

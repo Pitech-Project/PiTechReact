@@ -63,7 +63,11 @@ export const FeaturesOfProject = () => {
           {featuresPorject.map((featuresPorject) => (
             <Stack key={featuresPorject.id} textAlign={"center"}>
               <Box display={"flex"} justifyContent={"center"}>
-                <Image src={featuresPorject.img} alt="teamBusinessOffice" />
+                <Image
+                  src={featuresPorject.img}
+                  alt="teamBusinessOffice"
+                  layout="intrinsic"
+                />
               </Box>
               <Typography
                 minWidth={"30px"}

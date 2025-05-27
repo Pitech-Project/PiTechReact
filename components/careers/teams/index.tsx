@@ -77,7 +77,7 @@ const Teams: React.FC = () => {
                 },
               }}
             >
-              <Image src={src} alt={`Slide ${index + 1}`} />
+              <Image src={src} alt={`Slide ${index + 1}`} layout="intrinsic" />
             </Box>
           ))}
         </Slider>

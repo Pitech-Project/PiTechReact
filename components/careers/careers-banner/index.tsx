@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import {
   BusinessOffice,
   FullStop,
@@ -19,7 +19,7 @@ export const CareersBanner = () => {
       justifyContent="space-between"
       alignItems="center"
     >
-       <LeftPanel>
+      <LeftPanel>
         <Typography variant="body_1" display="block" color={"custom.white2"}>
           Looking for motivated, bright <br />& passionate individuals{" "}
           <FullStop />
@@ -29,7 +29,7 @@ export const CareersBanner = () => {
           Pi is full of challenges, learning and successful smiles. <br></br>
           Come grow with us and become a part of a global solutions company.
         </SubTypography>
-      </ LeftPanel>
+      </LeftPanel>
       <CareerImgAnimation />
     </BusinessOffice>
   );
