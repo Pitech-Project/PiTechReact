@@ -50,7 +50,6 @@ export const careerFormFields: FieldConfig[] = [
   },
 ];
 
-
 export const EXPERIENCE_REQUIREMENTS = [
   "4+ years of experience",
   "Proven experience in build engineering, release engineering, or related roles within a DevOps or Agile environment.",

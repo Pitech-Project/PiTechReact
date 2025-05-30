@@ -125,7 +125,7 @@ const breakpoints = {
   smallDesktop: "1536px",
   lg: "1199px",
   md: "991px",
-  sm: "768px",
+  sm: "767px",
 };
 
 const body_3_400 = {
@@ -163,7 +163,7 @@ const body_2 = {
 const body_4 = {
   fontWeight: 500,
   fontSize: "18px",
-  lineHeight: "26px",
+  lineHeight: "28px",
   letterSpacing: "0.2px",
   [`@media (max-width: ${breakpoints.md})`]: {
     fontSize: "16px",
@@ -175,6 +175,14 @@ const body_5 = {
   fontSize: "31px",
   lineHeight: "40px",
   letterSpacing: "0.15px",
+  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+    fontSize: "25px",
+    lineHeight: "35px",
+  },
+  [`@media (max-width: ${breakpoints.md})`]: {
+    fontSize: "24px",
+    lineHeight: "32px",
+  },
 };
 
 const typography: ThemeOptions["typography"] = {
@@ -195,13 +203,9 @@ const typography: ThemeOptions["typography"] = {
       fontSize: "60px",
       lineHeight: "60px",
     },
-    [`@media (max-width: ${breakpoints.md})`]: {
-      fontSize: "36px",
-      lineHeight: "44px",
-    },
     [`@media (max-width: ${breakpoints.sm})`]: {
-      fontSize: "30px",
-      lineHeight: "40px",
+      fontSize: "40px",
+      lineHeight: "48px",
     },
   },
   body_2,
@@ -214,18 +218,6 @@ const typography: ThemeOptions["typography"] = {
     fontSize: "24px",
     lineHeight: "36px",
     letterSpacing: "0.15px",
-    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-      fontSize: "20px",
-      lineHeight: "32px",
-    },
-    [`@media (max-width: ${breakpoints.md})`]: {
-      fontSize: "18px",
-      lineHeight: "29px",
-    },
-    [`@media (max-width: ${breakpoints.md})`]: {
-      fontSize: "16px",
-      lineHeight: "24px",
-    },
   },
   body_3_400,
   body_3_600: {
@@ -244,23 +236,19 @@ const typography: ThemeOptions["typography"] = {
   body_5: {
     ...body_5,
     fontWeight: 600,
-    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-      fontSize: "25px",
-      lineHeight: "35px",
-    },
-    [`@media (max-width: ${breakpoints.md})`]: {
-      fontSize: "24px",
-      lineHeight: "32px",
-    },
   },
   body_6: {
     fontWeight: 500,
     fontSize: "60px",
     lineHeight: "68px",
     letterSpacing: "0.15px",
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+      fontSize: "52px",
+      lineHeight: "64px",
+    },
     [`@media (max-width: ${breakpoints.md})`]: {
-      fontSize: "36px",
-      lineHeight: "46px",
+      fontSize: "40px",
+      lineHeight: "48px",
     },
   },
   body_7: {
@@ -332,13 +320,9 @@ const typography: ThemeOptions["typography"] = {
       fontSize: "26px",
       lineHeight: "36px",
     },
-    [`@media (max-width: ${breakpoints.md})`]: {
-      fontSize: "25px",
-      lineHeight: "30px",
-    },
-    [`@media (max-width: ${breakpoints.md})`]: {
-      fontSize: "16px",
-      lineHeight: "24px",
+    [`@media (max-width: ${breakpoints.sm})`]: {
+      fontSize: "20px",
+      lineHeight: "26px",
     },
   },
   small_typography: {

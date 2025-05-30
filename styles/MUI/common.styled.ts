@@ -18,7 +18,7 @@ const breakpoints = {
   smallDesktop1: "1366px",
   tabletView: "1199px",
   md: "991px",
-  sm: "768px",
+  sm: "767px",
 };
 
 interface Props {
@@ -203,47 +203,27 @@ export const OutlineWhiteBtn = styled(Link, {
   shouldForwardProp: (prop) => prop !== "transformup",
 })<Props>(({ theme, transformup }) => ({
   border: "1px solid",
-
   borderColor: theme.palette.custom?.white2,
-
   borderRadius: "100px",
-
   padding: "16px 24px",
-
   display: "flex",
-
   alignItems: "center",
-
   letterSpacing: "1.6px",
-
   justifyContent: "space-between",
-
   fontWeight: 500,
-
   fontSize: "14px",
-
   lineHeight: "14px",
-
   color: theme.palette.custom?.white2,
-
   textDecoration: "unset",
-
   transition: "0.5s",
-
   width: "max-content",
-
   textTransform: "uppercase",
-
   cursor: "pointer",
-
   "& .MuiSvgIcon-root": {
     width: "18px",
-
     transition: "0.5s",
-
     marginLeft: "16px",
   },
-
   "&:hover .MuiSvgIcon-root": {
     transform: transformup ? "translate(6px, -3px)" : "translate(6px, 0px)",
   },
@@ -254,9 +234,7 @@ export const OutlineWhiteBtn = styled(Link, {
 
   "&:hover": {
     borderColor: theme.palette.custom?.orange_600,
-
     backgroundColor: theme.palette.custom?.orange_600,
-
     color: theme.palette.custom?.black,
   },
 }));
@@ -333,6 +311,7 @@ export const FullStop = styled(Typography)(({ theme }) => ({
   height: "14px",
   width: "14px",
   backgroundColor: theme.palette.custom?.orange_600,
+  marginLeft: "8px",
   display: "inline-block",
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     height: "10px",
@@ -362,6 +341,7 @@ export const SmallFullStop = styled(Typography)(({ theme }) => ({
   width: "8px",
   backgroundColor: theme.palette.custom?.orange_600,
   display: "inline-block",
+  marginLeft: "6px",
 }));
 
 export const TooSmallFullStop = styled(Typography)(({ theme }) => ({
@@ -369,6 +349,7 @@ export const TooSmallFullStop = styled(Typography)(({ theme }) => ({
   width: "5px",
   backgroundColor: theme.palette.custom?.orange_600,
   display: "inline-block",
+  marginLeft: "3px",
 }));
 
 export const CountOuterBox = styled(Stack)(({ theme }) => ({
@@ -393,8 +374,6 @@ export const CountOuterBox = styled(Stack)(({ theme }) => ({
 
 export const ServiceGrid = styled(Grid)(({ theme }) => ({
   backgroundColor: theme.palette.custom?.black,
-  border: "1px solid",
-  borderColor: theme.palette.custom?.border2,
   borderRadius: "12px",
   padding: "30px 40px",
   [`@media (max-width: ${breakpoints.md})`]: {
@@ -434,12 +413,6 @@ export const IndustriesGrid = styled(Grid)(({ theme }) => ({
   },
 }));
 
-export const IndustriesBox = styled(Box)(({ theme }) => ({
-  // backgroundColor: theme.palette.custom?.black,
-  // borderRadius: "8px",
-  // padding: "32px 32px 16px",
-}));
-
 export const OuterGrid = styled(Grid)(() => ({
   padding: "140px 0px",
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
@@ -452,7 +425,22 @@ export const OuterGrid = styled(Grid)(() => ({
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
     padding: "80px 0px",
-    margin: "0 32px",
+    margin: "0 80px",
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    margin: "0 20px",
+  },
+}));
+
+export const OuterGrid1 = styled(Grid)(() => ({
+  padding: "140px 0px",
+  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+    width: "auto",
+    padding: "140px 0px",
+  },
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    padding: "80px 0px",
+    margin: "0 80px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
     margin: "0 20px",
@@ -569,8 +557,13 @@ export const OwlCarouselStyled = styled(Stack)(({ theme }) => ({
       transform: "scale(1)",
       opacity: "1",
     },
+      "& .swiper-slide-next .MuiTypography-root": {
+    fontSize: "16px",
+    lineHeight: "28px",
+  },
     "& .testimonial-boxUI": {
       margin: "0 20px",
+        padding: "20px 12px",
     },
   },
 }));
@@ -659,10 +652,7 @@ export const TestimonialBox = styled(Box)(({ theme }) => ({
     padding: "36px 32px",
     borderRadius: "8px",
   },
-  "& .swiper-slide .MuiTypography-root": {
-    fontSize: "19px",
-    lineHeight: "30px",
-  },
+
   "& .swiper-slide-next .MuiTypography-root": {
     fontSize: "22px",
     lineHeight: "34px",
@@ -704,6 +694,7 @@ export const DirectionLink = styled(Link)(({ theme }) => ({
   height: "16.4px",
   width: "16.4px",
   transition: "all 0.5s ease",
+  cursor: "pointer",
   "& svg": {
     transition: "all 0.5s ease",
     width: "18px !important",
@@ -887,16 +878,16 @@ export const LeftPanel = styled(Box)(() => ({
     bottom: "25px",
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
-    width: "100%",
+    width: "90%",
     position: "unset",
     textAlign: "center",
     order: 2,
     padding: "140px 52px",
-    margin: "0",
+    margin: "0 auto",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    width: "100%",
-    padding: "80px 52px",
+    width: "90%",
+    padding: "80px 16px",
   },
 }));
 
@@ -976,7 +967,7 @@ export const ChipUI2 = styled(Typography)(({ theme }) => ({
   lineHeight: "14px",
   color: theme.palette.custom?.white3,
   borderRadius: "100px",
-  padding: "8px 24px",
+  padding: "12px 22px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -1274,6 +1265,7 @@ export const DrawerUI = styled(Drawer)(({ theme }) => ({
     marginTop: "0px",
     boxShadow: "unset !important",
     height: "100%",
+    backgroundColor: theme.palette.custom?.black,
   },
   "& .LinkUI": {
     color: theme.palette.custom?.grey_700,
@@ -1303,8 +1295,6 @@ export const CanvasContainer = styled(Box)(() => ({
   "& canvas": {
     height: "810px !important",
     width: "100% !important",
-    // overflow: 'visible',
-    // position: 'relative'
   },
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     height: "610px",
@@ -1383,5 +1373,25 @@ export const SubTitlemarginBottom1 = styled(Typography)(() => ({
   },
   [`@media (max-width: ${breakpoints.md})`]: {
     marginBottom: "65px",
+  },
+}));
+
+export const OverlayTypography = styled(Typography)(() => ({
+  position: "relative",
+  zIndex: 10,
+  padding: "0 8px",
+  width: "max-content",
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    top: 0,
+    left: 0,
+    height: "100%",
+    background: "rgba(0, 0, 0, 0.4)",
+    width: "100%",
+    zIndex: -1,
+  },
+    [`@media (max-width: ${breakpoints.tabletView})`]: {
+   width: "auto",
   },
 }));
