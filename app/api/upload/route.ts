@@ -1,6 +1,7 @@
 export const runtime = 'nodejs';
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile } from 'fs/promises';
+import { writeFile, mkdir } from 'fs/promises';
+import { existsSync } from 'fs';
 import path from 'path';
 import { randomUUID } from 'crypto';
 
@@ -31,17 +32,21 @@ export const POST = async (req: NextRequest) => {
         const baseName = originalName.split('.').slice(0, -1).join('.');
         const uniqueFilename = `${baseName}-${randomUUID()}.${fileExt}`;
 
-        // ✅ Use /tmp on Vercel
-        const filePath = path.join('/tmp', uniqueFilename);
+        const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+        if (!existsSync(uploadDir)) {
+            await mkdir(uploadDir, { recursive: true });
+        }
+
+        const filePath = path.join(uploadDir, uniqueFilename);
         await writeFile(filePath, bytes);
 
         return NextResponse.json({
             message: 'File uploaded successfully',
-            filePath: filePath // Local path, not web-accessible
+            filePath: `/uploads/${uniqueFilename}` // Return a web-friendly path
         });
 
     } catch (err: any) {
         console.error('UPLOAD FAILED:', err);
-        return NextResponse.json({ error: 'Upload failed', details: err.message }, { status: 500 });
+        return NextResponse.json({ error: 'Upload failed' }, { status: 500 });
     }
 };
