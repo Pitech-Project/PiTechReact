@@ -32,17 +32,17 @@ export const POST = async (req: NextRequest) => {
         const baseName = originalName.split('.').slice(0, -1).join('.');
         const uniqueFilename = `${baseName}-${randomUUID()}.${fileExt}`;
 
-        const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-        if (!existsSync(uploadDir)) {
-            await mkdir(uploadDir, { recursive: true });
+        const tmpDir = path.join('/tmp', 'uploads');
+        if (!existsSync(tmpDir)) {
+            await mkdir(tmpDir, { recursive: true });
         }
 
-        const filePath = path.join(uploadDir, uniqueFilename);
+        const filePath = path.join(tmpDir, uniqueFilename);
         await writeFile(filePath, bytes);
 
         return NextResponse.json({
             message: 'File uploaded successfully',
-            filePath: `/uploads/${uniqueFilename}` // Return a web-friendly path
+            filePath: filePath // Note: This path is not publicly accessible
         });
 
     } catch (err: any) {
