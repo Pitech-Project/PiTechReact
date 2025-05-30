@@ -3,6 +3,8 @@
 import { Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import {
+  OuterGrid,
+  OuterGrid1,
   OuterSection,
   OutlineWhiteBtn,
   ServiceGrid,
@@ -77,87 +79,92 @@ export const products = [
 
 export const Services = ({ transformup }: Props) => {
   const router = useRouter();
-  const isMdView = useMediaQuery(`(max-width:768px)`);
+  const isMdView = useMediaQuery(`(max-width:767px)`);
 
   return (
     <Stack bgcolor={"custom.black2"}>
-      <OuterSection sx={{ gap: 0 }}>
-        <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
+      <OuterGrid1 container spacing={5} justifyContent={"space-between"}>
+        <Grid
+          size={{ xs: 12, lg: 10, xl: 7.4 }}
+          offset={{ xs: 0, lg: 1, xl: 2.3 }}
         >
-          <SubTitlemarginBottom
-            flexDirection={isMdView ? "column" : "row"}
-            justifyContent={"space-between"}
-            alignItems={isMdView ? "flex-start" : "center"}
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
           >
-            <Stack width={isMdView ? "100%" : "560px"}>
-              <Typography
-                color="custom.white4"
-                variant="body_4_600"
-                marginBottom={2}
-                letterSpacing={"2.4px"}
-                display={"block"}
-              >
-                SERVICES <SmallFullStop />
-              </Typography>
-              <Typography
-                color="custom.white2"
-                variant="body_6"
-                display={"block"}
-              >
-                Technology solutions offered
-              </Typography>
-            </Stack>
-            <OutlineWhiteBtn
-              sx={{ marginTop: isMdView ? "48px" : "0" }}
-              onClick={() => router.push("/services")}
-              transformup={transformup}
+            <SubTitlemarginBottom
+              flexDirection={isMdView ? "column" : "row"}
+              justifyContent={"space-between"}
+              alignItems={isMdView ? "flex-start" : "center"}
             >
-              VIEW ALL <CallMadeIcon sx={{ marginLeft: "8px", height: 16 }} />
-            </OutlineWhiteBtn>
-          </SubTitlemarginBottom>
-        </motion.div>
-
-        <Grid container className="" spacing={isMdView ? 3 : 5}>
-          {products.map((product) => (
-            <ServiceGrid size={{ xs: 12, md: 6, lg: 6 }} key={product.id}>
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: product.id % 2 === 0 ? -100 : 100,
-                  y: 50,
-                }}
-                animate={{
-                  opacity: 1,
-                  x: 0,
-                  y: 0,
-                }}
-                transition={{
-                  duration: 0.6,
-                  ease: "easeOut",
-                }}
-              >
-                {product.img}
+              <Stack width={isMdView ? "100%" : "560px"}>
+                <Typography
+                  color="custom.white4"
+                  variant="body_4_600"
+                  marginBottom={2}
+                  letterSpacing={"2.4px"}
+                  display={"block"}
+                >
+                  SERVICES
+                  <SmallFullStop />
+                </Typography>
                 <Typography
                   color="custom.white2"
-                  variant="body_5"
+                  variant="body_6"
                   display={"block"}
-                  margin={isMdView ? "30px 0 16px" : "50px 0 24px"}
                 >
-                  {product.name}
+                  Technology solutions offered
                 </Typography>
+              </Stack>
+              <OutlineWhiteBtn
+                sx={{ marginTop: isMdView ? "48px" : "0" }}
+                onClick={() => router.push("/services")}
+                transformup={transformup}
+              >
+                VIEW ALL <CallMadeIcon sx={{ marginLeft: "8px", height: 16 }} />
+              </OutlineWhiteBtn>
+            </SubTitlemarginBottom>
+          </motion.div>
+          <Grid container className="" spacing={isMdView ? 3 : 5}>
+            {products.map((product) => (
+              <ServiceGrid size={{ xs: 12, md: 6, lg: 6 }} key={product.id}>
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    x: product.id % 2 === 0 ? -100 : 100,
+                    y: 50,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeOut",
+                  }}
+                >
+                  {product.img}
+                  <Typography
+                    color="custom.white2"
+                    variant="body_5"
+                    display={"block"}
+                    margin={isMdView ? "30px 0 16px" : "50px 0 24px"}
+                  >
+                    {product.name}
+                  </Typography>
 
-                <Typography color="custom.white2">
-                  {product.description}
-                </Typography>
-              </motion.div>
-            </ServiceGrid>
-          ))}
+                  <Typography variant="body_4_400" color="custom.white3">
+                    {product.description}
+                  </Typography>
+                </motion.div>
+              </ServiceGrid>
+            ))}
+          </Grid>
         </Grid>
-      </OuterSection>
+      </OuterGrid1>
     </Stack>
   );
 };

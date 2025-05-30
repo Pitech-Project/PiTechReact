@@ -63,13 +63,22 @@ const services = [
 ];
 
 const ServicesSolution = () => {
-  const isMdView = useMediaQuery(`(max-width:768px)`);
+  const isMdView = useMediaQuery(`(max-width:767px)`);
   return (
     <Box bgcolor={"custom.black2"}>
       <OuterGrid container spacing={5} justifyContent={"space-between"}>
-        <Grid size={{ xs: 12, lg: 11, xl: 9 }} offset={{ xs: 0, lg: 1, xl: 2 }}>
+        <Grid
+          size={{ xs: 12, lg: 11, xl: 8.2 }}
+          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+          sx={{
+            "& .service-motion:first-of-type .mt--0": {
+              marginTop: 0,
+            },
+          }}
+        >
           {services.map((service, index) => (
             <motion.div
+              className="service-motion"
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
@@ -78,12 +87,13 @@ const ServicesSolution = () => {
             >
               <Stack
                 flexDirection={isMdView ? "column" : "row"}
-                alignItems={"flex-start"}
+                alignItems={"center"}
                 justifyContent={"space-between"}
                 sx={{
                   marginTop: "96px",
-                  "dotlottie-player": { width: "200px !important" },
+                  "dotlottie-player": { width: "225px !important" },
                 }}
+                className="mt--0"
               >
                 {service.img}
                 <Box width={isMdView ? "100%" : "67%"}>

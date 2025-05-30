@@ -8,11 +8,13 @@ import {
   Stack,
   useMediaQuery,
   useTheme,
+  Grid,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import {
   FormUI,
+  OuterGrid,
   OuterSection,
   OutlineWhiteBtn1,
   SmallFullStop,
@@ -116,127 +118,142 @@ export default function ContactForm() {
 
   return (
     <Box bgcolor={"custom.black2"}>
-      <OuterSection
-        flexDirection={isTabletView ? "column" : "row"}
-        justifyContent={"space-between"}
-      >
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
+      <OuterGrid container spacing={5} justifyContent={"space-between"}>
+        <Grid
+          size={{ xs: 12, lg: 11, xl: 8.2 }}
+          offset={{ xs: 0, lg: 1, xl: 2.3 }}
         >
-          <Stack>
-            <Typography
-              color="custom.white4"
-              variant="body_4_600"
-              marginBottom={2}
-              display={"block"}
-            >
-              CONTACT US <SmallFullStop />
-            </Typography>
-            <Typography
-              color="custom.white2"
-              variant="body_6"
-              marginBottom={isTabletView ? 6 : 0}
-              display={"block"}
-            >
-              Get in touch
-            </Typography>
-          </Stack>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: 300 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <FormUI
-            className="blackTheme"
-            width={
-              isTabletView ? "100%" : isSmallDesktopView ? "500px" : "750px"
-            }
-          >
-            <Typography
-              color="custom.white2"
-              variant="Caption"
-              fontWeight={500}
-            >
-              We&apos;re here to help and answer any questions you might have.
-              We look forward to hearing from you.
-            </Typography>
-            <Box
-              component="form"
-              onSubmit={handleSubmit}
-              display="flex"
-              flexDirection="column"
-              gap={6}
-              marginTop={isTabletView ? "56px" : "80px"}
-            >
-              {careerFormFields.map((item) => {
-                const isValidKey = (key: string): key is keyof FormData => {
-                  return key in formData;
-                };
-                return (
-                  <TextField
-                    key={item.id}
-                    label={
-                      <Typography display={"flex"}>
-                        {item.label}&nbsp;
-                        <Typography
-                          component={"span"}
-                          sx={{ color: "custom.red" }}
-                        >
-                          *
-                        </Typography>
-                      </Typography>
-                    }
-                    name={item.name}
-                    value={isValidKey(item.name) ? formData[item.name] : ""}
-                    onChange={handleChange}
-                    variant="standard"
-                    focused
-                    error={
-                      isValidKey(item.name) ? Boolean(errors[item.name]) : false
-                    }
-                    helperText={isValidKey(item.name) ? errors[item.name] : ""}
-                    autoComplete="off"
-                  />
-                );
-              })}
-              <TextField
-                label={
-                  <Typography display={"flex"}>
-                    Message&nbsp;
-                    <Typography component={"span"} sx={{ color: "custom.red" }}>
-                      *
-                    </Typography>
+          <Grid container spacing={5}>
+            <Grid size={{ xs: 12, md: 4 }}>
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <Stack>
+                  <Typography
+                    color="custom.white4"
+                    variant="body_4_600"
+                    marginBottom={2}
+                    display={"block"}
+                  >
+                    CONTACT US
+                    <SmallFullStop />
                   </Typography>
-                }
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                variant="standard"
-                multiline
-                rows={4}
-                focused
-                error={Boolean(errors.message)}
-                helperText={errors.message}
-                autoComplete="off"
-              />
+                  <Typography
+                    color="custom.white2"
+                    variant="body_6"
+                    marginBottom={isTabletView ? 6 : 0}
+                    display={"block"}
+                  >
+                    Get in touch
+                  </Typography>
+                </Stack>
+              </motion.div>
+            </Grid>
+            <Grid size={{ xs: 12, md: 8 }}>
+              <motion.div
+                initial={{ opacity: 0, x: 300 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <FormUI className="blackTheme">
+                  <Typography
+                    color="custom.white2"
+                    variant="Caption"
+                    fontWeight={500}
+                  >
+                    We&apos;re here to help and answer any questions you might
+                    have. We look forward to hearing from you.
+                  </Typography>
+                  <Box
+                    component="form"
+                    onSubmit={handleSubmit}
+                    display="flex"
+                    flexDirection="column"
+                    gap={6}
+                    marginTop={isTabletView ? "56px" : "80px"}
+                  >
+                    {careerFormFields.map((item) => {
+                      const isValidKey = (
+                        key: string,
+                      ): key is keyof FormData => {
+                        return key in formData;
+                      };
+                      return (
+                        <TextField
+                          key={item.id}
+                          label={
+                            <Typography display={"flex"}>
+                              {item.label}&nbsp;
+                              <Typography
+                                component={"span"}
+                                sx={{ color: "custom.red" }}
+                              >
+                                *
+                              </Typography>
+                            </Typography>
+                          }
+                          name={item.name}
+                          value={
+                            isValidKey(item.name) ? formData[item.name] : ""
+                          }
+                          onChange={handleChange}
+                          variant="standard"
+                          focused
+                          error={
+                            isValidKey(item.name)
+                              ? Boolean(errors[item.name])
+                              : false
+                          }
+                          helperText={
+                            isValidKey(item.name) ? errors[item.name] : ""
+                          }
+                          autoComplete="off"
+                        />
+                      );
+                    })}
+                    <TextField
+                      label={
+                        <Typography display={"flex"}>
+                          Message&nbsp;
+                          <Typography
+                            component={"span"}
+                            sx={{ color: "custom.red" }}
+                          >
+                            *
+                          </Typography>
+                        </Typography>
+                      }
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      variant="standard"
+                      multiline
+                      rows={4}
+                      focused
+                      error={Boolean(errors.message)}
+                      helperText={errors.message}
+                      autoComplete="off"
+                    />
 
-              <OutlineWhiteBtn1 type="submit">
-                SEND <CallMadeIcon sx={{ marginLeft: "8px" }} />
-              </OutlineWhiteBtn1>
-              {submitted && (
-                <Typography color="green" mt={1}>
-                  Form submitted successfully!
-                </Typography>
-              )}
-            </Box>
-          </FormUI>
-        </motion.div>
-      </OuterSection>
+                    <OutlineWhiteBtn1 type="submit">
+                      SEND <CallMadeIcon sx={{ marginLeft: "8px" }} />
+                    </OutlineWhiteBtn1>
+                    {submitted && (
+                      <Typography color="green" mt={1}>
+                        Form submitted successfully!
+                      </Typography>
+                    )}
+                  </Box>
+                </FormUI>
+              </motion.div>
+            </Grid>
+          </Grid>
+        </Grid>
+      </OuterGrid>
     </Box>
   );
 }

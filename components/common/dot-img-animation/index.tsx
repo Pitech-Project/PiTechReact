@@ -6,7 +6,7 @@ import { CanvasContainer } from "@/styles/MUI/common.styled";
 
 const ReactP5Wrapper = dynamic(
   () => import("react-p5-wrapper").then((mod) => mod.ReactP5Wrapper),
-  { ssr: false }
+  { ssr: false },
 );
 
 interface DotImageAnimationProps {
@@ -76,16 +76,19 @@ const DotImageAnimation: React.FC<DotImageAnimationProps> = ({
           const mouseVec = p.createVector(mouse.x, mouse.y);
           const d = p5Types.Vector.dist(this.pos, mouseVec);
           this.color = d < this.comfortZone ? hoverColor : this.originalColor;
-          const target = d < this.comfortZone
-            ? p5Types.Vector.sub(this.pos, mouseVec).add(this.pos)
-            : this.original;
+          const target =
+            d < this.comfortZone
+              ? p5Types.Vector.sub(this.pos, mouseVec).add(this.pos)
+              : this.original;
           this.seek(target);
         }
 
         seek(target: p5Types.Vector) {
           const desired = p5Types.Vector.sub(target, this.pos);
           const d = desired.mag();
-          desired.setMag(d < 100 ? p.map(d, 0, 100, 0, this.maxspeed) : this.maxspeed);
+          desired.setMag(
+            d < 100 ? p.map(d, 0, 100, 0, this.maxspeed) : this.maxspeed,
+          );
           const steer = p5Types.Vector.sub(desired, this.vel);
           steer.limit(this.maxforce);
           this.applyForce(steer);
@@ -118,7 +121,9 @@ const DotImageAnimation: React.FC<DotImageAnimationProps> = ({
         if (!container) return;
 
         canvasW = container.offsetWidth;
-        canvasH = fullHeight ? window.innerHeight : container.offsetHeight || window.innerHeight;
+        canvasH = fullHeight
+          ? window.innerHeight
+          : container.offsetHeight || window.innerHeight;
 
         const cnv = p.createCanvas(canvasW, canvasH);
         cnv.parent(container);
@@ -169,7 +174,17 @@ const DotImageAnimation: React.FC<DotImageAnimationProps> = ({
     };
 
     setSketch(() => sketch);
-  }, [imageSrc, detailLevel, minDotRadius, maxDotRadius, maxSpeed, maxForce, dotColor, hoverColor, fullHeight]);
+  }, [
+    imageSrc,
+    detailLevel,
+    minDotRadius,
+    maxDotRadius,
+    maxSpeed,
+    maxForce,
+    dotColor,
+    hoverColor,
+    fullHeight,
+  ]);
 
   if (!sketch) return null;
 

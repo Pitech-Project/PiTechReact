@@ -39,7 +39,7 @@ const Footer = () => {
         alignItems="center"
         marginBottom="44px"
       >
-        <Image src={FooterLogo} alt="Footer logo" layout="intrinsic" />
+        <Image src={FooterLogo} alt="Footer logo" />
         <ScrollToTopButton />
       </Stack>
 

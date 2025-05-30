@@ -6,7 +6,7 @@ import {
   LeftPanel,
   SubTypography,
 } from "@/styles/MUI/common.styled";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 
 const ServicesImgAnimation = dynamic(
@@ -22,7 +22,8 @@ export const CraftingSolutions = () => {
     >
       <LeftPanel>
         <Typography variant="body_1" display="block" color={"custom.white2"}>
-          Crafting solutions <br></br>for your unique needs <FullStop />
+          Crafting solutions <br></br>for your unique needs
+          <FullStop />
         </Typography>
 
         <SubTypography variant="Caption1" color="custom.white2" display="block">

@@ -10,8 +10,6 @@ const CaseStudiesImgAnimation: React.FC = () => {
       maxDotRadius={4}
       maxSpeed={15}
       maxForce={0.8}
-      dotColor="#fff"
-      hoverColor="#F7941E"
       fullHeight
     />
   );

@@ -26,7 +26,10 @@ export const Service = () => {
   return (
     <Stack>
       <OuterGrid container spacing={5} justifyContent={"space-between"}>
-        <Grid size={{ xs: 12, lg: 11, xl: 9 }} offset={{ xs: 0, lg: 1, xl: 2 }}>
+        <Grid
+          size={{ xs: 12, lg: 11, xl: 8.2 }}
+          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+        >
           <Grid container spacing={5}>
             <Grid size={{ xs: 12, md: 4 }}>
               <motion.div
@@ -43,7 +46,8 @@ export const Service = () => {
                   letterSpacing={"2.4px"}
                   textTransform={"uppercase"}
                 >
-                  SERVICES <SmallFullStop />
+                  SERVICES
+                  <SmallFullStop />
                 </Typography>
                 <Typography
                   color="custom.black"
@@ -95,7 +99,8 @@ export const Service = () => {
                             variant="body_3_600"
                             display={"block"}
                           >
-                            {industries.id} <TooSmallFullStop />
+                            {industries.id}
+                            <TooSmallFullStop />
                           </Typography>
                           <Typography
                             color="custom.black"

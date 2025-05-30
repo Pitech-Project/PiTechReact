@@ -15,11 +15,14 @@ import ArrowRightBlack from "../../common/SVGIcons/arrowRightBlack";
 
 export const ShipManagement = () => {
   const router = useRouter();
-  const isMdView = useMediaQuery(`(max-width:768px)`);
+  const isMdView = useMediaQuery(`(max-width:767px)`);
   return (
     <>
       <OuterGrid container spacing={5} justifyContent={"space-between"}>
-        <Grid size={{ xs: 12, lg: 11, xl: 9 }} offset={{ xs: 0, lg: 1, xl: 2 }}>
+        <Grid
+          size={{ xs: 12, lg: 11, xl: 8.2 }}
+          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+        >
           <Grid container spacing={10}>
             <Grid size={{ xs: 12, md: 6 }}>
               <motion.div
@@ -35,7 +38,8 @@ export const ShipManagement = () => {
                   textTransform={"uppercase"}
                   letterSpacing={"2.4px"}
                 >
-                  V.SHIPS | Ship Management <SmallFullStop />
+                  V.SHIPS | Ship Management
+                  <SmallFullStop />
                 </Typography>
                 <Typography
                   marginBottom={isMdView ? "32px" : "64px"}

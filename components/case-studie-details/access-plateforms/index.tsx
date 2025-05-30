@@ -7,11 +7,14 @@ import ShipManagementImg from "../../../public/assets/img/case-studies/mobile-le
 import { motion } from "framer-motion";
 
 export const AccessPlateforms = () => {
-  const isMdView = useMediaQuery(`(max-width:768px)`);
+  const isMdView = useMediaQuery(`(max-width:767px)`);
   return (
     <>
       <OuterGrid container spacing={5} justifyContent={"space-between"}>
-        <Grid size={{ xs: 12, lg: 11, xl: 9 }} offset={{ xs: 0, lg: 1, xl: 2 }}>
+        <Grid
+          size={{ xs: 12, lg: 11, xl: 8.2 }}
+          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+        >
           <Grid container spacing={5} alignItems={"center"}>
             <Grid size={{ xs: 12, md: 6 }}>
               <Box marginBottom={isMdView ? "52px" : "0"}>

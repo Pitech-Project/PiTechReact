@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -10,7 +12,7 @@ import img5 from "../../../public/assets/img/top-companies/logo-staples.png";
 import img6 from "../../../public/assets/img/top-companies/logo-taj.png";
 import img7 from "../../../public/assets/img/top-companies/logo-vtech.png";
 import img8 from "../../../public/assets/img/top-companies/logo-resources.png";
-import { Box, styled, Typography } from "@mui/material";
+import { Box, styled, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import { OuterSection, SmallFullStop } from "@/styles/MUI/common.styled";
 import { motion } from "framer-motion";
@@ -70,8 +72,20 @@ const CompaniesSlider: React.FC<Props> = ({ homeSlider }) => {
     ],
   };
 
+  const theme = useTheme();
+  const isMdView = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const BottomSpacing = () => {
+     if(homeSlider && isMdView){
+      return 12;
+    }
+    if(homeSlider){
+      return 25;
+    }
+    return 0;
+  }
   return (
-    <Box marginBottom={homeSlider ? 25 : 0}>
+    <Box marginBottom={BottomSpacing()}>
       {homeSlider && (
         <OuterSection textAlign={"center"}>
           <motion.div
@@ -88,7 +102,8 @@ const CompaniesSlider: React.FC<Props> = ({ homeSlider }) => {
               display={"block"}
               textTransform={"uppercase"}
             >
-              OUR CLIENTS <SmallFullStop />
+              OUR CLIENTS
+              <SmallFullStop />
             </Typography>
             <Typography
               color="custom.black"
@@ -114,7 +129,7 @@ const CompaniesSlider: React.FC<Props> = ({ homeSlider }) => {
                 },
               }}
             >
-              <Image src={src} alt={`Slide ${index + 1}`} layout="intrinsic" />
+              <Image src={src} alt={`Slide ${index + 1}`} />
             </Box>
           ))}
         </Slider>

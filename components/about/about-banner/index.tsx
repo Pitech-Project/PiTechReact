@@ -1,4 +1,4 @@
-
+"use client";
 
 import { Typography } from "@mui/material";
 import {
@@ -22,7 +22,8 @@ const AboutBanner = () => {
       >
         <LeftPanel>
           <Typography variant="body_1" display="block" color={"custom.white2"}>
-            Always keep it <br></br>simple <FullStop />
+            Always keep it <br></br>simple
+            <FullStop />
           </Typography>
 
           <SubTypography

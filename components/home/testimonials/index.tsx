@@ -100,7 +100,8 @@ const Testimonial: React.FC = () => {
               letterSpacing={"2.4px"}
               display={"block"}
             >
-              TESTIMONIALS <SmallFullStop />
+              TESTIMONIALS
+              <SmallFullStop />
             </Typography>
             <Typography
               color="custom.white2"
@@ -112,7 +113,7 @@ const Testimonial: React.FC = () => {
           </Stack>
         </motion.div>
         <PrevNext>
-          <Button sx={{ marginRight: "16px" }}>
+          <Button sx={{ marginRight: "16px !important" }}>
             <svg
               width="24"
               height="12"

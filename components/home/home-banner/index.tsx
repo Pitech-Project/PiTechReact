@@ -35,7 +35,8 @@ const HomeBanner = ({ transformup }: Props) => {
       >
         <LeftPanel>
           <Typography variant="body_1" display="block" color={"custom.white2"}>
-            Commitment to <br></br> customised solutions <FullStop />
+            Commitment to <br></br> customised solutions
+            <FullStop />
           </Typography>
 
           <SubTypography

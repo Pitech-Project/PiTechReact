@@ -23,7 +23,7 @@ const countData = [
 ];
 
 const Count = () => {
-  const isMdView = useMediaQuery("(max-width:768px)");
+  const isMdView = useMediaQuery("(max-width:767px)");
 
   return (
     <Stack flexDirection="row" justifyContent="center">

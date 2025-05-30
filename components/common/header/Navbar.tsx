@@ -1,15 +1,19 @@
 "use client";
+import NextLink from "next/link";
 import React, { useState } from "react";
 import { HoveredLink } from "./navbar-menu";
 import {
   Box,
   IconButton,
+  Link,
   Slide,
   Stack,
   Toolbar,
   useMediaQuery,
   useScrollTrigger,
   useTheme,
+  Link as MuiLink,
+  Button,
 } from "@mui/material";
 import Image from "next/image";
 import {
@@ -22,6 +26,7 @@ import PiLogoMobile from "../../../public/assets/img/logo-mobileview.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import { usePathname } from "next/navigation";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
+import { useRouter } from "next/navigation";
 
 interface Props {
   window?: () => Window;
@@ -39,6 +44,8 @@ function HideOnScroll({ children, window }: Props) {
 }
 
 export function NavbarComponent(props: Props) {
+  const router = useRouter();
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => setMobileOpen((prev) => !prev);
 
@@ -62,8 +69,17 @@ export function NavbarComponent(props: Props) {
     );
   };
 
-  if (!shouldShowHeader) return null;
+  const handleLinkClick = async (href: string) => {
+    setMobileOpen(false); // Close drawer
 
+    if (pathname === href) {
+      router.replace(href); // Force reload if same page
+    } else {
+      router.push(href);
+    }
+  };
+
+  if (!shouldShowHeader) return null;
   return (
     <HideOnScroll {...props}>
       <AppBarStyled
@@ -88,11 +104,7 @@ export function NavbarComponent(props: Props) {
       >
         <Toolbar sx={{ width: "100%", justifyContent: "space-between", p: 0 }}>
           <HoveredLink className={isActivePath("/") ? "active" : ""} href="/">
-            <Image
-              src={isMobileView ? PiLogoMobile : PiLogo}
-              alt="logo"
-              layout="intrinsic"
-            />
+            <Image src={isMobileView ? PiLogoMobile : PiLogo} alt="logo" />
           </HoveredLink>
 
           <Box
@@ -150,8 +162,18 @@ export function NavbarComponent(props: Props) {
               alignItems="center"
               justifyContent="space-between"
             >
-              <Image src={isMobileView ? PiLogoMobile : PiLogo} alt="logo" />
-              <IconButton onClick={handleDrawerToggle}>
+              <NextLink href="/" passHref>
+                <Button onClick={() => handleLinkClick("/")}>
+                  <Image
+                    src={isMobileView ? PiLogoMobile : PiLogo}
+                    alt="logo"
+                  />
+                </Button>
+              </NextLink>
+              <IconButton
+                onClick={handleDrawerToggle}
+                sx={{ color: "custom.white1" }}
+              >
                 <ClearOutlinedIcon />
               </IconButton>
             </Stack>
@@ -163,14 +185,21 @@ export function NavbarComponent(props: Props) {
             ].map(({ label, path }) => (
               <HoveredLink
                 key={path}
-                onClick={handleDrawerToggle}
+                onClick={() => handleLinkClick(path)}
                 className={isActivePath(path) ? "active" : ""}
                 href={path}
               >
                 {label}
               </HoveredLink>
             ))}
-            <Box width="fit-content">
+            <Box
+              width={isMobileView ? "100%" : "fit-content"}
+              sx={{
+                "& a": {
+                  justifyContent: isMobileView ? "center" : "flex-start",
+                },
+              }}
+            >
               <OutlineBtnYellow href="/contact">GET IN TOUCH</OutlineBtnYellow>
             </Box>
           </DrawerUI>

@@ -1,10 +1,11 @@
 "use client";
 
-import { Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import {
   BusinessOffice,
   FullStop,
   LeftPanel,
+  OverlayTypography,
   SubTypography,
 } from "@/styles/MUI/common.styled";
 import dynamic from "next/dynamic";
@@ -12,7 +13,13 @@ import dynamic from "next/dynamic";
 const CareerImgAnimation = dynamic(() => import("../career-img-animation"), {
   ssr: false,
 });
+
+
 export const CareersBanner = () => {
+
+   const theme = useTheme();
+  const isSmallDesktopView = useMediaQuery(theme.breakpoints.down("lg"));
+  
   return (
     <BusinessOffice
       bgcolor={"custom.black"}
@@ -20,10 +27,14 @@ export const CareersBanner = () => {
       alignItems="center"
     >
       <LeftPanel>
-        <Typography variant="body_1" display="block" color={"custom.white2"}>
-          Looking for motivated, bright <br />& passionate individuals{" "}
+        <OverlayTypography
+          variant="body_1"
+          display="block"
+          color={"custom.white2"}
+        >
+          Looking for motivated, bright <br style={{display: isSmallDesktopView ? "none" : 'inline-block'}} />& passionate individuals
           <FullStop />
-        </Typography>
+        </OverlayTypography>
 
         <SubTypography variant="Caption1" color="custom.white2" display="block">
           Pi is full of challenges, learning and successful smiles. <br></br>

@@ -9,6 +9,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   AccordionTitle,
   AccordionUI,
+  OuterGrid,
   OuterSection,
   OutlineBtn,
   SmallFullStop,
@@ -48,7 +49,8 @@ const AccordionSection = ({
                 fontWeight={700}
                 marginRight={1}
               >
-                {index + 1} <TooSmallFullStop />
+                {index + 1}
+                <TooSmallFullStop />
               </Typography>
               <Typography variant="body_3" color="custom.black1">
                 {text}
@@ -71,32 +73,41 @@ export default function JobDetail() {
   );
 
   return (
-    <OuterSection sx={{ paddingBottom: 0, gap: 0 }}>
-      <OutlineBtn className="backarrow" onClick={() => router.push("/careers")}>
-        <ArrowRightBlack /> Back to List
-      </OutlineBtn>
-
-      <Typography
-        margin={"40px 0 30px"}
-        color="custom.black"
-        variant="body_6"
-        display="block"
+    <OuterGrid container spacing={5} justifyContent={"space-between"}>
+      <Grid
+        size={{ xs: 12, lg: 11, xl: 8.2 }}
+        offset={{ xs: 0, lg: 1, xl: 2.3 }}
       >
-        {title} <SmallFullStop />
-      </Typography>
+        <OutlineBtn
+          className="backarrow"
+          onClick={() => router.push("/careers")}
+        >
+          <ArrowRightBlack /> Back to List
+        </OutlineBtn>
 
-      <AccordionUI>
-        <AccordionSection
-          title="Qualifications"
-          items={EXPERIENCE_REQUIREMENTS}
-          defaultExpanded
-        />
-        <AccordionSection
-          title="Key Responsibilities"
-          items={KEY_RESPONSIBILITIES}
-        />
-        <AccordionSection title="Good to have" items={GOOD_TO_HAVE} />
-      </AccordionUI>
-    </OuterSection>
+        <Typography
+          margin={"40px 0 30px"}
+          color="custom.black"
+          variant="body_6"
+          display="block"
+        >
+          {title}
+          <SmallFullStop />
+        </Typography>
+
+        <AccordionUI>
+          <AccordionSection
+            title="Qualifications"
+            items={EXPERIENCE_REQUIREMENTS}
+            defaultExpanded
+          />
+          <AccordionSection
+            title="Key Responsibilities"
+            items={KEY_RESPONSIBILITIES}
+          />
+          <AccordionSection title="Good to have" items={GOOD_TO_HAVE} />
+        </AccordionUI>
+      </Grid>
+    </OuterGrid>
   );
 }

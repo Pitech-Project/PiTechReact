@@ -1,15 +1,16 @@
+"use client";
+
 import { Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import {
   Infromation,
   OurTeamGrid,
-  OuterSection,
+  OuterGrid,
   SmallFullStop,
   SubTitlemarginBottom,
 } from "@/styles/MUI/common.styled";
 import { motion } from "framer-motion";
 
-// Store just the image paths
 const industries = [
   {
     id: 1,
@@ -52,67 +53,73 @@ const industries = [
 const OurTeam = () => {
   return (
     <Stack>
-      <OuterSection sx={{ gap: 0 }}>
-        <SubTitlemarginBottom>
-          <Typography
-            color="custom.black"
-            variant="body_4_600"
-            marginBottom={2}
-            display={"block"}
-          >
-            OUR TEAM <SmallFullStop />
-          </Typography>
-          <Typography color="custom.black" variant="body_6" display={"block"}>
-            Team of highly qualified leaders
-          </Typography>
-        </SubTitlemarginBottom>
-        <Grid container spacing={2}>
-          {industries.map((industry) => (
-            <Grid size={{ xs: 12, md: 4 }} key={industry.id}>
-              <OurTeamGrid>
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
-                  <Image
-                    className="bgImg"
-                    src={industry.image}
-                    alt={industry.name}
-                    width={400}
-                    height={300}
-                  />
-                  <Infromation
-                    flexDirection={"row"}
-                    alignItems={"flex-start"}
-                    gap={2}
+      <OuterGrid container spacing={2}>
+        <Grid
+          size={{ xs: 12, lg: 11, xl: 8 }}
+          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+        >
+          <SubTitlemarginBottom>
+            <Typography
+              color="custom.black"
+              variant="body_4_600"
+              marginBottom={2}
+              display={"block"}
+            >
+              OUR TEAM
+              <SmallFullStop />
+            </Typography>
+            <Typography color="custom.black" variant="body_6" display={"block"}>
+              Team of highly qualified leaders
+            </Typography>
+          </SubTitlemarginBottom>
+          <Grid container spacing={2}>
+            {industries.map((industry) => (
+              <Grid size={{ xs: 12, md: 4 }} key={industry.id}>
+                <OurTeamGrid>
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
                   >
-                    <Stack>
-                      <Typography
-                        color="custom.white2"
-                        variant="Caption"
-                        display={"block"}
-                      >
-                        {industry.name}
-                      </Typography>
-                      <Typography
-                        className="designation"
-                        fontSize={"20px"}
-                        color="custom.white3"
-                        variant="body_3_400"
-                        display={"block"}
-                      >
-                        {industry.designation}
-                      </Typography>
-                    </Stack>
-                  </Infromation>
-                </motion.div>
-              </OurTeamGrid>
-            </Grid>
-          ))}
+                    <Image
+                      className="bgImg"
+                      src={industry.image}
+                      alt={industry.name}
+                      width={400}
+                      height={300}
+                    />
+                    <Infromation
+                      flexDirection={"row"}
+                      alignItems={"flex-start"}
+                      gap={2}
+                    >
+                      <Stack>
+                        <Typography
+                          color="custom.white2"
+                          variant="Caption"
+                          display={"block"}
+                        >
+                          {industry.name}
+                        </Typography>
+                        <Typography
+                          className="designation"
+                          fontSize={"20px"}
+                          color="custom.white3"
+                          variant="body_3_400"
+                          display={"block"}
+                        >
+                          {industry.designation}
+                        </Typography>
+                      </Stack>
+                    </Infromation>
+                  </motion.div>
+                </OurTeamGrid>
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
-      </OuterSection>
+      </OuterGrid>
     </Stack>
   );
 };

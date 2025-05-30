@@ -5,11 +5,14 @@ import { OuterGrid } from "@/styles/MUI/common.styled";
 import { motion } from "framer-motion";
 
 export const Challenges = () => {
-  const isMdView = useMediaQuery(`(max-width:768px)`);
+  const isMdView = useMediaQuery(`(max-width:767px)`);
   return (
     <Box bgcolor={"custom.black"}>
       <OuterGrid container spacing={5} justifyContent={"space-between"}>
-        <Grid size={{ xs: 12, lg: 11, xl: 9 }} offset={{ xs: 0, lg: 1, xl: 2 }}>
+        <Grid
+          size={{ xs: 12, lg: 11, xl: 8.2 }}
+          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+        >
           <Grid container spacing={5}>
             <Grid size={{ xs: 12, md: 6 }}>
               <Box>
