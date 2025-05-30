@@ -9,10 +9,10 @@ import { FeaturesOfProject } from "@/components/case-studie-details/Features-of-
 export default function Page() {
   return (
     <>
-        <AlwaysKeepSimple />
-        <AccessPlateforms />
-        <Challenges />
-        <FeaturesOfProject />
+      <AlwaysKeepSimple />
+      <AccessPlateforms />
+      <Challenges />
+      <FeaturesOfProject />
     </>
   );
 }

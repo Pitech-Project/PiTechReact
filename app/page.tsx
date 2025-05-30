@@ -13,19 +13,19 @@ import HomeBanner from "@/components/home/home-banner";
 export default function Home() {
   const transformup = true;
   return (
-      <Box bgcolor={"custom.bgcolor"}>
-        <HomeBanner transformup={transformup} />
-        <Count />
-        <WhoWeAre
-          title={"who we are "}
-          buttondisplay={true}
-          aboutus={false}
-          transformup={transformup}
-        />
-        <Services transformup={transformup} />
-        <OurWorkCarousel />
-        <SmoothTextSlider homeSlider={true} />
-        <Testimonial />
-      </Box>
+    <Box bgcolor={"custom.bgcolor"}>
+      <HomeBanner transformup={transformup} />
+      <Count />
+      <WhoWeAre
+        title={"who we are"}
+        buttondisplay={true}
+        aboutus={false}
+        transformup={transformup}
+      />
+      <Services transformup={transformup} />
+      <OurWorkCarousel />
+      <SmoothTextSlider homeSlider={true} />
+      <Testimonial />
+    </Box>
   );
 }

@@ -11,12 +11,12 @@ import OurTeam from "@/components/about/our-team";
 export default function Page() {
   return (
     <>
-        <AboutBanner />
-        <WhoWeAre title={"ABOUT US "} buttondisplay={false} aboutus={true} />
-        <KeyIndustries />
-        <OurProcess />
-        <WhyPI />
-        <OurTeam />
+      <AboutBanner />
+      <WhoWeAre title={"ABOUT US "} buttondisplay={false} aboutus={true} />
+      <KeyIndustries />
+      <OurProcess />
+      <WhyPI />
+      <OurTeam />
     </>
   );
 }

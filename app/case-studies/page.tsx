@@ -8,9 +8,9 @@ import "@/styles/global/globals.css";
 export default function Page() {
   return (
     <>
-        <AlwaysKeepSimple />
-        <ShipManagement />
-        <ShipManagement2 />
+      <AlwaysKeepSimple />
+      <ShipManagement />
+      <ShipManagement2 />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
 
-const uri = "mongodb://localhost:27017";
+const uri = "mongodb+srv://karanshah:M9xRIP7Cg2YaUVr3@pitech.m2larp0.mongodb.net/?retryWrites=true&w=majority&appName=pitech";
 const client = new MongoClient(uri);
 
 export async function POST(req: Request) {

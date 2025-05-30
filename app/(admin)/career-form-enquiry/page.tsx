@@ -1,66 +1,90 @@
-/* eslint-disable no-undef */
 "use client";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { Paper, Skeleton, TableContainer } from "@mui/material";
+import {
+  Paper,
+  Skeleton,
+  TableContainer,
+  IconButton,
+  Tooltip,
+} from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { useEffect, useState } from "react";
 import TableSkeleton from "../skeleton/tableSkeleton";
+import DownloadIcon from "@mui/icons-material/Download";
 
 const paginationModel = { page: 0, pageSize: 5 };
 
 export default function Page() {
   const [loading, setLoading] = useState(true);
   const [submissions, setSubmissions] = useState<any[]>([]);
+  const [columns, setColumns] = useState<GridColDef[]>([]);
 
   const fetchSubmissions = async () => {
     try {
       const res = await fetch(`/api/get-submissions?type=career`);
       if (!res.ok) throw new Error("Failed to fetch submissions");
       const data = await res.json();
-      setSubmissions(data);
-      setLoading(false);
+
+      const dynamicColumns: GridColDef[] = Object.keys(data[0] || {})
+        .filter((key) => key !== "id" && key !== "_id" && key !== "resume") // ⬅️ now also excludes _id
+
+        .map((key) => ({
+          field: key,
+          headerName: key
+            .replace(/([A-Z])/g, " $1")
+            .replace(/^./, (str) => str.toUpperCase()),
+          flex: 1,
+          filterable: true,
+        }));
+
+      // Add Sr. No and Resume columns
+      setColumns([
+        { field: "srNo", headerName: "Sr. No.", flex: 0.5, filterable: true },
+        ...dynamicColumns,
+        {
+          field: "resume",
+          headerName: "Resume (PDF)",
+          flex: 0.7,
+          sortable: false,
+          filterable: true,
+          renderCell: (params) =>
+            params.value ? (
+              <Tooltip title="Download Resume">
+                <IconButton
+                  component="a"
+                  href={params.value}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <DownloadIcon color="primary" />
+                </IconButton>
+              </Tooltip>
+            ) : (
+              "N/A"
+            ),
+        },
+      ]);
+
+      const rowsWithSrNo = data.map((row: any, i: number) => ({
+        ...row,
+        srNo: i + 1,
+        id: row.id || `${i}`, // Required internally by DataGrid, but won't be shown
+      }));
+
+      setSubmissions(rowsWithSrNo);
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchSubmissions();
   }, []);
-
-  const rowsWithSrNo = submissions.map((row, i) => ({
-    ...row,
-    id: row.id || i.toString(), // Ensure each row has a unique ID
-    srNo: i + 1, // Add serial number starting from 1
-  }));
-
-  const columns: GridColDef[] = [
-    { field: "srNo", headerName: "Sr. No.", flex: 1, filterable: false },
-    { field: "name", headerName: "Name", flex: 1, filterable: false },
-    { field: "lastname", headerName: "Last Name", flex: 1, filterable: false },
-    { field: "email", headerName: "Email", flex: 1.5, filterable: false },
-    {
-      field: "contactnumber",
-      headerName: "Contact Number",
-      flex: 1,
-      filterable: false,
-    },
-    { field: "message", headerName: "Message", flex: 2, filterable: false },
-    {
-      field: "appliedFor",
-      headerName: "Applied For",
-      flex: 2,
-      filterable: true,
-    },
-    {
-      field: "appliedon",
-      headerName: "Applied On",
-      flex: 2,
-      filterable: false,
-    },
-  ];
 
   return (
     <Box>
@@ -81,7 +105,7 @@ export default function Page() {
           ) : (
             <TableContainer sx={{ height: "calc(100vh - 155px)" }}>
               <DataGrid
-                rows={rowsWithSrNo}
+                rows={submissions}
                 columns={columns}
                 initialState={{
                   sorting: {

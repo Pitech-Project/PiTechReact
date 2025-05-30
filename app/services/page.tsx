@@ -9,10 +9,10 @@ import ServicesSolution from "@/components/Services/Service-solutions";
 export default function Page() {
   return (
     <>
-        <CraftingSolutions />
-        <Service />
-        <SmoothTextSlider homeSlider={false} />
-        <ServicesSolution />
+      <CraftingSolutions />
+      <Service />
+      <SmoothTextSlider homeSlider={false} />
+      <ServicesSolution />
     </>
   );
 }

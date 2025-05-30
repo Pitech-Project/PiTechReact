@@ -10,16 +10,16 @@ export default function AdminLayout({
   return (
     <html lang="en">
       <body>
-          <Box component="main">
-            <Box
-              sx={{
-                mt: { xs: 8, md: 0 },
-              }}
-            >
-              <Header />
-              {children}
-            </Box>
+        <Box component="main">
+          <Box
+            sx={{
+              mt: { xs: 8, md: 0 },
+            }}
+          >
+            <Header />
+            {children}
           </Box>
+        </Box>
       </body>
     </html>
   );
