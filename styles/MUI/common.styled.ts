@@ -865,7 +865,7 @@ export const LeftPanel = styled(Box)(() => ({
   width: "100%",
   position: "absolute",
   paddingLeft: "80px",
-  bottom: "50px",
+  bottom: "80px",
   left: "50px",
   "& .leftPanel": {
     width: "100%",
@@ -1256,6 +1256,8 @@ export const AttachedFile = styled(Box)(({ theme }) => ({
   color: theme.palette.custom?.white1,
   padding: "8px 24px",
   borderRadius: "100px",
+  display: 'flex',
+  alignItems: 'center'
 }));
 
 export const DrawerUI = styled(Drawer)(({ theme }) => ({
@@ -1324,6 +1326,9 @@ export const BannerBox = styled(Box)(() => ({
 export const CustomLinearProgress = styled(LinearProgress)(({ theme }) => ({
   backgroundColor: "transparent",
   height: 5,
+  position: 'absolute',
+  bottom: '0',
+  width: '100%',
   "& .MuiLinearProgress-bar1": {
     backgroundColor: theme.palette.custom?.orange_600,
   },

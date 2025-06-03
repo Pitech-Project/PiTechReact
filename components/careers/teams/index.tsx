@@ -37,13 +37,13 @@ const Teams: React.FC = () => {
       {
         breakpoint: 1921,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3.5,
         },
       },
       {
         breakpoint: 1536,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3.5,
         },
       },
       {

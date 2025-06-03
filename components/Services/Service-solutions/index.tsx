@@ -87,11 +87,11 @@ const ServicesSolution = () => {
             >
               <Stack
                 flexDirection={isMdView ? "column" : "row"}
-                alignItems={"center"}
+                alignItems={isMdView ? "flex-start" : "center"}
                 justifyContent={"space-between"}
                 sx={{
                   marginTop: "96px",
-                  "dotlottie-player": { width: "225px !important" },
+                  "dotlottie-player": { width: isMdView ? "150px !important" : "225px !important" },
                 }}
                 className="mt--0"
               >

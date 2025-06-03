@@ -128,8 +128,8 @@ const breakpoints = {
   sm: "767px",
 };
 
-const body_3_400 = {
-  fontWeight: 400,
+const body_3 = {
+  fontWeight: 500,
   fontSize: "24px",
   lineHeight: "36px",
   letterSpacing: "0.15px",
@@ -140,10 +140,6 @@ const body_3_400 = {
   [`@media (max-width: ${breakpoints.md})`]: {
     fontSize: "18px",
     lineHeight: "29px",
-  },
-  [`@media (max-width: ${breakpoints.md})`]: {
-    fontSize: "16px",
-    lineHeight: "24px",
   },
 };
 
@@ -213,16 +209,14 @@ const typography: ThemeOptions["typography"] = {
     ...body_2,
     fontWeight: 500,
   },
-  body_3: {
-    fontWeight: 500,
-    fontSize: "24px",
-    lineHeight: "36px",
-    letterSpacing: "0.15px",
-  },
-  body_3_400,
+  body_3,
   body_3_600: {
-    ...body_3_400,
+    ...body_3,
     fontWeight: 600,
+  },
+  body_3_400: {
+    ...body_3,
+    fontWeight: 400,
   },
   body_4,
   body_4_400: {
@@ -313,8 +307,8 @@ const typography: ThemeOptions["typography"] = {
   },
   Caption1: {
     fontWeight: 400,
-    fontSize: "40px",
-    lineHeight: "52px",
+    fontSize: "31px",
+    lineHeight: "40px",
     letterSpacing: "0.15px",
     [`@media (max-width: ${breakpoints.smallDesktop})`]: {
       fontSize: "26px",

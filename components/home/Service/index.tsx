@@ -1,6 +1,6 @@
 "use client";
 
-import { Grid, Stack, Typography } from "@mui/material";
+import { Grid, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import {
   OuterGrid,
   OutlineBtn,
@@ -23,6 +23,8 @@ const industries = [
 
 export const Service = () => {
   const router = useRouter();
+  const theme = useTheme();
+  const isMdView = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Stack>
       <OuterGrid container spacing={5} justifyContent={"space-between"}>
@@ -69,7 +71,6 @@ export const Service = () => {
                 <Stack gap={8}>
                   <Typography
                     color="custom.black"
-                    margin={"16px 0 0"}
                     display={"block"}
                     variant="body_3"
                   >
@@ -87,7 +88,7 @@ export const Service = () => {
                     justifyContent="space-between"
                   >
                     {industries.map((industries) => (
-                      <Stack width="calc(50% - 20px )" key={industries.id}>
+                      <Stack width={isMdView ? "100%" : "calc(50% - 20px )"} key={industries.id}>
                         <Stack
                           flexDirection={"row"}
                           alignItems={"baseline"}

@@ -10,7 +10,6 @@ import {
   AccordionTitle,
   AccordionUI,
   OuterGrid,
-  OuterSection,
   OutlineBtn,
   SmallFullStop,
   TooSmallFullStop,

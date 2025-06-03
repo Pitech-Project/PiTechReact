@@ -43,7 +43,7 @@ export default function Preloader() {
       clearInterval(interval);
 
       const current = progress;
-      const duration = 400;
+      const duration = 4000000;
       const stepTime = 20;
       const steps = Math.ceil(duration / stepTime);
       const increment = (100 - current) / steps;
@@ -92,6 +92,18 @@ export default function Preloader() {
         4: ["exp-200 par"],
         5: ["exp-40 div"],
         6: ["exp-40 div"],
+        7: ["exp-40 div", "exp-70 class-name", "exp-110 class", "exp-70 class"],
+        8: ["exp-40 div", "exp-70 class-name", "exp-90 class"],
+        9: ["exp-300 par"],
+        10: ["exp-200 par"],
+        11: ["exp-40 div"],
+        12: ["exp-40 div"],
+        13: ["exp-40 div", "exp-70 class-name", "exp-110 class", "exp-70 class"],
+        14: ["exp-40 div", "exp-70 class-name", "exp-90 class"],
+        15: ["exp-300 par"],
+        16: ["exp-200 par"],
+        17: ["exp-40 div"],
+        18: ["exp-40 div"],
       },
       2: {
         1: ["div", "class-name", "class", "class"],
@@ -100,6 +112,7 @@ export default function Preloader() {
         4: ["par"],
         5: ["div"],
         6: ["div"],
+        
       },
     };
     return config[group][line] || [];
@@ -108,7 +121,7 @@ export default function Preloader() {
   if (showFullLoader) {
     return (
       <LoaderWrapper>
-        <Box sx={{ width: "100%", position: "absolute", bottom: 0 }}>
+        <Box>
           <CustomLinearProgress variant="determinate" value={progress} />
           <CountTypography>{`${Math.round(progress)}%`}</CountTypography>
           <Box className="skeleton-container">
@@ -119,8 +132,9 @@ export default function Preloader() {
                 display="flex"
                 flexDirection="column"
                 gap={1}
+                height={'50%'}
               >
-                {[1, 2, 3, 4, 5, 6].map((line) => (
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map((line) => (
                   <Box
                     key={line}
                     className={`line line${line}`}
