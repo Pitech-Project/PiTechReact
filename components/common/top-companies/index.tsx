@@ -12,7 +12,13 @@ import img5 from "../../../public/assets/img/top-companies/logo-staples.png";
 import img6 from "../../../public/assets/img/top-companies/logo-taj.png";
 import img7 from "../../../public/assets/img/top-companies/logo-vtech.png";
 import img8 from "../../../public/assets/img/top-companies/logo-resources.png";
-import { Box, styled, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Box,
+  styled,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import Image from "next/image";
 import { OuterSection, SmallFullStop } from "@/styles/MUI/common.styled";
 import { motion } from "framer-motion";
@@ -76,14 +82,14 @@ const CompaniesSlider: React.FC<Props> = ({ homeSlider }) => {
   const isMdView = useMediaQuery(theme.breakpoints.down("sm"));
 
   const BottomSpacing = () => {
-     if(homeSlider && isMdView){
+    if (homeSlider && isMdView) {
       return 12;
     }
-    if(homeSlider){
+    if (homeSlider) {
       return 25;
     }
     return 0;
-  }
+  };
   return (
     <Box marginBottom={BottomSpacing()}>
       {homeSlider && (

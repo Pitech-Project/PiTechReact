@@ -1,6 +1,12 @@
 "use client";
 
-import { Grid, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import {
   OuterGrid,
   OutlineBtn,
@@ -88,7 +94,10 @@ export const Service = () => {
                     justifyContent="space-between"
                   >
                     {industries.map((industries) => (
-                      <Stack width={isMdView ? "100%" : "calc(50% - 20px )"} key={industries.id}>
+                      <Stack
+                        width={isMdView ? "100%" : "calc(50% - 20px )"}
+                        key={industries.id}
+                      >
                         <Stack
                           flexDirection={"row"}
                           alignItems={"baseline"}

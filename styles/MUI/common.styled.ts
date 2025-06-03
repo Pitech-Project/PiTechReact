@@ -557,13 +557,13 @@ export const OwlCarouselStyled = styled(Stack)(({ theme }) => ({
       transform: "scale(1)",
       opacity: "1",
     },
-      "& .swiper-slide-next .MuiTypography-root": {
-    fontSize: "16px",
-    lineHeight: "28px",
-  },
+    "& .swiper-slide-next .MuiTypography-root": {
+      fontSize: "16px",
+      lineHeight: "28px",
+    },
     "& .testimonial-boxUI": {
       margin: "0 20px",
-        padding: "20px 12px",
+      padding: "20px 12px",
     },
   },
 }));
@@ -1256,8 +1256,8 @@ export const AttachedFile = styled(Box)(({ theme }) => ({
   color: theme.palette.custom?.white1,
   padding: "8px 24px",
   borderRadius: "100px",
-  display: 'flex',
-  alignItems: 'center'
+  display: "flex",
+  alignItems: "center",
 }));
 
 export const DrawerUI = styled(Drawer)(({ theme }) => ({
@@ -1326,9 +1326,9 @@ export const BannerBox = styled(Box)(() => ({
 export const CustomLinearProgress = styled(LinearProgress)(({ theme }) => ({
   backgroundColor: "transparent",
   height: 5,
-  position: 'absolute',
-  bottom: '0',
-  width: '100%',
+  position: "absolute",
+  bottom: "0",
+  width: "100%",
   "& .MuiLinearProgress-bar1": {
     backgroundColor: theme.palette.custom?.orange_600,
   },
@@ -1396,7 +1396,7 @@ export const OverlayTypography = styled(Typography)(() => ({
     width: "100%",
     zIndex: -1,
   },
-    [`@media (max-width: ${breakpoints.tabletView})`]: {
-   width: "auto",
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    width: "auto",
   },
 }));

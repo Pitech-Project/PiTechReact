@@ -74,7 +74,7 @@ export default function OurWorkCarousel() {
           sx={{ position: "relative" }}
         >
           <SubTitlemarginBottom
-            flexDirection={isMdView ? "column" :"row"}
+            flexDirection={isMdView ? "column" : "row"}
             alignItems={"end"}
             justifyContent={"space-between"}
             sx={{ marginRight: { sm: "16px", md: "80px" } }}
@@ -106,7 +106,11 @@ export default function OurWorkCarousel() {
                 </Typography>
               </Stack>
             </motion.div>
-            <PrevNext className="OurWorkPrevNext" justifyContent={isMdView ? "flex-end" : 'space-between'} marginTop={isMdView? "24px" : '0'}>
+            <PrevNext
+              className="OurWorkPrevNext"
+              justifyContent={isMdView ? "flex-end" : "space-between"}
+              marginTop={isMdView ? "24px" : "0"}
+            >
               <Button className="swiper-button-prev">
                 <svg
                   width="24"

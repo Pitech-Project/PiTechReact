@@ -1,6 +1,13 @@
 "use client";
 
-import { Box, Grid, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import {
   OuterGrid,
   OuterGrid1,
@@ -41,7 +48,7 @@ export const featuresPorject = [
 export const FeaturesOfProject = () => {
   const theme = useTheme();
   const isMdView = useMediaQuery(`(max-width:767px)`);
-    const isIpadView = useMediaQuery(theme.breakpoints.down("md"));
+  const isIpadView = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box>
       <OuterGrid1 container spacing={5} justifyContent={"space-between"}>
@@ -70,7 +77,10 @@ export const FeaturesOfProject = () => {
               <br></br> individuals and home offices.
             </SubTitlemarginBottom1>
           </Box>
-          <Stack flexDirection={isMdView ? "column" : "row"} gap={isMdView ? 5 : 3}>
+          <Stack
+            flexDirection={isMdView ? "column" : "row"}
+            gap={isMdView ? 5 : 3}
+          >
             {featuresPorject.map((featuresPorject) => (
               <Stack key={featuresPorject.id} textAlign={"center"}>
                 <Box display={"flex"} justifyContent={"center"}>

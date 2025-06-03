@@ -14,12 +14,10 @@ const CareerImgAnimation = dynamic(() => import("../career-img-animation"), {
   ssr: false,
 });
 
-
 export const CareersBanner = () => {
-
-   const theme = useTheme();
+  const theme = useTheme();
   const isSmallDesktopView = useMediaQuery(theme.breakpoints.down("lg"));
-  
+
   return (
     <BusinessOffice
       bgcolor={"custom.black"}
@@ -32,7 +30,11 @@ export const CareersBanner = () => {
           display="block"
           color={"custom.white2"}
         >
-          Looking for motivated, bright <br style={{display: isSmallDesktopView ? "none" : 'inline-block'}} />& passionate individuals
+          Looking for motivated, bright{" "}
+          <br
+            style={{ display: isSmallDesktopView ? "none" : "inline-block" }}
+          />
+          & passionate individuals
           <FullStop />
         </OverlayTypography>
 

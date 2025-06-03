@@ -91,7 +91,9 @@ const ServicesSolution = () => {
                 justifyContent={"space-between"}
                 sx={{
                   marginTop: "96px",
-                  "dotlottie-player": { width: isMdView ? "150px !important" : "225px !important" },
+                  "dotlottie-player": {
+                    width: isMdView ? "150px !important" : "225px !important",
+                  },
                 }}
                 className="mt--0"
               >

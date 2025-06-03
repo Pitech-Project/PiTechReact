@@ -98,7 +98,12 @@ export default function Preloader() {
         10: ["exp-200 par"],
         11: ["exp-40 div"],
         12: ["exp-40 div"],
-        13: ["exp-40 div", "exp-70 class-name", "exp-110 class", "exp-70 class"],
+        13: [
+          "exp-40 div",
+          "exp-70 class-name",
+          "exp-110 class",
+          "exp-70 class",
+        ],
         14: ["exp-40 div", "exp-70 class-name", "exp-90 class"],
         15: ["exp-300 par"],
         16: ["exp-200 par"],
@@ -112,7 +117,6 @@ export default function Preloader() {
         4: ["par"],
         5: ["div"],
         6: ["div"],
-        
       },
     };
     return config[group][line] || [];
@@ -132,9 +136,11 @@ export default function Preloader() {
                 display="flex"
                 flexDirection="column"
                 gap={1}
-                height={'50%'}
+                height={"50%"}
               >
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map((line) => (
+                {[
+                  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+                ].map((line) => (
                   <Box
                     key={line}
                     className={`line line${line}`}
