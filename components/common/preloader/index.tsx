@@ -43,7 +43,7 @@ export default function Preloader() {
       clearInterval(interval);
 
       const current = progress;
-      const duration = 4000000;
+      const duration = 400;
       const stepTime = 20;
       const steps = Math.ceil(duration / stepTime);
       const increment = (100 - current) / steps;
