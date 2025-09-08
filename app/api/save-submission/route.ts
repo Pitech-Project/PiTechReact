@@ -8,8 +8,16 @@ const uri =
 
 const client = new MongoClient(uri);
 
-const submissionsFilePath = path.join(process.cwd(), "data", "submissions.json");
-const careerSubmissionsFilePath = path.join(process.cwd(), "data", "careerSubmission.json");
+const submissionsFilePath = path.join(
+  process.cwd(),
+  "data",
+  "submissions.json",
+);
+const careerSubmissionsFilePath = path.join(
+  process.cwd(),
+  "data",
+  "careerSubmission.json",
+);
 
 interface FormData {
   name: string;
@@ -50,7 +58,9 @@ export async function POST(req: Request) {
         const fileContents = await fs.readFile(filePath, "utf-8");
         existing = JSON.parse(fileContents);
       } catch (err) {
-        console.warn(`[WARN] No local file found for ${type} submissions. Creating a new one.`);
+        console.warn(
+          `[WARN] No local file found for ${type} submissions. Creating a new one.`,
+        );
       }
 
       existing.push(data);

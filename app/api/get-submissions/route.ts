@@ -3,7 +3,8 @@ import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
 
-const uri = "mongodb+srv://karanshah:M9xRIP7Cg2YaUVr3@pitech.m2larp0.mongodb.net/?retryWrites=true&w=majority&appName=pitech";
+const uri =
+  "mongodb+srv://karanshah:M9xRIP7Cg2YaUVr3@pitech.m2larp0.mongodb.net/?retryWrites=true&w=majority&appName=pitech";
 const client = new MongoClient(uri);
 
 const submissionsFilePath = path.join(
@@ -36,6 +37,7 @@ export async function GET(req: Request) {
     await client.connect();
 
     const db = client.db("pitechdb");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let submissions: any[] = [];
 
     const collectionName =

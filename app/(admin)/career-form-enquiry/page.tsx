@@ -18,6 +18,7 @@ const paginationModel = { page: 0, pageSize: 5 };
 
 export default function Page() {
   const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [submissions, setSubmissions] = useState<any[]>([]);
   const [columns, setColumns] = useState<GridColDef[]>([]);
 
@@ -68,6 +69,7 @@ export default function Page() {
         },
       ]);
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const rowsWithSrNo = data.map((row: any, i: number) => ({
         ...row,
         srNo: i + 1,

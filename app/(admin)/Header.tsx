@@ -42,6 +42,7 @@ export default function Header() {
     router.refresh();
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [active, setActive] = useState("/");
 
   const pathname = usePathname();
