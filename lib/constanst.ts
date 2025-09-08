@@ -1,6 +1,10 @@
 "use client";
 
 import type { FormData } from "@/components/careers/career-form";
+import casestudy1 from "@/public/assets/img/case-studies/case-studies1.png";
+import casestudy2 from "@/public/assets/img/case-studies/case-studies-2.png";
+import casestudy3 from "@/public/assets/img/case-studies/case-studies-3.png";
+import casestudy4 from "@/public/assets/img/case-studies/case-studies-4.png";
 
 type FieldConfig = {
   id: number;
@@ -50,29 +54,50 @@ export const careerFormFields: FieldConfig[] = [
   },
 ];
 
-export const EXPERIENCE_REQUIREMENTS = [
-  "4+ years of experience",
-  "Proven experience in build engineering, release engineering, or related roles within a DevOps or Agile environment.",
-  "Strong understanding of CI/CD concepts, version control systems, and automation tools.",
-  "Familiarity with scripting languages (e.g. PowerShell, batch, shell) and build automation tools (e.g., AzureDevOps, Jenkins, GitLab CI/CD, Travis CI).",
-  "Experience with containerization and container orchestration tools (e.g., Docker, Kubernetes) is a must.",
-  "Knowledge of DevOps best practices and principles.",
-  "Relevant certifications in DevOps, CI/CD, or related areas are advantageous.",
-];
-
-export const KEY_RESPONSIBILITIES = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-];
-
-export const GOOD_TO_HAVE = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-];
-
 export const SERVICES = {
-  SERVICES1: "Application Development",
-  SERVICES2: "Mobile Development",
-  SERVICES3: "Website Development",
-  SERVICES4: "User Experience & Visual Design",
-  SERVICES5: "Business Intelligence & Data Analytics",
-  SERVICES6: "IT Infrastructure",
+  SERVICES1: "Tailored and templated – apps that make an impact",
+  SERVICES2: "Strategic intelligence, real-time decisions",
+  SERVICES3: "Infrastructure that moves at the speed of business",
+  SERVICES4: "Sleek interfaces compliment effortless journeys ",
+  SERVICES5: "Strategic mobile innovation built with precision",
+  SERVICES6: "Web experiences that click",
 };
+
+export const caseStudy = [
+  {
+    id: "chanakya",
+    title: "chanakya | Fashion",
+    subTitle: "Threading technology into fashion",
+    info: "Transforming a legacy fashion export house with a tailor-made ERP ecosystem across R&D, sampling, and production.",
+    tags: ["Mobile", "Tablet"],
+    img: casestudy1,
+    isBgBlack: true,
+  },
+  {
+    id: "ibs",
+    title: "IBS intelligence | Fintec",
+    subTitle: "Transforming fintech publishing",
+    info: "Building a secure, scalable digital platform that centralizes premium fintech research, protects IP, and boosts subscription revenue.",
+    tags: ["Web", "Desktop", "Mobile", "Tablet"],
+    img: casestudy2,
+    isBgBlack: false,
+  },
+  {
+    id: "citiusTech",
+    title: "citiustech | healthcare",
+    subTitle: "The strong and steady ERP evolution",
+    info: "Transforming a simple timesheet tracker into a decade-strong ERP that streamlines people, processes, projects, and payments for IT services.",
+    tags: ["Web", "Desktop", "Mobile", "Tablet"],
+    img: casestudy3,
+    isBgBlack: false,
+  },
+  {
+    id: "tajGroupofHotels",
+    title: "taj | hospitality",
+    subTitle: "A premium, car rental management system",
+    info: "Powering 70+ Taj Hotels with a unified, luxury-grade car rental management system that streamlines bookings, fleet logistics, and guest service.",
+    tags: ["Mobile", "Tablet"],
+    img: casestudy4,
+    isBgBlack: true,
+  },
+];
