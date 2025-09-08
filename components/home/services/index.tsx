@@ -1,11 +1,10 @@
 "use client";
 
-import { Grid, Stack, Typography, useMediaQuery } from "@mui/material";
-import CallMadeIcon from "@mui/icons-material/CallMade";
+import { Grid, Link, Stack, Typography, useMediaQuery } from "@mui/material";
 import {
-  OuterGrid,
+  ChipUI2,
+  IconButtonUI,
   OuterGrid1,
-  OuterSection,
   OutlineWhiteBtn,
   ServiceGrid,
   SmallFullStop,
@@ -15,10 +14,9 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { SERVICES } from "@/lib/constanst";
 import { LottiePlayer } from "../lottiePlayer";
-
-interface Props {
-  transformup?: boolean;
-}
+import ArrowRightWhite from "@/components/common/SVGIcons/arrowRightWhite";
+import ArrowForwardIcon from "@/components/common/SVGIcons/arrowForwardIcon";
+import ScrollLottieHandler from "@/components/common/scroll-lottie-handler";
 
 export const products = [
   {
@@ -29,6 +27,7 @@ export const products = [
     ),
     description:
       "Custom application development tailored to meet your unique business needs. Our team of experienced developers combines technical expertise with creative problem-solving to deliver innovative and user-centric applications.",
+    tags: [".NET C#", "JAVA FX", "WPF with MVM"],
   },
   {
     id: 2,
@@ -38,6 +37,7 @@ export const products = [
     ),
     description:
       "High performance mobile applications, leveraging the latest technologies for seamless user experiences. Our end-to-end mobile development services ensure robust, scalable, and innovative solutions for both iOS and Android platforms.",
+    tags: ["Database Integration & API", "DevExpress", "SQL BI"],
   },
   {
     id: 3,
@@ -47,6 +47,7 @@ export const products = [
     ),
     description:
       "Website development services, creating custom, high quality websites that enhance your online presence and drive business growth. Our expert team ensures responsive and user friendly designs tailored to our client needs.",
+    tags: ["Networking", "Hardware", "Firewall", "Security", "Hosting"],
   },
   {
     id: 4,
@@ -56,6 +57,7 @@ export const products = [
     ),
     description:
       "Intuitive and visually stunning interfaces that captivate and engage users. Our expert team prioritizes usability and aesthetics, ensuring that every design enhances your brands digital presence and delivers a seamless, enjoyable user experience.",
+    tags: ["Figma", "Adobe Photoshop", "Adobe Illustrator"],
   },
   {
     id: 5,
@@ -65,6 +67,7 @@ export const products = [
     ),
     description:
       "Transforming complex data into actionable insights for your business. Our solutions enable you to make informed decisions, optimize operational performance and identify growth opportunities, helping you stay ahead in a competitive market.",
+    tags: ["Native iOS", "Native Android", "Xamarin"],
   },
   {
     id: 6,
@@ -74,10 +77,11 @@ export const products = [
     ),
     description:
       "Secure and efficient management solutions tailored to your business needs. Our expert team ensures seamless operation and reliability, empowering your business to thrive in the digital landscape.",
+    tags: ["MERN", "Angular JS", "MVC", "HTML 5", "Wordpress", "Woo Commerce"],
   },
 ];
 
-export const Services = ({ transformup }: Props) => {
+export const Services = () => {
   const router = useRouter();
   const isMdView = useMediaQuery(`(max-width:767px)`);
 
@@ -85,8 +89,8 @@ export const Services = ({ transformup }: Props) => {
     <Stack bgcolor={"custom.black2"}>
       <OuterGrid1 container spacing={5} justifyContent={"space-between"}>
         <Grid
-          size={{ xs: 12, lg: 10, xl: 7.4 }}
-          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+          size={{ xs: 12, lg: 8, xl: 7.4 }}
+          offset={{ xs: 0, lg: 2, xl: 2.3 }}
         >
           <motion.div
             initial={{ opacity: 0, y: 100 }}
@@ -99,14 +103,8 @@ export const Services = ({ transformup }: Props) => {
               justifyContent={"space-between"}
               alignItems={isMdView ? "flex-start" : "center"}
             >
-              <Stack width={isMdView ? "100%" : "560px"}>
-                <Typography
-                  color="custom.white4"
-                  variant="body_4_600"
-                  marginBottom={2}
-                  letterSpacing={"2.4px"}
-                  display={"block"}
-                >
+              <Stack width={"80%"}>
+                <Typography color="custom.grey_700" variant="body_4_600">
                   SERVICES
                   <SmallFullStop />
                 </Typography>
@@ -115,51 +113,79 @@ export const Services = ({ transformup }: Props) => {
                   variant="body_6"
                   display={"block"}
                 >
-                  Technology solutions offered
+                  Strategy, design, and tech in action
                 </Typography>
               </Stack>
               <OutlineWhiteBtn
                 sx={{ marginTop: isMdView ? "48px" : "0" }}
                 onClick={() => router.push("/services")}
-                transformup={transformup}
               >
-                VIEW ALL <CallMadeIcon sx={{ marginLeft: "8px", height: 16 }} />
+                VIEW ALL <ArrowRightWhite />
               </OutlineWhiteBtn>
             </SubTitlemarginBottom>
           </motion.div>
-          <Grid container className="" spacing={isMdView ? 3 : 5}>
-            {products.map((product) => (
+          <Grid
+            container
+            className=""
+            spacing={isMdView ? 3 : 5}
+            sx={{
+              marginTop: "96px",
+              "dotlottie-player": {
+                height: "128px !important",
+              },
+            }}
+          >
+            <ScrollLottieHandler />
+            {products.map((product, index) => (
               <ServiceGrid size={{ xs: 12, md: 6, lg: 6 }} key={product.id}>
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    x: product.id % 2 === 0 ? -100 : 100,
-                    y: 50,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    ease: "easeOut",
-                  }}
-                >
-                  {product.img}
-                  <Typography
-                    color="custom.white2"
-                    variant="body_5"
-                    display={"block"}
-                    margin={isMdView ? "30px 0 16px" : "50px 0 24px"}
+                <Link onClick={() => router.push(`/services#service-${index}`)}>
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      x: product.id % 2 === 0 ? -100 : 100,
+                      y: 50,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                      y: 0,
+                    }}
+                    transition={{
+                      duration: 0.6,
+                      ease: "easeOut",
+                    }}
                   >
-                    {product.name}
-                  </Typography>
+                    {product.img}
 
-                  <Typography variant="body_4_400" color="custom.white3">
-                    {product.description}
-                  </Typography>
-                </motion.div>
+                    <IconButtonUI
+                      className="onHoverArrow"
+                      aria-label="Go to Application Development"
+                      onClick={() => router.push(`/services#service-${index}`)}
+                    >
+                      <ArrowForwardIcon />
+                    </IconButtonUI>
+                    <Typography
+                      color="custom.white2"
+                      variant="body_9_600"
+                      display={"block"}
+                      className="servicesName"
+                      margin={isMdView ? "30px 0 16px" : "72px 0 24px"}
+                    >
+                      {product.name}
+                    </Typography>
+
+                    <Stack
+                      direction="row"
+                      flexWrap="wrap"
+                      rowGap={1}
+                      columnGap={1}
+                    >
+                      {product.tags?.map((tag, idx) => (
+                        <ChipUI2 key={idx}>{tag}</ChipUI2>
+                      ))}
+                    </Stack>
+                  </motion.div>
+                </Link>
               </ServiceGrid>
             ))}
           </Grid>

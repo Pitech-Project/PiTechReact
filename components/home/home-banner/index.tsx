@@ -8,19 +8,15 @@ import {
   OutlineWhiteBtn,
   SubTypography,
 } from "@/styles/MUI/common.styled";
-import CallMadeIcon from "@mui/icons-material/CallMade";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
+import ArrowRightWhite from "@/components/common/SVGIcons/arrowRightWhite";
 
 const HomeImgAnimation = dynamic(() => import("../home-img-animation"), {
   ssr: false,
 });
 
-interface Props {
-  transformup?: boolean;
-}
-
-const HomeBanner = ({ transformup }: Props) => {
+const HomeBanner = () => {
   const theme = useTheme();
   const router = useRouter();
   const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
@@ -35,22 +31,20 @@ const HomeBanner = ({ transformup }: Props) => {
       >
         <LeftPanel>
           <Typography variant="body_1" display="block" color={"custom.white2"}>
-            Commitment to <br></br> customised solutions
+            Systems and platforms <br></br> built with care, and <br></br>{" "}
+            designed with purpose
             <FullStop />
           </Typography>
 
           <SubTypography
             variant="Caption1"
-            color="custom.white2"
+            color="custom.grey_700"
             display="block"
             className="subTitleSpacing"
           >
-            Within every problem lies an opportunity
+            Every build is thought through, every design intentional.
           </SubTypography>
-          <Box
-            display={isTabletView ? "flex" : "block"}
-            justifyContent={"center"}
-          >
+          <Box>
             {" "}
             <OutlineWhiteBtn
               marginBottom={
@@ -58,10 +52,8 @@ const HomeBanner = ({ transformup }: Props) => {
               }
               className="smallResWhiteBtn"
               onClick={() => router.push("/services")}
-              transformup={transformup}
             >
-              SOLUTIONS OFFERED{" "}
-              <CallMadeIcon sx={{ marginLeft: "8px", height: 16 }} />
+              SOLUTIONS OFFERED <ArrowRightWhite />
             </OutlineWhiteBtn>{" "}
           </Box>
         </LeftPanel>

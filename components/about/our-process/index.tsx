@@ -1,107 +1,113 @@
 "use client";
 
-import { Grid, Stack, Typography } from "@mui/material";
 import {
-  OuterGrid,
-  OuterGrid1,
-  OuterSection,
-  SmallFullStop,
-  TooSmallFullStop,
-} from "@/styles/MUI/common.styled";
-import Image from "next/image";
-import BoxImg from "../../../public/assets/img/about-us/box.jpg";
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { OuterGrid1, SmallFullStop } from "@/styles/MUI/common.styled";
 import { motion } from "framer-motion";
 
 export const industries = [
   {
     id: 1,
-    name: "Mapping Processes",
+    name: "Discover & Define",
     description:
-      "Mapping process to determine the starting point and actual state. Evaluation of the processes and current structure of the company.",
+      "We start by understanding your goals, challenges, and vision — laying the foundation with clear scope and priorities.",
   },
   {
     id: 2,
-    name: "Optimize a Process",
+    name: "Plan & Prioritize",
     description:
-      "Suggestions for improvement and process optimization with right combination of technologies.",
+      "With a product backlog in place, we break down work into sprints — short, focused cycles that help us move fast and stay focused.",
   },
   {
     id: 3,
-    name: "Application Design",
+    name: "Design & Develop",
     description:
-      "We choose technologies and review options with the client. The client is part of the project from the very beginning and feedback is vital.",
+      "Our teams build iteratively, sharing progress frequently and refining the solution at every stage.",
   },
   {
     id: 4,
-    name: "Delivery of Developments",
+    name: "Review & Collaborate",
     description:
-      "Weekly delivery of development for the end user to operate and request for changes. It is ideal that end user is part of the process of development and testing.",
+      "At the end of each sprint, we present working features, gather feedback, and make sure we’re always aligned.",
   },
   {
     id: 5,
-    name: "Evaluation and Monitoring",
+    name: "Test & Improve",
     description:
-      "These determine KPIs, reports and other metrics per user in order to monitor that the process is working as agreed.",
+      "Continuous testing and integration ensure high quality. We don’t just fix bugs — we improve with each cycle.",
+  },
+  {
+    id: 6,
+    name: "Deliver & Support",
+    description:
+      "Once we go live, we’re still with you — providing support, enhancements, and a roadmap for what’s next.",
   },
 ];
 
 export const OurProcess = () => {
+  const theme = useTheme();
+  const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
   return (
     <Stack bgcolor={"custom.white"}>
       <OuterGrid1 container spacing={2}>
         <Grid
-          size={{ xs: 12, lg: 10, xl: 7.4 }}
-          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+          size={{ xs: 12, lg: 9, xl: 8.3 }}
+          offset={{ xs: 0, lg: 2, xl: 2.3 }}
         >
-          <Grid container spacing={5} justifyContent={"space-between"}>
-            <Grid size={{ xs: 12, md: 4.5 }}>
+          <Grid
+            container
+            sx={{
+              "& br": {
+                display: isTabletView ? "none" : "block",
+              },
+            }}
+          >
+            <Grid size={{ xs: 12, lg: 4.5, xl: 4.5 }}>
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <Typography
-                  color="custom.black"
-                  variant="body_4"
-                  marginBottom={2}
-                  display={"block"}
-                  letterSpacing={"2.4px"}
-                  textTransform={"uppercase"}
-                >
-                  OUR PROCESS
+                <Typography color="custom.gray_txt" variant="body_4_600">
+                  our agile process
                   <SmallFullStop />
                 </Typography>
                 <Typography
                   color="custom.black"
                   variant="body_6"
                   display={"block"}
-                  marginBottom={"24px"}
+                  marginBottom={isTabletView ? "80px" : "120px"}
                 >
-                  Management Methodology
+                  Adapting agility<br></br> for smarter<br></br> outcomes
                 </Typography>
                 <Typography
                   color="custom.black"
-                  margin={"16px 0 0"}
+                  margin={isTabletView ? "16px 0 40px" : "16px 0 0"}
                   display={"block"}
                   variant="body_3"
                 >
-                  At Pi we realized we twist and turn all the time and so do our
-                  client&apos;s requirements. To cope with the ever changing
-                  world of business we have successfully adopted{" "}
+                  At Pi Techniques, we’ve learned that agility isn’t just a
+                  methodology, it’s a mindset. As client needs evolve, we adapt.
+                  That’s why we’ve embraced{" "}
                   <Typography color="custom.orange_600" variant="body_3">
-                    AGILE
-                  </Typography>{" "}
-                  project management.
+                    Agile Project Management.{" "}
+                  </Typography>
+                  A proven, flexible framework that helps us stay aligned,
+                  responsive, and focused on what matters most: delivering
+                  results, fast.
                 </Typography>
-                <Image
-                  src={BoxImg}
-                  alt="Box"
-                  style={{ width: "-webkit-fill-available", height: "auto" }}
-                />
               </motion.div>
             </Grid>
-            <Grid size={{ xs: 12, md: 5.5 }} gap={5}>
+            <Grid
+              size={{ xs: 12, lg: 6.5, xl: 5.5 }}
+              offset={{ xs: 0, lg: 1, xl: 2 }}
+            >
               <Stack gap={7.5}>
                 {industries.map((industries) => (
                   <Stack
@@ -110,27 +116,18 @@ export const OurProcess = () => {
                     gap={1}
                     key={industries.id}
                   >
-                    <Typography
-                      color="custom.black"
-                      minWidth={"40px"}
-                      variant="body_5"
-                      display={"block"}
-                    >
-                      {industries.id}
-                      <TooSmallFullStop />
-                    </Typography>
                     <Stack>
                       <Typography
                         color="custom.black"
                         marginBottom={1}
-                        variant="body_5"
+                        variant="body_11"
                         display={"block"}
                       >
                         {industries.name}
                       </Typography>
                       <Typography
-                        color="custom.black"
-                        variant="body_4_400"
+                        color="custom.gray_txt"
+                        variant="body_10"
                         display={"block"}
                       >
                         {industries.description}
@@ -138,6 +135,15 @@ export const OurProcess = () => {
                     </Stack>
                   </Stack>
                 ))}
+                <Typography
+                  variant="body_3_600"
+                  fontStyle={"italic"}
+                  color="custom.black"
+                >
+                  Agile isn’t about moving fast blindly. It’s about moving fast
+                  in the right direction — with you at the center of the
+                  journey.
+                </Typography>
               </Stack>
             </Grid>
           </Grid>

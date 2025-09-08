@@ -1,19 +1,7 @@
 "use client";
 
-import {
-  Box,
-  Grid,
-  Stack,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import {
-  OuterGrid,
-  OuterGrid1,
-  OuterSection,
-  SubTitlemarginBottom1,
-} from "@/styles/MUI/common.styled";
+import { Box, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
+import { OuterGrid1, SubTitlemarginBottom1 } from "@/styles/MUI/common.styled";
 import MultiPlateform from "../../../public/assets/img/case-studies/mulitplatform-access.png";
 import FileSharing from "../../../public/assets/img/case-studies/file-sharing.png";
 import UnifiedCommunication from "../../../public/assets/img/case-studies/unified-communication.png";
@@ -46,15 +34,13 @@ export const featuresPorject = [
 ];
 
 export const FeaturesOfProject = () => {
-  const theme = useTheme();
   const isMdView = useMediaQuery(`(max-width:767px)`);
-  const isIpadView = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box>
       <OuterGrid1 container spacing={5} justifyContent={"space-between"}>
         <Grid
           size={{ xs: 12, lg: 10, xl: 7.4 }}
-          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+          offset={{ xs: 0, lg: 2, xl: 2.3 }}
         >
           <Box textAlign={"center"}>
             <Typography
@@ -112,7 +98,7 @@ export const FeaturesOfProject = () => {
         <OuterGrid1 container spacing={5} justifyContent={"space-between"}>
           <Grid
             size={{ xs: 12, lg: 10, xl: 7.4 }}
-            offset={{ xs: 0, lg: 1, xl: 2.3 }}
+            offset={{ xs: 0, lg: 2, xl: 2.3 }}
           >
             <Grid container spacing={12}>
               <Grid size={{ xs: 12, md: 6 }}>

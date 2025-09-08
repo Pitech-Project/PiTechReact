@@ -22,7 +22,7 @@ const AboutBanner = () => {
       >
         <LeftPanel>
           <Typography variant="body_1" display="block" color={"custom.white2"}>
-            Always keep it <br></br>simple
+            We keep it precise and <br></br> simple
             <FullStop />
           </Typography>
 
@@ -31,7 +31,7 @@ const AboutBanner = () => {
             color="custom.white2"
             display="block"
           >
-            Strong team with a passion for technology
+            Three decades of building with care and clarity.
           </SubTypography>
         </LeftPanel>
 

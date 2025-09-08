@@ -1,7 +1,7 @@
 "use client";
 
 import { CountOuterBox } from "@/styles/MUI/common.styled";
-import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
+import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Counter from "../Counter";
 
 const countData = [
@@ -16,17 +16,23 @@ const countData = [
     hasPlus: true,
   },
   {
-    target: 10,
+    target: 150,
     label: "LOCATIONS",
-    hasPlus: false,
+    hasPlus: true,
   },
 ];
 
 const Count = () => {
   const isMdView = useMediaQuery("(max-width:767px)");
+  const theme = useTheme();
+  const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Stack flexDirection="row" justifyContent="center">
+    <Stack
+      flexDirection="row"
+      justifyContent="center"
+      bgcolor={isMobileView ? "custom.black4" : ""}
+    >
       <CountOuterBox
         flexDirection={isMdView ? "column" : "row"}
         justifyContent="space-between"
@@ -48,11 +54,7 @@ const Count = () => {
                 </Typography>
               )}
             </Stack>
-            <Typography
-              variant="body_4"
-              letterSpacing="1.6px"
-              color="custom.white1"
-            >
+            <Typography variant="body_4_500" color="custom.white3">
               {label}
             </Typography>
           </Box>

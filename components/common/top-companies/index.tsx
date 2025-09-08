@@ -8,7 +8,8 @@ import img1 from "../../../public/assets/img/top-companies/logo-citius.png";
 import img2 from "../../../public/assets/img/top-companies/logo-metro.png";
 import img3 from "../../../public/assets/img/top-companies/logo-seatec.png";
 import img4 from "../../../public/assets/img/top-companies/logo-starplus.png";
-import img5 from "../../../public/assets/img/top-companies/logo-staples.png";
+import img5 from "../../../public/assets/img/top-companies/chanakya.svg";
+import img9 from "../../../public/assets/img/top-companies/oceanic-logo.svg";
 import img6 from "../../../public/assets/img/top-companies/logo-taj.png";
 import img7 from "../../../public/assets/img/top-companies/logo-vtech.png";
 import img8 from "../../../public/assets/img/top-companies/logo-resources.png";
@@ -27,7 +28,7 @@ interface Props {
   homeSlider?: boolean;
 }
 
-const src1 = [img1, img2, img3, img4, img5, img6, img7, img8];
+const src1 = [img7, img3, img2, img1, img5, img9, img4, img6, img8];
 
 const StyledSliderWrapper = styled(Box)(() => ({
   ".slick-slide > div": {
@@ -35,6 +36,10 @@ const StyledSliderWrapper = styled(Box)(() => ({
   },
   ".slick-list": {
     margin: "0 -16px",
+  },
+  ".slick-track": {
+    display: "flex",
+    alignItems: "center",
   },
 }));
 
@@ -86,7 +91,7 @@ const CompaniesSlider: React.FC<Props> = ({ homeSlider }) => {
       return 12;
     }
     if (homeSlider) {
-      return 25;
+      return "154px";
     }
     return 0;
   };
@@ -100,14 +105,7 @@ const CompaniesSlider: React.FC<Props> = ({ homeSlider }) => {
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <Typography
-              color="custom.black3"
-              variant="body_4_600"
-              marginBottom={2}
-              letterSpacing={"2.4px"}
-              display={"block"}
-              textTransform={"uppercase"}
-            >
+            <Typography color="custom.black3" variant="body_4_600">
               OUR CLIENTS
               <SmallFullStop />
             </Typography>

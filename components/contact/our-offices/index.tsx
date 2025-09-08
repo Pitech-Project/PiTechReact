@@ -1,26 +1,40 @@
 "use client";
 
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import Image from "next/image";
-import office2 from "../../../public/assets/img/contact/nariman-office.png";
+import office2 from "../../../public/assets/img/contact/nariman-office.jpg";
 import Arrow from "../../../public/assets/img/arrow_right_white.svg";
 import {
   DirectionLink,
   OurTeamGrid,
-  OuterGrid,
+  OuterGrid2,
   OwlCarouselBox,
   SmallFullStop,
-  SubTitlemarginBottom,
+  SubTitlemarginBottom2,
 } from "@/styles/MUI/common.styled";
 import { motion } from "framer-motion";
 
 export const OurOffice = () => {
+  const theme = useTheme();
+  const isTabletView = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Stack>
-      <OuterGrid container spacing={5} justifyContent={"space-between"}>
+      <OuterGrid2
+        marginTop={"88px !important"}
+        container
+        spacing={5}
+        justifyContent={"space-between"}
+      >
         <Grid
-          size={{ xs: 12, lg: 11, xl: 8.2 }}
-          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+          size={{ xs: 12, lg: 9, xl: 8.3 }}
+          offset={{ xs: 0, lg: 2, xl: 2.3 }}
         >
           <motion.div
             initial={{ opacity: 0, x: -100 }}
@@ -28,16 +42,9 @@ export const OurOffice = () => {
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <SubTitlemarginBottom>
-              <Typography
-                color="custom.black"
-                variant="body_4_600"
-                marginBottom={2}
-                display={"block"}
-                letterSpacing={"2.4px"}
-                textTransform={"uppercase"}
-              >
-                OUR Location
+            <SubTitlemarginBottom2>
+              <Typography color="custom.gray_txt" variant="body_4_600">
+                Location
                 <SmallFullStop />
               </Typography>
               <Typography
@@ -47,7 +54,7 @@ export const OurOffice = () => {
               >
                 Our headquarter
               </Typography>
-            </SubTitlemarginBottom>
+            </SubTitlemarginBottom2>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: -100 }}
@@ -55,8 +62,8 @@ export const OurOffice = () => {
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <Grid container spacing={5}>
-              <OurTeamGrid size={{ xs: 12, md: 5 }}>
+            <Grid container spacing={isTabletView ? 3 : 5}>
+              <OurTeamGrid size={{ xs: 12, md: 5.5 }} order={{ xs: 2, md: 1 }}>
                 <Image
                   src={office2}
                   alt="out office"
@@ -94,7 +101,7 @@ export const OurOffice = () => {
                   </Stack>
                 </OwlCarouselBox>
               </OurTeamGrid>
-              <Grid size={{ xs: 12, md: 5 }}>
+              <Grid size={{ xs: 12, md: 5 }} order={{ xs: 1, md: 2 }}>
                 <Typography variant="body_2" color="custom.border2">
                   24/C, Second Floor,<br></br>
                   Mittal Tower, C-Wing,<br></br>
@@ -102,11 +109,10 @@ export const OurOffice = () => {
                   Mumbai - 400001
                 </Typography>
               </Grid>
-              <Grid></Grid>
             </Grid>
           </motion.div>
         </Grid>
-      </OuterGrid>
+      </OuterGrid2>
     </Stack>
   );
 };

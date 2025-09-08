@@ -7,7 +7,7 @@ interface HoveredLinkProps {
   href: string;
   children: React.ReactNode;
   className?: string;
-  onClick?: any;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
 export const HoveredLink = ({
@@ -26,6 +26,7 @@ export const HoveredLink = ({
       onClick={onClick}
       className={`LinkUI ${isActive ? "active" : ""} ${className}`}
       {...rest}
+      style={{ position: "relative" }}
     >
       {children}
     </Link>

@@ -40,10 +40,10 @@ const DotImageAnimation: React.FC<DotImageAnimationProps> = ({
 
     const sketch: Sketch = (p: p5Types) => {
       let img: p5Types.Image;
-      let dots: Dot[] = [];
+      const dots: Dot[] = [];
       let canvasW: number;
       let canvasH: number;
-      let mouse = { x: -1000, y: -1000 };
+      const mouse = { x: -1000, y: -1000 };
 
       class Dot {
         original: p5Types.Vector;

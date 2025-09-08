@@ -4,7 +4,7 @@ import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import {
   SmallFullStop,
   OutlineBtn,
-  OuterGrid,
+  OuterGrid2,
 } from "@/styles/MUI/common.styled";
 import ArrowRightBlack from "../../common/SVGIcons/arrowRightBlack";
 import { useRouter } from "next/navigation";
@@ -15,10 +15,15 @@ const Culture = () => {
   const isTabletView = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <OuterGrid container spacing={5} justifyContent={"space-between"}>
+    <OuterGrid2
+      paddingBottom={"100px !important"}
+      container
+      spacing={5}
+      justifyContent={"space-between"}
+    >
       <Grid
-        size={{ xs: 12, lg: 11, xl: 8.2 }}
-        offset={{ xs: 0, lg: 1, xl: 2.3 }}
+        size={{ xs: 12, lg: 9, xl: 8.3 }}
+        offset={{ xs: 0, lg: 2, xl: 2.3 }}
       >
         <Grid container spacing={5}>
           <Grid size={{ xs: 12, md: 4 }}>
@@ -36,13 +41,13 @@ const Culture = () => {
               </Typography>
 
               <Typography color="custom.black" variant="body_6" display="block">
-                Working{" "}
+                Working at
                 <br style={{ display: isTabletView ? "none" : "" }}></br>
-                at Pi
+                Pi
               </Typography>
             </Box>
           </Grid>
-          <Grid size={{ xs: 12, md: 8 }}>
+          <Grid size={{ xs: 12, md: 7 }}>
             <Box>
               <Typography
                 marginBottom={"40px"}
@@ -75,7 +80,7 @@ const Culture = () => {
           </Grid>
         </Grid>
       </Grid>
-    </OuterGrid>
+    </OuterGrid2>
   );
 };
 

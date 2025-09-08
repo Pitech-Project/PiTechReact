@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { StaticImageData } from "next/image";
 import Image from "next/image";
 import {
   Box,
@@ -26,7 +27,7 @@ import { motion } from "framer-motion";
 interface Testimonial {
   name: string;
   role: string;
-  image: any;
+  image: StaticImageData;
   text: string;
 }
 
@@ -93,13 +94,7 @@ const Testimonial: React.FC = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <Stack>
-            <Typography
-              color="custom.white4"
-              variant="body_4_600"
-              marginBottom={2}
-              letterSpacing={"2.4px"}
-              display={"block"}
-            >
+            <Typography color="custom.white4" variant="body_4_600">
               TESTIMONIALS
               <SmallFullStop />
             </Typography>
@@ -123,7 +118,7 @@ const Testimonial: React.FC = () => {
             >
               <path
                 d="M6.66846 12L7.91164 10.8491L3.40689 6.79593L24 6.5V5.20407H3.40689L7.91164 1.15092L6.66846 0L-5.53131e-05 6L6.66846 12Z"
-                fill="#F6F6F6"
+                fill="#f4f4f4"
               />
             </svg>
           </Button>
@@ -137,7 +132,7 @@ const Testimonial: React.FC = () => {
             >
               <path
                 d="M17.3315 12L16.0884 10.8491L20.5931 6.79593L0 6.5V5.20407H20.5931L16.0884 1.15092L17.3315 0L24.0001 6L17.3315 12Z"
-                fill="#F6F6F6"
+                fill="#f4f4f4"
               />
             </svg>
           </Button>

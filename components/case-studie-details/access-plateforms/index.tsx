@@ -12,8 +12,8 @@ export const AccessPlateforms = () => {
     <>
       <OuterGrid container spacing={5} justifyContent={"space-between"}>
         <Grid
-          size={{ xs: 12, lg: 11, xl: 8.2 }}
-          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+          size={{ xs: 12, lg: 9, xl: 8.3 }}
+          offset={{ xs: 0, lg: 2, xl: 2.3 }}
         >
           <Grid container spacing={5} alignItems={"center"}>
             <Grid size={{ xs: 12, md: 6 }}>

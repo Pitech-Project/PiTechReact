@@ -5,14 +5,12 @@ import { HoveredLink } from "./navbar-menu";
 import {
   Box,
   IconButton,
-  Link,
   Slide,
   Stack,
   Toolbar,
   useMediaQuery,
   useScrollTrigger,
   useTheme,
-  Link as MuiLink,
   Button,
 } from "@mui/material";
 import Image from "next/image";
@@ -51,7 +49,6 @@ export function NavbarComponent(props: Props) {
 
   const pathname = usePathname();
   const theme = useTheme();
-  const isSmallDesktopView = useMediaQuery(theme.breakpoints.down("xl"));
   const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
 
   const noHeaderPaths = [
@@ -83,11 +80,10 @@ export function NavbarComponent(props: Props) {
   return (
     <HideOnScroll {...props}>
       <AppBarStyled
-        position="sticky"
+        position="fixed"
         sx={{
           "& .LinkUI": {
             fontWeight: 500,
-            fontSize: isSmallDesktopView ? "15px" : "18px",
             letterSpacing: "0.3px",
             lineHeight: "20px",
             color: theme.palette.custom?.grey_700,
@@ -142,7 +138,6 @@ export function NavbarComponent(props: Props) {
             >
               Careers
             </HoveredLink>
-            <Box className="dot"></Box>
           </Box>
 
           <IconButton

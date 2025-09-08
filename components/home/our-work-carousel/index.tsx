@@ -11,11 +11,13 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import CallMadeOutlinedIcon from "@mui/icons-material/CallMadeOutlined";
-import OurWork from "../../../public/assets/img/Our-Work/vchat.png";
-import OurWork2 from "../../../public/assets/img/Our-Work/work2.png";
+import OurWork from "../../../public/assets/img/Our-Work/chanakya.png";
+import OurWork1 from "../../../public/assets/img/Our-Work/ibs.png";
+import OurWork2 from "../../../public/assets/img/Our-Work/citius.png";
+import OurWork3 from "../../../public/assets/img/Our-Work/taj-ipad.png";
 import {
   DirectionLink,
+  OuterGrid,
   OwlCarouselBox,
   PrevNext,
   SmallFullStop,
@@ -26,31 +28,32 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import ArrowForwardIconWhite from "@/components/common/SVGIcons/arrowForwardIconWhite";
 
 const logos = [
   {
     id: "1",
     img: OurWork,
-    title: "V.Chat",
-    description: "V.Ships | Ship Management",
+    title: "Threading technology into fashion",
+    description: "Chanakya",
   },
   {
     id: "2",
-    img: OurWork2,
-    title: "Inspection Manager",
-    description: "V.Ships | Ship Management",
+    img: OurWork3,
+    title: "A premium car rental management system",
+    description: "Taj Hotels",
   },
   {
     id: "3",
-    img: OurWork,
-    title: "V.Chat",
-    description: "V.Ships | Ship Management",
+    img: OurWork2,
+    title: "The strong and steady ERP evolution",
+    description: "CitiusTech",
   },
   {
     id: "4",
-    img: OurWork2,
-    title: "Inspection Manager",
-    description: "V.Ships | Ship Management",
+    img: OurWork1,
+    title: "Transforming fintech publishing ",
+    description: "IBSintelligence",
   },
 ];
 
@@ -59,14 +62,10 @@ export default function OurWorkCarousel() {
   const isMdView = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Grid
-      container
-      spacing={2}
-      sx={{ py: isMdView ? "80px" : "140px", px: isMdView ? "20px" : 0 }}
-    >
+    <OuterGrid container spacing={2}>
       <Grid
-        size={{ xs: 12, sm: 10, xl: 10 }}
-        offset={{ xs: 0, sm: 2, xl: 2 }}
+        size={{ xs: 12, lg: 10, xl: 10 }}
+        offset={{ xs: 0, lg: 2, xl: 2.3 }}
         sx={{ mx: "auto" }}
       >
         <TestimonialBox
@@ -86,14 +85,7 @@ export default function OurWorkCarousel() {
               viewport={{ once: true, amount: 0.3 }}
             >
               <Stack>
-                <Typography
-                  color="custom.black3"
-                  variant="body_4_600"
-                  mb={2}
-                  display="block"
-                  letterSpacing="2.4px"
-                  textTransform="uppercase"
-                >
+                <Typography color="custom.black3" variant="body_4_600">
                   our work
                   <SmallFullStop />
                 </Typography>
@@ -121,7 +113,7 @@ export default function OurWorkCarousel() {
                 >
                   <path
                     d="M6.66846 12L7.91164 10.8491L3.40689 6.79593L24 6.5V5.20407H3.40689L7.91164 1.15092L6.66846 0L-5.53131e-05 6L6.66846 12Z"
-                    fill="#F6F6F6"
+                    fill="#f4f4f4"
                   />
                 </svg>
               </Button>
@@ -135,12 +127,13 @@ export default function OurWorkCarousel() {
                 >
                   <path
                     d="M17.3315 12L16.0884 10.8491L20.5931 6.79593L0 6.5V5.20407H20.5931L16.0884 1.15092L17.3315 0L24.0001 6L17.3315 12Z"
-                    fill="#F6F6F6"
+                    fill="#f4f4f4"
                   />
                 </svg>
               </Button>
             </PrevNext>
           </SubTitlemarginBottom>
+
           <Swiper
             modules={[Navigation]}
             navigation={{
@@ -148,11 +141,11 @@ export default function OurWorkCarousel() {
               prevEl: ".swiper-button-prev",
             }}
             spaceBetween={20}
-            slidesPerView={3}
+            slidesPerView={2.5}
             breakpoints={{
               0: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
-              992: { slidesPerView: 3 },
+              1200: { slidesPerView: 2.5 },
             }}
           >
             {logos.map((e, index) => (
@@ -170,10 +163,11 @@ export default function OurWorkCarousel() {
                   <OwlCarouselBox>
                     <Box>
                       <Typography
-                        variant="body_5"
+                        variant="body_9"
                         display="block"
                         color="custom.white2"
                         mb={1}
+                        // minHeight={"68px"}
                       >
                         {e.title}
                       </Typography>
@@ -182,7 +176,7 @@ export default function OurWorkCarousel() {
                       </Typography>
                     </Box>
                     <DirectionLink>
-                      <CallMadeOutlinedIcon />
+                      <ArrowForwardIconWhite />
                     </DirectionLink>
                   </OwlCarouselBox>
                 </Box>
@@ -191,6 +185,6 @@ export default function OurWorkCarousel() {
           </Swiper>
         </TestimonialBox>
       </Grid>
-    </Grid>
+    </OuterGrid>
   );
 }

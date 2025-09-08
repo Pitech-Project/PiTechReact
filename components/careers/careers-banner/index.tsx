@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import {
   BusinessOffice,
   FullStop,
@@ -30,17 +30,16 @@ export const CareersBanner = () => {
           display="block"
           color={"custom.white2"}
         >
-          Looking for motivated, bright{" "}
+          Let’s start with a{" "}
           <br
             style={{ display: isSmallDesktopView ? "none" : "inline-block" }}
           />
-          & passionate individuals
+          conversation
           <FullStop />
         </OverlayTypography>
 
         <SubTypography variant="Caption1" color="custom.white2" display="block">
-          Pi is full of challenges, learning and successful smiles. <br></br>
-          Come grow with us and become a part of a global solutions company.
+          You talk, we’ll build it from there
         </SubTypography>
       </LeftPanel>
       <CareerImgAnimation />

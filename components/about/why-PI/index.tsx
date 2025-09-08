@@ -2,12 +2,12 @@
 
 import { Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import WhyPI1 from "../../../public/assets/img/about-us/whypi1.jpg";
-import WhyPI2 from "../../../public/assets/img/about-us/whypi2.jpg";
-import WhyPI3 from "../../../public/assets/img/about-us/whypi3.jpg";
-import WhyPI4 from "../../../public/assets/img/about-us/whypi4.jpg";
-import WhyPI5 from "../../../public/assets/img/about-us/whypi5.jpg";
-import WhyPI6 from "../../../public/assets/img/about-us/whypi6.jpg";
+import WhyPI1 from "../../../public/assets/img/about-us/whypi01.jpg";
+import WhyPI2 from "../../../public/assets/img/about-us/whypi02.jpg";
+import WhyPI3 from "../../../public/assets/img/about-us/whypi03.jpg";
+import WhyPI4 from "../../../public/assets/img/about-us/whypi04.jpg";
+import WhyPI5 from "../../../public/assets/img/about-us/whypi05.jpg";
+import WhyPI6 from "../../../public/assets/img/about-us/whypi06.jpg";
 import WhyPIIcon1 from "../../../public/assets/img/about-us/skill.png";
 import WhyPIIcon2 from "../../../public/assets/img/about-us/business.png";
 import WhyPIIcon3 from "../../../public/assets/img/about-us/hunger.png";
@@ -15,7 +15,6 @@ import WhyPIIcon4 from "../../../public/assets/img/about-us/cost.png";
 import WhyPIIcon5 from "../../../public/assets/img/about-us/compactsize.png";
 import WhyPIIcon6 from "../../../public/assets/img/about-us/challenges.png";
 import {
-  OuterGrid,
   OuterGrid1,
   SmallFullStop,
   SubTitlemarginBottom,
@@ -80,7 +79,7 @@ export const WhyPI = () => {
       <OuterGrid1 container spacing={2}>
         <Grid
           size={{ xs: 12, lg: 10, xl: 7.4 }}
-          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+          offset={{ xs: 0, lg: 2, xl: 2.3 }}
         >
           <motion.div
             initial={{ opacity: 0, y: 100 }}
@@ -89,12 +88,7 @@ export const WhyPI = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <SubTitlemarginBottom textAlign={"center"}>
-              <Typography
-                color="custom.white4"
-                variant="body_4_600"
-                marginBottom={2}
-                display={"block"}
-              >
+              <Typography color="custom.white4" variant="body_4_600">
                 WHY PI
                 <SmallFullStop />
               </Typography>

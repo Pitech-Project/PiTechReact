@@ -11,15 +11,14 @@ import {
   Grid,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import CallMadeIcon from "@mui/icons-material/CallMade";
 import {
   FormUI,
-  OuterGrid,
-  OuterSection,
+  OuterGrid2,
   OutlineWhiteBtn1,
   SmallFullStop,
 } from "@/styles/MUI/common.styled";
 import { apiUrl, careerFormFields } from "@/lib/constanst";
+import ArrowRightWhite from "@/components/common/SVGIcons/arrowRightWhite";
 
 export type FormData = {
   name: string;
@@ -30,6 +29,7 @@ export type FormData = {
 };
 
 export default function ContactForm() {
+  const contactform = true;
   const [formData, setFormData] = useState({
     name: "",
     lastname: "",
@@ -46,10 +46,9 @@ export default function ContactForm() {
 
   const theme = useTheme();
   const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
-  const isSmallDesktopView = useMediaQuery(theme.breakpoints.down("xl"));
 
   const validate = () => {
-    const newErrors: any = {};
+    const newErrors: Record<string, string> = {};
     if (!formData.name.trim()) newErrors.name = "Name is required.";
     if (!formData.lastname.trim())
       newErrors.lastname = "Last name is required.";
@@ -118,10 +117,10 @@ export default function ContactForm() {
 
   return (
     <Box bgcolor={"custom.black2"}>
-      <OuterGrid container spacing={5} justifyContent={"space-between"}>
+      <OuterGrid2 container spacing={5} justifyContent={"space-between"}>
         <Grid
-          size={{ xs: 12, lg: 11, xl: 8.2 }}
-          offset={{ xs: 0, lg: 1, xl: 2.3 }}
+          size={{ xs: 12, lg: 9, xl: 8.3 }}
+          offset={{ xs: 0, lg: 2, xl: 2.3 }}
         >
           <Grid container spacing={5}>
             <Grid size={{ xs: 12, md: 4 }}>
@@ -132,12 +131,7 @@ export default function ContactForm() {
                 viewport={{ once: true, amount: 0.3 }}
               >
                 <Stack>
-                  <Typography
-                    color="custom.white4"
-                    variant="body_4_600"
-                    marginBottom={2}
-                    display={"block"}
-                  >
+                  <Typography color="custom.white4" variant="body_4_600">
                     CONTACT US
                     <SmallFullStop />
                   </Typography>
@@ -147,7 +141,7 @@ export default function ContactForm() {
                     marginBottom={isTabletView ? 6 : 0}
                     display={"block"}
                   >
-                    Get in touch
+                    Get in <br></br>touch
                   </Typography>
                 </Stack>
               </motion.div>
@@ -159,7 +153,7 @@ export default function ContactForm() {
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <FormUI className="blackTheme">
+                <FormUI className="blackTheme" contactform={contactform}>
                   <Typography
                     color="custom.white2"
                     variant="Caption"
@@ -173,7 +167,7 @@ export default function ContactForm() {
                     onSubmit={handleSubmit}
                     display="flex"
                     flexDirection="column"
-                    gap={6}
+                    gap={7}
                     marginTop={isTabletView ? "56px" : "80px"}
                   >
                     {careerFormFields.map((item) => {
@@ -240,7 +234,8 @@ export default function ContactForm() {
                     />
 
                     <OutlineWhiteBtn1 type="submit">
-                      SEND <CallMadeIcon sx={{ marginLeft: "8px" }} />
+                      SEND
+                      <ArrowRightWhite />
                     </OutlineWhiteBtn1>
                     {submitted && (
                       <Typography color="green" mt={1}>
@@ -253,7 +248,7 @@ export default function ContactForm() {
             </Grid>
           </Grid>
         </Grid>
-      </OuterGrid>
+      </OuterGrid2>
     </Box>
   );
 }
