@@ -13,20 +13,35 @@ declare module "@mui/material/styles" {
     body_2_500: React.CSSProperties;
     body_3: React.CSSProperties;
     body_3_400: React.CSSProperties;
+    body_3_500: React.CSSProperties;
     body_3_600: React.CSSProperties;
     body_4: React.CSSProperties;
     body_4_600: React.CSSProperties;
+    body_4_500: React.CSSProperties;
     body_4_400: React.CSSProperties;
     body_5: React.CSSProperties;
     body_6: React.CSSProperties;
     body_7: React.CSSProperties;
     body_8: React.CSSProperties;
+    body_9: React.CSSProperties;
+    body_10: React.CSSProperties;
+    body_10_500: React.CSSProperties;
+    body_11: React.CSSProperties;
+    body_9_600: React.CSSProperties;
     count: React.CSSProperties;
     year_count: React.CSSProperties;
     year: React.CSSProperties;
     Caption: React.CSSProperties;
     Caption1: React.CSSProperties;
     small_typography: React.CSSProperties;
+    font_38: React.CSSProperties;
+    para: React.CSSProperties;
+    font_19_600: React.CSSProperties;
+    mediumFont: React.CSSProperties;
+    font_19_500?: React.CSSProperties;
+    font_subtitle?: React.CSSProperties;
+    short_desc?: React.CSSProperties;
+    font_14?: React.CSSProperties;
   }
   interface TypographyVariantsOptions {
     overline_s?: React.CSSProperties;
@@ -37,20 +52,35 @@ declare module "@mui/material/styles" {
     body_2_500: React.CSSProperties;
     body_3: React.CSSProperties;
     body_3_400: React.CSSProperties;
+    body_3_500: React.CSSProperties;
     body_3_600: React.CSSProperties;
     body_4: React.CSSProperties;
     body_4_600: React.CSSProperties;
+    body_4_500: React.CSSProperties;
     body_4_400: React.CSSProperties;
     body_5: React.CSSProperties;
     body_6: React.CSSProperties;
     body_7: React.CSSProperties;
     body_8: React.CSSProperties;
+    body_9: React.CSSProperties;
+    body_10: React.CSSProperties;
+    body_10_500: React.CSSProperties;
+    body_11: React.CSSProperties;
+    body_9_600: React.CSSProperties;
     count: React.CSSProperties;
     year_count: React.CSSProperties;
     year: React.CSSProperties;
     Caption?: React.CSSProperties;
     Caption1?: React.CSSProperties;
     small_typography?: React.CSSProperties;
+    font_38?: React.CSSProperties;
+    para?: React.CSSProperties;
+    font_19_600?: React.CSSProperties;
+    mediumFont?: React.CSSProperties;
+    font_19_500?: React.CSSProperties;
+    font_subtitle?: React.CSSProperties;
+    short_desc?: React.CSSProperties;
+    font_14?: React.CSSProperties;
   }
 
   interface BreakpointOverrides {
@@ -71,20 +101,35 @@ declare module "@mui/material/Typography" {
     body_2_500: true;
     body_3: true;
     body_3_400: true;
+    body_3_500: true;
     body_3_600: true;
     body_4: true;
     body_4_600: true;
+    body_4_500: true;
     body_4_400: true;
     body_5: true;
     body_6: true;
     body_7: true;
     body_8: true;
+    body_9: true;
+    body_10: true;
+    body_10_500: true;
+    body_11: true;
+    body_9_600: true;
     count: true;
     year_count: true;
     year: true;
     Caption: true;
     Caption1: true;
     small_typography: true;
+    font_38: true;
+    para: true;
+    font_19_600: true;
+    mediumFont: true;
+    font_19_500: true;
+    font_subtitle: true;
+    short_desc: true;
+    font_14: true;
   }
 }
 
@@ -93,6 +138,8 @@ interface CustomPalette {
   black1?: string;
   black2?: string;
   black3?: string;
+  black4?: string;
+  gray_txt?: string;
   border1?: string;
   border2?: string;
   white?: string;
@@ -109,6 +156,7 @@ interface CustomPalette {
   red?: string;
   brown?: string;
   borderColor?: string;
+  borderColor1?: string;
 }
 
 declare module "@mui/material/styles" {
@@ -131,13 +179,12 @@ const breakpoints = {
 const body_3 = {
   fontWeight: 500,
   fontSize: "24px",
-  lineHeight: "36px",
-  letterSpacing: "0.15px",
+  lineHeight: "32px",
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     fontSize: "20px",
-    lineHeight: "32px",
+    lineHeight: "28px",
   },
-  [`@media (max-width: ${breakpoints.md})`]: {
+  [`@media (max-width: ${breakpoints.sm})`]: {
     fontSize: "18px",
     lineHeight: "29px",
   },
@@ -154,15 +201,22 @@ const body_2 = {
   fontSize: "32px",
   lineHeight: "41.66px",
   letterSpacing: "0.15px",
+  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+    fontSize: "25px",
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    fontSize: "22px",
+    lineHeight: "30px",
+  },
 };
 
 const body_4 = {
   fontWeight: 500,
-  fontSize: "18px",
-  lineHeight: "28px",
+  fontSize: "18px !important",
+  lineHeight: "28px !important",
   letterSpacing: "0.2px",
   [`@media (max-width: ${breakpoints.md})`]: {
-    fontSize: "16px",
+    fontSize: "16px !important",
     lineHeight: "26px",
   },
 };
@@ -178,6 +232,34 @@ const body_5 = {
   [`@media (max-width: ${breakpoints.md})`]: {
     fontSize: "24px",
     lineHeight: "32px",
+  },
+};
+
+const body_9 = {
+  fontWeight: 500,
+  fontSize: "24px",
+  lineHeight: "32px",
+  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+    fontSize: "22px",
+    lineHeight: "30px",
+  },
+};
+
+const body_10 = {
+  fontWeight: 500,
+  fontSize: "19px",
+  lineHeight: "28px",
+  [`@media (max-width: ${breakpoints.md})`]: {
+    fontSize: "16px",
+    lineHeight: "24px",
+  },
+};
+const font_19 = {
+  fontSize: 19,
+  lineHeight: "28px",
+  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+    fontSize: "16px",
+    lineHeight: "26px",
   },
 };
 
@@ -200,8 +282,8 @@ const typography: ThemeOptions["typography"] = {
       lineHeight: "60px",
     },
     [`@media (max-width: ${breakpoints.sm})`]: {
-      fontSize: "40px",
-      lineHeight: "48px",
+      fontSize: "30px",
+      lineHeight: "40px",
     },
   },
   body_2,
@@ -213,36 +295,82 @@ const typography: ThemeOptions["typography"] = {
   body_3_600: {
     ...body_3,
     fontWeight: 600,
+    lineHeight: "32px",
   },
   body_3_400: {
     ...body_3,
     fontWeight: 400,
+  },
+  body_3_500: {
+    ...body_3,
+    fontWeight: 500,
+    display: "block",
+  },
+  para: {
+    ...body_3,
+    lineHeight: "32px",
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+      fontSize: "22px",
+      lineHeight: "30px",
+    },
+    [`@media (max-width: ${breakpoints.sm})`]: {
+      fontSize: "20px",
+      lineHeight: "27px",
+    },
   },
   body_4,
   body_4_400: {
     ...body_4,
     fontWeight: 400,
   },
+  body_9,
+  body_9_600: {
+    ...body_9,
+    fontWeight: 600,
+  },
+
+  body_10,
+  body_10_500: {
+    ...body_10,
+    lineHeight: "24px",
+    transition: "all 0.3s ease-in-out",
+    margin: " 12px 0",
+  },
+
   body_4_600: {
     ...body_4,
     fontWeight: 600,
+    lineHeight: "20px",
+    letterSpacing: "2.4px",
+    marginBottom: "8px",
+    textTransform: "uppercase",
+    display: "block",
   },
+
+  body_4_500: {
+    ...body_4,
+    letterSpacing: "1.6px",
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+      fontSize: "16px !important",
+      lineHeight: "16px !important",
+    },
+  },
+
   body_5: {
     ...body_5,
     fontWeight: 600,
   },
   body_6: {
     fontWeight: 500,
-    fontSize: "60px",
-    lineHeight: "68px",
-    letterSpacing: "0.15px",
+    fontSize: "56px",
+    lineHeight: "60px",
     [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-      fontSize: "52px",
-      lineHeight: "64px",
+      fontSize: "48px",
+      lineHeight: "54px",
     },
-    [`@media (max-width: ${breakpoints.md})`]: {
-      fontSize: "40px",
-      lineHeight: "48px",
+    [`@media (max-width: ${breakpoints.sm})`]: {
+      fontSize: "30px",
+      lineHeight: "40px",
     },
   },
   body_7: {
@@ -262,10 +390,33 @@ const typography: ThemeOptions["typography"] = {
     fontSize: "22px",
     lineHeight: "34px",
   },
+
+  body_11: {
+    fontWeight: 500,
+    fontSize: "32px",
+    lineHeight: "36px",
+    letterSpacing: "-0.32px",
+  },
+  // body_10: {
+  //   fontSize: 19,
+  //   lineHeight: "28px",
+  //   fontWeight: 500,
+  // },
+
+  font_19_600: {
+    ...font_19,
+    fontWeight: 600,
+  },
+
+  font_19_500: {
+    ...font_19,
+    fontWeight: 500,
+  },
+
   count: {
     fontWeight: 600,
-    fontSize: "48px",
-    lineHeight: "68px",
+    fontSize: "40px",
+    lineHeight: "44px",
     letterSpacing: "0.15px",
     textAlign: "center",
     [`@media (max-width: ${breakpoints.lg})`]: {
@@ -325,6 +476,47 @@ const typography: ThemeOptions["typography"] = {
     lineHeight: "14px",
     letterSpacing: "1.6px",
   },
+  font_38: {
+    fontSize: "38px",
+    lineHeight: "44px",
+    fontWeight: 500,
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+      fontSize: "32px",
+      lineHeight: "38px",
+    },
+    [`@media (max-width: ${breakpoints.sm})`]: {
+      fontSize: "26px",
+      lineHeight: "30px",
+    },
+  },
+  mediumFont: {
+    fontSize: 32,
+    lineHeight: "36px",
+    fontWeight: 500,
+  },
+  font_subtitle: {
+    fontSize: 19,
+    lineHeight: "24px",
+    fontWeight: 500,
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+      fontSize: "16px",
+      lineHeight: "22px",
+    },
+  },
+  short_desc: {
+    fontSize: 19,
+    lineHeight: "30px",
+    fontWeight: 500,
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+      fontSize: "17px",
+      lineHeight: "23px",
+    },
+  },
+  font_14: {
+    fontSize: 14,
+    lineHeight: "20px",
+    fontWeight: 500,
+  },
 };
 
 export const lightTheme = createTheme({
@@ -343,26 +535,29 @@ export const lightTheme = createTheme({
       main: "rgba(255, 69, 26, 1)",
     },
     custom: {
-      black: "#151515 !important",
+      black: "#1b1b1b !important",
       black1: "#444446",
-      black2: "#0E0E0E",
+      black2: "#1b1b1b",
       black3: "#58595B",
-      bgcolor: "#F6F6F6 !important",
+      black4: "#0b0b0b !important",
+      gray_txt: "#68686A",
+      bgcolor: "#f4f4f4 !important",
       white: "#ffffff !important",
       white1: "#E4E4E4 !important",
-      white2: "#F6F6F6 !important",
+      white2: "#f4f4f4 !important",
       white3: "#AFAFB0",
       white4: "#8B8B8C",
       white5: "#f2f2f2 !important",
       white6: "#a2a2a2",
       border1: "#c6c6c6",
       border2: "#1F1F1F !important",
-      grey_700: "#4F4F50",
+      grey_700: "#CDCDCE",
       grey_200: "#E7E7E8",
       orange_600: "#F7941E !important",
       red: "#FF8989 !important",
       brown: "#6e3c00",
       borderColor: "#737373",
+      borderColor1: "#323131",
     },
   },
 
@@ -376,11 +571,22 @@ export const lightTheme = createTheme({
         scrollbarColor: "#000000",
         "& body": {
           padding: "0 !important",
-          backgroundColor: "#f6f6f6",
+          backgroundColor: "#f4f4f4",
         },
         "&::-webkit-scrollbar-thumb": {
           backgroundColor: "#ECEFF1",
           borderRadius: "10px",
+        },
+        "& .page-- .FooterTopSpacing": {
+          backgroundColor: "#f4f4f4 !important",
+        },
+        "@media (max-width:899px)": {
+          "& br": {
+            display: "none",
+          },
+          "& .TabletViewBorder br": {
+            display: "block",
+          },
         },
       },
     },
