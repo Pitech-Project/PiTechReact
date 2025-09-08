@@ -1,18 +1,36 @@
 "use client";
 
 import "@/styles/global/globals.css";
-import { AccessPlateforms } from "@/components/case-studie-details/access-plateforms";
-import { Challenges } from "@/components/case-studie-details/challenges";
-import { AlwaysKeepSimple } from "@/components/common/always-keep-simple";
-import { FeaturesOfProject } from "@/components/case-studie-details/Features-of-project";
+import ProjectTopSection from "@/components/case-studie-details/projectTopSection";
+import ProjectInfo from "@/components/case-studie-details/projectInfo";
+import ChallengeSec from "@/components/case-studie-details/challengeSec";
+import Pisolution from "@/components/case-studie-details/pisolutions";
+import KeyFeatures from "@/components/case-studie-details/keyFeatures";
+import LongTermImpact from "@/components/case-studie-details/longTermImpact";
+import GetInTouch from "@/components/case-studie-details/getInTouch";
+import { useSearchParams } from "next/navigation";
+import { caseStudyData } from "@/lib/caseStudyDetailsData";
 
 export default function Page() {
+  const searchParams = useSearchParams();
+  const projectName = searchParams.get("project");
+  if (!projectName) {
+    return <div>No project specified.</div>;
+  }
+  const project = caseStudyData[projectName as keyof typeof caseStudyData];
+
+  if (!project) {
+    return <div>Project not found: {project}</div>;
+  }
   return (
     <>
-      <AlwaysKeepSimple />
-      <AccessPlateforms />
-      <Challenges />
-      <FeaturesOfProject />
+      <ProjectTopSection project={project} />
+      <ProjectInfo project={project} />
+      <ChallengeSec project={project} />
+      <Pisolution project={project} />
+      <KeyFeatures project={project} />
+      <LongTermImpact project={project} />
+      <GetInTouch project={project} />
     </>
   );
 }

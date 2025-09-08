@@ -7,8 +7,8 @@ import { OurOffice } from "@/components/contact/our-offices";
 export default function Page() {
   return (
     <>
-      <ContactForm />
       <OurOffice />
+      <ContactForm />
     </>
   );
 }

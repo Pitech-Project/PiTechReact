@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/global/globals.css";
 import "@/styles/loader.css";
-import { ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import LayoutWrapper from "@/components/common/layoutWrapper";
 import { ReactNode } from "react";
 import { lightTheme } from "@/styles/MUI/theme";
@@ -28,8 +28,9 @@ export default function RootLayout({
         <meta name="author" content="pi tech" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={inter.className} style={{ backgroundColor: "#f6f6f6" }}>
+      <body className={inter.className} style={{ backgroundColor: "#f4f4f4" }}>
         <ThemeProvider theme={lightTheme}>
+          <CssBaseline />
           <LayoutWrapper>{children}</LayoutWrapper>
         </ThemeProvider>
       </body>
