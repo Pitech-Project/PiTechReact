@@ -4,7 +4,6 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import { LaptopImage, TopBox, WhiteChip } from "@/styles/MUI/common.styled";
 
-
 export default function ProjectTopSection({ project }: any) {
   const img = project.topSection.projectLogo;
   return (
@@ -22,7 +21,7 @@ export default function ProjectTopSection({ project }: any) {
             <Typography
               variant="body_6"
               display="block"
-              color="black2"
+              color="custom.black2"
               mb={1.5}
             >
               {project.topSection.title}

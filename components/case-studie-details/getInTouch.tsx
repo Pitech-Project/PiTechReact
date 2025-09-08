@@ -26,13 +26,13 @@ export default function GetInTouch({ project }: any) {
         <Link onClick={() => router.push(preLink)}>
           <ArrowLeftWhite />
           <Typography variant="font_14">
-            Previous <br />
+            Previous <br style={{ display: "block !important" }} />
             case study
           </Typography>
         </Link>
         <Link onClick={() => router.push(nextLink)}>
           <Typography variant="font_14" textAlign="right">
-            Next <br />
+            Next <br style={{ display: "block !important" }} />
             case study
           </Typography>
           <ArrowRightWhite />

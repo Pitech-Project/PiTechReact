@@ -53,10 +53,16 @@ const AccordionSection = ({
     <AccordionDetails>
       <Grid container spacing={4}>
         {items.map((text, index) => (
-          <Grid size={{ xs: 12, md: 6 , lg: 5.5, xl:5}} key={index}>
+          <Grid size={{ xs: 12, md: 6, lg: 5.5, xl: 5 }} key={index}>
             <Box display="flex" alignItems="center" gap={1} position="relative">
               <DotUI></DotUI>
-              <Typography variant="body_10" color="custom.white3" marginLeft={'20px !important'} fontSize={'19px !important'} lineHeight={'28px !important'}>
+              <Typography
+                variant="body_10"
+                color="custom.white3"
+                marginLeft={"20px !important"}
+                fontSize={"19px !important"}
+                lineHeight={"28px !important"}
+              >
                 {text}
               </Typography>
             </Box>

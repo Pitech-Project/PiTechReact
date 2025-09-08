@@ -7,7 +7,7 @@ export default function Pisolution({ project }: any) {
     <SolutionBox>
       <Container maxWidth="xl">
         <Grid container columnGap="100px">
-          <Grid size={{ sm: 12, md: 11 }} offset={{ xs: 0, md: 2 }}>
+          <Grid size={{ sm: 12, md: 6 }} offset={{ xs: 0, md: 2 }}>
             <Typography
               variant="mediumFont"
               color="custom.black2"

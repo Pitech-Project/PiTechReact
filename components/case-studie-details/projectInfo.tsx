@@ -12,7 +12,7 @@ export default function ProjectInfo({ project }: any) {
             <OrangeChip>{project.projectInfo.name}</OrangeChip>
             <Box mt={1.5}>
               <Grid container gap={{ xs: 0, sm: 5 }}>
-                <Grid size={{ xs: 6, md: 4 }}>
+                <Grid size={{ xs: 6, md: 3 }}>
                   <Box display="flex">
                     <IndustryIcon />
                     <Typography
@@ -27,11 +27,12 @@ export default function ProjectInfo({ project }: any) {
                     variant="font_19_600"
                     color="custom.black2"
                     ml={3.5}
+                    display="block"
                   >
                     {project.projectInfo.projectDetails.industry}
                   </Typography>
                 </Grid>
-                <Grid size={{ xs: 6, md: 4 }}>
+                <Grid size={{ xs: 6, md: 3 }}>
                   <Box display="flex">
                     <HeadquarterIcon />
                     <Typography

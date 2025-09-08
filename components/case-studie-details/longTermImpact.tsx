@@ -38,7 +38,7 @@ export default function LongTermImpact({ project }: any) {
                     alt="Long term impact"
                   />
                   <Typography
-                    variant="short_desc"
+                    variant="body_3"
                     color="custom.black2"
                     display="block"
                     mt={2}

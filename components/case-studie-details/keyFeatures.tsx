@@ -8,7 +8,7 @@ export default function KeyFeatures({ project }: any) {
     <Box>
       <Container maxWidth="xl">
         <Grid container columnGap="100px">
-          <Grid size={{ sm: 12, md: 10 }} offset={{ xs: 0, md: 2 }}>
+          <Grid size={{ sm: 12, md: 9 }} offset={{ xs: 0, md: 2 }}>
             <Typography
               variant="mediumFont"
               color="custom.black2"
