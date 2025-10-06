@@ -2,6 +2,7 @@
 
 import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import {
+  AddressTypography,
   Copyright,
   FooterLeftPanel,
   FooterOuterBox,
@@ -14,7 +15,6 @@ import {
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Image from "next/image";
 import FooterLogo from "../../../public/assets/img/footer-logo.svg";
-import ScrollToTopButton from "../scroll-to-top";
 import { usePathname } from "next/navigation";
 import { HoveredLink } from "../header/navbar-menu";
 
@@ -51,83 +51,102 @@ const Footer = () => {
           marginBottom="44px"
         >
           <Image src={FooterLogo} alt="Footer logo" />
-          <ScrollToTopButton />
+          {/* <ScrollToTopButton /> */}
         </Stack>
 
         <FooterUI>
-          <FooterLeftPanel>
-            <Box>
-              <HoveredLink
-                className={
-                  isActivePath("/about") ? "active FooterLink" : "FooterLink"
-                }
-                href="/about"
-              >
-                About Us
-              </HoveredLink>
-              <HoveredLink
-                className={
-                  isActivePath("/services") ? "active FooterLink" : "FooterLink"
-                }
-                href="/services"
-              >
-                Services
-              </HoveredLink>
-            </Box>
-            <Box>
-              <HoveredLink
-                className={
-                  isActivePath("/case-studies")
-                    ? "active FooterLink"
-                    : "FooterLink"
-                }
-                href="/case-studies"
-              >
-                Case Studies
-              </HoveredLink>
-              <HoveredLink
-                className={
-                  isActivePath(["/careers", "/career-details"])
-                    ? "active FooterLink"
-                    : "FooterLink"
-                }
-                href="/careers"
-              >
-                Careers
-              </HoveredLink>
-            </Box>
-          </FooterLeftPanel>
+          <Box>
+            <Typography
+              variant="body_10"
+              color="custom.white2"
+              display={"block"}
+              marginBottom={"32px"}
+            >
+              Company
+            </Typography>
+            <FooterLeftPanel>
+              <Box>
+                <HoveredLink
+                  className={
+                    isActivePath("/about") ? "active FooterLink" : "FooterLink"
+                  }
+                  href="/about"
+                >
+                  About Us
+                </HoveredLink>
+                <HoveredLink
+                  className={
+                    isActivePath("/services")
+                      ? "active FooterLink"
+                      : "FooterLink"
+                  }
+                  href="/services"
+                >
+                  Services
+                </HoveredLink>
+              </Box>
+              <Box>
+                <HoveredLink
+                  className={
+                    isActivePath("/case-studies")
+                      ? "active FooterLink"
+                      : "FooterLink"
+                  }
+                  href="/case-studies"
+                >
+                  Case Studies
+                </HoveredLink>
+                <HoveredLink
+                  className={
+                    isActivePath(["/careers", "/career-details"])
+                      ? "active FooterLink"
+                      : "FooterLink"
+                  }
+                  href="/careers"
+                >
+                  Careers
+                </HoveredLink>
+              </Box>
+            </FooterLeftPanel>
+          </Box>
 
-          <FooterRightPanel>
-            <Stack spacing={isMobileView ? 2 : 3.5}>
-              <Typography variant="body_10" color="custom.white2">
-                Get in touch
-              </Typography>
-              <LinkUI href="tel:+91 22 6292 3333">+91 22 6292 3333</LinkUI>
-              <LinkUI
-                href="mailto:enquiry@pitechniques.com"
-                sx={{ textDecoration: "underline" }}
-              >
-                enquiry@pitechniques.com
-              </LinkUI>
-            </Stack>
-            <Box className="TabletViewBorder">
-              <Typography variant="body_10" color="custom.white3">
-                61-63 C Mittal Tower, <br></br>Nariman Point,<br></br> Mumbai -
-                400021
-              </Typography>
-              <SocialMediaIcons
-                flexDirection="row"
-                alignItems="center"
-                gap={3}
-                marginTop="32px"
-                href="https://in.linkedin.com/company/pi-techniques"
-                target="_blank"
-              >
-                <LinkedInIcon />
-              </SocialMediaIcons>
-            </Box>
-          </FooterRightPanel>
+          <Box>
+            <Typography
+              variant="body_10"
+              color="custom.white2"
+              display={"block"}
+              marginBottom={"32px"}
+              marginTop={isMobileView ? "48px" : "0"}
+            >
+              Get in touch
+            </Typography>
+            <FooterRightPanel>
+              <Stack spacing={isMobileView ? 2 : 3.5}>
+                <LinkUI href="tel:+91 22 6292 3333">+91 22 6292 3333</LinkUI>
+                <LinkUI
+                  href="mailto:enquiry@pitechniques.com"
+                  sx={{
+                    textDecoration: "underline",
+                    textUnderlineOffset: "4px",
+                  }}
+                >
+                  enquiry@pitechniques.com
+                </LinkUI>
+              </Stack>
+              <Box className="TabletViewBorder">
+                <AddressTypography variant="body_10" color="custom.white3">
+                  61-63 C Mittal Tower, <br></br>Nariman Point,<br></br> Mumbai
+                  - 400021
+                </AddressTypography>
+                <SocialMediaIcons
+                  href="https://in.linkedin.com/company/pi-techniques"
+                  target="_blank"
+                >
+                  <LinkedInIcon />
+                </SocialMediaIcons>
+              </Box>
+            </FooterRightPanel>
+          </Box>
         </FooterUI>
 
         <Copyright>

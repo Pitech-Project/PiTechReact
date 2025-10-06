@@ -14,7 +14,7 @@ import {
   AttachedFile,
   FileUpload,
   FormUI,
-  OutlineWhiteBtn,
+  OutlineWhiteBtn1,
   TellUsTypography,
 } from "@/styles/MUI/common.styled";
 import AttachFile from "../../../public/assets/img/attach_file.svg";
@@ -23,7 +23,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import { careerFormFields } from "@/lib/constanst";
-import ArrowRightWhite from "@/components/common/SVGIcons/arrowRightWhite";
 
 export type FormData = {
   name: string;
@@ -82,7 +81,7 @@ export default function CareerForm() {
 
     const { name, lastname, email, contactnumber, message, resume } = formData;
 
-    if (!name.trim()) newErrors.name = "Name is required.";
+    if (!name.trim()) newErrors.name = "First name is required.";
     if (!lastname.trim()) newErrors.lastname = "Last name is required.";
     if (!email.trim()) newErrors.email = "Email is required.";
     else if (!/\S+@\S+\.\S+/.test(email))
@@ -345,10 +344,9 @@ export default function CareerForm() {
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <OutlineWhiteBtn type="submit" marginTop={"8px"}>
-            APPLY
-            <ArrowRightWhite />
-          </OutlineWhiteBtn>
+          <OutlineWhiteBtn1 type="submit" sx={{ marginTop: "8px" }}>
+            SUBMIT
+          </OutlineWhiteBtn1>
         </motion.div>
 
         {submitted && (

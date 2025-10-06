@@ -7,8 +7,14 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { OuterGrid1, SmallFullStop } from "@/styles/MUI/common.styled";
+import {
+  OuterGrid1,
+  SmallFullStop,
+  SubtitleTypography,
+  TitleTypography,
+} from "@/styles/MUI/common.styled";
 import { motion } from "framer-motion";
+import ObservedSection from "@/components/common/ObservedSection";
 
 export const industries = [
   {
@@ -52,103 +58,96 @@ export const industries = [
 export const OurProcess = () => {
   const theme = useTheme();
   const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
+  const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <Stack bgcolor={"custom.white"}>
-      <OuterGrid1 container spacing={2}>
-        <Grid
-          size={{ xs: 12, lg: 9, xl: 8.3 }}
-          offset={{ xs: 0, lg: 2, xl: 2.3 }}
-        >
+    <ObservedSection id="home6" bg="light">
+      <Stack bgcolor={"custom.white"}>
+        <OuterGrid1 container spacing={2}>
           <Grid
-            container
-            sx={{
-              "& br": {
-                display: isTabletView ? "none" : "block",
-              },
-            }}
+            size={{ xs: 12, lg: 9, xl: 8.3 }}
+            offset={{ xs: 0, lg: 2, xl: 2.3 }}
           >
-            <Grid size={{ xs: 12, lg: 4.5, xl: 4.5 }}>
-              <motion.div
-                initial={{ opacity: 0, x: -100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                <Typography color="custom.gray_txt" variant="body_4_600">
-                  our agile process
-                  <SmallFullStop />
-                </Typography>
-                <Typography
-                  color="custom.black"
-                  variant="body_6"
-                  display={"block"}
-                  marginBottom={isTabletView ? "80px" : "120px"}
-                >
-                  Adapting agility<br></br> for smarter<br></br> outcomes
-                </Typography>
-                <Typography
-                  color="custom.black"
-                  margin={isTabletView ? "16px 0 40px" : "16px 0 0"}
-                  display={"block"}
-                  variant="body_3"
-                >
-                  At Pi Techniques, we’ve learned that agility isn’t just a
-                  methodology, it’s a mindset. As client needs evolve, we adapt.
-                  That’s why we’ve embraced{" "}
-                  <Typography color="custom.orange_600" variant="body_3">
-                    Agile Project Management.{" "}
-                  </Typography>
-                  A proven, flexible framework that helps us stay aligned,
-                  responsive, and focused on what matters most: delivering
-                  results, fast.
-                </Typography>
-              </motion.div>
-            </Grid>
             <Grid
-              size={{ xs: 12, lg: 6.5, xl: 5.5 }}
-              offset={{ xs: 0, lg: 1, xl: 2 }}
+              container
+              sx={{
+                "& br": {
+                  display: isTabletView ? "none" : "block",
+                },
+              }}
             >
-              <Stack gap={7.5}>
-                {industries.map((industries) => (
-                  <Stack
-                    flexDirection={"row"}
-                    alignItems={"baseline"}
-                    gap={1}
-                    key={industries.id}
-                  >
-                    <Stack>
-                      <Typography
-                        color="custom.black"
-                        marginBottom={1}
-                        variant="body_11"
-                        display={"block"}
-                      >
-                        {industries.name}
-                      </Typography>
-                      <Typography
-                        color="custom.gray_txt"
-                        variant="body_10"
-                        display={"block"}
-                      >
-                        {industries.description}
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                ))}
-                <Typography
-                  variant="body_3_600"
-                  fontStyle={"italic"}
-                  color="custom.black"
+              <Grid size={{ xs: 12, lg: 4.5, xl: 4.5 }}>
+                <motion.div
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.3 }}
                 >
-                  Agile isn’t about moving fast blindly. It’s about moving fast
-                  in the right direction — with you at the center of the
-                  journey.
-                </Typography>
-              </Stack>
+                  <Typography color="custom.gray_txt" variant="body_4_600">
+                    our agile process
+                    <SmallFullStop />
+                  </Typography>
+                  <TitleTypography color="custom.black" variant="body_6">
+                    Adapting agility<br></br> for smarter<br></br> outcomes
+                  </TitleTypography>
+                  <SubtitleTypography color="custom.black" variant="body_3">
+                    At Pi Techniques, we’ve learned that agility isn’t just a
+                    methodology, it’s a mindset. As client needs evolve, we
+                    adapt. That’s why we’ve embraced{" "}
+                    <Typography color="custom.orange_600" variant="body_3">
+                      Agile Project Management.{" "}
+                    </Typography>
+                    A proven, flexible framework that helps us stay aligned,
+                    responsive, and focused on what matters most: delivering
+                    results, fast.
+                  </SubtitleTypography>
+                </motion.div>
+              </Grid>
+              <Grid
+                size={{ xs: 12, lg: 6.5, xl: 5.5 }}
+                offset={{ xs: 0, lg: 1, xl: 2 }}
+              >
+                <Stack gap={isMobileView ? 5 : 7.5}>
+                  {industries.map((industries) => (
+                    <Stack
+                      flexDirection={"row"}
+                      alignItems={"baseline"}
+                      gap={1}
+                      key={industries.id}
+                    >
+                      <Stack>
+                        <Typography
+                          color="custom.black"
+                          marginBottom={1}
+                          variant="body_11"
+                          display={"block"}
+                        >
+                          {industries.name}
+                        </Typography>
+                        <Typography
+                          color="custom.gray_txt"
+                          variant="font_19"
+                          display={"block"}
+                        >
+                          {industries.description}
+                        </Typography>
+                      </Stack>
+                    </Stack>
+                  ))}
+                  <Typography
+                    variant="body_3_600"
+                    fontStyle={"italic"}
+                    color="custom.black"
+                  >
+                    Agile isn’t about moving fast blindly. It’s about moving
+                    fast in the right direction — with you at the center of the
+                    journey.
+                  </Typography>
+                </Stack>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </OuterGrid1>
-    </Stack>
+        </OuterGrid1>
+      </Stack>
+    </ObservedSection>
   );
 };

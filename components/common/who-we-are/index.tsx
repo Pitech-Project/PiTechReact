@@ -7,12 +7,14 @@ import {
   OutlineBtn,
   OuterGrid1,
   SubTitlemarginBottom1,
+  BoxBottomSpace,
 } from "@/styles/MUI/common.styled";
 import BusinessOffice from "../../../public/assets/img/newoffice1.jpg";
 import TotalYears from "../../../public/assets/img/water-mark.png";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import ArrowRightBlack from "../SVGIcons/arrowRightBlack";
+import ObservedSection from "../ObservedSection";
 
 const WhoWeAre = () => {
   const router = useRouter();
@@ -21,7 +23,7 @@ const WhoWeAre = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
   const isTabletView1 = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <>
+    <ObservedSection id="home1" bg="light">
       <OuterGrid1 container spacing={2} paddingBottom={"0 !important"}>
         <Grid
           size={{ xs: 12, lg: 8, xl: 7.4 }}
@@ -57,7 +59,7 @@ const WhoWeAre = () => {
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <Box marginBottom={isTabletView ? "60px" : "0"}>
+                <BoxBottomSpace>
                   <Typography
                     color="custom.black"
                     margin={isMobileView ? "0px 0 20px" : "0px 0 28px"}
@@ -90,11 +92,11 @@ const WhoWeAre = () => {
                   </Typography>
                   <OutlineBtn
                     onClick={() => router.push("/about")}
-                    marginTop={"54px"}
+                    className="aboutBtn"
                   >
                     ABOUT US <ArrowRightBlack />
                   </OutlineBtn>
-                </Box>
+                </BoxBottomSpace>
               </motion.div>
             </Grid>
             <Grid size={{ xs: 12, md: 6, xl: 5 }}>
@@ -134,7 +136,7 @@ const WhoWeAre = () => {
           </Box>
         </Grid>
       </OuterGrid1>
-    </>
+    </ObservedSection>
   );
 };
 

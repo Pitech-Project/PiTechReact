@@ -1,30 +1,32 @@
 "use client";
 
 import { useEffect } from "react";
+import "@dotlottie/player-component";
 
-// Extend the custom element type for dotlottie-player
 interface DotLottiePlayerElement extends HTMLElement {
   play?: () => void;
   stop?: () => void;
-  seek?: (frame: number) => void; // some players use seek
 }
 
 export default function LottieHoverHandler() {
   useEffect(() => {
-    const lotties =
-      document.querySelectorAll<DotLottiePlayerElement>(".hoverLottie");
+    const parents =
+      document.querySelectorAll<HTMLElement>(".hoverLottieParent");
 
     const handlers: {
-      el: DotLottiePlayerElement;
+      parent: HTMLElement;
+      lottie: DotLottiePlayerElement;
       play: () => void;
       stop: () => void;
     }[] = [];
 
-    lotties.forEach((lottie) => {
+    parents.forEach((parent) => {
+      const lottie =
+        parent.querySelector<DotLottiePlayerElement>(".hoverLottie");
+      if (!lottie) return;
+
       const play = () => {
-        // Force reset to frame 0 before play
         lottie.stop?.();
-        lottie.seek?.(0); // if supported
         lottie.play?.();
       };
 
@@ -32,17 +34,16 @@ export default function LottieHoverHandler() {
         lottie.stop?.();
       };
 
-      lottie.addEventListener("mouseenter", play);
-      lottie.addEventListener("mouseleave", stop);
+      parent.addEventListener("mouseenter", play);
+      parent.addEventListener("mouseleave", stop);
 
-      handlers.push({ el: lottie, play, stop });
+      handlers.push({ parent, lottie, play, stop });
     });
 
-    // ✅ Cleanup on unmount
     return () => {
-      handlers.forEach(({ el, play, stop }) => {
-        el.removeEventListener("mouseenter", play);
-        el.removeEventListener("mouseleave", stop);
+      handlers.forEach(({ parent, play, stop }) => {
+        parent.removeEventListener("mouseenter", play);
+        parent.removeEventListener("mouseleave", stop);
       });
     };
   }, []);

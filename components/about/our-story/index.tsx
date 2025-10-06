@@ -8,11 +8,12 @@ import {
   AboutImage,
 } from "@/styles/MUI/common.styled";
 import { motion } from "framer-motion";
+import ObservedSection from "@/components/common/ObservedSection";
 
 const OurStory = () => {
   const isTabletView = useMediaQuery(`(max-width:991px)`);
   return (
-    <>
+    <ObservedSection id="home5" bg="light">
       <OuterGrid1 container spacing={2}>
         <Grid
           size={{ xs: 12, lg: 9, xl: 8.3 }}
@@ -90,7 +91,7 @@ const OurStory = () => {
           </Grid>
         </Grid>
       </OuterGrid1>
-    </>
+    </ObservedSection>
   );
 };
 

@@ -7,7 +7,7 @@ export default function ChallengeSec({ project }: any) {
     <ChallengeBox>
       <Container maxWidth="xl">
         <Grid container columnGap="100px">
-          <Grid size={{ md: 4, lg: 4, xl: 4 }} offset={{ xs: 0, md: 2 }}>
+          <Grid size={{ xs: 12, lg: 4, xl: 4 }} offset={{ xs: 0, lg: 2 }}>
             <Typography
               variant="mediumFont"
               color="custom.white3"
@@ -38,7 +38,7 @@ export default function ChallengeSec({ project }: any) {
               </List>
             )}
           </Grid>
-          <Grid size={{ md: 4, lg: 4, xl: 4 }}>
+          <Grid size={{ xs: 12, lg: 4, xl: 4 }}>
             <Typography
               variant="mediumFont"
               color="custom.white3"

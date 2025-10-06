@@ -50,6 +50,7 @@ export function NavbarComponent(props: Props) {
   const pathname = usePathname();
   const theme = useTheme();
   const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
+  const isIpadView = useMediaQuery(theme.breakpoints.down("lg"));
 
   const noHeaderPaths = [
     "/login",
@@ -98,9 +99,15 @@ export function NavbarComponent(props: Props) {
           "& .LinkUI:last-child": { marginRight: 0 },
         }}
       >
-        <Toolbar sx={{ width: "100%", justifyContent: "space-between", p: 0 }}>
+        <Toolbar
+          sx={{
+            width: "100%",
+            justifyContent: "space-between",
+            p: "0 !important",
+          }}
+        >
           <HoveredLink className={isActivePath("/") ? "active" : ""} href="/">
-            <Image src={isMobileView ? PiLogoMobile : PiLogo} alt="logo" />
+            <Image src={isIpadView ? PiLogoMobile : PiLogo} alt="logo" />
           </HoveredLink>
 
           <Box
@@ -147,10 +154,18 @@ export function NavbarComponent(props: Props) {
             onClick={handleDrawerToggle}
             sx={{ display: { lg: "none" }, color: "custom.orange_600" }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ width: "32px", height: "auto" }} />
           </IconButton>
 
-          <DrawerUI anchor="top" open={mobileOpen} onClose={handleDrawerToggle}>
+          <DrawerUI
+            anchor="top"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            SlideProps={{
+              direction: "down",
+              timeout: 400,
+            }}
+          >
             <Stack
               mb={7}
               direction="row"
@@ -158,11 +173,11 @@ export function NavbarComponent(props: Props) {
               justifyContent="space-between"
             >
               <NextLink href="/" passHref>
-                <Button onClick={() => handleLinkClick("/")}>
-                  <Image
-                    src={isMobileView ? PiLogoMobile : PiLogo}
-                    alt="logo"
-                  />
+                <Button
+                  onClick={() => handleLinkClick("/")}
+                  sx={{ p: "0 !important" }}
+                >
+                  <Image src={isIpadView ? PiLogoMobile : PiLogo} alt="logo" />
                 </Button>
               </NextLink>
               <IconButton

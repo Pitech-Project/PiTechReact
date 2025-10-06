@@ -141,7 +141,7 @@ const OurTeam = () => {
                       <Stack>
                         <Typography
                           color="custom.white2"
-                          variant="Caption"
+                          variant="Caption2"
                           display={"block"}
                           marginBottom={"4px"}
                         >

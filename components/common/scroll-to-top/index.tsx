@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { ScrollTopTop } from "@/styles/MUI/common.styled";
+import { useSectionObserver } from "@/context/SectionObserverContext";
 
 const ScrollToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,10 +21,12 @@ const ScrollToTopButton: React.FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const { activeBg } = useSectionObserver();
+  console.log(activeBg);
   return (
     <>
       {isVisible && (
-        <ScrollTopTop onClick={scrollToTop}>
+        <ScrollTopTop activeBg={activeBg} onClick={scrollToTop}>
           <svg
             width="12"
             height="16"

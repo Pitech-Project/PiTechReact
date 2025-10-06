@@ -1,4 +1,4 @@
-import { OrangeChip, ProjectInf } from "@/styles/MUI/common.styled";
+import { ProjectInf } from "@/styles/MUI/common.styled";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { IndustryIcon } from "../common/SVGIcons/industryIcon";
 import { HeadquarterIcon } from "../common/SVGIcons/headquarterIcon";
@@ -8,11 +8,11 @@ export default function ProjectInfo({ project }: any) {
     <ProjectInf>
       <Container maxWidth="xl">
         <Grid container>
-          <Grid size={{ xs: 12, sm: 11 }} offset={{ xs: 0, sm: 1 }}>
-            <OrangeChip>{project.projectInfo.name}</OrangeChip>
-            <Box mt={1.5}>
-              <Grid container gap={{ xs: 0, sm: 5 }}>
-                <Grid size={{ xs: 6, md: 3 }}>
+          <Grid size={{ xs: 12, lg: 11 }} offset={{ xs: 0, lg: 1 }}>
+            {/* <OrangeChip>{project.projectInfo.name}</OrangeChip> */}
+            <Box mt={3}>
+              <Grid container gap={{ xs: 0, lg: 5 }}>
+                <Grid size={{ xs: 5, lg: 3 }}>
                   <Box display="flex">
                     <IndustryIcon />
                     <Typography
@@ -32,7 +32,7 @@ export default function ProjectInfo({ project }: any) {
                     {project.projectInfo.projectDetails.industry}
                   </Typography>
                 </Grid>
-                <Grid size={{ xs: 6, md: 3 }}>
+                <Grid size={{ xs: 5, lg: 3 }}>
                   <Box display="flex">
                     <HeadquarterIcon />
                     <Typography

@@ -8,6 +8,8 @@ interface Props {
   width?: string;
   height?: string;
   hover?: boolean;
+  className?: string;
+  autoplay?: boolean;
 }
 
 // Custom element type for dotlottie-player
@@ -22,6 +24,8 @@ export const LottiePlayer = ({
   width = "150px",
   height = "auto",
   hover,
+  className = "",
+  autoplay,
 }: Props) => {
   const ref = useRef<DotLottiePlayerElement>(null);
 
@@ -55,7 +59,9 @@ export const LottiePlayer = ({
       {...(hover ? { hover: "" } : {})} // ✅ sets "hover" attribute correctly
       speed="1"
       style={{ width, height }}
-      className="scrollLottie"
+      // className="scrollLottie"
+      className={className}
+      autoplay={autoplay}
     />
   );
 };

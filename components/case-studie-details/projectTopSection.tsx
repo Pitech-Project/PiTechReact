@@ -1,21 +1,31 @@
 "use client";
 
-import { Box, Container, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import Image from "next/image";
 import { LaptopImage, TopBox, WhiteChip } from "@/styles/MUI/common.styled";
+import ProjectInfo from "./projectInfo";
 
 export default function ProjectTopSection({ project }: any) {
   const img = project.topSection.projectLogo;
+  const theme = useTheme();
+  const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
   return (
     <TopBox>
       <Container maxWidth="xl" disableGutters>
         <Grid container justifyContent="center">
-          <Grid size={{ xs: 12, md: 5 }}>
+          <Grid size={{ xs: 12, lg: 5 }}>
             <Image
               src={img}
               height={40}
               width={100}
-              style={{ width: "auto !important" }}
+              style={{ width: "auto !important", height: "auto !important" }}
               alt="Chanakya"
             />
             <Typography
@@ -35,8 +45,11 @@ export default function ProjectTopSection({ project }: any) {
               <WhiteChip>Entity Framework + MSSQL</WhiteChip>
               <WhiteChip>Android / Xamarin</WhiteChip>
             </Box>
+            <Box display={isTabletView ? "block" : "none"}>
+              <ProjectInfo project={project} />
+            </Box>
           </Grid>
-          <Grid size={{ xs: 12, md: 5 }}>
+          <Grid size={{ xs: 12, lg: 5 }}>
             <LaptopImage
               src={project.topSection.img}
               height={558}

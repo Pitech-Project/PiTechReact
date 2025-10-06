@@ -49,7 +49,7 @@ export default function ContactForm() {
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required.";
+    if (!formData.name.trim()) newErrors.name = "First name is required.";
     if (!formData.lastname.trim())
       newErrors.lastname = "Last name is required.";
     if (!formData.email.trim()) newErrors.email = "Email is required.";
@@ -184,7 +184,7 @@ export default function ContactForm() {
                               {item.label}&nbsp;
                               <Typography
                                 component={"span"}
-                                sx={{ color: "custom.red" }}
+                                sx={{ color: "custom.orange_600" }}
                               >
                                 *
                               </Typography>
@@ -215,7 +215,7 @@ export default function ContactForm() {
                           Message&nbsp;
                           <Typography
                             component={"span"}
-                            sx={{ color: "custom.red" }}
+                            sx={{ color: "custom.orange_600" }}
                           >
                             *
                           </Typography>

@@ -27,22 +27,9 @@ export const CaseStudies = () => {
             key={project.id}
             size={{ xs: 12, md: 6 }}
             bgcolor={project.isBgBlack ? "custom.black2" : "custom.white2"}
-            order={{ xs: project.id == "citiusTech" ? 4 : 0 }}
+            order={{ xs: project.id == "citiusTech" ? 4 : 0, md: 0 }}
           >
             <CaseBox>
-              <OnHoverArrowBox>
-                <DirectionLinkOrange href="#">
-                  <ArrowRightUpBlack />
-                </DirectionLinkOrange>
-              </OnHoverArrowBox>
-              <Typography
-                color={project.isBgBlack ? "custom.grey_700" : "#68686A"}
-                variant="body_4_600"
-                marginBottom={1.5}
-              >
-                {project.title}
-                <SmallFullStop />
-              </Typography>
               <Link
                 onClick={() =>
                   router.push(
@@ -51,6 +38,33 @@ export const CaseStudies = () => {
                 }
                 href={`/case-studie-details?project=${encodeURIComponent(project.id)}`}
               >
+                <OnHoverArrowBox>
+                  <DirectionLinkOrange
+                    onClick={() =>
+                      router.push(
+                        `/case-studie-details?project=${encodeURIComponent(project.id)}`,
+                      )
+                    }
+                  >
+                    <ArrowRightUpBlack />
+                  </DirectionLinkOrange>
+                </OnHoverArrowBox>
+                <Typography
+                  color={project.isBgBlack ? "custom.grey_700" : "#68686A"}
+                  variant="body_4_600"
+                  marginBottom={1.5}
+                >
+                  {project.title}
+                  <SmallFullStop />
+                </Typography>
+                {/* <Link
+                onClick={() =>
+                  router.push(
+                    `/case-studie-details?project=${encodeURIComponent(project.id)}`,
+                  )
+                }
+                href={`/case-studie-details?project=${encodeURIComponent(project.id)}`}
+              > */}
                 <Typography
                   marginBottom={isMdView ? "32px" : "52px"}
                   color={project.isBgBlack ? "custom.white2" : "custom.black2"}
@@ -60,38 +74,39 @@ export const CaseStudies = () => {
                 >
                   {project.subTitle}
                 </Typography>
+                {/* </Link> */}
+                <Typography
+                  color={project.isBgBlack ? "custom.white2" : "custom.black2"}
+                  margin={"16px 0 0"}
+                  display={"block"}
+                  variant="para"
+                >
+                  {project.info}
+                </Typography>
+                <Stack
+                  flexDirection={"row"}
+                  gap={2}
+                  margin={"20px 0 0px"}
+                  flexWrap={"wrap"}
+                >
+                  {project.tags.map((tag, index) =>
+                    project.isBgBlack ? (
+                      <GreyChip key={index}>{tag}</GreyChip>
+                    ) : (
+                      <WhiteChip key={index}>{tag}</WhiteChip>
+                    ),
+                  )}
+                </Stack>
+                {/* {project.img} */}
+                <ImageBox>
+                  <CaseImage
+                    src={project.img.src}
+                    layout="fill"
+                    alt="case study"
+                    sx={{ position: "relative !important" }}
+                  />
+                </ImageBox>
               </Link>
-              <Typography
-                color={project.isBgBlack ? "custom.white2" : "custom.black2"}
-                margin={"16px 0 0"}
-                display={"block"}
-                variant="para"
-              >
-                {project.info}
-              </Typography>
-              <Stack
-                flexDirection={"row"}
-                gap={2}
-                margin={"20px 0 0px"}
-                flexWrap={"wrap"}
-              >
-                {project.tags.map((tag, index) =>
-                  project.isBgBlack ? (
-                    <GreyChip key={index}>{tag}</GreyChip>
-                  ) : (
-                    <WhiteChip key={index}>{tag}</WhiteChip>
-                  ),
-                )}
-              </Stack>
-              {/* {project.img} */}
-              <ImageBox>
-                <CaseImage
-                  src={project.img.src}
-                  layout="fill"
-                  alt="case study"
-                  sx={{ position: "relative !important" }}
-                />
-              </ImageBox>
             </CaseBox>
           </Grid>
         ))}

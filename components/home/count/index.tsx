@@ -1,22 +1,22 @@
 "use client";
 
 import { CountOuterBox } from "@/styles/MUI/common.styled";
-import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
 import Counter from "../Counter";
 
 const countData = [
   {
-    target: 300,
+    target: 100,
     label: "NUMBER OF CLIENTS",
     hasPlus: true,
   },
   {
-    target: 100,
+    target: 500,
     label: "PROJECTS DELIVERED",
     hasPlus: true,
   },
   {
-    target: 150,
+    target: 15,
     label: "LOCATIONS",
     hasPlus: true,
   },
@@ -24,14 +24,12 @@ const countData = [
 
 const Count = () => {
   const isMdView = useMediaQuery("(max-width:767px)");
-  const theme = useTheme();
-  const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Stack
       flexDirection="row"
       justifyContent="center"
-      bgcolor={isMobileView ? "custom.black4" : ""}
+      bgcolor={!isMdView ? "custom.black4" : "custom.white2"}
     >
       <CountOuterBox
         flexDirection={isMdView ? "column" : "row"}
@@ -54,7 +52,11 @@ const Count = () => {
                 </Typography>
               )}
             </Stack>
-            <Typography variant="body_4_500" color="custom.white3">
+            <Typography
+              variant="body_4_500"
+              color="custom.white3"
+              className="CountLabel"
+            >
               {label}
             </Typography>
           </Box>

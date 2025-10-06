@@ -4,15 +4,22 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import img1 from "../../../public/assets/img/top-companies/logo-citius.png";
-import img2 from "../../../public/assets/img/top-companies/logo-metro.png";
-import img3 from "../../../public/assets/img/top-companies/logo-seatec.png";
-import img4 from "../../../public/assets/img/top-companies/logo-starplus.png";
-import img5 from "../../../public/assets/img/top-companies/chanakya.svg";
-import img9 from "../../../public/assets/img/top-companies/oceanic-logo.svg";
-import img6 from "../../../public/assets/img/top-companies/logo-taj.png";
-import img7 from "../../../public/assets/img/top-companies/logo-vtech.png";
-import img8 from "../../../public/assets/img/top-companies/logo-resources.png";
+import img1 from "../../../public/assets/img/top-companies/chanakya-new.svg";
+import img2 from "../../../public/assets/img/top-companies/v-group.svg";
+import img3 from "../../../public/assets/img/top-companies/wri.svg";
+import img4 from "../../../public/assets/img/top-companies/sea-tec.svg";
+import img5 from "../../../public/assets/img/top-companies/taj.svg";
+import img6 from "../../../public/assets/img/top-companies/citius.png";
+import img7 from "../../../public/assets/img/top-companies/metro.png";
+import img8 from "../../../public/assets/img/top-companies/bdl-logo.svg";
+import img9 from "../../../public/assets/img/top-companies/oceanic.svg";
+import img10 from "../../../public/assets/img/top-companies/cotton-world.svg";
+import img11 from "../../../public/assets/img/top-companies/willington.svg";
+import img12 from "../../../public/assets/img/top-companies/nutcracker.svg";
+import img13 from "../../../public/assets/img/top-companies/crownvet.png";
+import img14 from "../../../public/assets/img/top-companies/westwind.png";
+import img15 from "../../../public/assets/img/top-companies/honey-bees.svg";
+import img16 from "../../../public/assets/img/top-companies/sohfit.svg";
 import {
   Box,
   styled,
@@ -28,11 +35,28 @@ interface Props {
   homeSlider?: boolean;
 }
 
-const src1 = [img7, img3, img2, img1, img5, img9, img4, img6, img8];
+const src1 = [
+  { src: img1, width: 320, height: 80 },
+  { src: img2, width: 90, height: 67 },
+  { src: img3, width: undefined, height: 88 },
+  { src: img4, width: 152, height: 56 },
+  { src: img5, width: 118, height: 104 },
+  { src: img6, width: undefined, height: undefined },
+  { src: img7, width: undefined, height: undefined },
+  { src: img8, width: 132, height: 117 },
+  { src: img9, width: 225, height: 38 },
+  { src: img10, width: undefined, height: 61 },
+  { src: img11, width: 66, height: 100 },
+  { src: img12, width: undefined, height: 87 },
+  { src: img13, width: undefined, height: undefined },
+  { src: img14, width: undefined, height: undefined },
+  { src: img15, width: 128, height: 128 },
+  { src: img16, width: 222, height: 60 },
+];
 
 const StyledSliderWrapper = styled(Box)(() => ({
   ".slick-slide > div": {
-    margin: "0 16px",
+    margin: "0 40px",
   },
   ".slick-list": {
     margin: "0 -16px",
@@ -40,6 +64,9 @@ const StyledSliderWrapper = styled(Box)(() => ({
   ".slick-track": {
     display: "flex",
     alignItems: "center",
+  },
+  ".slick-slide": {
+    width: "auto !important",
   },
 }));
 
@@ -109,31 +136,22 @@ const CompaniesSlider: React.FC<Props> = ({ homeSlider }) => {
               OUR CLIENTS
               <SmallFullStop />
             </Typography>
-            <Typography
-              color="custom.black"
-              variant="body_6"
-              display={"block"}
-              className=""
-            >
-              Trusted by top companies
+            <Typography color="custom.black" variant="body_6" display={"block"}>
+              Lasting partnerships
             </Typography>
           </motion.div>
         </OuterSection>
       )}
       <StyledSliderWrapper>
         <Slider {...settings}>
-          {src1.map((src, index) => (
-            <Box
-              key={index}
-              sx={{
-                "& img": {
-                  borderRadius: "16px",
-                  width: "100%",
-                  height: "100%",
-                },
-              }}
-            >
-              <Image src={src} alt={`Slide ${index + 1}`} />
+          {src1.map((item, index) => (
+            <Box key={index}>
+              <Image
+                src={item.src}
+                width={item.width}
+                height={item.height}
+                alt={`Slide ${index + 1}`}
+              />
             </Box>
           ))}
         </Slider>

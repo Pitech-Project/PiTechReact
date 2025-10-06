@@ -34,13 +34,13 @@ export const AlwaysKeepSimple = () => {
           display="block"
           color={"custom.white2"}
         >
-          Always <br />
-          keep it simple
+          Not just showcases, <br />
+          but solutions that work
           <FullStop />
         </Typography>
 
         <SubTypography variant="Caption1" color="custom.white2" display="block">
-          Strong team with a passion for technologsy <br></br>
+          Stories of purposeful builds and lasting outcomes. <br></br>
           <br></br>
         </SubTypography>
       </LeftPanel>
