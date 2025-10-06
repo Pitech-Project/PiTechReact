@@ -2,17 +2,20 @@
 
 import "@/styles/global/globals.css";
 import { CraftingSolutions } from "@/components/Services/crafting-solutions";
-import { Service } from "@/components/home/Service";
+import { Service } from "@/components/Services/crafting-solutions/Service";
 import SmoothTextSlider from "@/components/common/top-companies";
 import ServicesSolution from "@/components/Services/Service-solutions";
+import { SectionObserverProvider } from "@/context/SectionObserverContext";
+import ScrollToTopButton from "@/components/common/scroll-to-top";
 
 export default function Page() {
   return (
-    <>
+    <SectionObserverProvider>
+      <ScrollToTopButton />
       <CraftingSolutions />
       <Service />
       <SmoothTextSlider homeSlider={false} />
       <ServicesSolution />
-    </>
+    </SectionObserverProvider>
   );
 }

@@ -10,6 +10,9 @@ import LongTermImpact from "@/components/case-studie-details/longTermImpact";
 import GetInTouch from "@/components/case-studie-details/getInTouch";
 import { useSearchParams } from "next/navigation";
 import { caseStudyData } from "@/lib/caseStudyDetailsData";
+import { SectionObserverProvider } from "@/context/SectionObserverContext";
+import ScrollToTopButton from "@/components/common/scroll-to-top";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 
 export default function Page() {
   const searchParams = useSearchParams();
@@ -22,15 +25,22 @@ export default function Page() {
   if (!project) {
     return <div>Project not found: {project}</div>;
   }
+
+  const theme = useTheme();
+  const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
+
   return (
-    <>
+    <SectionObserverProvider>
+      <ScrollToTopButton />
       <ProjectTopSection project={project} />
-      <ProjectInfo project={project} />
+      <Box display={isTabletView ? "none" : "block"}>
+        <ProjectInfo project={project} />
+      </Box>
       <ChallengeSec project={project} />
       <Pisolution project={project} />
       <KeyFeatures project={project} />
       <LongTermImpact project={project} />
       <GetInTouch project={project} />
-    </>
+    </SectionObserverProvider>
   );
 }
