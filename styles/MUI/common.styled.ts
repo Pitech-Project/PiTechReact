@@ -21,11 +21,13 @@ const breakpoints = {
   mediumDesk: "1280px",
   tabletView: "1199px",
   md: "991px",
+  md1: "899px",
   sm: "767px",
 };
 
 interface Props {
   contactform?: boolean;
+  activeBg?: "light" | "dark" | null;
 }
 
 export const AppBarStyled = styled(AppBar)(({ theme }) => ({
@@ -63,9 +65,10 @@ export const AppBarStyled = styled(AppBar)(({ theme }) => ({
       borderColor: theme.palette.custom?.white2,
       color: theme.palette.custom?.white2,
     },
+    padding: "11px 84px",
   },
-  [`@media (max-width: ${breakpoints.md})`]: {
-    padding: "12px 16px",
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    padding: "11px 32px",
   },
 }));
 
@@ -89,6 +92,9 @@ export const OutlineBtn = styled(Link, {
   transition: "0.5s",
   height: "48px",
   textTransform: "uppercase",
+  "&.aboutBtn": {
+    marginTop: "54px",
+  },
   cursor: "pointer",
   "& .MuiSvgIcon-root": {
     width: "18px",
@@ -100,6 +106,18 @@ export const OutlineBtn = styled(Link, {
     borderColor: theme.palette.custom?.orange_600,
     backgroundColor: theme.palette.custom?.orange_600,
     color: theme.palette.custom?.black,
+  },
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    fontSize: "12px",
+    lineHeight: "12px",
+    "&.aboutBtn": {
+      marginTop: "16px",
+    },
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    "&.aboutBtn": {
+      marginTop: "20px",
+    },
   },
 }));
 
@@ -138,6 +156,8 @@ export const OutlineBtn1 = styled(Button)(({ theme }) => ({
     transform: "translate(-8px, 0px) rotate(0deg)",
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
+    fontSize: "12px",
+    lineHeight: "12px",
     "&.MuiTypography-root.smallResWhiteBtn": {
       borderColor: theme.palette.custom?.white2,
       color: theme.palette.custom?.white2,
@@ -280,17 +300,25 @@ export const SubTypography = styled(Typography)(() => ({
   [`@media (max-width: ${breakpoints.tabletView})`]: {
     margin: "24px 0 0px",
     "&.subTitleSpacing": {
-      marginBottom: "24px",
+      marginBottom: "32px",
+      fontSize: "28px",
+      lineHeight: "36px",
+      marginTop: "24px",
     },
   },
-  [`@media (max-width: ${breakpoints.md})`]: {
-    margin: "16px 0 0px",
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    margin: "24px 0 0px",
+    "&.subTitleSpacing": {
+      fontSize: "16px",
+      lineHeight: "24px",
+      marginTop: "16px",
+    },
   },
 }));
 
 export const SmallFullStop = styled(Typography)(({ theme }) => ({
-  height: "8px",
-  width: "8px",
+  height: "6px",
+  width: "6px",
   backgroundColor: theme.palette.custom?.orange_600,
   display: "inline-block",
   marginLeft: "6px",
@@ -312,23 +340,28 @@ export const CountOuterBox = styled(Stack)(({ theme }) => ({
   padding: "36px 98px",
   color: theme.palette.custom?.white1,
   width: "max-content",
-  marginTop: "-85px",
+  marginTop: "-75px",
+  position: "absolute",
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     marginTop: "-75px",
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
-    padding: "20px 60px",
+    padding: "16px 48px 28px",
     marginTop: "-55px",
-  },
-  [`@media (max-width: ${breakpoints.md})`]: {
-    padding: "36px 75px",
-    gap: "48px",
-    width: "94%",
-    margin: "16px 20px 0",
+    " .CountLabel": {
+      fontSize: "13px !important",
+      lineHeight: "12px !important",
+      letterSpacing: "1.3px",
+    },
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    padding: "36px 8px",
-    margin: "0 20px 80px",
+    background: theme.palette.custom?.black,
+    padding: "28px 0px",
+    margin: "0 32px 0px",
+    gap: "48px",
+    width: "100%",
+    marginTop: "-85px",
+    position: "unset",
   },
 }));
 
@@ -390,10 +423,11 @@ export const OuterGrid = styled(Grid)(() => ({
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
     padding: "140px 0px",
-    margin: "0 80px",
+    margin: "0 84px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    margin: "0 20px",
+    padding: "120px 0px",
+    margin: "0 32px",
   },
 }));
 
@@ -405,10 +439,11 @@ export const OuterGrid1 = styled(Grid)(() => ({
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
     padding: "140px 0px",
-    margin: "0 80px",
+    margin: "0 84px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    margin: "0 20px",
+    padding: "120px 0px",
+    margin: "0 32px",
   },
 }));
 
@@ -420,10 +455,10 @@ export const OuterGrid2 = styled(Grid)(() => ({
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
     padding: "80px 0px",
-    margin: "0 80px",
+    margin: "0 84px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    margin: "0 20px",
+    margin: "0 32px",
   },
 }));
 
@@ -436,10 +471,10 @@ export const OuterGrid4 = styled(Grid)(() => ({
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
     padding: "80px 0px",
-    margin: "0 80px",
+    margin: "0 84px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    margin: "0 20px",
+    margin: "0 32px",
   },
 }));
 
@@ -450,10 +485,10 @@ export const OuterGrid5 = styled(Grid)(() => ({
     padding: "120px 0px",
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
-    padding: "120px 80px 80px",
+    padding: "120px 84px 80px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    padding: "120px 20px 20px",
+    padding: "120px 32px 20px",
   },
 }));
 
@@ -472,9 +507,12 @@ export const OuterSection = styled(Stack)(() => ({
     padding: "80px 0px",
     margin: "0 32px",
     gap: "80px",
+    "& .testimonial-outer": {
+      padding: "80px 0px 40px !important",
+    },
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    margin: "0 20px",
+    margin: "0 32px",
   },
 }));
 
@@ -491,10 +529,10 @@ export const PrevNext = styled(Stack)(({ theme }) => ({
   },
   "& .MuiButton-root": {
     borderRadius: "100px",
-    height: "56px",
-    minHeight: "56px",
-    width: "56px",
-    minWidth: "56px",
+    height: "68px",
+    minHeight: "68px",
+    width: "68px",
+    minWidth: "68px",
     border: "1px solid",
     borderColor: theme.palette.custom?.white2,
     backgroundColor: "transparent",
@@ -531,7 +569,16 @@ export const PrevNext = styled(Stack)(({ theme }) => ({
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
     right: "20px",
-    top: "228px",
+    top: "180px",
+    "&.OurWorkPrevNext": {
+      right: "32px",
+    },
+    "& .MuiButton-root": {
+      height: "48px",
+      minHeight: "48px",
+      width: "48px",
+      minWidth: "48px",
+    },
   },
 }));
 
@@ -544,6 +591,9 @@ export const OwlCarouselBox = styled(Stack)(({ theme }) => ({
   textAlign: "left",
   flexDirection: "row",
   alignItems: "center",
+  "& br": {
+    display: "none",
+  },
 }));
 
 export const OwlCarouselOuterBox = styled(Stack)(({ theme }) => ({
@@ -615,14 +665,15 @@ export const TestimonialBox = styled(Box)(({ theme }) => ({
     alignItems: "center",
   },
   "& .testimonial-boxUI": {
-    backgroundColor: theme.palette.custom?.border2,
+    backgroundColor: theme.palette.custom?.black5,
     padding: "36px 32px",
     borderRadius: "8px",
   },
 
-  "& .swiper-slide-next .MuiTypography-root": {
-    fontSize: "22px",
-    lineHeight: "34px",
+  "& .swiper-slide-next .MuiTypography-body_8": {
+    fontSize: "24px",
+    lineHeight: "32px",
+    color: theme.palette.custom?.white2,
   },
   "& .swiper-slide-active, & .swiper-slide-next ~ .swiper-slide": {
     transform: "scale(0.8)",
@@ -634,9 +685,17 @@ export const TestimonialBox = styled(Box)(({ theme }) => ({
       transform: "scale(1) !important",
       opacity: "1 !important",
     },
+  "&.testimonial-slider .swiper-slide-next": {
+    border: "1px solid",
+    borderColor: theme.palette.custom?.orange_600,
+    borderRadius: "6px",
+  },
+  // '& .swiper-slide-next .MuiTypography-body_8':{
+  //   color: theme.palette.custom?.white2,
+  // },
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-    "& .swiper-slide-next .MuiTypography-root": {
-      fontSize: "20px",
+    "& .swiper-slide-next .MuiTypography-body_8": {
+      fontSize: "18px",
       lineHeight: "30px",
     },
   },
@@ -647,6 +706,83 @@ export const TestimonialBox = styled(Box)(({ theme }) => ({
     },
     "& .testimonial-boxUI": {
       margin: "0 20px",
+      marginTop: "110px",
+    },
+  },
+}));
+
+export const TestimonialBoxNew = styled(Box)(({ theme }) => ({
+  "& .swiper-wrapper": {
+    alignItems: "center",
+  },
+  "& .testimonial-boxUI": {
+    backgroundColor: theme.palette.custom?.black5,
+    padding: "36px 32px",
+    borderRadius: "8px",
+  },
+  "& .swiper-slide-active .MuiTypography-body_8": {
+    fontSize: "24px",
+    lineHeight: "32px",
+    color: theme.palette.custom?.white2,
+  },
+  "& .swiper-slide-prev .testimonialName, & .swiper-slide-next .testimonialName, & .swiper-slide-prev .testimonialRole, & .swiper-slide-next .testimonialRole":
+    {
+      color: theme.palette.custom?.grey_700,
+      fontSize: "13px",
+      lineHeight: "18px",
+    },
+  "& .swiper-slide-active .testimonialName": {
+    color: theme.palette.custom?.orange_600,
+  },
+  "& .swiper-slide-prev .testimonial-boxUI, & .swiper-slide-next .testimonial-boxUI":
+    {
+      border: "1px solid",
+      borderColor: theme.palette.custom?.borderColor1,
+      borderRadius: "6px",
+    },
+  "& .swiper-slide-prev .MuiTypography-body_8, & .swiper-slide-next .MuiTypography-body_8":
+    {
+      fontSize: "19px",
+      lineHeight: "28px",
+      color: theme.palette.custom?.white3,
+    },
+  "&.testimonial-slider .swiper-slide-active .testimonial-boxUI": {
+    border: "1px solid",
+    borderColor: theme.palette.custom?.orange_600,
+    borderRadius: "6px",
+  },
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    "& .swiper-slide-active .MuiTypography-body_8": {
+      fontSize: "19px",
+      lineHeight: "28px",
+      color: theme.palette.custom?.white2,
+    },
+    "& .testimonial-heading": {
+      width: "50%",
+    },
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    "& .testimonial-boxUI": {
+      margin: "0 20px",
+      padding: "32px 30px",
+    },
+    "& .testimonial-heading": {
+      width: "100%",
+    },
+    "& .swiper-slide-active .MuiTypography-body_8": {
+      fontSize: "16px",
+      lineHeight: "24px",
+    },
+    "& .swiper-slide-active .testimonialRole, & .swiper-slide-active .testimonialName ":
+      {
+        fontSize: "14px",
+        lineHeight: "16px",
+      },
+    "& .swiper-wrapper": {
+      alignItems: "flex-start",
+    },
+    "&.testimonial-slider": {
+      paddingBottom: 0,
     },
   },
 }));
@@ -679,6 +815,10 @@ export const DirectionLink = styled(Link)(({ theme }) => ({
     borderColor: theme.palette.custom?.orange_600,
     backgroundColor: theme.palette.custom?.orange_600,
   },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    height: "22px",
+    width: "22px",
+  },
 }));
 
 export const DirectionLinkOrange = styled(Link)(({ theme }) => ({
@@ -687,17 +827,16 @@ export const DirectionLinkOrange = styled(Link)(({ theme }) => ({
   backgroundColor: theme.palette.custom?.orange_600,
   height: 52,
   width: 52,
-  // padding: 12,
 }));
 
 export const FooterOuterBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.custom?.black4,
   padding: "40px 80px",
-  [`@media (max-width: ${breakpoints.md})`]: {
-    padding: "24px",
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    padding: "54px 80px 40px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    padding: "40px  16px 20px",
+    padding: "54px 32px 14px 32px",
   },
 }));
 
@@ -723,6 +862,8 @@ export const LinkUI = styled(Link)(({ theme }) => ({
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
     marginBottom: "20px",
+    fontSize: "14px",
+    lineHeight: "20px",
   },
 }));
 
@@ -741,21 +882,41 @@ export const LinkUI1 = styled(Link)(({ theme }) => ({
 export const SocialMediaIcons = styled(Link)(({ theme }) => ({
   color: theme.palette.custom?.white3,
   display: "block",
+  marginTop: "32px",
+  gap: "24px",
+  flexDirection: "row",
+  alignItems: "center",
   "& svg:hover": {
     color: theme.palette.custom?.white2,
   },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    marginTop: "16px",
+  },
 }));
 
-export const ScrollTopTop = styled(Box)(({ theme }) => ({
-  padding: "22px 14px",
-  border: "1px solid #f4f4f4",
+export const ScrollTopTop = styled(Box)<Props>(({ theme, activeBg }) => ({
+  padding: "23px 14px",
+  border: activeBg === "light" ? "1px solid #1b1b1b" : "1px solid #bab9b9",
+  backgroundColor:
+    activeBg === "light" ? theme.palette.custom?.white2 : undefined,
   borderRadius: "100px",
   transition: "0.5s",
   cursor: "pointer",
+  position: "fixed",
+  right: "35px",
+  bottom: "35px",
+  zIndex: 4,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
   "& svg": {
     transition: "all 0.5s ease",
     width: "13px !important",
+    filter: activeBg === "light" ? "brightness(0)" : undefined,
   },
+  // '& svg path':{
+  //   filter:
+  // },
   "&:hover svg path": {
     fill: theme.palette.custom?.black,
   },
@@ -844,12 +1005,14 @@ export const LeftPanel = styled(Box)(() => ({
     width: "100%",
     position: "unset",
     order: 2,
-    padding: "52px 52px 120px",
+    padding: "32px 84px 80px",
     margin: "0 auto",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
     width: "100%",
-    padding: "80px 16px",
+    padding: "0px 32px",
+    marginTop: "-80px",
+    marginBottom: "140px",
   },
 }));
 
@@ -911,6 +1074,9 @@ export const OurTeamUI = styled(Box)(({ theme }) => ({
   "&:hover": {
     border: `1px solid ${theme.palette.custom?.white2}`,
   },
+  [`@media (max-width: ${breakpoints.md1})`]: {
+    height: "100% !important",
+  },
 }));
 
 export const Infromation = styled(Stack)(({ theme }) => ({
@@ -957,53 +1123,14 @@ export const ChipUI2 = styled(Typography)(({ theme }) => ({
     fontSize: "16px",
     lineHeight: "26px",
   },
-}));
-
-export const CraftingSolutionsBox = styled(Stack)(() => ({
-  backgroundImage: `url('/assets/img/Services/servicebg.jpg')`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-  height: "1000px",
-  position: "relative",
-  zIndex: 1,
-  "& .bannershape": {
-    position: "absolute",
-    bottom: 0,
-    zIndex: -1,
-    opacity: 0.4,
-    textAlign: "center",
-    left: "50%",
-    transform: "translateX(-50%)",
-  },
-  "& .bannerText": {
-    transform: "translate(-50%, -50%)",
-    position: "absolute",
-    padding: "0 24px",
-    left: "50%",
-    top: "50%",
-    textAlign: "center",
-    width: "100%",
-  },
-  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-    height: "600px",
-  },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
-    "& .bannerText": {
-      position: "unset",
-      transform: "unset",
-      width: "100%",
-      margin: "0 20px",
-      textAlign: "center",
-      padding: 0,
-    },
-    "& .bannershape": {
-      width: "90%",
-      height: "55%",
-    },
+    fontSize: "19px",
+    lineHeight: "28px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    height: "340px",
+    fontSize: "14px",
+    lineHeight: "20px",
+    height: "28px",
   },
 }));
 
@@ -1177,6 +1304,10 @@ export const FormUI = styled(Box)<Props>(({ theme, contactform }) => ({
   "& .MuiInputBase-root::after": {
     borderColor: theme.palette.custom?.white3,
   },
+  "& .MuiInputBase-root:focus-within::after, & .MuiInputBase-root:focus::after, & .MuiInputBase-root:hover::after":
+    {
+      borderColor: theme.palette.custom?.orange_600,
+    },
   "& .MuiFormControl-root": {
     width: "100%",
   },
@@ -1190,13 +1321,24 @@ export const FormUI = styled(Box)<Props>(({ theme, contactform }) => ({
     transform: "unset",
   },
   "&.blackTheme .MuiInputLabel-formControl .MuiTypography-root": {
-    color: theme.palette.custom?.white6,
+    color: theme.palette.custom?.white3,
+    fontSize: "19px",
+    lineHeight: "28px",
+    fontWeight: 400,
   },
   "&.blackTheme .MuiInputBase-input": {
-    color: theme.palette.custom?.white5,
+    color: theme.palette.custom?.white2,
+    fontSize: "24px",
+    lineHeight: "31.25px",
+    fontWeight: 400,
+    marginTop: "8px",
   },
   "& .MuiFormHelperText-root.Mui-error": {
-    color: theme.palette.custom?.red,
+    color: theme.palette.custom?.red1,
+    fontSize: "14px",
+    fontWeight: 500,
+    marginTop: "4px",
+    fontStyle: "italic",
   },
   "& .MuiInputBase-root:focus-visible::after, .MuiInputBase-root:focus::after":
     {
@@ -1255,7 +1397,7 @@ export const AttachedFile = styled(Box)(({ theme }) => ({
 export const DrawerUI = styled(Drawer)(({ theme }) => ({
   "& .MuiDrawer-paper": {
     width: "-webkit-fill-available",
-    padding: "22px 16px",
+    padding: "22px 84px",
     marginTop: "0px",
     boxShadow: "unset !important",
     height: "100%",
@@ -1278,6 +1420,11 @@ export const DrawerUI = styled(Drawer)(({ theme }) => ({
   },
   "&.MuiDrawer-root ": {
     top: "0",
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    "& .MuiDrawer-paper": {
+      padding: "22px 32px",
+    },
   },
 }));
 
@@ -1350,8 +1497,8 @@ export const CountTypography = styled(Typography)(({ theme }) => ({
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
     fontSize: "100px",
-    left: 0,
-    textAlign: "center",
+    left: "32px",
+    textAlign: "start",
     position: "absolute",
   },
 }));
@@ -1361,8 +1508,8 @@ export const SubTitlemarginBottom = styled(Stack)(() => ({
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     marginBottom: "80px",
   },
-  [`@media (max-width: ${breakpoints.md})`]: {
-    marginBottom: "65px",
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    marginBottom: "60px",
   },
 }));
 
@@ -1371,18 +1518,18 @@ export const SubTitlemarginBottom1 = styled(Typography)(() => ({
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     marginBottom: "80px",
   },
-  [`@media (max-width: ${breakpoints.md})`]: {
-    marginBottom: "65px",
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    marginBottom: "60px",
   },
 }));
 
 export const SubTitlemarginBottom2 = styled(Stack)(() => ({
   marginBottom: "84px",
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-    marginBottom: "84px",
+    marginBottom: "80px",
   },
-  [`@media (max-width: ${breakpoints.md})`]: {
-    marginBottom: "65px",
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    marginBottom: "60px",
   },
 }));
 
@@ -1428,6 +1575,10 @@ export const Copyright = styled(Typography)(({ theme }) => ({
   fontWeight: 400,
   color: theme.palette.custom?.white3,
   borderTop: `1px solid ${theme.palette.custom?.black3}`,
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    fontSize: "16px",
+    lineHeight: "24px",
+  },
 }));
 
 export const FooterLink = styled(Stack)(() => ({
@@ -1450,13 +1601,21 @@ export const BannerText = styled(Typography)(() => ({
 export const FooterLeftPanel = styled(Stack)(() => ({
   flexDirection: "row",
   gap: "40px",
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    flexDirection: "column",
+    gap: "0px",
+  },
 }));
 
 export const FooterRightPanel = styled(Stack)(() => ({
   flexDirection: "row",
-  gap: "40px",
+  gap: "108px",
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    gap: "36px",
+  },
   [`@media (max-width: ${breakpoints.sm})`]: {
     flexDirection: "column",
+    gap: "0px",
   },
 }));
 
@@ -1464,12 +1623,6 @@ export const FooterUI = styled(Stack)(({ theme }) => ({
   flexDirection: "row",
   justifyContent: "space-between",
   gap: "40px",
-  [`@media (max-width: ${breakpoints.md})`]: {
-    flexDirection: "column",
-  },
-  [`@media (max-width: ${breakpoints.sm})`]: {
-    gap: "0",
-  },
   "& .FooterLink": {
     fontSize: "19px",
     fontWeight: "500",
@@ -1487,11 +1640,19 @@ export const FooterUI = styled(Stack)(({ theme }) => ({
     "&.active": {
       color: theme.palette.custom?.white2,
     },
-    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+  },
+  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+    "& .FooterLink": {
       marginBottom: "20px",
     },
-    [`@media (max-width: ${breakpoints.sm})`]: {
-      marginBottom: "20px",
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    marginBottom: "16px",
+    flexDirection: "column",
+    gap: "0",
+    "& .FooterLink": {
+      fontSize: "14px",
+      lineHeight: "20px",
     },
   },
 }));
@@ -1515,7 +1676,7 @@ export const FooterTopSpacing = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const IconButtonUI = styled(Link)(({ theme }) => ({
+export const IconButtonUI = styled(Box)(({ theme }) => ({
   border: `1px solid ${theme.palette.custom?.orange_600}`,
   backgroundColor: theme.palette.custom?.orange_600,
   borderRadius: "100px",
@@ -1571,6 +1732,11 @@ export const AccordionParent = styled(Accordion)(({ theme }) => ({
     {
       color: theme.palette.custom?.orange_600,
     },
+  "&  .MuiAccordion-heading:hover .hideExpand .MuiAccordionSummary-content .MuiTypography-root":
+    {
+      color: theme.palette.custom?.white2,
+      cursor: "default",
+    },
   "& .MuiAccordion-heading:hover .MuiAccordionSummary-expandIconWrapper div svg":
     {
       filter: "invert(1)",
@@ -1594,29 +1760,29 @@ export const SVGIconUI = styled(Box)(({ theme }) => ({
 
 export const AppServices = styled(Link)(({ theme }) => ({
   cursor: "pointer",
-  textAlign: "center",
+  textAlign: "left",
   textDecoration: "unset",
   "&:hover .MuiTypography-root": {
     color: theme.palette.custom?.orange_600,
   },
 }));
 
-export const WebServicesStack = styled(Stack)(() => ({
-  flexDirection: "row",
-  alignItems: "center",
-  gap: "48px",
-  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-    gap: "16px",
-  },
+export const WebServicesGrid = styled(Grid)(() => ({
+  // flexDirection: "row",
+  // alignItems: "center",
+  // gap: "48px",
+  // [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+  //   gap: "16px",
+  // },
 }));
 
 export const CaseBox = styled(Box)(({ theme }) => ({
-  padding: "60px 60px 0px 60px",
+  padding: "110px 132px 72px 132px",
   position: "relative",
   "& .MuiLink-root": {
     textDecoration: "none",
   },
-  "&:hover .MuiLink-root .MuiTypography-root": {
+  "&:hover .MuiLink-root .MuiTypography-font_38": {
     color: theme.palette.custom?.orange_600,
   },
   "&:hover .MuiBox-root": {
@@ -1626,6 +1792,7 @@ export const CaseBox = styled(Box)(({ theme }) => ({
     padding: "60px",
   },
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+    padding: "60px 60px 0px 60px",
     "& .MuiTypography-body_4_600": {
       fontSize: "16px !important",
       lineHeight: "18px",
@@ -1671,7 +1838,11 @@ const CommonChip = {
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     fontSize: "16px",
     lineHeight: "26px",
-    padding: "6px 16px",
+    padding: "6px 20px",
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    fontSize: "15px",
+    lineHeight: "20px",
   },
 };
 
@@ -1713,11 +1884,11 @@ export const TopBox = styled(Box)({
     marginTop: 80,
     marginBottom: 12,
   },
-  [`@media (max-width: ${breakpoints.md})`]: {
-    padding: "288px 24px 0",
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    padding: "268px 84px 60px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    padding: "180px 16px 0",
+    padding: "200px 32px 90px",
     "& .MuiTypography-body_6": {
       marginTop: 40,
     },
@@ -1752,6 +1923,9 @@ export const ChallengeBox = styled(Box)(({ theme }) => ({
   },
   "& .MuiList-root": {
     listStyleType: "disc",
+  },
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    padding: "140px 84px 100px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
     padding: "60px 0px",
@@ -1865,5 +2039,103 @@ export const NavBox = styled(Box)(({ theme }) => ({
     width: "100%",
     marginTop: "50px",
     left: "unset",
+  },
+}));
+
+export const LogoGroup = styled(Stack)(() => ({
+  flexDirection: "row",
+  alignItems: "center",
+  flexWrap: "wrap",
+  marginTop: "16px",
+  rowGap: "24px",
+  columnGap: "32px",
+}));
+
+export const ClientsServed = styled(Stack)(({ theme }) => ({
+  flexDirection: "row",
+  justifyContent: "space-between",
+  marginTop: "52px",
+  display: "none",
+  "& .MuiTypography-root": {
+    cursor: "pointer",
+  },
+  "& .MuiTypography-root:hover": {
+    color: theme.palette.custom?.orange_600,
+  },
+  "& .MuiTypography-root:hover .MuiSvgIcon-root path": {
+    fill: theme.palette.custom?.orange_600,
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    flexDirection: "column",
+    rowGap: "32px",
+  },
+}));
+
+export const BoxBottomSpace = styled(Box)(() => ({
+  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+    marginBottom: "40px",
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    marginBottom: "40px",
+  },
+}));
+
+export const GridContainerUI = styled(Grid)(() => ({
+  marginTop: "96px",
+  "dotlottie-player": {
+    height: "128px !important",
+  },
+  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+    marginTop: "120px",
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    marginTop: "80px",
+    "dotlottie-player": {
+      width: "89px !important",
+      height: "78px !important",
+    },
+  },
+}));
+
+export const OurWorkTitle = styled(Typography)(() => ({
+  display: "block",
+  minHeight: "68px",
+  marginBottom: "8px",
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    minHeight: "68px",
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    minHeight: "unset",
+  },
+}));
+
+export const AddressTypography = styled(Typography)(() => ({
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    fontSize: "14px",
+    LineHeight: "20px",
+    marginTop: "36px",
+    display: "block",
+  },
+}));
+
+export const TitleTypography = styled(Typography)(() => ({
+  marginBottom: "120px",
+  display: "block",
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    marginBottom: "80px",
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    marginBottom: "32px",
+  },
+}));
+
+export const SubtitleTypography = styled(Typography)(() => ({
+  margin: "16px 0 0",
+  display: "block",
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    margin: "16px 0 120px",
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    margin: "16px 0 60px",
   },
 }));

@@ -9,12 +9,12 @@
 
 .skeleton-container {
   width: 400px;
-  height: 85%;
-  top: 60px;
+  height: 30%;
+  bottom: 60px;
   overflow: hidden;
   position: absolute;
   right: 10%;
-  bottom: 100px;
+  /* bottom: 100px; */
 }
 
 .line {
