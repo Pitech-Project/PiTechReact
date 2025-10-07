@@ -13,17 +13,19 @@ import { caseStudyData } from "@/lib/caseStudyDetailsData";
 import { SectionObserverProvider } from "@/context/SectionObserverContext";
 import ScrollToTopButton from "@/components/common/scroll-to-top";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { Suspense } from "react";
 
-export default function Page() {
+function CaseStudyContent() {
   const searchParams = useSearchParams();
   const projectName = searchParams.get("project");
+
   if (!projectName) {
     return <div>No project specified.</div>;
   }
-  const project = caseStudyData[projectName as keyof typeof caseStudyData];
 
+  const project = caseStudyData[projectName as keyof typeof caseStudyData];
   if (!project) {
-    return <div>Project not found: {project}</div>;
+    return <div>Project not found: {projectName}</div>;
   }
 
   const theme = useTheme();
@@ -42,5 +44,13 @@ export default function Page() {
       <LongTermImpact project={project} />
       <GetInTouch project={project} />
     </SectionObserverProvider>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading case study...</div>}>
+      <CaseStudyContent />
+    </Suspense>
   );
 }
