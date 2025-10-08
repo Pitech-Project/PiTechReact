@@ -1,27 +1,22 @@
 "use client";
 
+import { DotLottiePlayer } from "@dotlottie/player-component";
 import { useEffect } from "react";
-import "@dotlottie/player-component"; // ensure web component is registered
 
 export default function ScrollLottieHandler() {
   useEffect(() => {
-    const lotties = document.querySelectorAll<HTMLElement>(".scrollLottie");
+    const lotties = document.querySelectorAll<DotLottiePlayer>(".scrollLottie");
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const el = entry.target as any;
-
-          // Wait until custom element is upgraded (player API is available)
-          if (typeof el.play !== "function" || typeof el.pause !== "function") {
-            return;
-          }
+          const player = entry.target as DotLottiePlayer;
 
           if (entry.isIntersecting) {
-            el.seek(0);
-            el.play();
+            player.seek(0); // rewind to start
+            player.play(); // play from frame 0
           } else {
-            el.pause();
+            player.pause(); // stop when out of view
           }
         });
       },
@@ -30,18 +25,16 @@ export default function ScrollLottieHandler() {
 
     lotties.forEach((lottie) => observer.observe(lottie));
 
-    // Restart visible Lotties on load
+    // Restart animations that are already visible on load
     function restartVisibleLotties() {
       lotties.forEach((lottie) => {
         const rect = lottie.getBoundingClientRect();
-        const el = lottie as any;
         if (
-          typeof el.play === "function" &&
           rect.top < window.innerHeight * 0.5 &&
           rect.bottom > window.innerHeight * 0.5
         ) {
-          el.seek(0);
-          el.play();
+          lottie.seek(0);
+          lottie.play();
         }
       });
     }
