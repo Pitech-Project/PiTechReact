@@ -31,6 +31,7 @@ interface Props {
   activebg?: "light" | "dark" | null;
   projectimg?: string;
   textcolor?: string;
+  citiusgrid?: string
 }
 
 export const AppBarStyled = styled(AppBar)(({ theme }) => ({
@@ -2092,12 +2093,11 @@ export const ChallengeBox = styled(Box)(({ theme }) => ({
   "& .MuiListItem-root": {
     color: theme.palette.custom?.white2,
     display: "list-item",
-    textIndent: "-23px",
     padding: 0,
-    paddingLeft: "36px",
   },
   "& .MuiList-root": {
     listStyleType: "disc",
+    paddingLeft: "32px",
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
     padding: "140px 84px 100px",
@@ -2128,15 +2128,14 @@ export const SolutionBox = styled(Box)(({ theme })=>({
     fontWeight: 500,
     color: theme.palette.custom?.gray_txt,
     display: "list-item",
-    textIndent: "-23px",
     padding: 0,
-    paddingLeft: "36px",
     paddingBottom: "5px",
   },
   "& .MuiList-root": {
     listStyleType: "disc",
     paddingTop: 0.5,
     paddingBottom: 0,
+    paddingLeft: "32px",
   },
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     '& .MuiListItem-root':{
@@ -2170,9 +2169,9 @@ export const SolutionBox = styled(Box)(({ theme })=>({
   },
 }));
 
-export const FeatureGrid = styled(Box)({
+export const FeatureGrid = styled(Box)<Props>(({ citiusgrid }) => ({
   display: "grid",
-  gridTemplateColumns: "repeat(8, 1fr)",
+  gridTemplateColumns: citiusgrid ?  "repeat(8, 1fr)" : "repeat(6, 1fr)",
   columnGap: "40px",
   marginTop: "40px",
   marginBottom: "80px",
@@ -2189,7 +2188,7 @@ export const FeatureGrid = styled(Box)({
     gap: "40px",
     marginBottom: 0,
   },
-});
+}));
 
 export const ImpactGrid = styled(Box)({
   display: "grid",

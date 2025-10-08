@@ -20,7 +20,7 @@ export default function ChallengeSec({ project }: any) {
               {project.challenges.shortInfo}
             </Typography>
             {challengeList != "" && (
-              <List component="nav">
+              <List>
                 <ListItem>
                   Swatches were tracked manually, often lost or unaccounted for.
                 </ListItem>

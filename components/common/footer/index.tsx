@@ -150,7 +150,7 @@ const Footer = () => {
         </FooterUI>
 
         <Copyright>
-          <Typography className="copyrightIcon">©</Typography> 2025 Pi
+          <Typography className="copyrightIcon" component="span">©</Typography> 2025 Pi
           Techniques Pvt. Ltd. All rights reserved.
         </Copyright>
       </FooterOuterBox>
