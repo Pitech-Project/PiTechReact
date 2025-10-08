@@ -1,5 +1,5 @@
 "use client";
- 
+
 import "@/styles/global/globals.css";
 import ProjectTopSection from "@/components/case-studie-details/projectTopSection";
 import ProjectInfo from "@/components/case-studie-details/projectInfo";
@@ -14,23 +14,23 @@ import { SectionObserverProvider } from "@/context/SectionObserverContext";
 import ScrollToTopButton from "@/components/common/scroll-to-top";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { Suspense, useEffect } from "react";
- 
+
 function CaseStudyContent() {
   const searchParams = useSearchParams();
   const projectName = searchParams.get("project");
- 
+
   if (!projectName) {
     return <div>No project specified.</div>;
   }
- 
+
   const project = caseStudyData[projectName as keyof typeof caseStudyData];
   if (!project) {
     return <div>Project not found: {projectName}</div>;
   }
- 
+
   const theme = useTheme();
   const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
- 
+
   return (
     <SectionObserverProvider>
       <ScrollToTopButton />
@@ -46,7 +46,7 @@ function CaseStudyContent() {
     </SectionObserverProvider>
   );
 }
- 
+
 export default function Page() {
   useEffect(() => {
     document.title = "Case Studies Details - Pi Techniques";
