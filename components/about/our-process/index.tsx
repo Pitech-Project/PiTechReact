@@ -43,7 +43,7 @@ export const industries = [
   },
   {
     id: 5,
-    name: "Test & Improve",
+    name: "Test & Enhance",
     description:
       "Continuous testing and integration ensure high quality. We don’t just fix bugs — we improve with each cycle.",
   },
@@ -75,7 +75,7 @@ export const OurProcess = () => {
                 },
               }}
             >
-              <Grid size={{ xs: 12, lg: 4.5, xl: 4.5 }}>
+              <Grid size={{ xs: 12, lg: 4.8, xl: 4.5 }}>
                 <motion.div
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -103,7 +103,7 @@ export const OurProcess = () => {
                 </motion.div>
               </Grid>
               <Grid
-                size={{ xs: 12, lg: 6.5, xl: 5.5 }}
+                size={{ xs: 12, lg: 6.2, xl: 5.5 }}
                 offset={{ xs: 0, lg: 1, xl: 2 }}
               >
                 <Stack gap={isMobileView ? 5 : 7.5}>
@@ -127,6 +127,7 @@ export const OurProcess = () => {
                           color="custom.gray_txt"
                           variant="font_19"
                           display={"block"}
+                          className="descriptionAbout"
                         >
                           {industries.description}
                         </Typography>

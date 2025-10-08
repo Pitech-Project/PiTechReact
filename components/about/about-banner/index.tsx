@@ -28,7 +28,7 @@ const AboutBanner = () => {
 
           <SubTypography
             variant="Caption1"
-            color="custom.white2"
+            color="custom.grey_700"
             display="block"
           >
             Three decades of building with care and clarity.

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Box, Typography, Stack, useMediaQuery, Grid } from "@mui/material";
+import { Box, Typography, Stack, Grid } from "@mui/material";
 import {
   ChipUI2,
   ClientsServed,
   LogoGroup,
   OuterGrid4,
+  StackServicesSetions,
 } from "@/styles/MUI/common.styled";
 import { motion } from "framer-motion";
 import { LOTTIEANIMATION, SERVICES } from "@/lib/constanst";
@@ -57,7 +58,7 @@ const services = [
     description: (
       <>
         <Typography
-          variant="body_10"
+          variant="body_10_1"
           color="custom.grey_700"
           mb={2}
           display={"block"}
@@ -68,7 +69,7 @@ const services = [
           agentic AI agents that automate complex workflows, our team turns the
           latest AI capabilities into practical business tools.
         </Typography>
-        <Typography variant="body_10" color="custom.grey_700">
+        <Typography variant="body_10_1" color="custom.grey_700">
           Whether it’s enhancing customer experience, boosting operational
           efficiency, or enabling smarter decision-making, we make AI work for
           you.
@@ -250,15 +251,14 @@ const services = [
 ];
 
 const ServicesSolution = () => {
-  const isMdView = useMediaQuery(`(max-width:767px)`);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <Box bgcolor={"custom.black2"}>
       <OuterGrid4 container spacing={5} justifyContent={"space-between"}>
         <Grid
-          size={{ xs: 12, lg: 11, xl: 7 }}
-          offset={{ xs: 0, lg: 1, xl: 3 }}
+          size={{ xs: 12, lg: 8.3, xl: 6.5 }}
+          offset={{ xs: 0, lg: 2, xl: 2.3 }}
           sx={{
             "& .service-motion:first-of-type .mt--0": {
               marginTop: 0,
@@ -278,24 +278,11 @@ const ServicesSolution = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 key={index}
               >
-                <Stack
-                  id={`service-${index}`}
-                  flexDirection={isMdView ? "column" : "row"}
-                  alignItems="flex-start"
-                  justifyContent={"space-between"}
-                  gap={"83px"}
-                  sx={{
-                    marginTop: "96px",
-                    "dotlottie-player": {
-                      width: "180px !important",
-                    },
-                  }}
-                  className="mt--0"
-                >
+                <StackServicesSetions id={`service-${index}`}>
                   <Box>{service.img}</Box>
                   <Box>
                     <Typography
-                      variant="body_11"
+                      variant="body_11_1"
                       display={"block"}
                       color="custom.white2"
                       gutterBottom
@@ -304,7 +291,7 @@ const ServicesSolution = () => {
                       {service.title}
                     </Typography>
                     <Typography
-                      variant="body_10"
+                      variant="body_10_1"
                       display={"block"}
                       margin={"32px 0 16px"}
                       color="custom.grey_700"
@@ -315,8 +302,8 @@ const ServicesSolution = () => {
                     <Stack
                       direction="row"
                       flexWrap="wrap"
-                      rowGap={1}
-                      columnGap={1}
+                      rowGap={"12px"}
+                      columnGap={"12px"}
                     >
                       {service.tags.map((tag, idx) => (
                         <ChipUI2 key={idx}>{tag}</ChipUI2>
@@ -366,7 +353,7 @@ const ServicesSolution = () => {
                       </Box>
                     </ClientsServed>
                   </Box>
-                </Stack>
+                </StackServicesSetions>
               </motion.div>
             );
           })}

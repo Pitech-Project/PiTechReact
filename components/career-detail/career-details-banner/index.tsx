@@ -22,7 +22,12 @@ export const CareerDetailsBanner = () => {
     >
       <Stack flexDirection={"row"} className="content">
         <Box width={"100%"} textAlign={"center"}>
-          <Typography variant="count" fontWeight={500} color={"custom.white5"}>
+          <Typography
+            variant="count"
+            fontWeight={500}
+            color={"custom.white5"}
+            className="careerTitle"
+          >
             {title}
           </Typography>
           <Typography

@@ -38,9 +38,7 @@ export const CaseStudies = () => {
                 href={`/case-studie-details?project=${encodeURIComponent(project.id)}`}
               >
                 <OnHoverArrowBox>
-                  {/* <DirectionLinkOrange> */}
-                    <ArrowRightUpBlack />
-                  {/* </DirectionLinkOrange> */}
+                  <ArrowRightUpBlack />
                 </OnHoverArrowBox>
                 <Typography
                   color={project.isBgBlack ? "custom.grey_700" : "#68686A"}
@@ -59,10 +57,11 @@ export const CaseStudies = () => {
                 href={`/case-studie-details?project=${encodeURIComponent(project.id)}`}
               > */}
                 <Typography
-                  marginBottom={isMdView ? "32px" : "52px"}
+                  marginBottom={isMdView ? "48px" : "52px"}
                   color={project.isBgBlack ? "custom.white2" : "custom.black2"}
                   variant="font_38"
                   width="95%"
+                  minHeight="78px"
                   display={"block"}
                 >
                   {project.subTitle}
@@ -78,8 +77,8 @@ export const CaseStudies = () => {
                 </Typography>
                 <Stack
                   flexDirection={"row"}
-                  gap={2}
                   margin={"20px 0 0px"}
+                  gap="12px"
                   flexWrap={"wrap"}
                 >
                   {project.tags.map((tag, index) =>
@@ -91,7 +90,15 @@ export const CaseStudies = () => {
                   )}
                 </Stack>
                 {/* {project.img} */}
-                <ImageBox>
+                <ImageBox
+                  projectimg={
+                    project.id === "tajGroupofHotels"
+                      ? "taj"
+                      : project.id === "citiusTech"
+                        ? "citius"
+                        : undefined
+                  }
+                >
                   <CaseImage
                     src={project.img.src}
                     layout="fill"

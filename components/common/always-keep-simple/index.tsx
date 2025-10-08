@@ -39,7 +39,11 @@ export const AlwaysKeepSimple = () => {
           <FullStop />
         </Typography>
 
-        <SubTypography variant="Caption1" color="custom.white2" display="block">
+        <SubTypography
+          variant="Caption1"
+          color="custom.grey_700"
+          display="block"
+        >
           Stories of purposeful builds and lasting outcomes. <br></br>
           <br></br>
         </SubTypography>

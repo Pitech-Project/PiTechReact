@@ -38,7 +38,11 @@ export const CareersBanner = () => {
           <FullStop />
         </OverlayTypography>
 
-        <SubTypography variant="Caption1" color="custom.white2" display="block">
+        <SubTypography
+          variant="Caption1"
+          color="custom.grey_700"
+          display="block"
+        >
           You talk, we’ll build it from there
         </SubTypography>
       </LeftPanel>

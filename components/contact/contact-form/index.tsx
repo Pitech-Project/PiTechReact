@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+
 import {
   TextField,
   Box,
@@ -20,6 +22,7 @@ import {
 import { apiUrl, careerFormFields } from "@/lib/constanst";
 import ArrowRightWhite from "@/components/common/SVGIcons/arrowRightWhite";
 
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
 export type FormData = {
   name: string;
   lastname: string;
@@ -30,7 +33,7 @@ export type FormData = {
 
 export default function ContactForm() {
   const contactform = true;
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     lastname: "",
     email: "",
@@ -39,25 +42,28 @@ export default function ContactForm() {
   });
 
   type FormErrors = Partial<Record<keyof FormData, string>>;
-
   const [errors, setErrors] = useState<FormErrors>({});
-
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const theme = useTheme();
   const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
 
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
   const validate = () => {
-    const newErrors: Record<string, string> = {};
+    const newErrors: FormErrors = {};
     if (!formData.name.trim()) newErrors.name = "First name is required.";
     if (!formData.lastname.trim())
       newErrors.lastname = "Last name is required.";
     if (!formData.email.trim()) newErrors.email = "Email is required.";
     else if (!/\S+@\S+\.\S+/.test(formData.email))
       newErrors.email = "Invalid email format.";
-    if (!formData.contactnumber.trim())
+    if (!formData.contactnumber.trim()) {
       newErrors.contactnumber = "Contact number is required.";
-    if (!formData.message.trim()) newErrors.message = "Message is required.";
+    } else if (!/^\d{10}$/.test(formData.contactnumber)) {
+      newErrors.contactnumber = "Please enter valid 10-digit phone number.";
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -72,46 +78,77 @@ export default function ContactForm() {
       ...prev,
       [name]: "",
     }));
+
+    if (name === "contactnumber") {
+      // Remove non-digits
+      let numericValue = value.replace(/\D/g, "");
+
+      // Limit to 10 digits
+      if (numericValue.length > 10) {
+        numericValue = numericValue.slice(0, 10);
+      }
+
+      setFormData((prev) => ({ ...prev, [name]: numericValue }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+      return;
+    }
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const saveApi = apiUrl.api.saveApi;
+    if (!validate()) return;
 
-    if (validate()) {
-      try {
-        const response = await fetch(saveApi, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            data: formData,
-            type: "contact",
-          }),
-        });
+    if (!recaptchaRef.current) {
+      alert("reCAPTCHA not loaded.");
+      return;
+    }
 
-        if (response.ok) {
-          setSubmitted(true);
-          setFormData({
-            name: "",
-            lastname: "",
-            email: "",
-            contactnumber: "",
-            message: "",
-          });
-          setErrors({
-            name: "",
-            lastname: "",
-            email: "",
-            contactnumber: "",
-            message: "",
-          });
-        }
-      } catch (error) {
-        console.error("Error saving data:", error);
+    try {
+      setIsSubmitting(true);
+
+      // Execute invisible reCAPTCHA
+      const captchaToken = await recaptchaRef.current.executeAsync();
+      recaptchaRef.current.reset();
+
+      if (!captchaToken) {
+        alert("reCAPTCHA failed. Please try again.");
+        setIsSubmitting(false);
+        return;
       }
+
+      const response = await fetch(apiUrl.api.saveApi, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          data: formData,
+          type: "contact",
+          captcha: captchaToken,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({
+          name: "",
+          lastname: "",
+          email: "",
+          contactnumber: "",
+          message: "",
+        });
+        setErrors({});
+      } else {
+        console.error("Form submission failed:", data);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -122,7 +159,7 @@ export default function ContactForm() {
           size={{ xs: 12, lg: 9, xl: 8.3 }}
           offset={{ xs: 0, lg: 2, xl: 2.3 }}
         >
-          <Grid container spacing={5}>
+          <Grid container spacing={{ xs: 0, md: 5 }}>
             <Grid size={{ xs: 12, md: 4 }}>
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
@@ -131,7 +168,7 @@ export default function ContactForm() {
                 viewport={{ once: true, amount: 0.3 }}
               >
                 <Stack>
-                  <Typography color="custom.white4" variant="body_4_600">
+                  <Typography color="custom.grey_700" variant="body_4_600">
                     CONTACT US
                     <SmallFullStop />
                   </Typography>
@@ -210,17 +247,7 @@ export default function ContactForm() {
                       );
                     })}
                     <TextField
-                      label={
-                        <Typography display={"flex"}>
-                          Message&nbsp;
-                          <Typography
-                            component={"span"}
-                            sx={{ color: "custom.orange_600" }}
-                          >
-                            *
-                          </Typography>
-                        </Typography>
-                      }
+                      label={<Typography display={"flex"}>Message</Typography>}
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
@@ -232,11 +259,11 @@ export default function ContactForm() {
                       helperText={errors.message}
                       autoComplete="off"
                     />
-
-                    <OutlineWhiteBtn1 type="submit">
-                      SEND
+                    <OutlineWhiteBtn1 type="submit" disabled={isSubmitting}>
+                      {isSubmitting ? "Please Wait..." : "SEND"}
                       <ArrowRightWhite />
                     </OutlineWhiteBtn1>
+
                     {submitted && (
                       <Typography color="green" mt={1}>
                         Thank you! Your message has been sent successfully. We
@@ -245,6 +272,13 @@ export default function ContactForm() {
                     )}
                   </Box>
                 </FormUI>
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={SITE_KEY}
+                  size="invisible"
+                  badge="bottomright" // badge position for invisible recaptcha
+                  theme="dark"
+                />
               </motion.div>
             </Grid>
           </Grid>

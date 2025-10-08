@@ -85,7 +85,7 @@ export function NavbarComponent(props: Props) {
         sx={{
           "& .LinkUI": {
             fontWeight: 500,
-            letterSpacing: "0.3px",
+            letterSpacing: "1.6px",
             lineHeight: "20px",
             color: theme.palette.custom?.grey_700,
             textTransform: "uppercase",
@@ -175,7 +175,7 @@ export function NavbarComponent(props: Props) {
               <NextLink href="/" passHref>
                 <Button
                   onClick={() => handleLinkClick("/")}
-                  sx={{ p: "0 !important" }}
+                  sx={{ p: "0 !important", justifyContent: "flex-start" }}
                 >
                   <Image src={isIpadView ? PiLogoMobile : PiLogo} alt="logo" />
                 </Button>
@@ -203,7 +203,7 @@ export function NavbarComponent(props: Props) {
               </HoveredLink>
             ))}
             <Box
-              width={isMobileView ? "100%" : "fit-content"}
+              width={"fit-content"}
               sx={{
                 "& a": {
                   justifyContent: isMobileView ? "center" : "flex-start",

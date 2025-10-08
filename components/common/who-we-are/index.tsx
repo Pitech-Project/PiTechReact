@@ -52,7 +52,7 @@ const WhoWeAre = () => {
                 </Box>
               </motion.div>
             </Grid>
-            <Grid size={{ xs: 12, md: 6, xl: 6.5 }}>
+            <Grid size={{ xs: 12, md: 6, xl: 6 }}>
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -99,7 +99,7 @@ const WhoWeAre = () => {
                 </BoxBottomSpace>
               </motion.div>
             </Grid>
-            <Grid size={{ xs: 12, md: 6, xl: 5 }}>
+            <Grid size={{ xs: 12, md: 6, xl: 5.5 }}>
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}

@@ -5,9 +5,9 @@ export default function ChallengeSec({ project }: any) {
   const challengeList = project.challenges.lists;
   return (
     <ChallengeBox>
-      <Container maxWidth="xl">
+      <Container maxWidth={false} disableGutters>
         <Grid container columnGap="100px">
-          <Grid size={{ xs: 12, lg: 4, xl: 4 }} offset={{ xs: 0, lg: 2 }}>
+          <Grid size={{ xs: 12, md: 12, lg: 4, xl: 3 }} offset={{ xs: 0, lg: 2 }}>
             <Typography
               variant="mediumFont"
               color="custom.white3"
@@ -38,14 +38,14 @@ export default function ChallengeSec({ project }: any) {
               </List>
             )}
           </Grid>
-          <Grid size={{ xs: 12, lg: 4, xl: 4 }}>
+          <Grid size={{ xs: 12, md: 12, lg: 4, xl: 3 }}>
             <Typography
               variant="mediumFont"
               color="custom.white3"
               display="block"
               mb={2.5}
             >
-              The background
+              What we did
             </Typography>
             <Typography variant="font_19_500" color="custom.white2">
               {project.challenges.background}

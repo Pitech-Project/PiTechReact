@@ -6,8 +6,10 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import {
   AccordionParent,
+  AccordionText,
   AccordionTitle,
   AccordionUI,
+  DividerUI,
   DotUI,
   OuterGrid5,
   OutlineWhiteBtn,
@@ -15,7 +17,7 @@ import {
   SVGIconUI,
 } from "@/styles/MUI/common.styled";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Box, Divider, Grid } from "@mui/material";
+import { Box, Grid, useTheme, useMediaQuery } from "@mui/material";
 import { jobs } from "@/lib/jobs";
 import ArrowRightWhite from "@/components/common/SVGIcons/arrowRightWhite";
 import CarrerForm from "@/components/careers/career-form";
@@ -30,56 +32,58 @@ const AccordionSection = ({
   items: string[];
   defaultExpanded?: boolean;
   hideExpandIcon?: boolean;
-}) => (
-  <AccordionParent
-    defaultExpanded={defaultExpanded}
-    expanded={hideExpandIcon ? true : undefined}
-  >
-    <AccordionSummary
-      className={hideExpandIcon ? "hideExpand" : ""}
-      expandIcon={
-        hideExpandIcon ? null : ( // 👈 remove arrow if needed
-          <SVGIconUI>
-            <svg
-              width="9"
-              height="19"
-              viewBox="0 0 9 19"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4.20532 0.587608C4.40058 0.392347 4.71716 0.392347 4.91242 0.587608L8.0944 3.76959C8.28966 3.96485 8.28966 4.28143 8.0944 4.4767C7.89914 4.67196 7.58256 4.67196 7.3873 4.4767L4.55887 1.64827L1.73044 4.47669C1.53518 4.67196 1.2186 4.67196 1.02334 4.47669C0.828073 4.28143 0.828073 3.96485 1.02334 3.76959L4.20532 0.587608ZM4.55887 18.9412L4.05887 18.9412L4.05887 0.941161L4.55887 0.941161L5.05887 0.941161L5.05887 18.9412L4.55887 18.9412Z"
-                fill="#F4F4F4"
-              />
-            </svg>
-          </SVGIconUI>
-        )
-      }
+}) => {
+  const theme = useTheme();
+  const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
+
+  return (
+    <AccordionParent
+      defaultExpanded={defaultExpanded}
+      expanded={hideExpandIcon ? true : undefined}
     >
-      <AccordionTitle color="custom.white2">{title}</AccordionTitle>
-    </AccordionSummary>
-    <AccordionDetails>
-      <Grid container spacing={4}>
-        {items.map((text, index) => (
-          <Grid size={{ xs: 12, md: 6, lg: 5.5, xl: 5 }} key={index}>
-            <Box display="flex" alignItems="center" gap={1} position="relative">
-              <DotUI></DotUI>
-              <Typography
-                variant="body_10"
-                color="custom.white3"
-                marginLeft={"20px !important"}
-                fontSize={"19px !important"}
-                lineHeight={"28px !important"}
+      <AccordionSummary
+        className={hideExpandIcon ? "hideExpand" : ""}
+        expandIcon={
+          hideExpandIcon ? null : (
+            <SVGIconUI>
+              <svg
+                width="9"
+                height="19"
+                viewBox="0 0 9 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                {text}
-              </Typography>
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
-    </AccordionDetails>
-  </AccordionParent>
-);
+                <path
+                  d="M4.20532 0.587608C4.40058 0.392347 4.71716 0.392347 4.91242 0.587608L8.0944 3.76959C8.28966 3.96485 8.28966 4.28143 8.0944 4.4767C7.89914 4.67196 7.58256 4.67196 7.3873 4.4767L4.55887 1.64827L1.73044 4.47669C1.53518 4.67196 1.2186 4.67196 1.02334 4.47669C0.828073 4.28143 0.828073 3.96485 1.02334 3.76959L4.20532 0.587608ZM4.55887 18.9412L4.05887 18.9412L4.05887 0.941161L4.55887 0.941161L5.05887 0.941161L5.05887 18.9412L4.55887 18.9412Z"
+                  fill="#F4F4F4"
+                />
+              </svg>
+            </SVGIconUI>
+          )
+        }
+      >
+        <AccordionTitle color="custom.white2">{title}</AccordionTitle>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Grid container spacing={isTabletView ? 3 : 4}>
+          {items.map((text, index) => (
+            <Grid size={{ xs: 12, md: 6, lg: 5.5, xl: 5 }} key={index}>
+              <Box
+                display="flex"
+                alignItems="center"
+                gap={1}
+                position="relative"
+              >
+                <DotUI />
+                <AccordionText color="custom.white3">{text}</AccordionText>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </AccordionDetails>
+    </AccordionParent>
+  );
+};
 
 export default function JobDetail() {
   const router = useRouter();
@@ -180,13 +184,7 @@ export default function JobDetail() {
           Apply
           <ArrowRightWhite />
         </OutlineWhiteBtn>
-        <Divider
-          sx={{
-            margin: "120px 0",
-            border: "1px solid",
-            borderColor: "custom.white3",
-          }}
-        />
+        <DividerUI></DividerUI>
         <CarrerForm />
       </Grid>
     </OuterGrid5>

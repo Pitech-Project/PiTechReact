@@ -29,7 +29,7 @@ const HomeBanner = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <LeftPanel>
+        <LeftPanel className="homeBannerLeftPanel">
           <Typography variant="body_1" display="block" color={"custom.white2"}>
             Systems and platforms <br></br> built with care, and <br></br>{" "}
             designed with purpose

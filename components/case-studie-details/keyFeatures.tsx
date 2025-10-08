@@ -1,13 +1,13 @@
-import { FeatureGrid } from "@/styles/MUI/common.styled";
+import { FeatureGrid, KeyFeatureBox } from "@/styles/MUI/common.styled";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 
 export default function KeyFeatures({ project }: any) {
   return (
-    <Box>
-      <Container maxWidth="xl">
+    <KeyFeatureBox>
+      <Container maxWidth={false} disableGutters>
         <Grid container columnGap="100px">
-          <Grid size={{ sm: 12, md: 9 }} offset={{ xs: 0, md: 2 }}>
+          <Grid size={{ sm: 12, lg: 9 }} offset={{ xs: 0, lg: 2 }}>
             <Typography
               variant="mediumFont"
               color="custom.black2"
@@ -27,9 +27,9 @@ export default function KeyFeatures({ project }: any) {
                   />
                   <Typography
                     variant="font_subtitle"
-                    color="#68686A"
+                    color="custom.gray_txt"
                     display="block"
-                    mt={2}
+                    mt={"12px"}
                   >
                     {feature.feature}
                   </Typography>
@@ -39,6 +39,6 @@ export default function KeyFeatures({ project }: any) {
           </Grid>
         </Grid>
       </Container>
-    </Box>
+    </KeyFeatureBox>
   );
 }

@@ -26,7 +26,11 @@ export const CraftingSolutions = () => {
           <FullStop />
         </Typography>
 
-        <SubTypography variant="Caption1" color="custom.white2" display="block">
+        <SubTypography
+          variant="Caption1"
+          color="custom.grey_700"
+          display="block"
+        >
           We build for clarity and longevity, the wins follow.
         </SubTypography>
       </LeftPanel>

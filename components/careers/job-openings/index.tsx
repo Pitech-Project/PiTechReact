@@ -38,16 +38,16 @@ export default function JobOpenings() {
           size={{ xs: 12, lg: 9, xl: 8.3 }}
           offset={{ xs: 0, lg: 2, xl: 2.3 }}
         >
-          <Grid container spacing={12}>
+          <Grid container spacing={isTabletView ? 7.5 : 10}>
             <Grid size={{ xs: 12, md: 5 }}>
-              <Box flex={1} marginBottom={isTabletView ? "32px" : "0"}>
-                <Typography color="custom.white4" variant="body_4_600">
+              <Box flex={1}>
+                <Typography color="custom.grey_700" variant="body_4_600">
                   opportunities <SmallFullStop />
                 </Typography>
                 <Typography
                   color="custom.white2"
                   variant="body_6"
-                  width={"max-content"}
+                  width={isTabletView ? "auto" : "max-content"}
                   display={"block"}
                 >
                   {" "}

@@ -5,9 +5,9 @@ export default function Pisolution({ project }: any) {
   const solutionList = project.piSolution.solutions;
   return (
     <SolutionBox>
-      <Container maxWidth="xl">
+      <Container maxWidth={false} disableGutters>
         <Grid container columnGap="100px">
-          <Grid size={{ sm: 12, md: 6 }} offset={{ xs: 0, md: 2 }}>
+          <Grid size={{ sm: 12, md: 12, lg: 9 }} offset={{ xs: 0, lg: 2 }}>
             <Typography
               variant="mediumFont"
               color="custom.black2"
@@ -26,8 +26,8 @@ export default function Pisolution({ project }: any) {
           </Grid>
         </Grid>
         {solutionList && (
-          <Grid container gap={5} mt="60px">
-            <Grid size={{ sm: 12, md: 3 }} offset={{ xs: 0, md: 2 }}>
+          <Grid container gap={5} mt={{xs: "40px", md: "60px"}}>
+            <Grid size={{ sm: 12, lg: 3 }} offset={{ xs: 0, lg: 2 }}>
               <Typography
                 variant="body_9_600"
                 color="custom.black2"
@@ -51,7 +51,7 @@ export default function Pisolution({ project }: any) {
                 </ListItem>
               </List>
             </Grid>
-            <Grid size={{ sm: 12, md: 3 }}>
+            <Grid size={{ sm: 12, lg: 3 }}>
               <Typography
                 variant="body_9_600"
                 color="custom.black2"
@@ -78,7 +78,7 @@ export default function Pisolution({ project }: any) {
                 </ListItem>
               </List>
             </Grid>
-            <Grid size={{ sm: 12, md: 3 }}>
+            <Grid size={{ sm: 12, lg: 3 }}>
               <Typography
                 variant="body_9_600"
                 color="custom.black2"

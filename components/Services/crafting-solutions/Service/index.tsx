@@ -146,6 +146,7 @@ export const Service = () => {
   const router = useRouter();
   const theme = useTheme();
   const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <ObservedSection id="home7" bg="light">
@@ -154,6 +155,7 @@ export const Service = () => {
           paddingBottom={"0 !important"}
           container
           justifyContent={"space-between"}
+          className="serviceOuterGrid"
         >
           <Grid
             size={{ xs: 12, lg: 9, xl: 8.3 }}
@@ -177,8 +179,8 @@ export const Service = () => {
                     display={"block"}
                     marginBottom={isMobileView ? "8px" : "24px"}
                   >
-                    Web and
-                    <br />
+                    Web and{" "}
+                    <br style={{ display: isTabletView ? "none" : "block" }} />
                     App Services
                   </Typography>
                 </motion.div>
@@ -211,12 +213,13 @@ export const Service = () => {
           </Grid>
 
           <Grid
-            size={{ xs: 12, lg: 9, xl: 9 }}
-            offset={{ xs: 0, lg: 2, xl: 2.3 }}
+            size={{ xs: 12, md: 12, lg: 9, xl: 9 }}
+            offset={{ xs: 0, md: 0, lg: 2, xl: 2.3 }}
           >
             <Grid
               size={{ xs: 12 }}
               margin={"91px 0 71px"}
+              padding={{ xs: "0px 24px", sm: "0" }}
               sx={{
                 "dotlottie-player": {
                   height: "80px !important",
@@ -226,7 +229,10 @@ export const Service = () => {
             >
               <WebServicesGrid container spacing={5}>
                 {services.map((service, index) => (
-                  <Grid size={{ xs: 12, md: 5, lg: 2.4, xl: 2.4 }} key={index}>
+                  <Grid
+                    size={{ xs: 12, sm: 4, md: 3, lg: 2.4, xl: 2.4 }}
+                    key={index}
+                  >
                     <AppServices
                       href={`/services#service-${index}`}
                       className="hoverLottieParent"
@@ -249,7 +255,7 @@ export const Service = () => {
               <Stack
                 flexDirection={"row"}
                 alignItems={"center"}
-                justifyContent={"center"}
+                justifyContent={{ xs: "flex-start", sm: "center" }}
               >
                 <OutlineBtn
                   onClick={() => router.push("/contact")}

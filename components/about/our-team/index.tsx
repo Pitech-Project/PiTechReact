@@ -86,7 +86,7 @@ const OurTeam = () => {
 
     const timeout = setTimeout(() => {
       applyEqualHeights();
-    }, 100); // delay 100ms to ensure layout is ready
+    }, 500); // delay 100ms to ensure layout is ready
 
     window.addEventListener("resize", applyEqualHeights);
 
@@ -118,7 +118,7 @@ const OurTeam = () => {
           </SubTitlemarginBottom>
           <Grid container spacing={5}>
             {industries.map((industry) => (
-              <Grid size={{ xs: 12, md: 4 }} key={industry.id}>
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={industry.id}>
                 <OurTeamUI className="equal-height">
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}

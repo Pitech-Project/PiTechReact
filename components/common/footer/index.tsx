@@ -88,7 +88,7 @@ const Footer = () => {
               <Box>
                 <HoveredLink
                   className={
-                    isActivePath("/case-studies")
+                    isActivePath(["/case-studies", "/case-studie-details"])
                       ? "active FooterLink"
                       : "FooterLink"
                   }
@@ -116,7 +116,7 @@ const Footer = () => {
               color="custom.white2"
               display={"block"}
               marginBottom={"32px"}
-              marginTop={isMobileView ? "48px" : "0"}
+              marginTop={isMobileView ? "28px" : "0"}
             >
               Get in touch
             </Typography>
@@ -150,7 +150,8 @@ const Footer = () => {
         </FooterUI>
 
         <Copyright>
-          © 2025 Pi Techniques Pvt. Ltd. All rights reserved.
+          <Typography className="copyrightIcon">©</Typography> 2025 Pi
+          Techniques Pvt. Ltd. All rights reserved.
         </Copyright>
       </FooterOuterBox>
     </>

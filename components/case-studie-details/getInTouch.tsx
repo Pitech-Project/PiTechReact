@@ -14,7 +14,12 @@ export default function GetInTouch({ project }: any) {
         <Typography variant="body_4_600" color="custom.grey_700">
           get in touch
         </Typography>
-        <Typography variant="mediumFont" color="custom.white2" display="block">
+        <Typography
+          variant="mediumFont"
+          color="custom.white2"
+          display="block"
+          fontWeight={400}
+        >
           Let’s talk about building the right digital transformation <br /> for
           your business.
         </Typography>

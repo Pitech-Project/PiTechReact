@@ -17,7 +17,7 @@ const countData = [
   },
   {
     target: 15,
-    label: "LOCATIONS",
+    label: "INDUSTRIES SERVED",
     hasPlus: true,
   },
 ];

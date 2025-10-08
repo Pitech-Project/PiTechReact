@@ -136,7 +136,7 @@ export const KeyIndustries = () => {
             >
               {industries.map((industries) => (
                 <IndustriesGrid
-                  size={{ xs: 12, sm: 6, md: 4, xl: 3 }}
+                  size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
                   key={industries.id}
                 >
                   {/* <motion.div
@@ -149,7 +149,7 @@ export const KeyIndustries = () => {
                     {industries.img}
                     <Typography
                       color="custom.white2"
-                      variant="body_9_600"
+                      variant="body_9_600_1"
                       display={"block"}
                       margin={"20px 0 0px"}
                     >

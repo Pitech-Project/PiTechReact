@@ -6,14 +6,14 @@ export default function LongTermImpact({ project }: any) {
   const termimpact = project.longTermImpact.impact;
   return (
     <ImpactBox>
-      <Container maxWidth="xl">
+      <Container maxWidth={false} disableGutters>
         <Grid container columnGap="100px">
-          <Grid size={{ xs: 12, md: 11 }} offset={{ xs: 0, md: 2 }}>
+          <Grid size={{ xs: 12, lg: 11 }} offset={{ xs: 0, lg: 2 }}>
             <Typography
               variant="mediumFont"
               color="custom.black2"
               display="block"
-              mb={2}
+              mb={0.5}
             >
               Long-term impact
             </Typography>
@@ -27,7 +27,7 @@ export default function LongTermImpact({ project }: any) {
           </Grid>
         </Grid>
         <Grid container columnGap="100px">
-          <Grid size={{ xs: 12, md: 11 }} offset={{ xs: 0, md: 2 }}>
+          <Grid size={{ xs: 12, lg: 11 }} offset={{ xs: 0, lg: 2 }}>
             <ImpactGrid>
               {termimpact.map((impact: any, index: any) => (
                 <GridBox key={index}>
@@ -41,7 +41,7 @@ export default function LongTermImpact({ project }: any) {
                     variant="body_3"
                     color="custom.black2"
                     display="block"
-                    mt={2}
+                    mt={2.5}
                   >
                     {impact.title}
                   </Typography>

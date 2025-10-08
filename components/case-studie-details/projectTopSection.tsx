@@ -8,8 +8,12 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import Image from "next/image";
-import { LaptopImage, TopBox, WhiteChip } from "@/styles/MUI/common.styled";
+import {
+  ClientImage,
+  LaptopImage,
+  TopBox,
+  WhiteChip,
+} from "@/styles/MUI/common.styled";
 import ProjectInfo from "./projectInfo";
 
 export default function ProjectTopSection({ project }: any) {
@@ -18,14 +22,13 @@ export default function ProjectTopSection({ project }: any) {
   const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
   return (
     <TopBox>
-      <Container maxWidth="xl" disableGutters>
-        <Grid container justifyContent="center">
-          <Grid size={{ xs: 12, lg: 5 }}>
-            <Image
+      <Container maxWidth={false} disableGutters>
+        <Grid container justifyContent={{xs: "start", lg: "center"}}>
+          <Grid size={{ xs: 12, md: 9, lg: 5 }}>
+            <ClientImage
               src={img}
               height={40}
               width={100}
-              style={{ width: "auto !important", height: "auto !important" }}
               alt="Chanakya"
             />
             <Typography
@@ -39,11 +42,19 @@ export default function ProjectTopSection({ project }: any) {
             <Typography variant="body_9" display="block" color="#68686A" mb={5}>
               {project.topSection.shortDesc}
             </Typography>
-            <Box display="flex" flexWrap="wrap">
-              <WhiteChip>Microsoft MVC / .NET Framework v4.6 / C#</WhiteChip>
-              <WhiteChip>JavaScript / jQuery</WhiteChip>
-              <WhiteChip>Entity Framework + MSSQL</WhiteChip>
-              <WhiteChip>Android / Xamarin</WhiteChip>
+            <Box display="flex" flexWrap="wrap" gap="12px">
+              <WhiteChip textcolor={theme.palette.custom?.white4}>
+                Microsoft MVC / .NET Framework v4.6 / C#
+              </WhiteChip>
+              <WhiteChip textcolor={theme.palette.custom?.white4}>
+                JavaScript / jQuery
+              </WhiteChip>
+              <WhiteChip textcolor={theme.palette.custom?.white4}>
+                Entity Framework + MSSQL
+              </WhiteChip>
+              <WhiteChip textcolor={theme.palette.custom?.white4}>
+                Android / Xamarin
+              </WhiteChip>
             </Box>
             <Box display={isTabletView ? "block" : "none"}>
               <ProjectInfo project={project} />

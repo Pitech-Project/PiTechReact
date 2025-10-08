@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import {
   TextField,
   Box,
@@ -23,6 +24,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import { careerFormFields } from "@/lib/constanst";
+
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
 
 export type FormData = {
   name: string;
@@ -75,21 +78,24 @@ export default function CareerForm() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const validate = () => {
     const newErrors: Partial<Errors> = {}; // allow building step by step
 
-    const { name, lastname, email, contactnumber, message, resume } = formData;
+    const { name, lastname, email, contactnumber, resume } = formData;
 
     if (!name.trim()) newErrors.name = "First name is required.";
     if (!lastname.trim()) newErrors.lastname = "Last name is required.";
     if (!email.trim()) newErrors.email = "Email is required.";
     else if (!/\S+@\S+\.\S+/.test(email))
       newErrors.email = "Invalid email format.";
-    if (!contactnumber.trim())
+    if (!contactnumber.trim()) {
       newErrors.contactnumber = "Contact number is required.";
-    if (!message.trim()) newErrors.message = "Message is required.";
-
+    } else if (!/^\d{10}$/.test(contactnumber)) {
+      newErrors.contactnumber = "Please enter valid 10-digit phone number.";
+    }
     if (!resume) {
       newErrors.resume = "Resume is required.";
     } else if (
@@ -118,6 +124,23 @@ export default function CareerForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+
+    if (name === "contactnumber") {
+      // Remove non-digits
+      let numericValue = value.replace(/\D/g, "");
+
+      // Limit to 10 digits
+      if (numericValue.length > 10) {
+        numericValue = numericValue.slice(0, 10);
+      }
+
+      setFormData((prev) => ({ ...prev, [name]: numericValue }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+      return;
+    }
+
     setFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
@@ -164,22 +187,53 @@ export default function CareerForm() {
 
     if (!validate()) return;
 
+    if (!recaptchaRef.current) {
+      alert("reCAPTCHA not loaded.");
+      return;
+    }
+
     try {
+      setIsSubmitting(true);
+
+      // Execute invisible reCAPTCHA
+      const captchaToken = await recaptchaRef.current.executeAsync();
+      recaptchaRef.current.reset();
+
+      if (!captchaToken) {
+        alert("reCAPTCHA failed. Please try again.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Upload resume file first
       const uploadedFileUrl = await handleFileUpload(formData.resume);
       // if (!uploadedFileUrl) {
       //     setErrors((prev) => ({ ...prev, resume: 'File upload failed.' }));
       //     return;
       // }
+      if (!uploadedFileUrl) {
+        setErrors((prev) => ({ ...prev, resume: "File upload failed." }));
+        setIsSubmitting(false);
+        return;
+      }
+
       console.log("uploadedFileUrl", uploadedFileUrl);
+
+      // Prepare payload
       const payload = {
         ...formData,
         resume: uploadedFileUrl,
       };
 
+      // Send data to your API with captcha token
       const response = await fetch("/api/save-submission", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ data: payload, type: "career" }),
+        body: JSON.stringify({
+          data: payload,
+          type: "career",
+          captcha: captchaToken,
+        }),
       });
 
       if (!response.ok) throw new Error("Failed to save submission");
@@ -206,6 +260,8 @@ export default function CareerForm() {
       });
     } catch (err) {
       console.error("Submission error:", err);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -268,17 +324,7 @@ export default function CareerForm() {
           viewport={{ once: true, amount: 0.3 }}
         >
           <TextField
-            label={
-              <Typography display="flex">
-                Message
-                <Typography
-                  component="span"
-                  sx={{ color: "custom.orange_600" }}
-                >
-                  &nbsp;*
-                </Typography>
-              </Typography>
-            }
+            label={<Typography display="flex">Message</Typography>}
             name="message"
             value={formData.message}
             onChange={handleChange}
@@ -344,8 +390,19 @@ export default function CareerForm() {
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <OutlineWhiteBtn1 type="submit" sx={{ marginTop: "8px" }}>
-            SUBMIT
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={SITE_KEY}
+            size="invisible"
+            badge="bottomright"
+            theme="dark"
+          />
+          <OutlineWhiteBtn1
+            type="submit"
+            disabled={isSubmitting}
+            sx={{ marginTop: "8px" }}
+          >
+            {isSubmitting ? "Please Wait..." : "SUBMIT"}
           </OutlineWhiteBtn1>
         </motion.div>
 

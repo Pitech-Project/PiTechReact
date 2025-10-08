@@ -8,6 +8,7 @@ import {
   useTheme,
   useMediaQuery,
   Button,
+  Link,
 } from "@mui/material";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -16,7 +17,7 @@ import OurWork1 from "../../../public/assets/img/Our-Work/ibs.png";
 import OurWork2 from "../../../public/assets/img/Our-Work/citius.png";
 import OurWork3 from "../../../public/assets/img/Our-Work/taj-ipad.png";
 import {
-  DirectionLink,
+  DirectionBox,
   OurWorkTitle,
   OuterGrid,
   OwlCarouselBox,
@@ -31,6 +32,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import ArrowForwardIconWhite from "@/components/common/SVGIcons/arrowForwardIconWhite";
 import ObservedSection from "@/components/common/ObservedSection";
+import { useRouter } from "next/navigation";
 
 const logos = [
   {
@@ -38,35 +40,39 @@ const logos = [
     img: OurWork,
     title: "Threading technology into fashion",
     description: "Chanakya",
+    url: "/case-studie-details?project=chanakya",
   },
   {
     id: "2",
     img: OurWork3,
     title: (
       <>
-        A premium car rental management <br /> system
+        A premium car rental management <br className="br-tag" /> system
       </>
     ),
     description: "Taj Hotels",
+    url: "/case-studie-details?project=tajGroupofHotels",
   },
   {
     id: "3",
-    img: OurWork2,
+    img: OurWork1,
     title: "The strong and steady ERP evolution",
     description: "CitiusTech",
+    url: "/case-studie-details?project=citiusTech",
   },
   {
     id: "4",
-    img: OurWork1,
+    img: OurWork2,
     title: "Transforming fintech publishing ",
     description: "IBSintelligence",
+    url: "/case-studie-details?project=ibs",
   },
 ];
 
 export default function OurWorkCarousel() {
   const theme = useTheme();
   const isMdView = useMediaQuery(theme.breakpoints.down("sm"));
-
+  const router = useRouter();
   return (
     <ObservedSection id="home2" bg="light">
       <OuterGrid container spacing={2} marginRight={"0 !important"}>
@@ -169,21 +175,32 @@ export default function OurWorkCarousel() {
                         objectFit: "contain",
                       }}
                     />
-                    <OwlCarouselBox>
-                      <Box>
-                        <OurWorkTitle variant="body_9" color="custom.white2">
-                          {e.title}
-                        </OurWorkTitle>
-                        <Typography variant="body_4_400" color="custom.white3">
-                          {e.description}
-                        </Typography>
-                      </Box>
-                      <Box>
-                        <DirectionLink>
+                    <Link
+                      onClick={() => router.push(`${e.url}`)}
+                      href={e.url}
+                      sx={{ textDecoration: "none" }}
+                    >
+                      <OwlCarouselBox className="OurWorkBox">
+                        <Box>
+                          <OurWorkTitle
+                            variant="body_9"
+                            color="custom.white2"
+                            className="description"
+                          >
+                            {e.title}
+                          </OurWorkTitle>
+                          <Typography
+                            variant="body_4_400"
+                            color="custom.white3"
+                          >
+                            {e.description}
+                          </Typography>
+                        </Box>
+                        <DirectionBox className="directionIcon">
                           <ArrowForwardIconWhite />
-                        </DirectionLink>
-                      </Box>
-                    </OwlCarouselBox>
+                        </DirectionBox>
+                      </OwlCarouselBox>
+                    </Link>
                   </Box>
                 </SwiperSlide>
               ))}

@@ -31,8 +31,8 @@ const Culture = () => {
             <Grid size={{ xs: 12, md: 4 }}>
               <Box>
                 <Typography
-                  color="custom.black"
-                  variant="body_4"
+                  color="custom.gray_txt"
+                  variant="body_4_600"
                   marginBottom={2}
                   letterSpacing={"2.4px"}
                   display="block"
@@ -53,7 +53,7 @@ const Culture = () => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid size={{ xs: 12, md: 7 }}>
+            <Grid size={{ xs: 12, md: 7, xl: 6.8 }}>
               <Box>
                 <Typography
                   marginBottom={"40px"}
@@ -62,20 +62,19 @@ const Culture = () => {
                   display="block"
                   variant="body_3"
                 >
-                  Working at Pi Techniques is an enriching experience where
-                  innovation, collaboration, and professional growth are at the
-                  forefront. Our team thrives in a dynamic and inclusive
-                  environment that values creativity and a passion for
-                  technology. With a commitment to continuous learning, we stay
-                  ahead of industry trends and embrace new challenges with
-                  enthusiasm.
+                  Working at Pi Techniques isn’t about ticking boxes, it’s
+                  building technology with clarity and purpose. For over three
+                  decades, we’ve built lasting client relationships by keeping
+                  technology clear, simple, and effective. This philosophy
+                  extends to how we work together. Here, innovation means
+                  finding smarter, practical solutions; collaboration means
+                  every voice counts; and growth comes from learning by doing.
                   <br></br>
                   <br></br>
-                  At Pi Techniques, every employee is an integral part of our
-                  success, contributing to impactful projects that drive
-                  business transformation. Join us and be a part of a motivated
-                  team that is dedicated to excellence and making a difference
-                  in the tech world.
+                  At Pi, you’re part of a place where we build on each other’s
+                  ideas, celebrate our collective growth and work towards
+                  building a team that’s efficient, supportive, and
+                  forward-looking.
                 </Typography>
 
                 <OutlineBtn

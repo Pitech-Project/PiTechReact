@@ -9,6 +9,7 @@ import { StaticImageData } from "next/image";
 import {
   Box,
   Button,
+  Grid,
   Stack,
   Typography,
   useMediaQuery,
@@ -16,7 +17,7 @@ import {
 } from "@mui/material";
 import ProfileImg from "../../../public/assets/img/profile-pic.png";
 import {
-  OuterSection,
+  OuterSection1,
   PrevNext,
   SmallFullStop,
   TestimonialBoxNew,
@@ -32,12 +33,6 @@ interface Testimonial {
 }
 
 const testimonials: Testimonial[] = [
-  {
-    name: "Rabia Gupta",
-    role: "Founder",
-    image: ProfileImg,
-    text: "As a designer, my work is all about detail and aesthetics. Pi Techniques has been the perfect technology partner, turning my ideas into beautifully functional websites time and again. They understand creativity and bring it to life digitally.",
-  },
   {
     name: "Chanakya",
     role: "Strategic Project Accounting Manager",
@@ -56,6 +51,12 @@ const testimonials: Testimonial[] = [
     image: ProfileImg,
     text: "Our members expect premium experiences both offline and online. Pi Techniques designed and developed a platform that makes everything — from logins to payments — effortless. Their team balanced design, security, and ease of use beautifully.",
   },
+  {
+    name: "Rabia Gupta",
+    role: "Founder",
+    image: ProfileImg,
+    text: "As a designer, my work is all about detail and aesthetics. Pi Techniques has been the perfect technology partner, turning my ideas into beautifully functional websites time and again. They understand creativity and bring it to life digitally.",
+  },
 ];
 
 const Testimonial: React.FC = () => {
@@ -70,59 +71,64 @@ const Testimonial: React.FC = () => {
         paddingBottom={isMdView ? "80px" : "160px"}
         className="testimonial-slider"
       >
-        <OuterSection className="testimonial-outer">
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="testimonial-heading"
+        <OuterSection1 container className="testimonial-outer">
+          <Grid
+            size={{ xs: 12, lg: 8.2, xl: 7.4 }}
+            offset={{ xs: 0, lg: 2, xl: 2.3 }}
           >
-            <Stack>
-              <Typography color="custom.white4" variant="body_4_600">
-                TESTIMONIALS
-                <SmallFullStop />
-              </Typography>
-              <Typography
-                color="custom.white2"
-                variant="body_6"
-                display={"block"}
-              >
-                Voices of our partners
-              </Typography>
-            </Stack>
-          </motion.div>
-          <PrevNext>
-            <Button sx={{ marginRight: "16px !important" }}>
-              <svg
-                width="24"
-                height="12"
-                viewBox="0 0 24 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6.66846 12L7.91164 10.8491L3.40689 6.79593L24 6.5V5.20407H3.40689L7.91164 1.15092L6.66846 0L-5.53131e-05 6L6.66846 12Z"
-                  fill="#f4f4f4"
-                />
-              </svg>
-            </Button>
-            <Button className="swiper-button-next">
-              <svg
-                width="24"
-                height="12"
-                viewBox="0 0 24 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M17.3315 12L16.0884 10.8491L20.5931 6.79593L0 6.5V5.20407H20.5931L16.0884 1.15092L17.3315 0L24.0001 6L17.3315 12Z"
-                  fill="#f4f4f4"
-                />
-              </svg>
-            </Button>
-          </PrevNext>
-        </OuterSection>
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="testimonial-heading"
+            >
+              <Stack>
+                <Typography color="custom.white4" variant="body_4_600">
+                  TESTIMONIALS
+                  <SmallFullStop />
+                </Typography>
+                <Typography
+                  color="custom.white2"
+                  variant="body_6"
+                  display={"block"}
+                >
+                  Voices of our partners
+                </Typography>
+              </Stack>
+            </motion.div>
+            <PrevNext>
+              <Button sx={{ marginRight: "16px !important" }}>
+                <svg
+                  width="24"
+                  height="12"
+                  viewBox="0 0 24 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.66846 12L7.91164 10.8491L3.40689 6.79593L24 6.5V5.20407H3.40689L7.91164 1.15092L6.66846 0L-5.53131e-05 6L6.66846 12Z"
+                    fill="#f4f4f4"
+                  />
+                </svg>
+              </Button>
+              <Button className="swiper-button-next">
+                <svg
+                  width="24"
+                  height="12"
+                  viewBox="0 0 24 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.3315 12L16.0884 10.8491L20.5931 6.79593L0 6.5V5.20407H20.5931L16.0884 1.15092L17.3315 0L24.0001 6L17.3315 12Z"
+                    fill="#f4f4f4"
+                  />
+                </svg>
+              </Button>
+            </PrevNext>
+          </Grid>
+        </OuterSection1>
 
         <Swiper
           modules={[Navigation]}
