@@ -189,8 +189,8 @@ interface CustomPalette {
   borderColor?: string;
   borderColor1?: string;
   black5?: string;
-  grey?: string
-  black6?: string
+  grey?: string;
+  black6?: string;
 }
 
 declare module "@mui/material/styles" {
@@ -373,6 +373,10 @@ const typography: ThemeOptions["typography"] = {
     [`@media (max-width: ${breakpoints.lg})`]: {
       fontSize: "22px",
       lineHeight: "28px",
+    },
+    [`@media (max-width: ${breakpoints.sm})`]: {
+      fontSize: "16px !important",
+      lineHeight: "24px !important",
     },
   },
   body_3_400: {
@@ -765,6 +769,10 @@ const typography: ThemeOptions["typography"] = {
     [`@media (max-width: ${breakpoints.sm})`]: {
       fontSize: "14px",
       lineHeight: "22px",
+      "&.descriptionAbout": {
+        fontSize: "14px",
+        lineHeight: "22px",
+      },
     },
   },
   font_20: {

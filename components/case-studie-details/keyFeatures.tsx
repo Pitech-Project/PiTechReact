@@ -4,7 +4,7 @@ import Image from "next/image";
 import ObservedSection from "../common/ObservedSection";
 
 export default function KeyFeatures({ project }: any) {
-  const projectName = project.projectInfo.name
+  const projectName = project.projectInfo.name;
   return (
     <ObservedSection id="home10" bg="light">
       <KeyFeatureBox>
@@ -19,7 +19,11 @@ export default function KeyFeatures({ project }: any) {
               >
                 Key features
               </Typography>
-              <FeatureGrid {...(projectName == "Citius Tech" ? {citiusgrid:"true"} : {})}>
+              <FeatureGrid
+                {...(projectName == "Citius Tech"
+                  ? { citiusgrid: "true" }
+                  : {})}
+              >
                 {project.keyFeature.map((feature: any, index: any) => (
                   <Box key={index}>
                     <Image

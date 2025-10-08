@@ -1,6 +1,13 @@
 "use client";
 
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import {
   IndustriesGrid,
   OuterGrid,
@@ -106,6 +113,8 @@ export const industries = [
 ];
 
 export const KeyIndustries = () => {
+  const theme = useTheme();
+  const isMdView = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <>
       <ScrollLottieHandler />
@@ -130,7 +139,7 @@ export const KeyIndustries = () => {
             </SubTitlemarginBottom>
             <Grid
               container
-              spacing={5}
+              spacing={isMdView ? 4 : 5}
               display={"flex"}
               justifyContent={"flex-start"}
             >

@@ -7,7 +7,10 @@ export default function ChallengeSec({ project }: any) {
     <ChallengeBox>
       <Container maxWidth={false} disableGutters>
         <Grid container columnGap="100px">
-          <Grid size={{ xs: 12, md: 12, lg: 4, xl: 3 }} offset={{ xs: 0, lg: 2 }}>
+          <Grid
+            size={{ xs: 12, md: 12, lg: 4, xl: 3 }}
+            offset={{ xs: 0, lg: 2 }}
+          >
             <Typography
               variant="mediumFont"
               color="custom.white3"

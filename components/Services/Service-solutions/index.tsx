@@ -255,7 +255,12 @@ const ServicesSolution = () => {
 
   return (
     <Box bgcolor={"custom.black2"}>
-      <OuterGrid4 container spacing={5} justifyContent={"space-between"}>
+      <OuterGrid4
+        container
+        spacing={5}
+        paddingTop={"0 !important"}
+        justifyContent={"space-between"}
+      >
         <Grid
           size={{ xs: 12, lg: 8.3, xl: 6.5 }}
           offset={{ xs: 0, lg: 2, xl: 2.3 }}

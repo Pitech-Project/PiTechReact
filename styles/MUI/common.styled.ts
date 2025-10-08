@@ -31,7 +31,7 @@ interface Props {
   activebg?: "light" | "dark" | null;
   projectimg?: string;
   textcolor?: string;
-  citiusgrid?: string
+  citiusgrid?: string;
 }
 
 export const AppBarStyled = styled(AppBar)(({ theme }) => ({
@@ -443,7 +443,7 @@ export const OuterGrid = styled(Grid)(() => ({
     margin: "0 84px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    padding: "120px 0px",
+    padding: "120px 0px 100px",
     margin: "0 32px",
   },
 }));
@@ -459,13 +459,16 @@ export const OuterGrid1 = styled(Grid)(() => ({
     margin: "0 84px",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    padding: "120px 0px",
+    padding: "120px 0px 100px",
     margin: "0 32px",
   },
 }));
 
 export const OuterGrid2 = styled(Grid)(() => ({
   padding: "140px 0px",
+  "&.serviceOuterGridOffice": {
+    marginTop: "88px !important",
+  },
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     width: "auto",
     padding: "140px 0px",
@@ -478,7 +481,14 @@ export const OuterGrid2 = styled(Grid)(() => ({
     },
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
+    padding: "120px 0px 100px",
     margin: "0 32px",
+    "&.serviceOuterGrid": {
+      padding: "120px 0px 100px",
+    },
+    "&.serviceOuterGridOffice": {
+      marginTop: "78px !important",
+    },
   },
 }));
 
@@ -650,8 +660,14 @@ export const OwlCarouselBox = styled(Stack)(({ theme }) => ({
   "& br": {
     display: "none",
   },
+  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+    "&.OurOfficeBox": {
+      padding: "18px 15px",
+    },
+  },
   [`@media (max-width: ${breakpoints.sm})`]: {
     "&.OurOfficeBox": {
+      padding: "24px",
       flexDirection: "column",
       alignItems: "flex-start",
       gap: "20px",
@@ -993,7 +1009,10 @@ export const SocialMediaIcons = styled(Link)(({ theme }) => ({
 
 export const ScrollTopTop = styled(Box)<Props>(({ theme, activebg }) => ({
   padding: "23px 14px",
-  border: activebg === "light" ? `1px solid ${theme.palette.custom?.black}` : `1px solid ${theme.palette.custom?.grey}`,
+  border:
+    activebg === "light"
+      ? `1px solid ${theme.palette.custom?.black}`
+      : `1px solid ${theme.palette.custom?.grey}`,
   backgroundColor:
     activebg === "light" ? theme.palette.custom?.white2 : undefined,
   borderRadius: "100px",
@@ -1793,6 +1812,9 @@ export const AboutImage = styled(Box)(() => ({
     height: "520px",
     marginLeft: "0px",
   },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    height: "338px",
+  },
 }));
 
 export const FooterTopSpacing = styled(Box)(({ theme }) => ({
@@ -2051,7 +2073,7 @@ export const TopBox = styled(Box)({
     marginBottom: 12,
   },
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-    '& .MuiTypography-body_9':{
+    "& .MuiTypography-body_9": {
       fontSize: "19px",
       lineHeight: "28px",
     },
@@ -2101,11 +2123,11 @@ export const ChallengeBox = styled(Box)(({ theme }) => ({
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
     padding: "140px 84px 100px",
-    '& .MuiTypography-font_19_500':{
+    "& .MuiTypography-font_19_500": {
       lineHeight: "24px",
     },
-    '& .MuiGrid-container':{
-      rowGap: "80px"
+    "& .MuiGrid-container": {
+      rowGap: "80px",
     },
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
@@ -2120,7 +2142,7 @@ export const ChallengeBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const SolutionBox = styled(Box)(({ theme })=>({
+export const SolutionBox = styled(Box)(({ theme }) => ({
   padding: "120px 0",
   "& .MuiListItem-root": {
     fontSize: "19px",
@@ -2138,18 +2160,18 @@ export const SolutionBox = styled(Box)(({ theme })=>({
     paddingLeft: "32px",
   },
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-    '& .MuiListItem-root':{
+    "& .MuiListItem-root": {
       fontSize: "16px",
       lineHeight: "24px",
     },
-    '& .MuiTypography-body_9_600':{
+    "& .MuiTypography-body_9_600": {
       fontSize: "24px",
       lineHeight: "32px",
     },
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
     padding: "120px 84px 100px",
-    '& .MuiTypography-body_9_600':{
+    "& .MuiTypography-body_9_600": {
       fontSize: "20px",
       lineHeight: "28px",
     },
@@ -2171,7 +2193,7 @@ export const SolutionBox = styled(Box)(({ theme })=>({
 
 export const FeatureGrid = styled(Box)<Props>(({ citiusgrid }) => ({
   display: "grid",
-  gridTemplateColumns: citiusgrid ?  "repeat(8, 1fr)" : "repeat(6, 1fr)",
+  gridTemplateColumns: citiusgrid ? "repeat(8, 1fr)" : "repeat(6, 1fr)",
   columnGap: "40px",
   marginTop: "40px",
   marginBottom: "80px",
@@ -2197,7 +2219,7 @@ export const ImpactGrid = styled(Box)({
   marginTop: "40px",
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     gridTemplateColumns: "repeat(4, 1fr)",
-    '& .MuiTypography-body_3':{
+    "& .MuiTypography-body_3": {
       fontSize: "17px",
       lineHeight: "23px",
     },
@@ -2234,11 +2256,11 @@ export const GridBox = styled(Box)(({ theme }) => ({
   borderRadius: "8px",
   [`@media (max-width: ${breakpoints.tabletView})`]: {
     padding: "60px 24px 32px",
-    '& .MuiTypography-font_subtitle':{
+    "& .MuiTypography-font_subtitle": {
       fontSize: "14px",
       lineHeight: "20px",
     },
-    '& .MuiTypography-body_3':{
+    "& .MuiTypography-body_3": {
       fontSize: "16px",
       lineHeight: "24px",
     },
@@ -2271,7 +2293,7 @@ export const GetBox = styled(Box)(({ theme }) => ({
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
     padding: "120px 32px 80px",
-    '& .MuiTypography-root.MuiLink-root':{
+    "& .MuiTypography-root.MuiLink-root": {
       fontSize: "12px",
       lineHeight: "12px",
     },

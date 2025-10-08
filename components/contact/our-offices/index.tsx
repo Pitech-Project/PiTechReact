@@ -20,10 +20,10 @@ export const OurOffice = () => {
     <ObservedSection id="home4" bg="light">
       <Stack>
         <OuterGrid2
-          marginTop={"88px !important"}
           container
           spacing={5}
           justifyContent={"space-between"}
+          className="serviceOuterGridOffice"
         >
           <Grid
             size={{ xs: 12, lg: 9, xl: 8.3 }}

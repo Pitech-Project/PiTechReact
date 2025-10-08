@@ -25,14 +25,9 @@ export default function ProjectTopSection({ project }: any) {
     <ObservedSection id="home12" bg="light">
       <TopBox>
         <Container maxWidth={false} disableGutters>
-          <Grid container justifyContent={{xs: "start", lg: "center"}}>
+          <Grid container justifyContent={{ xs: "start", lg: "center" }}>
             <Grid size={{ xs: 12, md: 9, lg: 5 }}>
-              <ClientImage
-                src={img}
-                height={40}
-                width={100}
-                alt="Chanakya"
-              />
+              <ClientImage src={img} height={40} width={100} alt="Chanakya" />
               <Typography
                 variant="body_6"
                 display="block"
@@ -41,7 +36,12 @@ export default function ProjectTopSection({ project }: any) {
               >
                 {project.topSection.title}
               </Typography>
-              <Typography variant="body_9" display="block" color="#68686A" mb={5}>
+              <Typography
+                variant="body_9"
+                display="block"
+                color="#68686A"
+                mb={5}
+              >
                 {project.topSection.shortDesc}
               </Typography>
               <Box display="flex" flexWrap="wrap" gap="12px">

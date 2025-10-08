@@ -28,7 +28,7 @@ export default function Pisolution({ project }: any) {
             </Grid>
           </Grid>
           {solutionList && (
-            <Grid container gap={5} mt={{xs: "40px", md: "60px"}}>
+            <Grid container gap={5} mt={{ xs: "40px", md: "60px" }}>
               <Grid size={{ sm: 12, lg: 3 }} offset={{ xs: 0, lg: 2 }}>
                 <Typography
                   variant="body_9_600"

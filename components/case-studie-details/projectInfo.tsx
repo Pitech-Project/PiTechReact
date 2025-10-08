@@ -10,8 +10,8 @@ export default function ProjectInfo({ project }: any) {
         <Grid container>
           <Grid size={{ xs: 12, lg: 11 }} offset={{ xs: 0, lg: 1 }}>
             {/* <OrangeChip>{project.projectInfo.name}</OrangeChip> */}
-            <Box mt={{xs: 0, lg: 3}}>
-              <Grid container gap={{xs: "28px", md: 0}}>
+            <Box mt={{ xs: 0, lg: 3 }}>
+              <Grid container gap={{ xs: "28px", md: 0 }}>
                 <Grid size={{ xs: 12, md: 6, lg: 3 }}>
                   <Box display="flex">
                     <IndustryIcon />
