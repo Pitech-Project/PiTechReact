@@ -63,5 +63,29 @@
     "appliedon": "October 6, 2025",
     "resume": "C:\\Projects\\Pi%20Techniques%20Website\\public\\uploads\\Test-17793689-6025-408b-a833-252aabd42765.pdf",
     "_id": "68e3938fca9d80e9fea3f35c"
+  },
+  {
+    "name": "Suraj",
+    "lastname": "Joshi 2",
+    "email": "priya.bhoi@pitechniques.com",
+    "contactnumber": "9106512019",
+    "message": "Test Mail",
+    "appliedFor": "Scrum Master",
+    "appliedon": "October 7, 2025",
+    "resume": "\\tmp\\uploads\\Test-e68718c4-4c19-439f-8117-9db59b2535ec.pdf",
+    "fullname": "Suraj Joshi 2",
+    "_id": "68e50790e4948b0628d38212"
+  },
+  {
+    "name": "Ruchi",
+    "lastname": "Bhavsar",
+    "email": "priya.bhoi@pitechniques.com",
+    "contactnumber": "9106512019",
+    "message": "Test mail",
+    "appliedFor": "Scrum Master",
+    "appliedon": "October 7, 2025",
+    "resume": "\\tmp\\uploads\\Test-8223e82b-3fd0-447d-baba-7ba10a31a8ad.pdf",
+    "fullname": "Ruchi Bhavsar",
+    "_id": "68e50c77e4948b0628d38213"
   }
 ]

@@ -4,7 +4,7 @@ import type { FormData } from "@/components/careers/career-form";
 import casestudy1 from "@/public/assets/img/case-studies/case-studies1.png";
 import casestudy2 from "@/public/assets/img/case-studies/case-studies-2.png";
 import casestudy3 from "@/public/assets/img/case-studies/case-studies-3.png";
-import casestudy4 from "@/public/assets/img/case-studies/case-studies-4.png";
+import casestudy4 from "@/public/assets/img/case-studies/laptop-4.png";
 
 type FieldConfig = {
   id: number;
