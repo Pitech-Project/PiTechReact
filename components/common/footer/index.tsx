@@ -50,7 +50,9 @@ const Footer = () => {
           alignItems="center"
           marginBottom="44px"
         >
-          <Image src={FooterLogo} alt="Footer logo" />
+          <HoveredLink className={isActivePath("/") ? "active" : ""} href="/">
+            <Image src={FooterLogo} alt="Footer logo" />
+          </HoveredLink>
           {/* <ScrollToTopButton /> */}
         </Stack>
 

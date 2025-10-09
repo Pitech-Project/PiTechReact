@@ -47,7 +47,7 @@ const Culture = () => {
                   variant="body_6"
                   display="block"
                 >
-                  Working at
+                  Working at{" "}
                   <br style={{ display: isTabletView ? "none" : "" }}></br>
                   Pi
                 </Typography>

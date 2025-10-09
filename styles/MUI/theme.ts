@@ -191,6 +191,8 @@ interface CustomPalette {
   black5?: string;
   grey?: string;
   black6?: string;
+  light_green?: string;
+  green?: string;
 }
 
 declare module "@mui/material/styles" {
@@ -829,6 +831,8 @@ export const lightTheme = createTheme({
       black5: "#191919",
       grey: "#bab9b9",
       black6: "#000000",
+      light_green: "#badbcc",
+      green: "#0f5132",
     },
   },
 
@@ -857,6 +861,9 @@ export const lightTheme = createTheme({
         "& span br.d-block": {
           display: "block !important",
         },
+        "& div .grecaptcha-badge": {
+          display: "none !important",
+        },
         "@media (max-width:1600px)": {
           "& span br.br-tag": {
             display: "none",
@@ -868,6 +875,11 @@ export const lightTheme = createTheme({
           },
           "& .TabletViewBorder br": {
             display: "block",
+          },
+        },
+        "@media (max-width:599px)": {
+          "& .mobileAnimationNone": {
+            transform: "none !important",
           },
         },
       },

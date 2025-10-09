@@ -219,7 +219,6 @@ export const Service = () => {
             <Grid
               size={{ xs: 12 }}
               margin={"91px 0 71px"}
-              padding={{ xs: "0px 24px", sm: "0" }}
               sx={{
                 "dotlottie-player": {
                   height: "80px !important",
@@ -227,7 +226,7 @@ export const Service = () => {
                 },
               }}
             >
-              <WebServicesGrid container spacing={5}>
+              <WebServicesGrid container spacing={5} paddingLeft={"24px"}>
                 {services.map((service, index) => (
                   <Grid
                     size={{ xs: 12, sm: 4, md: 3, lg: 2.4, xl: 2.4 }}

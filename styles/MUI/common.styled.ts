@@ -623,7 +623,7 @@ export const PrevNext = styled(Stack)(({ theme }) => ({
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
     right: "20px",
-    top: "310px",
+    top: "274px",
     "&.OurWorkPrevNext": {
       right: "32px",
     },
@@ -1125,10 +1125,12 @@ export const LeftPanel = styled(Box)(() => ({
     margin: "0 auto",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    width: "100%",
+    width: "92%",
     padding: "0px 32px",
     marginTop: "-80px",
     marginBottom: "140px",
+    marginRight: "34px",
+    textAlign: "left",
     "&.homeBannerLeftPanel": {
       marginBottom: "160px",
     },
@@ -1237,7 +1239,7 @@ export const ChipUI2 = styled(Typography)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  height: "36px",
+  minHeight: "36px",
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     fontSize: "16px",
     lineHeight: "26px",
@@ -1594,8 +1596,11 @@ export const BannerBox = styled(Box)(() => ({
   position: "absolute",
   left: "50%",
   top: "55%",
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    width: "calc(100% - 168px)",
+  },
   [`@media (max-width: ${breakpoints.sm})`]: {
-    width: "calc(100% - 32px)",
+    width: "calc(100% - 64px)",
   },
 }));
 
@@ -2497,3 +2502,18 @@ export const StackServicesSetions = styled(Stack)({
     marginTop: "120px",
   },
 });
+
+export const SuccessfulMsg = styled(Typography)(({ theme }) => ({
+  color: theme.palette.custom?.green,
+  fontSize: "16PX",
+  fontWeight: "400",
+}));
+
+export const SuccessfulMsgBox = styled(Box)(({ theme }) => ({
+  padding: "16px",
+  borderRadius: "4px",
+  backgroundColor: theme.palette.custom?.light_green,
+  marginTop: "8px",
+  display: "flex",
+  alignItems: "flex-start",
+}));

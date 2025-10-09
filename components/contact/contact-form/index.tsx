@@ -11,6 +11,7 @@ import {
   useMediaQuery,
   useTheme,
   Grid,
+  IconButton,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import {
@@ -18,7 +19,10 @@ import {
   OuterGrid2,
   OutlineWhiteBtn1,
   SmallFullStop,
+  SuccessfulMsg,
+  SuccessfulMsgBox,
 } from "@/styles/MUI/common.styled";
+import CloseIcon from "@mui/icons-material/Close";
 import { apiUrl, careerFormFields } from "@/lib/constanst";
 import ArrowRightWhite from "@/components/common/SVGIcons/arrowRightWhite";
 
@@ -189,6 +193,7 @@ export default function ContactForm() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
+                className="mobileAnimationNone"
               >
                 <FormUI className="blackTheme" contactform={contactform}>
                   <Typography
@@ -265,10 +270,19 @@ export default function ContactForm() {
                     </OutlineWhiteBtn1>
 
                     {submitted && (
-                      <Typography color="green" mt={1}>
-                        Thank you! Your message has been sent successfully. We
-                        will get back to you soon!
-                      </Typography>
+                      <SuccessfulMsgBox>
+                        <SuccessfulMsg>
+                          Thank you! Your message has been sent successfully. We
+                          will get back to you soon!
+                        </SuccessfulMsg>
+                        <IconButton
+                          onClick={() => setSubmitted(false)}
+                          size="medium"
+                          sx={{ marginTop: "-7px" }}
+                        >
+                          <CloseIcon fontSize="medium" />
+                        </IconButton>
+                      </SuccessfulMsgBox>
                     )}
                   </Box>
                 </FormUI>
@@ -276,7 +290,7 @@ export default function ContactForm() {
                   ref={recaptchaRef}
                   sitekey={SITE_KEY}
                   size="invisible"
-                  badge="bottomright" // badge position for invisible recaptcha
+                  badge="bottomright"
                   theme="dark"
                 />
               </motion.div>
