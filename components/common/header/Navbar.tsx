@@ -90,11 +90,13 @@ export function NavbarComponent(props: Props) {
             color: theme.palette.custom?.grey_700,
             textTransform: "uppercase",
             textDecoration: "none",
-            marginRight: "40px",
             transition: "0.5s",
             "&:hover, &.LinkUI.active": {
               color: theme.palette.custom?.orange_600,
             },
+          },
+          "& .menus .LinkUI": {
+            marginRight: "40px",
           },
           "& .LinkUI:last-child": { marginRight: 0 },
         }}

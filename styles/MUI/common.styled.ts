@@ -2091,6 +2091,10 @@ export const TopBox = styled(Box)({
     "& .MuiTypography-body_6": {
       marginTop: 60,
     },
+    "& .MuiTypography-body_9": {
+      fontSize: "16px",
+      lineHeight: "24px",
+    },
   },
 });
 
@@ -2144,6 +2148,9 @@ export const ChallengeBox = styled(Box)(({ theme }) => ({
       fontSize: "14px",
       lineHeight: "24px",
     },
+    "& .MuiGrid-container": {
+      rowGap: "20px",
+    },
   },
 }));
 
@@ -2156,7 +2163,6 @@ export const SolutionBox = styled(Box)(({ theme }) => ({
     color: theme.palette.custom?.gray_txt,
     display: "list-item",
     padding: 0,
-    paddingBottom: "5px",
   },
   "& .MuiList-root": {
     listStyleType: "disc",
@@ -2327,6 +2333,7 @@ export const NavBox = styled(Box)(({ theme }) => ({
     cursor: "pointer",
     "&:hover": {
       textDecoration: "none",
+      color: theme.palette.custom?.orange_600,
     },
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
@@ -2490,9 +2497,9 @@ export const StackServicesSetions = styled(Stack)({
   alignItems: "flex-start",
   justifyContent: "space-between",
   marginTop: "152px",
-  "dotlottie-player": {
-    width: "180px !important",
-  },
+  // "dotlottie-player": {
+  //   width: "180px !important",
+  // },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
     gap: "72px",
     flexDirection: "column",

@@ -23,12 +23,12 @@ interface DotImageAnimationProps {
 
 const DotImageAnimation: React.FC<DotImageAnimationProps> = ({
   imageSrc,
-  detailLevel = 12,
-  minDotRadius = 0.1,
+  detailLevel = 7,
+  minDotRadius = 0.5,
   maxDotRadius = 4,
-  maxSpeed = 15,
-  maxForce = 0.8,
-  dotColor = "#F4F4F4",
+  maxSpeed = 10,
+  maxForce = 0.3,
+  dotColor = "#fff",
   hoverColor = "#F7941E",
   fullHeight = false,
 }) => {
@@ -43,7 +43,6 @@ const DotImageAnimation: React.FC<DotImageAnimationProps> = ({
       const dots: Dot[] = [];
       let canvasW: number;
       let canvasH: number;
-      let imgLoaded = false;
       const mouse = { x: -1000, y: -1000 };
 
       class Dot {
@@ -76,9 +75,7 @@ const DotImageAnimation: React.FC<DotImageAnimationProps> = ({
         behave() {
           const mouseVec = p.createVector(mouse.x, mouse.y);
           const d = p5Types.Vector.dist(this.pos, mouseVec);
-
           this.color = d < this.comfortZone ? hoverColor : this.originalColor;
-
           const target =
             d < this.comfortZone
               ? p5Types.Vector.sub(this.pos, mouseVec).add(this.pos)
@@ -115,33 +112,8 @@ const DotImageAnimation: React.FC<DotImageAnimationProps> = ({
         }
       }
 
-      const buildDots = () => {
-        dots.length = 0;
-
-        // 🔥 Create offscreen graphics buffer
-        const gfx = p.createGraphics(canvasW, canvasH);
-        gfx.image(img, 0, 0, canvasW, canvasH);
-        gfx.loadPixels();
-
-        for (let y = 0; y < gfx.height; y += detailLevel) {
-          for (let x = 0; x < gfx.width; x += detailLevel) {
-            const index = (x + y * gfx.width) * 4;
-            const r = gfx.pixels[index];
-            const g = gfx.pixels[index + 1];
-            const b = gfx.pixels[index + 2];
-            const brightness = (r + g + b) / 3;
-            const radius = p.map(brightness, 0, 255, 0, maxDotRadius);
-            if (radius > minDotRadius) {
-              dots.push(new Dot(x, y, radius, dotColor));
-            }
-          }
-        }
-      };
-
       p.preload = () => {
-        img = p.loadImage(imageSrc, () => {
-          imgLoaded = true;
-        });
+        img = p.loadImage(imageSrc);
       };
 
       p.setup = () => {
@@ -155,20 +127,27 @@ const DotImageAnimation: React.FC<DotImageAnimationProps> = ({
 
         const cnv = p.createCanvas(canvasW, canvasH);
         cnv.parent(container);
-        p.pixelDensity(1);
-        p.frameRate(30);
 
-        // Wait until image fully loads
-        const interval = setInterval(() => {
-          if (imgLoaded) {
-            buildDots();
-            clearInterval(interval);
+        p.pixelDensity(1);
+        p.image(img, 0, 0, canvasW, canvasH);
+        p.loadPixels();
+
+        for (let y = 0; y < p.height; y += detailLevel) {
+          for (let x = 0; x < p.width; x += detailLevel) {
+            const index = (x + y * p.width) * 4;
+            const r = p.pixels[index];
+            const g = p.pixels[index + 1];
+            const b = p.pixels[index + 2];
+            const brightness = (r + g + b) / 3;
+            const radius = p.map(brightness, 0, 255, 0, maxDotRadius);
+            if (radius > minDotRadius) {
+              dots.push(new Dot(x, y, radius, dotColor));
+            }
           }
-        }, 50);
+        }
       };
 
       p.draw = () => {
-        if (!imgLoaded) return; // hide until ready
         p.clear();
         for (const dot of dots) {
           dot.behave();
@@ -191,19 +170,6 @@ const DotImageAnimation: React.FC<DotImageAnimationProps> = ({
       p.touchEnded = () => {
         mouse.x = -1000;
         mouse.y = -1000;
-      };
-
-      p.windowResized = () => {
-        const container = canvasRef.current;
-        if (!container) return;
-
-        canvasW = container.offsetWidth;
-        canvasH = fullHeight
-          ? window.innerHeight
-          : container.offsetHeight || window.innerHeight;
-
-        p.resizeCanvas(canvasW, canvasH);
-        if (imgLoaded) buildDots();
       };
     };
 

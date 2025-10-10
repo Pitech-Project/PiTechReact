@@ -25,6 +25,8 @@ const services = [
         src={LOTTIEANIMATION.LottiePlayer1}
         className="scrollLottie"
         autoplay={true}
+        height="152px"
+        width="173px"
       />
     ),
     description:
@@ -53,6 +55,8 @@ const services = [
         src={LOTTIEANIMATION.LottiePlayer7}
         className="scrollLottie"
         autoplay={true}
+        height="152px"
+        width="173px"
       />
     ),
     description: (
@@ -100,6 +104,8 @@ const services = [
         src={LOTTIEANIMATION.LottiePlayer2}
         className="scrollLottie"
         autoplay={true}
+        height="152px"
+        width="173px"
       />
     ),
     description:
@@ -127,6 +133,8 @@ const services = [
         src={LOTTIEANIMATION.LottiePlayer3}
         className="scrollLottie"
         autoplay={true}
+        height="152px"
+        width="173px"
       />
     ),
     description:
@@ -148,6 +156,8 @@ const services = [
         src={LOTTIEANIMATION.LottiePlayer4}
         className="scrollLottie"
         autoplay={true}
+        height="152px"
+        width="173px"
       />
     ),
     description:
@@ -175,6 +185,8 @@ const services = [
         src={LOTTIEANIMATION.LottiePlayer5}
         className="scrollLottie"
         autoplay={true}
+        height="152px"
+        width="173px"
       />
     ),
     description:
@@ -204,6 +216,8 @@ const services = [
         src={LOTTIEANIMATION.LottiePlayer6}
         className="scrollLottie"
         autoplay={true}
+        height="152px"
+        width="173px"
       />
     ),
     description:
@@ -234,6 +248,8 @@ const services = [
         src={LOTTIEANIMATION.LottiePlayer8}
         className="scrollLottie"
         autoplay={true}
+        height="152px"
+        width="173px"
       />
     ),
     description:

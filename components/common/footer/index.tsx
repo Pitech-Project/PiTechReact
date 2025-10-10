@@ -129,7 +129,7 @@ const Footer = () => {
                   href="mailto:enquiry@pitechniques.com"
                   sx={{
                     textDecoration: "underline",
-                    textUnderlineOffset: "4px",
+                    textUnderlineOffset: "5px",
                   }}
                 >
                   enquiry@pitechniques.com
