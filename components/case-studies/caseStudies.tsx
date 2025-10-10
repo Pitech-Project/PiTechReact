@@ -25,9 +25,9 @@ export const CaseStudies = () => {
         {caseStudy.map((project) => (
           <Grid
             key={project.id}
-            size={{ xs: 12, md: 6 }}
+            size={{ xs: 12, lg: 6 }}
             bgcolor={project.isBgBlack ? "custom.black2" : "custom.white2"}
-            order={{ xs: project.id == "citiusTech" ? 4 : 0, md: 0 }}
+            order={{ xs: project.id == "citiusTech" ? 4 : 0, lg: 0 }}
           >
             <ObservedSection id={project.id} bg={"light"}>
               <CaseBox>

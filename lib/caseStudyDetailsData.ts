@@ -14,6 +14,7 @@ export const caseStudyData = {
       ],
       img: "/assets/img/case-studies/laptop-1.png",
       projectLogo: "/assets/img/top-companies/chanakya.svg",
+      alt: "Chanakya",
     },
     projectInfo: {
       name: "Chanakya International Pvt. Ltd.",
@@ -153,6 +154,7 @@ export const caseStudyData = {
       ],
       img: "/assets/img/case-studies/laptop-2.png",
       projectLogo: "/assets/img/case-studies/ibs.svg",
+      alt: "IBS",
     },
     projectInfo: {
       name: "IBS Intelligence",
@@ -252,6 +254,7 @@ export const caseStudyData = {
       ],
       img: "/assets/img/case-studies/laptop-3.png",
       projectLogo: "/assets/img/case-studies/citiustech.svg",
+      alt: "Citius Tech",
     },
     projectInfo: {
       name: "Citius Tech",
@@ -361,6 +364,7 @@ export const caseStudyData = {
       ],
       img: "/assets/img/case-studies/laptop-4.png",
       projectLogo: "/assets/img/case-studies/taj.svg",
+      alt: "Taj group",
     },
     projectInfo: {
       name: "Taj Group of Hotels",

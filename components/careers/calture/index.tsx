@@ -13,7 +13,7 @@ import ObservedSection from "@/components/common/ObservedSection";
 const Culture = () => {
   const router = useRouter();
   const theme = useTheme();
-  const isTabletView = useMediaQuery(theme.breakpoints.down("md"));
+  const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <ObservedSection id="home8" bg="light">

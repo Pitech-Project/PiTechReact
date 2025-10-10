@@ -19,7 +19,7 @@ const OurStory = () => {
           size={{ xs: 12, lg: 9, xl: 8.3 }}
           offset={{ xs: 0, lg: 2, xl: 2.3 }}
         >
-          <Grid container>
+          <Grid container spacing={3}>
             <Grid size={{ xs: 12, md: 6, xl: 7 }}>
               <motion.div
                 initial={{ opacity: 0, x: -100 }}

@@ -322,6 +322,9 @@ export const SubTypography = styled(Typography)(() => ({
     fontSize: "28px",
     lineHeight: "36px",
     margin: "32px 0 0px",
+    "&.subTitleSpacing": {
+      margin: "32px 0",
+    },
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
     fontSize: "16px",
@@ -1123,6 +1126,9 @@ export const LeftPanel = styled(Box)(() => ({
     order: 2,
     padding: "32px 84px 80px",
     margin: "0 auto",
+    "&.homeBannerLeftPanel": {
+      padding: "32px 84px 140px",
+    },
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
     width: "92%",
@@ -1133,6 +1139,7 @@ export const LeftPanel = styled(Box)(() => ({
     textAlign: "left",
     "&.homeBannerLeftPanel": {
       marginBottom: "160px",
+      padding: "0px 32px",
     },
   },
 }));
@@ -1217,7 +1224,6 @@ export const ChipUI = styled(Typography)(({ theme }) => ({
   backgroundColor: theme.palette.custom?.grey_200,
   fontWeight: 500,
   fontSize: "14px",
-  letterSpacing: "10%",
   lineHeight: "14px",
   color: theme.palette.custom?.black,
   borderRadius: "100px",
@@ -1231,7 +1237,6 @@ export const ChipUI2 = styled(Typography)(({ theme }) => ({
   backgroundColor: theme.palette.custom?.borderColor1,
   fontWeight: 500,
   fontSize: "19px",
-  letterSpacing: "10%",
   lineHeight: "28px",
   color: theme.palette.custom?.grey_700,
   borderRadius: "100px",
@@ -1281,6 +1286,8 @@ export const StyledCareersBanner = styled(Box)(({ theme }) => ({
   },
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     height: "600px",
+    backgroundAttachment: "inherit",
+    backgroundPosition: "center",
   },
   [`@media (max-width: ${breakpoints.sm})`]: {
     height: "380px",

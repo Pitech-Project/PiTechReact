@@ -34,7 +34,12 @@ export default function ProjectTopSection({ project }: any) {
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <ClientImage src={img} height={40} width={100} alt="Chanakya" />
+                <ClientImage
+                  src={img}
+                  height={40}
+                  width={100}
+                  alt={project.topSection.alt}
+                />
                 <Typography
                   variant="body_6"
                   display="block"
@@ -81,7 +86,7 @@ export default function ProjectTopSection({ project }: any) {
                   src={project.topSection.img}
                   height={558}
                   width={859}
-                  alt="Chanakya"
+                  alt={project.topSection.title}
                 />
               </motion.div>
               {/* <LaptopImage src={laptop1} alt="Chanakya" /> */}

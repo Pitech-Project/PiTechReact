@@ -219,14 +219,19 @@ const body_3 = {
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     fontSize: "20px",
     lineHeight: "28px",
+    "&.jobTitle": {
+      fontSize: "24px",
+      lineHeight: "32px",
+    },
   },
-  // [`@media (max-width: ${breakpoints.lg})`]: {
-  //   fontSize: "18px",
-  //   lineHeight: "29px",
-  // },
+
   [`@media (max-width: ${breakpoints.sm})`]: {
     fontSize: "16px",
     lineHeight: "24px",
+    "&.jobTitle": {
+      fontSize: "19px",
+      lineHeight: "28px",
+    },
   },
 };
 
@@ -301,10 +306,18 @@ const body_10 = {
   fontWeight: 500,
   fontSize: "19px",
   lineHeight: "28px",
-  // [`@media (max-width: ${breakpoints.sm})`]: {
-  //   fontSize: "16px",
-  //   lineHeight: "24px",
-  // },
+  [`@media (max-width: ${breakpoints.lg})`]: {
+    "&.jobExperience": {
+      fontSize: "19px",
+      lineHeight: "28px",
+    },
+  },
+  [`@media (max-width: ${breakpoints.sm})`]: {
+    "&.jobExperience": {
+      fontSize: "14px",
+      lineHeight: "22px",
+    },
+  },
 };
 const font_19 = {
   fontSize: 19,

@@ -80,6 +80,7 @@ export default function JobOpenings() {
                           variant="body_10"
                           color="custom.white3"
                           textTransform={"uppercase"}
+                          className="jobExperience"
                         >
                           {job.experience}
                         </Typography>

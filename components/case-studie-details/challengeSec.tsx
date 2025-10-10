@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 export default function ChallengeSec({ project }: any) {
   const challengeList = project.challenges.lists;
+  const projectName = project.projectInfo.name;
   return (
     <ChallengeBox>
       <Container maxWidth={false} disableGutters>
@@ -63,7 +64,9 @@ export default function ChallengeSec({ project }: any) {
                 display="block"
                 mb={2.5}
               >
-                What we did
+                {projectName === "Chanakya International Pvt. Ltd."
+                  ? "The background   "
+                  : "What we did"}
               </Typography>
               <Typography variant="font_19_500" color="custom.white2">
                 {project.challenges.background}
