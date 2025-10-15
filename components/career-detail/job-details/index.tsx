@@ -13,6 +13,7 @@ import {
   DotUI,
   OuterGrid5,
   OutlineWhiteBtn,
+  ResponsibilitiesMainAccordion,
   SmallFullStop,
   SVGIconUI,
 } from "@/styles/MUI/common.styled";
@@ -27,11 +28,13 @@ const AccordionSection = ({
   items,
   defaultExpanded = false,
   hideExpandIcon = false,
+  children,
 }: {
   title: string;
   items: string[];
   defaultExpanded?: boolean;
   hideExpandIcon?: boolean;
+  children?: React.ReactNode;
 }) => {
   const theme = useTheme();
   const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
@@ -65,21 +68,25 @@ const AccordionSection = ({
         <AccordionTitle color="custom.white2">{title}</AccordionTitle>
       </AccordionSummary>
       <AccordionDetails>
-        <Grid container spacing={isTabletView ? 3 : 4}>
-          {items.map((text, index) => (
-            <Grid size={{ xs: 12, md: 6, lg: 5.5, xl: 5 }} key={index}>
-              <Box
-                display="flex"
-                alignItems="center"
-                gap={1}
-                position="relative"
-              >
-                <DotUI />
-                <AccordionText color="custom.white3">{text}</AccordionText>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
+        {items && items.length > 0 && (
+          <Grid container spacing={isTabletView ? 3 : 4}>
+            {items.map((text, index) => (
+              <Grid size={{ xs: 12, md: 6, lg: 5.5, xl: 5 }} key={index}>
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  gap={1}
+                  position="relative"
+                >
+                  <DotUI />
+                  <AccordionText color="custom.white3">{text}</AccordionText>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        )}
+        {/* Render nested accordions */}
+        {children}
       </AccordionDetails>
     </AccordionParent>
   );
@@ -157,20 +164,35 @@ export default function JobDetail() {
 
           {job.responsibilities &&
             (Array.isArray(job.responsibilities)
-              ? job.responsibilities.length > 0 && (
+              ? // 🟢 Flat array case
+                job.responsibilities.length > 0 && (
                   <AccordionSection
                     title="Key Responsibilities"
-                    items={job.responsibilities}
+                    items={job.responsibilities} // show flat array items
                   />
                 )
-              : Object.entries(job.responsibilities).map(([section, items]) =>
-                  items && items.length > 0 ? (
+              : // 🟢 Object with categories case
+                Object.keys(job.responsibilities).length > 0 && (
+                  <ResponsibilitiesMainAccordion>
                     <AccordionSection
-                      key={section}
-                      title={section}
-                      items={items}
-                    />
-                  ) : null,
+                      title="Key Responsibilities"
+                      defaultExpanded={false}
+                      items={[]}
+                    >
+                      {Object.entries(job.responsibilities).map(
+                        ([category, tasks]) =>
+                          Array.isArray(tasks) && tasks.length > 0 ? (
+                            <AccordionSection
+                              key={category}
+                              title={category}
+                              items={tasks}
+                              defaultExpanded={false}
+                              hideExpandIcon
+                            />
+                          ) : null,
+                      )}
+                    </AccordionSection>
+                  </ResponsibilitiesMainAccordion>
                 ))}
 
           {job.skills && (
