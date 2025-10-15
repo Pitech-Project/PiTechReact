@@ -2531,3 +2531,17 @@ export const SuccessfulMsgBox = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "flex-start",
 }));
+
+export const ResponsibilitiesMainAccordion = styled(Box)(() => ({
+  "& .MuiAccordionDetails-root": {
+    paddingTop: 0,
+  },
+  "& .MuiAccordion-heading ~ div .MuiAccordion-heading p": {
+    fontSize: "1.5rem",
+  },
+  "& .MuiAccordion-heading ~ div .MuiAccordion-heading .MuiAccordionSummary-content":
+    {
+      marginTop: 0,
+      marginBottom: "30px !important",
+    },
+}));
