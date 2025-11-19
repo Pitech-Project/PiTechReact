@@ -10,19 +10,21 @@ import {
 } from "@mui/material";
 import {
   IndustriesGrid,
+  IndustriesName,
   OuterGrid,
   SmallFullStop,
   SubTitlemarginBottom,
 } from "@/styles/MUI/common.styled";
 import { LottiePlayer } from "@/components/home/lottiePlayer";
 import ScrollLottieHandler from "@/components/common/scroll-lottie-handler";
+import { motion } from "framer-motion";
 
 export const industries = [
   {
     id: 1,
     name: (
       <>
-        Maritime <br /> Tech
+        Maritime <br style={{ display: "block" }} /> Tech
       </>
     ),
     img: (
@@ -130,32 +132,40 @@ export const industries = [
 
 export const KeyIndustries = () => {
   const theme = useTheme();
-  const isMdView = useMediaQuery(theme.breakpoints.down("md"));
+  const isMdView = useMediaQuery(theme.breakpoints.down("sm"));
+  const deskView = useMediaQuery(`(max-width:1440px)`);
   return (
     <>
       <ScrollLottieHandler />
-      <Stack bgcolor={"custom.black2"}>
+      <Stack bgcolor={"custom.black7"}>
         <OuterGrid container spacing={2}>
           <Grid
             size={{ xs: 12, lg: 9, xl: 8.3 }}
-            offset={{ xs: 0, lg: 2, xl: 2.3 }}
+            offset={{ xs: 0, lg: 2, xl: 1.95 }}
           >
-            <SubTitlemarginBottom>
-              <Typography color="custom.grey_700" variant="body_4_600">
-                key industries
-                <SmallFullStop />
-              </Typography>
-              <Typography
-                color="custom.white2"
-                variant="body_6"
-                display={"block"}
-              >
-                Technology crafted for every sector
-              </Typography>
-            </SubTitlemarginBottom>
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <SubTitlemarginBottom>
+                <Typography color="custom.grey_700" variant="body_4_600">
+                  key industries
+                  <SmallFullStop />
+                </Typography>
+                <Typography
+                  color="custom.white2"
+                  variant="body_6"
+                  display={"block"}
+                >
+                  Technology crafted for every sector
+                </Typography>
+              </SubTitlemarginBottom>
+            </motion.div>
             <Grid
               container
-              spacing={isMdView ? 4 : 5}
+              spacing={isMdView ? 4 : deskView ? "30px" : 5}
               display={"flex"}
               justifyContent={"flex-start"}
             >
@@ -164,25 +174,23 @@ export const KeyIndustries = () => {
                   size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
                   key={industries.id}
                 >
-                  {/* <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.3 }}
-                > */}
-                  <Box className="IndustriesBox">
-                    {industries.img}
-                    <Typography
-                      color="custom.white2"
-                      variant="body_9_600_1"
-                      display={"block"}
-                      margin={"20px 0 0px"}
-                    >
-                      {industries.name}
-                    </Typography>
-                  </Box>
-
-                  {/* </motion.div> */}
+                  <motion.div
+                    className="service-motion"
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <Box className="IndustriesBox">
+                      <Box>{industries.img}</Box>
+                      <IndustriesName
+                        color="custom.white2"
+                        variant="body_9_600_1"
+                      >
+                        {industries.name}
+                      </IndustriesName>
+                    </Box>
+                  </motion.div>
                 </IndustriesGrid>
               ))}
             </Grid>

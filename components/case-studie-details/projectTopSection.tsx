@@ -57,18 +57,14 @@ export default function ProjectTopSection({ project }: any) {
                   {project.topSection.shortDesc}
                 </Typography>
                 <Box display="flex" flexWrap="wrap" gap="12px">
-                  <WhiteChip textcolor={theme.palette.custom?.white4}>
-                    Microsoft MVC / .NET Framework v4.6 / C#
-                  </WhiteChip>
-                  <WhiteChip textcolor={theme.palette.custom?.white4}>
-                    JavaScript / jQuery
-                  </WhiteChip>
-                  <WhiteChip textcolor={theme.palette.custom?.white4}>
-                    Entity Framework + MSSQL
-                  </WhiteChip>
-                  <WhiteChip textcolor={theme.palette.custom?.white4}>
-                    Android / Xamarin
-                  </WhiteChip>
+                  {project.topSection.tags.map((tag: any, index: any) => (
+                    <WhiteChip
+                      key={index}
+                      textcolor={theme.palette.custom?.white4}
+                    >
+                      {tag}
+                    </WhiteChip>
+                  ))}
                 </Box>
                 <Box display={isTabletView ? "block" : "none"}>
                   <ProjectInfo project={project} />

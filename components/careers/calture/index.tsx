@@ -1,33 +1,21 @@
 "use client";
 
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import {
-  SmallFullStop,
-  OutlineBtn,
-  OuterGrid2,
-} from "@/styles/MUI/common.styled";
-import ArrowRightBlack from "../../common/SVGIcons/arrowRightBlack";
-import { useRouter } from "next/navigation";
+import { SmallFullStop, OuterGrid2 } from "@/styles/MUI/common.styled";
 import ObservedSection from "@/components/common/ObservedSection";
 
 const Culture = () => {
-  const router = useRouter();
   const theme = useTheme();
   const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <ObservedSection id="home8" bg="light">
-      <OuterGrid2
-        paddingBottom={"100px !important"}
-        container
-        spacing={5}
-        justifyContent={"space-between"}
-      >
+      <OuterGrid2 container spacing={5} justifyContent={"space-between"}>
         <Grid
           size={{ xs: 12, lg: 9, xl: 8.3 }}
-          offset={{ xs: 0, lg: 2, xl: 2.3 }}
+          offset={{ xs: 0, lg: 2, xl: 1.95 }}
         >
-          <Grid container spacing={5}>
+          <Grid container spacing={5} justifyContent="space-between">
             <Grid size={{ xs: 12, md: 4 }}>
               <Box>
                 <Typography
@@ -56,9 +44,7 @@ const Culture = () => {
             <Grid size={{ xs: 12, md: 7, xl: 6.8 }}>
               <Box>
                 <Typography
-                  marginBottom={"40px"}
                   color="custom.black"
-                  mt="16px"
                   display="block"
                   variant="body_3"
                 >
@@ -77,11 +63,11 @@ const Culture = () => {
                   forward-looking.
                 </Typography>
 
-                <OutlineBtn
+                {/* <OutlineBtn
                   onClick={() => router.push("/careers/#currentOpenings")}
                 >
                   JOB OPPORTUNITIES <ArrowRightBlack />
-                </OutlineBtn>
+                </OutlineBtn> */}
               </Box>
             </Grid>
           </Grid>

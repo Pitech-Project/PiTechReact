@@ -23,7 +23,7 @@ const Counter: React.FC<CounterProps> = ({ target, speed = 50 }) => {
   }, [count, target, speed]);
 
   return (
-    <Typography variant="count" color="custom.white1" display={"block"}>
+    <Typography variant="count" color="custom.black" display={"block"}>
       {count}
     </Typography>
   );

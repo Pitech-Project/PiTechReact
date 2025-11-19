@@ -15,16 +15,18 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import {
+  ArrowDesign,
   FormUI,
   OuterGrid2,
-  OutlineWhiteBtn1,
+  RightArrow,
   SmallFullStop,
   SuccessfulMsg,
   SuccessfulMsgBox,
 } from "@/styles/MUI/common.styled";
 import CloseIcon from "@mui/icons-material/Close";
 import { apiUrl, careerFormFields } from "@/lib/constanst";
-import ArrowRightWhite from "@/components/common/SVGIcons/arrowRightWhite";
+import arrowRight from "@/public/assets/img/rightNewArrow1.svg";
+import Image from "next/image";
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
 export type FormData = {
@@ -36,7 +38,7 @@ export type FormData = {
 };
 
 export default function ContactForm() {
-  const contactform = true;
+  const contactform = "true";
   const [formData, setFormData] = useState<FormData>({
     name: "",
     lastname: "",
@@ -157,11 +159,11 @@ export default function ContactForm() {
   };
 
   return (
-    <Box bgcolor={"custom.black2"}>
+    <Box bgcolor={"custom.black7"} id="getintouch">
       <OuterGrid2 container spacing={5} justifyContent={"space-between"}>
         <Grid
           size={{ xs: 12, lg: 9, xl: 8.3 }}
-          offset={{ xs: 0, lg: 2, xl: 2.3 }}
+          offset={{ xs: 0, lg: 2, xl: 1.95 }}
         >
           <Grid container spacing={{ xs: 0, md: 5 }}>
             <Grid size={{ xs: 12, md: 4 }}>
@@ -189,7 +191,7 @@ export default function ContactForm() {
             </Grid>
             <Grid size={{ xs: 12, md: 8 }}>
               <motion.div
-                initial={{ opacity: 0, x: 300 }}
+                initial={{ opacity: 0, x: 200 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
@@ -209,7 +211,7 @@ export default function ContactForm() {
                     onSubmit={handleSubmit}
                     display="flex"
                     flexDirection="column"
-                    gap={7}
+                    gap={8}
                     marginTop={isTabletView ? "56px" : "80px"}
                   >
                     {careerFormFields.map((item) => {
@@ -264,10 +266,24 @@ export default function ContactForm() {
                       helperText={errors.message}
                       autoComplete="off"
                     />
-                    <OutlineWhiteBtn1 type="submit" disabled={isSubmitting}>
-                      {isSubmitting ? "Please Wait..." : "SEND"}
-                      <ArrowRightWhite />
-                    </OutlineWhiteBtn1>
+
+                    <RightArrow
+                      type="submit"
+                      disabled={isSubmitting}
+                      disableRipple
+                      sx={{ opacity: isSubmitting ? "0.65" : undefined }}
+                    >
+                      {isSubmitting ? (
+                        "Please Wait..."
+                      ) : (
+                        <>
+                          Send request
+                          <ArrowDesign>
+                            <Image src={arrowRight} alt="Right Arrow" />
+                          </ArrowDesign>
+                        </>
+                      )}
+                    </RightArrow>
 
                     {submitted && (
                       <SuccessfulMsgBox>

@@ -138,8 +138,8 @@ const services = [
       />
     ),
     description:
-      "We design IT infrastructure that evolves with your business. From cloud-native architecture to seamless network performance, we ensure a reliable, secure, and always-on environment built for scale and speed.",
-    tags: ["Networking", "Hardware", "Firewall", "Security", "Hosting"],
+      "We craft intuitive digital experiences that don’t just look good—they feel right. Every pixel is placed with purpose, blending aesthetic brilliance with seamless functionality. Your application deserves design that’s as bold as your vision.",
+    tags: ["Figma", "Axure"],
     logos: [
       { src: TajLogo, width: 36.5, height: 32 },
       { src: vGroup, width: 43.5, height: 28 },
@@ -161,7 +161,7 @@ const services = [
       />
     ),
     description:
-      "We craft intuitive digital experiences that don’t just look good—they feel right. Every pixel is placed with purpose, blending aesthetic brilliance with seamless functionality. Your application deserves design that’s as bold as your vision.",
+      "We craft sleek, high-impact mobile apps that don’t just function—they flow. Built with cutting-edge tech and serious design chops, our iOS and Android apps are smooth, scalable, and ready to wow. Whether it's a bold startup or a big idea, we turn screens into seamless experiences.",
     tags: [
       "Native iOS",
       "Native Android",
@@ -190,7 +190,7 @@ const services = [
       />
     ),
     description:
-      "We craft sleek, high-impact mobile apps that don’t just function—they flow. Built with cutting-edge tech and serious design chops, our iOS and Android apps are smooth, scalable, and ready to wow. Whether it's a bold startup or a big idea, we turn screens into seamless experiences.",
+      "We don’t just build websites — we craft digital playgrounds that look stunning, work flawlessly, and convert effortlessly. Whether you're a startup or scaling up, our team blends design, tech, and strategy to deliver custom, high-performance web experiences that set you apart. Fully responsive, mobile-first, and built for tomorrow.",
     tags: [
       "Angular JS",
       "Next.js",
@@ -221,7 +221,7 @@ const services = [
       />
     ),
     description:
-      "We don’t just build websites — we craft digital playgrounds that look stunning, work flawlessly, and convert effortlessly. Whether you're a startup or scaling up, our team blends design, tech, and strategy to deliver custom, high-performance web experiences that set you apart. Fully responsive, mobile-first, and built for tomorrow.",
+      "We build and manage cloud-native, resilient infrastructures designed for growth. Our DevOps approach automates the pipeline—from code to deployment—so your applications are delivered faster, safer, and smarter. With monitoring, security, and optimization baked in, we keep your systems running at peak performance while you focus on innovation.",
     tags: [
       "CI/CD Pipelines",
       "Docker & Kubernetes",
@@ -270,7 +270,7 @@ const ServicesSolution = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <Box bgcolor={"custom.black2"}>
+    <Box bgcolor={"custom.black7"}>
       <OuterGrid4
         container
         spacing={5}

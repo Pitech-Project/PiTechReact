@@ -1,6 +1,6 @@
 "use client";
 
-import { Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import {
   BusinessOffice,
   FullStop,
@@ -26,29 +26,33 @@ export const AlwaysKeepSimple = () => {
       bgcolor={"custom.black"}
       justifyContent="space-between"
       alignItems="center"
+      position="relative"
+      bannerprop="casestudy"
     >
-      <LeftPanel>
-        <Typography
-          variant="body_1"
-          margin={isSmallDesktopView ? "0 auto" : "0"}
-          display="block"
-          color={"custom.white2"}
-        >
-          Not just showcases, <br />
-          but solutions that work
-          <FullStop />
-        </Typography>
+      <Box>
+        <LeftPanel bannerprop="casestudy">
+          <Typography
+            variant="body_1"
+            margin={isSmallDesktopView ? "0 auto" : "0"}
+            display="block"
+            color={"custom.white2"}
+          >
+            Not just showcases, but <br />
+            solutions that work
+            <FullStop />
+          </Typography>
 
-        <SubTypography
-          variant="Caption1"
-          color="custom.grey_700"
-          display="block"
-        >
-          Stories of purposeful builds and lasting outcomes. <br></br>
-          <br></br>
-        </SubTypography>
-      </LeftPanel>
-      <CaseStudiesImgAnimation />
+          <SubTypography
+            variant="Caption1"
+            color="custom.grey_700"
+            display="block"
+          >
+            Stories of purposeful builds and lasting outcomes. <br></br>
+            <br></br>
+          </SubTypography>
+        </LeftPanel>
+        <CaseStudiesImgAnimation />
+      </Box>
     </BusinessOffice>
   );
 };

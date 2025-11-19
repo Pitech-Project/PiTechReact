@@ -1,18 +1,25 @@
-import { GetBox, NavBox, OutlineWhiteBtn } from "@/styles/MUI/common.styled";
+import {
+  ArrowDesign,
+  GetBox,
+  NavBox,
+  RightTopArrow,
+  SmallFullStop,
+} from "@/styles/MUI/common.styled";
 import { Box, Typography, Link } from "@mui/material";
 import ArrowRightWhite from "../common/SVGIcons/arrowRightWhite";
 import ArrowLeftWhite from "../common/SVGIcons/arrowLeftWhite";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
+import arrowRight from "@/public/assets/img/newRightArrow.svg";
 
 export default function GetInTouch({ project }: any) {
-  const router = useRouter();
   const preLink = project.previous.link;
   const nextLink = project.next.link;
   return (
     <GetBox>
       <Box textAlign="center">
         <Typography variant="body_4_600" color="custom.grey_700">
-          get in touch
+          Connect with us
+          <SmallFullStop />
         </Typography>
         <Typography
           variant="mediumFont"
@@ -23,19 +30,28 @@ export default function GetInTouch({ project }: any) {
           Let’s talk about building the right digital transformation <br /> for
           your business.
         </Typography>
-        <OutlineWhiteBtn className="smallResWhiteBtn">
+        {/* <OutlineWhiteBtn className="smallResWhiteBtn">
           Contact Us <ArrowRightWhite />
-        </OutlineWhiteBtn>{" "}
+        </OutlineWhiteBtn>{" "} */}
+
+        <Link href="/contact">
+          <RightTopArrow disableRipple>
+            Connect with us
+            <ArrowDesign>
+              <Image src={arrowRight} alt="Right Arrow" />
+            </ArrowDesign>
+          </RightTopArrow>
+        </Link>
       </Box>
       <NavBox>
-        <Link onClick={() => router.push(preLink)}>
+        <Link href={preLink}>
           <ArrowLeftWhite />
           <Typography variant="font_14">
             Previous <br style={{ display: "block !important" }} />
             case study
           </Typography>
         </Link>
-        <Link onClick={() => router.push(nextLink)}>
+        <Link href={nextLink}>
           <Typography variant="font_14" textAlign="right">
             Next <br style={{ display: "block !important" }} />
             case study

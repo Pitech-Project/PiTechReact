@@ -17,10 +17,10 @@ const OurStory = () => {
       <OuterGrid1 container spacing={2}>
         <Grid
           size={{ xs: 12, lg: 9, xl: 8.3 }}
-          offset={{ xs: 0, lg: 2, xl: 2.3 }}
+          offset={{ xs: 0, lg: 2, xl: 1.95 }}
         >
-          <Grid container spacing={3}>
-            <Grid size={{ xs: 12, md: 6, xl: 7 }}>
+          <Grid container spacing={0}>
+            <Grid size={{ xs: 12, md: 6, xl: 6.7 }}>
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -58,11 +58,11 @@ const OurStory = () => {
                     variant="body_3"
                   >
                     Over the years, we’ve expanded into software development,
-                    web technologies, and IT infrastructure services, delivering
-                    tailored, reliable, and future-ready solutions. Many of our
-                    clients have been with us for decades, a testament to our
-                    clear, simple, and client-first approach. No jargon, just
-                    measurable results.
+                    web technologies, and IT infrastructure services. We have
+                    been delivering solutions that are tailored, reliable, and
+                    future-ready. Many of our clients have been with us for
+                    decades, a testament to our clear, simple, and client-first
+                    approach. No jargon, just measurable results.
                   </Typography>
                   <Typography
                     color="custom.black"
@@ -71,8 +71,8 @@ const OurStory = () => {
                   >
                     Backed by decades of experience, we create technology shaped
                     around your business needs — reliable, scalable, and
-                    future-ready. Solution that help grow with your business and
-                    keep pace with a fast-moving tech world.
+                    future-ready. Solutions that help grow with your business
+                    and keep pace with a fast-moving tech world.
                   </Typography>
                 </Box>
               </motion.div>

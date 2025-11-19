@@ -9,19 +9,24 @@ import {
   AccordionText,
   AccordionTitle,
   AccordionUI,
+  ArrowDesign,
+  BacktoCareer,
   DividerUI,
   DotUI,
   OuterGrid5,
-  OutlineWhiteBtn,
   ResponsibilitiesMainAccordion,
+  RightArrow,
   SmallFullStop,
-  SVGIconUI,
 } from "@/styles/MUI/common.styled";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Box, Grid, useTheme, useMediaQuery } from "@mui/material";
-import ArrowRightWhite from "@/components/common/SVGIcons/arrowRightWhite";
 import CarrerForm from "@/components/careers/career-form";
 import axios from "axios";
+import Link from "next/link";
+import arrowLeft from "@/public/assets/img/whiteright-new-arrow.svg";
+import Image from "next/image";
+import arrowDown from "@/public/assets/img/downNewArrow.svg";
+import arrowRight from "@/public/assets/img/rightNewArrow1.svg";
 
 /* -------------------------------------------------------------------------- */
 /* 🧩 REUSABLE ACCORDION SECTION COMPONENT */
@@ -63,20 +68,28 @@ const AccordionSection = ({
         className={hideExpandIcon ? "hideExpand" : ""}
         expandIcon={
           hideExpandIcon ? null : (
-            <SVGIconUI>
-              <svg
-                width="9"
-                height="19"
-                viewBox="0 0 9 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.20532 0.587608C4.40058 0.392347 4.71716 0.392347 4.91242 0.587608L8.0944 3.76959C8.28966 3.96485 8.28966 4.28143 8.0944 4.4767C7.89914 4.67196 7.58256 4.67196 7.3873 4.4767L4.55887 1.64827L1.73044 4.47669C1.53518 4.67196 1.2186 4.67196 1.02334 4.47669C0.828073 4.28143 0.828073 3.96485 1.02334 3.76959L4.20532 0.587608ZM4.55887 18.9412L4.05887 18.9412L4.05887 0.941161L4.55887 0.941161L5.05887 0.941161L5.05887 18.9412L4.55887 18.9412Z"
-                  fill="#F4F4F4"
-                />
-              </svg>
-            </SVGIconUI>
+            // <SVGIconUI>
+            //   <svg
+            //     width="9"
+            //     height="19"
+            //     viewBox="0 0 9 19"
+            //     fill="none"
+            //     xmlns="http://www.w3.org/2000/svg"
+            //   >
+            //     <path
+            //       d="M4.20532 0.587608C4.40058 0.392347 4.71716 0.392347 4.91242 0.587608L8.0944 3.76959C8.28966 3.96485 8.28966 4.28143 8.0944 4.4767C7.89914 4.67196 7.58256 4.67196 7.3873 4.4767L4.55887 1.64827L1.73044 4.47669C1.53518 4.67196 1.2186 4.67196 1.02334 4.47669C0.828073 4.28143 0.828073 3.96485 1.02334 3.76959L4.20532 0.587608ZM4.55887 18.9412L4.05887 18.9412L4.05887 0.941161L4.55887 0.941161L5.05887 0.941161L5.05887 18.9412L4.55887 18.9412Z"
+            //       fill="#F4F4F4"
+            //     />
+            //   </svg>
+            // </SVGIconUI>
+            // <RightTopArrow >
+            //   <Typography variant="font_21" color="custom.white2" >
+            //     Contact Us
+            //   </Typography>
+            <ArrowDesign accordianarrow="true">
+              <Image src={arrowDown} alt="Right Arrow" />
+            </ArrowDesign>
+            // </RightTopArrow>
           )
         }
       >
@@ -124,12 +137,17 @@ interface Job {
 }
 
 export default function JobDetail() {
-  const router = useRouter();
   const params = useSearchParams();
+  const router = useRouter();
   const title = params.get("title");
 
   const [job, setJob] = React.useState<Job | null>(null);
   const [loading, setLoading] = React.useState(true);
+  const [isExpanded, setIsExpanded] = React.useState(false);
+
+  const handleApplyClick = () => {
+    setIsExpanded(true);
+  };
 
   /* ---------------------------------------------------------------------- */
   /* 🧩 Fetch job details from API dynamically */
@@ -212,39 +230,29 @@ export default function JobDetail() {
       container
       spacing={5}
       justifyContent="space-between"
-      bgcolor="custom.black"
+      bgcolor="custom.black7"
     >
       <Grid
         size={{ xs: 12, lg: 10, xl: 9.5 }}
         offset={{ xs: 0, lg: 1, xl: 1.2 }}
       >
-        {/* 🔙 Back Button */}
-        <OutlineWhiteBtn
-          className="backarrow"
-          onClick={() => router.push("/careers#currentOpenings")}
-        >
-          <ArrowRightWhite />
-          Back
-        </OutlineWhiteBtn>
-
         {/* 🏷 Job Title */}
-        <Typography
-          margin="80px 0 16px"
-          color="custom.white2"
-          variant="body_6"
-          display="block"
-        >
-          {job.title}
-          <SmallFullStop />
-        </Typography>
+        <BacktoCareer>
+          <Link href="/careers#currentOpenings">
+            <Image src={arrowLeft} alt="Right Arrow" />
+            <Typography component={"span"}>Back</Typography>
+          </Link>
+          <Typography
+            // margin="80px 0 16px"
+            color="custom.white2"
+            variant="body_6"
+            display="block"
+          >
+            {job.title}
+            <SmallFullStop />
+          </Typography>
+        </BacktoCareer>
 
-        {/* 🧾 Apply Button */}
-        <OutlineWhiteBtn onClick={() => router.push("#CareerForm")}>
-          Apply
-          <ArrowRightWhite />
-        </OutlineWhiteBtn>
-
-        {/* 📋 Accordion Sections */}
         <AccordionUI>
           {/* Qualifications */}
           {job.qualification &&
@@ -297,16 +305,26 @@ export default function JobDetail() {
             )}
         </AccordionUI>
 
-        {/* 🧾 Apply Button (Bottom) */}
-        <OutlineWhiteBtn
-          onClick={() => router.push("#CareerForm")}
-          sx={{ marginTop: "72px" }}
+        <RightArrow
+          disableRipple
+          sx={{ marginTop: 9 }}
+          onClick={() => {
+            router.push("#CareerForm"), handleApplyClick();
+          }}
         >
-          Apply
-          <ArrowRightWhite />
-        </OutlineWhiteBtn>
+          <Typography variant="font_21" color="custom.white2">
+            Apply
+          </Typography>
+          <ArrowDesign>
+            <Image src={arrowRight} alt="Right Arrow" />
+          </ArrowDesign>
+        </RightArrow>
         <DividerUI />
-        <CarrerForm appliedFor={job.title} />
+        <CarrerForm
+          isExpanded={isExpanded}
+          setIsExpanded={setIsExpanded}
+          appliedFor={job.title}
+        />
       </Grid>
     </OuterGrid5>
   );

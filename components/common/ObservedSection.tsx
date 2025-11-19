@@ -5,16 +5,16 @@ interface ObservedSectionProps {
   id: string;
   bg?: "light";
   children: React.ReactNode;
-  //   style?: React.CSSProperties;
-  //   className?: string;
+  // style?: React.CSSProperties;
+  className?: string;
 }
 
 const ObservedSection: React.FC<ObservedSectionProps> = ({
   id,
   bg,
   children,
-  //   style,
-  //   className,
+  // style,
+  className,
 }) => {
   const ref = useRef<HTMLDivElement>(null!);
   const { registerSection, unregisterSection } = useSectionObserver();
@@ -28,7 +28,7 @@ const ObservedSection: React.FC<ObservedSectionProps> = ({
     <div
       ref={ref}
       data-section-id={id}
-      //   className={className}
+      className={className}
       style={
         {
           // minHeight: '100vh',

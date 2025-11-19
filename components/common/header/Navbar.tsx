@@ -12,19 +12,24 @@ import {
   useScrollTrigger,
   useTheme,
   Button,
+  Grid,
+  Typography,
 } from "@mui/material";
 import Image from "next/image";
 import {
   AppBarStyled,
+  ArrowDesign,
   DrawerUI,
-  OutlineBtnYellow,
+  HeaderGrid,
+  RightTopArrow,
 } from "@/styles/MUI/common.styled";
 import PiLogo from "../../../public/assets/img/header-logo.svg";
-import PiLogoMobile from "../../../public/assets/img/logo-mobileview.svg";
+import PiLogoMobile from "@/public/assets/img/logo-mobile.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import { usePathname } from "next/navigation";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import { useRouter } from "next/navigation";
+import arrowRight from "@/public/assets/img/newRightArrow.svg";
 
 interface Props {
   window?: () => Window;
@@ -49,13 +54,12 @@ export function NavbarComponent(props: Props) {
 
   const pathname = usePathname();
   const theme = useTheme();
-  const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
   const isIpadView = useMediaQuery(theme.breakpoints.down("lg"));
 
   const noHeaderPaths = [
     "/login",
     "/dashboard",
-    "/add-career",
+    "/job-list",
     "/add-job",
     "/career-form-enquiry",
     "/contact-form-enquiry",
@@ -82,149 +86,178 @@ export function NavbarComponent(props: Props) {
   if (!shouldShowHeader) return null;
   return (
     <HideOnScroll {...props}>
-      <AppBarStyled
-        position="fixed"
-        sx={{
-          "& .LinkUI": {
-            fontWeight: 500,
-            letterSpacing: "1.6px",
-            lineHeight: "20px",
-            color: theme.palette.custom?.grey_700,
-            textTransform: "uppercase",
-            textDecoration: "none",
-            transition: "0.5s",
-            "&:hover, &.LinkUI.active": {
-              color: theme.palette.custom?.orange_600,
-            },
-          },
-          "& .menus .LinkUI": {
-            marginRight: "40px",
-          },
-          "& .LinkUI:last-child": { marginRight: 0 },
-        }}
-      >
-        <Toolbar
-          sx={{
-            width: "100%",
-            justifyContent: "space-between",
-            p: "0 !important",
-          }}
-        >
-          <HoveredLink className={isActivePath("/") ? "active" : ""} href="/">
-            <Image src={isIpadView ? PiLogoMobile : PiLogo} alt="logo" />
-          </HoveredLink>
-
-          <Box
-            className="menus"
-            alignItems="center"
-            sx={{ display: { xs: "none", lg: "flex" } }}
+      <AppBarStyled>
+        <Grid container spacing={2} maxWidth={"100%"} width={"100%"}>
+          <HeaderGrid
+            size={{ xs: 12, lg: 8 }}
+            offset={{ xs: 0, lg: 2, xl: 1.95 }}
+            className="headerUI"
           >
-            <HoveredLink
-              className={isActivePath("/about") ? "active" : ""}
-              href="/about"
-            >
-              About Us
-            </HoveredLink>
-            <HoveredLink
-              className={isActivePath("/services") ? "active" : ""}
-              href="/services"
-            >
-              Services
-            </HoveredLink>
-            <HoveredLink
-              className={
-                isActivePath(["/case-studies", "/case-studie-details"])
-                  ? "active"
-                  : ""
-              }
-              href="/case-studies"
-            >
-              Case Studies
-            </HoveredLink>
-            <HoveredLink
-              className={
-                isActivePath(["/careers", "/career-details"]) ? "active" : ""
-              }
-              href="/careers"
-            >
-              Careers
-            </HoveredLink>
-          </Box>
-
-          <IconButton
-            edge="end"
-            color="inherit"
-            aria-label="menu"
-            onClick={handleDrawerToggle}
-            sx={{ display: { lg: "none" }, color: "custom.orange_600" }}
-          >
-            <MenuIcon sx={{ width: "32px", height: "auto" }} />
-          </IconButton>
-
-          <DrawerUI
-            anchor="top"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            SlideProps={{
-              direction: "down",
-              timeout: 400,
-            }}
-          >
-            <Stack
-              mb={7}
-              direction="row"
-              alignItems="center"
-              justifyContent="space-between"
-            >
-              <NextLink href="/" passHref>
-                <Button
-                  onClick={() => handleLinkClick("/")}
-                  sx={{ p: "0 !important", justifyContent: "flex-start" }}
-                >
-                  <Image src={isIpadView ? PiLogoMobile : PiLogo} alt="logo" />
-                </Button>
-              </NextLink>
-              <IconButton
-                onClick={handleDrawerToggle}
-                sx={{ color: "custom.white1" }}
-              >
-                <ClearOutlinedIcon />
-              </IconButton>
-            </Stack>
-            {[
-              { label: "About Us", path: "/about" },
-              { label: "Services", path: "/services" },
-              { label: "Case Studies", path: "/case-studies" },
-              { label: "Careers", path: "/careers" },
-            ].map(({ label, path }) => (
+            <Toolbar sx={{}}>
               <HoveredLink
-                key={path}
-                onClick={() => handleLinkClick(path)}
-                className={isActivePath(path) ? "active" : ""}
-                href={path}
+                className={
+                  isActivePath("/") ? "active headerlogo" : "headerlogo"
+                }
+                href="/"
               >
-                {label}
+                <Image
+                  src={isIpadView ? PiLogoMobile : PiLogo}
+                  alt="logo"
+                  style={{ height: "42px", width: "auto" }}
+                />
               </HoveredLink>
-            ))}
-            <Box
-              width={"fit-content"}
-              sx={{
-                "& a": {
-                  justifyContent: isMobileView ? "center" : "flex-start",
-                },
-              }}
-            >
-              <OutlineBtnYellow href="/contact">GET IN TOUCH</OutlineBtnYellow>
-            </Box>
-          </DrawerUI>
 
-          <OutlineBtnYellow
-            sx={{ display: { xs: "none", lg: "flex" } }}
-            href="/contact"
-          >
-            GET IN TOUCH
-          </OutlineBtnYellow>
-        </Toolbar>
+              <Box
+                className="menus"
+                alignItems="center"
+                sx={{ display: { xs: "none", lg: "flex" } }}
+              >
+                <HoveredLink
+                  className={isActivePath("/about") ? "active" : ""}
+                  href="/about"
+                >
+                  About us
+                </HoveredLink>
+                <HoveredLink
+                  className={isActivePath("/services") ? "active" : ""}
+                  href="/services"
+                >
+                  Services
+                </HoveredLink>
+                <HoveredLink
+                  className={
+                    isActivePath(["/case-studies", "/case-studie-details"])
+                      ? "active"
+                      : ""
+                  }
+                  href="/case-studies"
+                >
+                  Case studies
+                </HoveredLink>
+                <HoveredLink
+                  className={
+                    isActivePath(["/careers", "/career-details"])
+                      ? "active"
+                      : ""
+                  }
+                  href="/careers"
+                >
+                  Careers
+                </HoveredLink>
+              </Box>
+
+              <IconButton
+                edge="end"
+                color="inherit"
+                aria-label="menu"
+                onClick={handleDrawerToggle}
+                sx={{
+                  display: { lg: "none" },
+                  color: "custom.orange_600",
+                  padding: 0,
+                  marginRight: 0,
+                }}
+              >
+                <MenuIcon sx={{ width: "32px", height: "auto" }} />
+              </IconButton>
+
+              <DrawerUI
+                anchor="top"
+                open={mobileOpen}
+                onClose={handleDrawerToggle}
+                SlideProps={{
+                  direction: "down",
+                  timeout: 400,
+                }}
+              >
+                <Stack>
+                  <NextLink href="/" passHref>
+                    <Button
+                      onClick={() => handleLinkClick("/")}
+                      sx={{ p: "0 !important", justifyContent: "flex-start" }}
+                    >
+                      <Image
+                        src={isIpadView ? PiLogoMobile : PiLogo}
+                        alt="logo"
+                      />
+                    </Button>
+                  </NextLink>
+                  <IconButton
+                    onClick={handleDrawerToggle}
+                    sx={{
+                      color: "custom.white1",
+                      padding: 0,
+                      "& svg": { width: "32px", height: "32px" },
+                    }}
+                  >
+                    <ClearOutlinedIcon />
+                  </IconButton>
+                </Stack>
+                {[
+                  { label: "ABOUT US", path: "/about" },
+                  { label: "Services", path: "/services" },
+                  {
+                    label: "Case Studies",
+                    path: ["/case-studies", "/case-studie-details"],
+                  },
+                  { label: "Careers", path: ["/careers", "career-details"] },
+                ].map(({ label, path }) => {
+                  const key = Array.isArray(path) ? path.join(",") : path;
+
+                  return (
+                    <HoveredLink
+                      key={key}
+                      onClick={() => handleLinkClick(key)}
+                      className={isActivePath(path) ? "active" : ""}
+                      href={Array.isArray(path) ? path[0] : path}
+                    >
+                      {label}
+                    </HoveredLink>
+                  );
+                })}
+                <Box>
+                  {/* <OutlineBtnYellow href="/contact">
+                    GET IN TOUCH
+                  </OutlineBtnYellow> */}
+                  <RightTopArrow
+                    sx={{ height: "48px" }}
+                    href="/contact#getintouch"
+                    disableRipple
+                    disableElevation
+                  >
+                    <Typography
+                      fontSize={"18px"}
+                      fontWeight={500}
+                      color="custom.white2"
+                    >
+                      Get in touch
+                    </Typography>
+                    <ArrowDesign>
+                      <Image src={arrowRight} alt="Right Arrow" />
+                    </ArrowDesign>
+                  </RightTopArrow>
+                </Box>
+              </DrawerUI>
+
+              <RightTopArrow
+                sx={{ display: { xs: "none", lg: "flex" }, height: "auto" }}
+                href="/contact#getintouch"
+                disableRipple
+              >
+                <Typography
+                  fontSize={"18px"}
+                  fontWeight={500}
+                  color="custom.white2"
+                >
+                  Get in touch
+                </Typography>
+                <ArrowDesign>
+                  <Image src={arrowRight} alt="Right Arrow" />
+                </ArrowDesign>
+              </RightTopArrow>
+            </Toolbar>
+          </HeaderGrid>
+        </Grid>
       </AppBarStyled>
     </HideOnScroll>
   );

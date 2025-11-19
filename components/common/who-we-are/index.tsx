@@ -1,33 +1,39 @@
 "use client";
 
 import Image from "next/image";
-import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Link,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import {
   SmallFullStop,
-  OutlineBtn,
   OuterGrid1,
   SubTitlemarginBottom1,
   BoxBottomSpace,
+  ArrowDesign,
+  RightTopArrow,
 } from "@/styles/MUI/common.styled";
 import BusinessOffice from "../../../public/assets/img/newoffice1.jpg";
 import TotalYears from "../../../public/assets/img/water-mark.png";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
-import ArrowRightBlack from "../SVGIcons/arrowRightBlack";
 import ObservedSection from "../ObservedSection";
+import arrowRight from "@/public/assets/img/newRightArrow.svg";
 
 const WhoWeAre = () => {
-  const router = useRouter();
   const isTabletView = useMediaQuery(`(max-width:991px)`);
   const theme = useTheme();
   const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
   const isTabletView1 = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <ObservedSection id="home1" bg="light">
-      <OuterGrid1 container spacing={2} paddingBottom={"0 !important"}>
+      <OuterGrid1 container spacing={2} className="Home_whoWeAreSection">
         <Grid
-          size={{ xs: 12, lg: 8, xl: 7.4 }}
-          offset={{ xs: 0, lg: 2, xl: 2.3 }}
+          size={{ xs: 12, lg: 8, xl: 8 }}
+          offset={{ xs: 0, lg: 2, xl: 1.95 }}
         >
           <Grid container alignItems={"flex-start"}>
             <Grid size={{ xs: 12, lg: 12, xl: 12 }}>
@@ -90,12 +96,16 @@ const WhoWeAre = () => {
                     technology that works intuitively, scales seamlessly, and
                     solves real business challenges.
                   </Typography>
-                  <OutlineBtn
-                    onClick={() => router.push("/about")}
-                    className="aboutBtn"
-                  >
-                    ABOUT US <ArrowRightBlack />
-                  </OutlineBtn>
+                  <Link href="/about">
+                    <RightTopArrow disableRipple>
+                      <Typography variant="font_21" color="custom.black7">
+                        About us
+                      </Typography>
+                      <ArrowDesign>
+                        <Image src={arrowRight} alt="Right Arrow" />
+                      </ArrowDesign>
+                    </RightTopArrow>
+                  </Link>
                 </BoxBottomSpace>
               </motion.div>
             </Grid>
@@ -111,6 +121,7 @@ const WhoWeAre = () => {
                   alt="teamBusinessOffice"
                   style={{
                     marginLeft: isTabletView1 ? 0 : "40px",
+                    marginTop: !isTabletView1 ? 0 : "40px",
                     height: "auto",
                     width: "100%",
                   }}

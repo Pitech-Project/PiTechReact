@@ -45,7 +45,7 @@ export const industries = [
     id: 5,
     name: "Test & Enhance",
     description:
-      "Continuous testing and integration ensure high quality. We don’t just fix bugs — we improve with each cycle.",
+      "Continuous testing and integration ensure high quality products. We don’t just fix bugs — we improve with each cycle.",
   },
   {
     id: 6,
@@ -61,11 +61,11 @@ export const OurProcess = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <ObservedSection id="home6" bg="light">
-      <Stack bgcolor={"custom.white"}>
+      <Stack>
         <OuterGrid1 container spacing={2}>
           <Grid
             size={{ xs: 12, lg: 9, xl: 8.3 }}
-            offset={{ xs: 0, lg: 2, xl: 2.3 }}
+            offset={{ xs: 0, lg: 2, xl: 1.95 }}
           >
             <Grid
               container
@@ -75,7 +75,7 @@ export const OurProcess = () => {
                 },
               }}
             >
-              <Grid size={{ xs: 12, lg: 4.8, xl: 4.5 }}>
+              <Grid size={{ xs: 12, lg: 4.5, xl: 4.5 }}>
                 <motion.div
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -103,8 +103,8 @@ export const OurProcess = () => {
                 </motion.div>
               </Grid>
               <Grid
-                size={{ xs: 12, lg: 6.2, xl: 5.5 }}
-                offset={{ xs: 0, lg: 1, xl: 2 }}
+                size={{ xs: 12, lg: 5.8, xl: 5.5 }}
+                offset={{ xs: 0, lg: 1, xl: 1 }}
               >
                 <Stack gap={isMobileView ? 5 : 7.5}>
                   {industries.map((industries) => (

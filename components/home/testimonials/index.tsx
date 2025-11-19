@@ -1,20 +1,13 @@
 /* eslint-disable no-redeclare */
 "use client";
-import React from "react";
+
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { StaticImageData } from "next/image";
-import {
-  Box,
-  Button,
-  Grid,
-  Stack,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import ProfileImg from "../../../public/assets/img/profile-pic.png";
 import {
   OuterSection1,
@@ -25,56 +18,137 @@ import {
 import { motion } from "framer-motion";
 import ObservedSection from "@/components/common/ObservedSection";
 
-interface Testimonial {
+// ✅ Rename the interface to avoid conflict with component name
+interface TestimonialItem {
   name: string;
-  role: string;
+  role: React.ReactNode;
   image: StaticImageData;
   text: string;
 }
 
-const testimonials: Testimonial[] = [
+const testimonials: TestimonialItem[] = [
   {
-    name: "Chanakya",
-    role: "Strategic Project Accounting Manager",
+    name: "Metro Shoes",
+    role: (
+      <>
+        Aashish Mashruwala, <i>Business Head of Metro Shoes</i>
+      </>
+    ),
     image: ProfileImg,
-    text: "Pi Techniques has been a true partner in our digital transformation journey. Their ability to understand our complex requirements and translate them into simple, scalable solutions has been invaluable. They don’t just deliver technology — they help us think ahead.",
+    text: `"Integration was always a challenge for us until Pi Techniques stepped in. They simplified our infrastructure, ensured smooth connectivity across systems, and gave us the reliability and scalability we needed. Their solutions have saved us both time and costs."`,
   },
   {
-    name: "V.Ships",
-    role: "Strategic Project Accounting Manager",
+    name: "Rabia Gupta Designs",
+    role: (
+      <>
+        Rabia Gupta, <i>Founder</i>
+      </>
+    ),
     image: ProfileImg,
-    text: "Working with Pi Techniques has been seamless. They brought clarity and efficiency to our systems, ensuring we could focus on operations while they handled the complexity behind the scenes. Their expertise and responsiveness give us complete confidence.",
+    text: `"As strategic branding consultants, the design and execution of websites for our clients are critical. Our design solutions are always a marriage between a signature brand language and a relevant UI UX. And in this mix - Pi Techniques always steps in with a near perfect understanding of the detailed execution we require, along with great support and domain knowledge." `,
   },
   {
     name: "The Willingdon Sports Club",
-    role: "Strategic Project Accounting Manager",
+    role: (
+      <>
+        Gururaj Joshi, <i>Dy Manager EDP</i>
+      </>
+    ),
     image: ProfileImg,
-    text: "Our members expect premium experiences both offline and online. Pi Techniques designed and developed a platform that makes everything — from logins to payments — effortless. Their team balanced design, security, and ease of use beautifully.",
+    text: `"Our members expect premium experiences both offline and online. Pi Techniques designed and developed a web platform that makes everything — from logins to payments — effortless. Their team balanced design, security, and ease of use seamlessly."
+                           `,
   },
   {
-    name: "Rabia Gupta",
-    role: "Founder",
+    name: "The Nutcracker",
+    role: (
+      <>
+        Annie Bafna, <i>Founder</i>
+      </>
+    ),
     image: ProfileImg,
-    text: "As a designer, my work is all about detail and aesthetics. Pi Techniques has been the perfect technology partner, turning my ideas into beautifully functional websites time and again. They understand creativity and bring it to life digitally.",
+    text: `"We wanted our website to reflect the warmth and uniqueness of our brand. Pi Techniques delivered exactly that. The site is elegant, easy to navigate, and truly captures who we are. Their team was creative, patient, and extremely supportive."
+                           `,
+  },
+  {
+    name: "Chanakya",
+    role: (
+      <>
+        Anisha Shetty, <i>Chief of Atelier</i>
+      </>
+    ),
+    image: ProfileImg,
+    text: `"Pi Techniques has been a true partner in our digital transformation journey. Their ability to understand our complex requirements and translate them into simple, scalable solutions has been invaluable. They don’t just deliver technology — they help us think ahead."
+                           `,
   },
 ];
 
-const Testimonial: React.FC = () => {
-  const theme = useTheme();
-  const isMdView = useMediaQuery(theme.breakpoints.down("sm"));
+const TestimonialSection: React.FC = () => {
+  // ✅ Equal height logic
+  useEffect(() => {
+    const applyEqualHeights = () => {
+      const items = Array.from(
+        document.querySelectorAll<HTMLElement>(".equal-height"),
+      );
+      if (items.length === 0) return;
+
+      items.forEach((item) => (item.style.height = "auto"));
+      const rowTops: Record<number, HTMLElement[]> = {};
+
+      items.forEach((item) => {
+        const top = Math.round(item.offsetTop);
+        if (!rowTops[top]) rowTops[top] = [];
+        rowTops[top].push(item);
+      });
+
+      Object.values(rowTops).forEach((rowItems) => {
+        const maxHeight = Math.max(
+          ...rowItems.map((item) => item.offsetHeight),
+        );
+        rowItems.forEach((item) => {
+          item.style.height = `${maxHeight}px`;
+        });
+      });
+    };
+
+    const delayApply = () => {
+      clearTimeout((window as any).__eqTimeout);
+      (window as any).__eqTimeout = setTimeout(applyEqualHeights, 800);
+    };
+
+    delayApply();
+    window.addEventListener("resize", delayApply);
+
+    const images = document.querySelectorAll("img");
+    let loaded = 0;
+    images.forEach((img) => {
+      if (img.complete) loaded++;
+      else img.addEventListener("load", delayApply);
+    });
+    if (loaded === images.length) delayApply();
+
+    return () => {
+      window.removeEventListener("resize", delayApply);
+      images.forEach((img) => img.removeEventListener("load", delayApply));
+      clearTimeout((window as any).__eqTimeout);
+    };
+  }, []);
 
   return (
     <ObservedSection id="home3" bg="light">
       <TestimonialBoxNew
-        bgcolor={"custom.black2"}
+        bgcolor={"custom.black7"}
         position={"relative"}
-        paddingBottom={isMdView ? "80px" : "160px"}
         className="testimonial-slider"
       >
-        <OuterSection1 container className="testimonial-outer">
+        <OuterSection1
+          gap={{ xs: "110px !important", sm: "120px !important" }}
+          container
+          className="testimonial-outer"
+        >
+          {/* Heading */}
           <Grid
             size={{ xs: 12, lg: 8.2, xl: 7.4 }}
-            offset={{ xs: 0, lg: 2, xl: 2.3 }}
+            offset={{ xs: 0, lg: 2, xl: 1.95 }}
           >
             <motion.div
               initial={{ opacity: 0, y: 100 }}
@@ -84,114 +158,125 @@ const Testimonial: React.FC = () => {
               className="testimonial-heading"
             >
               <Stack>
-                <Typography color="custom.white4" variant="body_4_600">
+                <Typography color="custom.grey_700" variant="body_4_600">
                   TESTIMONIALS
                   <SmallFullStop />
                 </Typography>
-                <Typography
-                  color="custom.white2"
-                  variant="body_6"
-                  display={"block"}
-                >
-                  Voices of our partners
+                <Typography color="custom.white2" variant="body_6">
+                  Voices of trust
                 </Typography>
               </Stack>
             </motion.div>
-            <PrevNext>
-              <Button sx={{ marginRight: "16px !important" }}>
+
+            {/* Navigation */}
+            <PrevNext className="testimonialarrow">
+              <Button
+                disableRipple
+                className="swiper-button-prev"
+                sx={{ marginRight: "16px !important" }}
+              >
                 <svg
-                  width="24"
-                  height="12"
-                  viewBox="0 0 24 12"
+                  width="20"
+                  height="18"
+                  viewBox="0 0 20 18"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M6.66846 12L7.91164 10.8491L3.40689 6.79593L24 6.5V5.20407H3.40689L7.91164 1.15092L6.66846 0L-5.53131e-05 6L6.66846 12Z"
-                    fill="#f4f4f4"
+                    d="M11.2857 1L19 9M19 9L11.2857 17M19 9H1"
+                    stroke="black"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </Button>
-              <Button className="swiper-button-next">
+              <Button disableRipple className="swiper-button-next">
                 <svg
-                  width="24"
-                  height="12"
-                  viewBox="0 0 24 12"
+                  width="20"
+                  height="18"
+                  viewBox="0 0 20 18"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M17.3315 12L16.0884 10.8491L20.5931 6.79593L0 6.5V5.20407H20.5931L16.0884 1.15092L17.3315 0L24.0001 6L17.3315 12Z"
-                    fill="#f4f4f4"
+                    d="M11.2857 1L19 9M19 9L11.2857 17M19 9H1"
+                    stroke="black"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </Button>
             </PrevNext>
           </Grid>
-        </OuterSection1>
 
-        <Swiper
-          modules={[Navigation]}
-          navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
-          spaceBetween={40}
-          centeredSlides={true}
-          speed={300}
-          loop={true}
-          className="mySwiper"
-          breakpoints={{
-            1366: { slidesPerView: 2.5, spaceBetween: 40 },
-            1024: { slidesPerView: 2.5, spaceBetween: 40 },
-            767: { slidesPerView: 1.6, spaceBetween: 20 },
-          }}
-        >
-          {testimonials.map((testimonial, index) => (
-            <SwiperSlide key={index}>
-              <Box className="testimonial-boxUI">
-                <Typography variant="body_8" color="custom.white3">
-                  {testimonial.text}
-                </Typography>
-                <Stack
-                  flexDirection={"row"}
-                  gap={1.5}
-                  justifyContent={"flex-start"}
-                  alignItems={"center"}
-                  marginTop={2.5}
-                >
-                  {/* <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    width={36}
-                    height={36}
-                    className="rounded-full"
-                  /> */}
-                  <Stack>
-                    <Typography
-                      variant="overline_s_700"
-                      className="testimonialName"
-                      display={"block"}
-                      marginBottom={"4px"}
-                    >
-                      {testimonial.name}
+          <Grid
+            size={{ xs: 12, lg: 9.9, xl: 9.9 }}
+            offset={{ xs: 0, lg: 2, xl: 1.95 }}
+          >
+            <Swiper
+              modules={[Navigation]}
+              navigation={{
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              }}
+              slidesPerView={1.6}
+              spaceBetween={30}
+              speed={350}
+              loop={false}
+              allowTouchMove
+              resistance
+              resistanceRatio={0.5}
+              className="mySwiper"
+              breakpoints={{
+                1366: { slidesPerView: 1.6, spaceBetween: 30 },
+                1280: { slidesPerView: 1.5, spaceBetween: 30 },
+                1024: { slidesPerView: 1.3, spaceBetween: 30 },
+                767: { slidesPerView: 1.3, spaceBetween: 40 },
+                0: { slidesPerView: 1, spaceBetween: 0 },
+              }}
+            >
+              {testimonials.map((t, index) => (
+                <SwiperSlide key={index} className="equal-height">
+                  <Box className="testimonial-boxUI ">
+                    <Typography variant="body_8" color="custom.white2">
+                      {t.text}
                     </Typography>
-                    <Typography
-                      variant="overline_s_400"
-                      color="custom.white3"
-                      className="testimonialRole"
+
+                    <Stack
+                      flexDirection="row"
+                      gap={1.5}
+                      justifyContent="flex-start"
+                      alignItems="center"
                     >
-                      {testimonial.role}
-                    </Typography>
-                  </Stack>
-                </Stack>
-              </Box>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                      <Stack>
+                        <Typography
+                          variant="overline_s_700"
+                          className="testimonialName"
+                          marginBottom="4px"
+                          color="custom.orange_600"
+                        >
+                          {t.name}
+                        </Typography>
+                        <Typography
+                          variant="overline_s_400"
+                          color="custom.white2"
+                          className="testimonialRole"
+                        >
+                          {t.role}
+                        </Typography>
+                      </Stack>
+                    </Stack>
+                  </Box>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </Grid>
+        </OuterSection1>
       </TestimonialBoxNew>
     </ObservedSection>
   );
 };
 
-export default Testimonial;
+export default TestimonialSection;

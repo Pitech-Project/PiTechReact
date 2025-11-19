@@ -11,12 +11,18 @@ import {
   useMediaQuery,
   useTheme,
   IconButton,
+  AccordionDetails,
+  AccordionSummary,
+  Grid,
 } from "@mui/material";
 import {
+  AccordionParent,
+  AccordionUI,
+  ArrowDesign,
   AttachedFile,
   FileUpload,
   FormUI,
-  OutlineWhiteBtn1,
+  RightArrow,
   SuccessfulMsg,
   SuccessfulMsgBox,
   TellUsTypography,
@@ -26,6 +32,8 @@ import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
 import { motion } from "framer-motion";
 import { careerFormFields } from "@/lib/constanst";
+import arrowDown from "@/public/assets/img/downNewArrow.svg";
+import arrowRight from "@/public/assets/img/rightNewArrow1.svg";
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
 
@@ -41,7 +49,15 @@ export type FormData = {
 };
 
 /* ✅ Accept title as prop */
-export default function CareerForm({ appliedFor }: { appliedFor?: string }) {
+export default function CareerForm({
+  appliedFor,
+  isExpanded,
+  setIsExpanded,
+}: {
+  appliedFor?: string;
+  isExpanded?: boolean;
+  setIsExpanded?: any;
+}) {
   const getCurrentDate = () => {
     return new Date().toLocaleDateString("en-US", {
       year: "numeric",
@@ -240,163 +256,207 @@ export default function CareerForm({ appliedFor }: { appliedFor?: string }) {
   const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
-    <FormUI
-      className="blackTheme"
-      marginTop={"120px"}
-      id="CareerForm"
-      width={isTabletView ? "100%" : "860px"}
-    >
-      <TellUsTypography>Tell us more about you</TellUsTypography>
-      <Box
-        component="form"
-        onSubmit={handleSubmit}
-        display="flex"
-        flexDirection="column"
-        gap={7}
-        marginTop={isTabletView ? "16px" : "80px"}
+    <AccordionUI id="CareerForm">
+      <AccordionParent
+        expanded={isExpanded}
+        onChange={() => setIsExpanded((prev: any) => !prev)}
       >
-        {careerFormFields.map((item) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0, x: 300 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <TextField
-              label={
-                <Typography display="flex">
-                  {item.label}
-                  <Typography
-                    component="span"
-                    sx={{ color: "custom.orange_600" }}
+        <AccordionSummary
+          // className={hideExpandIcon ? "hideExpand" : ""}
+          expandIcon={
+            // hideExpandIcon ? null : (
+            <ArrowDesign accordianarrow="true">
+              <Image src={arrowDown} alt="Right Arrow" />
+            </ArrowDesign>
+            // </RightTopArrow>
+            // )
+          }
+        >
+          <TellUsTypography>Tell us more about you</TellUsTypography>
+        </AccordionSummary>
+
+        <AccordionDetails>
+          <Grid container spacing={isTabletView ? 3 : 4}>
+            <Grid size={{ xs: 12, md: 12, lg: 5.5, xl: 5 }}>
+              <FormUI
+                className="blackTheme"
+                width={isTabletView ? "100%" : "860px"}
+              >
+                <Box
+                  component="form"
+                  onSubmit={handleSubmit}
+                  display="flex"
+                  flexDirection="column"
+                  gap={8}
+                >
+                  {careerFormFields.map((item) => (
+                    <motion.div
+                      key={item.id}
+                      initial={{ opacity: 0, x: 300 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 1, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.3 }}
+                    >
+                      <TextField
+                        label={
+                          <Typography display="flex">
+                            {item.label}
+                            <Typography
+                              component="span"
+                              sx={{ color: "custom.orange_600" }}
+                            >
+                              &nbsp;*
+                            </Typography>
+                          </Typography>
+                        }
+                        type={item.type}
+                        name={item.name}
+                        variant="standard"
+                        focused
+                        autoComplete="off"
+                        value={formData[item.name as keyof FormData] ?? ""}
+                        onChange={handleChange}
+                        error={Boolean(errors[item.name as keyof Errors])}
+                        helperText={errors[item.name as keyof Errors]}
+                      />
+                    </motion.div>
+                  ))}
+
+                  <motion.div
+                    initial={{ opacity: 0, x: 300 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
                   >
-                    &nbsp;*
-                  </Typography>
-                </Typography>
-              }
-              type={item.type}
-              name={item.name}
-              variant="standard"
-              focused
-              autoComplete="off"
-              value={formData[item.name as keyof FormData] ?? ""}
-              onChange={handleChange}
-              error={Boolean(errors[item.name as keyof Errors])}
-              helperText={errors[item.name as keyof Errors]}
-            />
-          </motion.div>
-        ))}
+                    <TextField
+                      label={<Typography display="flex">Message</Typography>}
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      variant="standard"
+                      multiline
+                      rows={4}
+                      focused
+                      error={Boolean(errors.message)}
+                      helperText={errors.message}
+                      autoComplete="off"
+                    />
+                  </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 300 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <TextField
-            label={<Typography display="flex">Message</Typography>}
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            variant="standard"
-            multiline
-            rows={4}
-            focused
-            error={Boolean(errors.message)}
-            helperText={errors.message}
-            autoComplete="off"
-          />
-        </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: 300 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <Box>
+                      <input
+                        id="resume-upload"
+                        type="file"
+                        style={{ display: "none" }}
+                        accept=".pdf,.doc,.docx"
+                        onChange={handleFileChange}
+                      />
+                      <label htmlFor="resume-upload">
+                        <FileUpload>
+                          <Box className="uploadResume">
+                            <Typography
+                              variant="body_4"
+                              color="custom.white2"
+                              mb="4px"
+                            >
+                              Click to upload your CV/Resume
+                            </Typography>
+                            <Typography variant="body2" color="custom.white3">
+                              Upload file in Word, PDF format (File size max.
+                              100MB)
+                            </Typography>
+                          </Box>
+                        </FileUpload>
+                      </label>
+                      {formData.resume && (
+                        <Stack
+                          direction="row"
+                          alignItems="center"
+                          gap={1}
+                          mt="24px"
+                        >
+                          <AttachedFile>
+                            <Image src={AttachFile} alt="Attach File" />
+                            <Typography variant="body2" ml={2}>
+                              {formData.resume.name}
+                            </Typography>
+                          </AttachedFile>
+                          <CloseIcon
+                            onClick={handleRemoveFile}
+                            sx={{ width: 18, cursor: "pointer" }}
+                          />
+                        </Stack>
+                      )}
+                      {errors.resume && (
+                        <FormHelperText error>{errors.resume}</FormHelperText>
+                      )}
+                    </Box>
+                  </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 300 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <Box>
-            <input
-              id="resume-upload"
-              type="file"
-              style={{ display: "none" }}
-              accept=".pdf,.doc,.docx"
-              onChange={handleFileChange}
-            />
-            <label htmlFor="resume-upload">
-              <FileUpload>
-                <Box className="uploadResume">
-                  <Typography variant="body_4" color="custom.white2" mb="4px">
-                    Click to upload your CV/Resume
-                  </Typography>
-                  <Typography variant="body2" color="custom.white3">
-                    Upload file in Word, PDF format (File size max. 100MB)
-                  </Typography>
+                  <motion.div
+                    initial={{ opacity: 0, x: 300 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey={SITE_KEY}
+                      size="invisible"
+                      badge="bottomright"
+                      theme="dark"
+                    />
+                    <RightArrow
+                      type="submit"
+                      disabled={isSubmitting}
+                      disableRipple
+                      sx={{ opacity: isSubmitting ? "0.65" : undefined }}
+                    >
+                      {isSubmitting ? (
+                        "Please Wait..."
+                      ) : (
+                        <>
+                          Submit
+                          <ArrowDesign>
+                            <Image src={arrowRight} alt="Right Arrow" />
+                          </ArrowDesign>
+                        </>
+                      )}
+                      {/* </Typography> */}
+                    </RightArrow>
+                  </motion.div>
+
+                  {submitted && (
+                    <SuccessfulMsgBox>
+                      <SuccessfulMsg>
+                        Thank you for applying for the{" "}
+                        <strong>
+                          {(formData.appliedFor || "position").toUpperCase()}
+                        </strong>{" "}
+                        role. We’re reviewing your application and will reach
+                        out if your profile aligns with the role.{" "}
+                      </SuccessfulMsg>
+                      <IconButton
+                        onClick={() => setSubmitted(false)}
+                        size="medium"
+                        sx={{ marginTop: "-7px" }}
+                      >
+                        <CloseIcon fontSize="medium" />
+                      </IconButton>
+                    </SuccessfulMsgBox>
+                  )}
                 </Box>
-              </FileUpload>
-            </label>
-            {formData.resume && (
-              <Stack direction="row" alignItems="center" gap={1} mt="24px">
-                <AttachedFile>
-                  <Image src={AttachFile} alt="Attach File" />
-                  <Typography variant="body2" ml={2}>
-                    {formData.resume.name}
-                  </Typography>
-                </AttachedFile>
-                <CloseIcon
-                  onClick={handleRemoveFile}
-                  sx={{ width: 18, cursor: "pointer" }}
-                />
-              </Stack>
-            )}
-            {errors.resume && (
-              <FormHelperText error>{errors.resume}</FormHelperText>
-            )}
-          </Box>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 300 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            sitekey={SITE_KEY}
-            size="invisible"
-            badge="bottomright"
-            theme="dark"
-          />
-          <OutlineWhiteBtn1
-            type="submit"
-            disabled={isSubmitting}
-            sx={{ marginTop: "8px" }}
-          >
-            {isSubmitting ? "Please Wait..." : "SUBMIT"}
-          </OutlineWhiteBtn1>
-        </motion.div>
-
-        {submitted && (
-          <SuccessfulMsgBox>
-            <SuccessfulMsg>
-              Thank you for applying for the{" "}
-              <strong>
-                {(formData.appliedFor || "position").toUpperCase()}
-              </strong>{" "}
-              role. We’re reviewing your application and will reach out if your
-              profile aligns with the role.{" "}
-            </SuccessfulMsg>
-            <IconButton
-              onClick={() => setSubmitted(false)}
-              size="medium"
-              sx={{ marginTop: "-7px" }}
-            >
-              <CloseIcon fontSize="medium" />
-            </IconButton>
-          </SuccessfulMsgBox>
-        )}
-      </Box>
-    </FormUI>
+              </FormUI>
+            </Grid>
+          </Grid>
+        </AccordionDetails>
+      </AccordionParent>
+    </AccordionUI>
   );
 }

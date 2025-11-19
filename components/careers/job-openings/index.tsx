@@ -4,22 +4,26 @@ import {
   Box,
   Typography,
   Stack,
-  IconButton,
   useTheme,
   useMediaQuery,
   Grid,
   CircularProgress,
 } from "@mui/material";
 import {
+  ArrowDesign,
+  DownArrow,
   JobOpeningsPaper,
   OuterGrid2,
-  OutlineWhiteBtn,
   SmallFullStop,
 } from "@/styles/MUI/common.styled";
 import { useRouter } from "next/navigation";
-import ArrowRightBlack from "../../common/SVGIcons/arrowRightBlack";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Image from "next/image";
+import arrowRight from "@/public/assets/img/newRightArrow.svg";
+import arrowDown from "@/public/assets/img/downNewArrow.svg";
+import arrowUp from "@/public/assets/img/upNewArrow.svg";
+import { motion } from "framer-motion";
 
 interface Job {
   _id?: string;
@@ -89,7 +93,7 @@ export default function JobOpenings() {
   }
 
   return (
-    <Box bgcolor={"custom.black2"} id="currentOpenings">
+    <Box bgcolor={"custom.black7"} id="currentOpenings">
       <OuterGrid2 container spacing={5} justifyContent={"space-between"}>
         <Grid
           size={{ xs: 12, lg: 9, xl: 8.3 }}
@@ -119,44 +123,65 @@ export default function JobOpenings() {
               <Box flex={2} ml={isTabletView ? 0 : 4}>
                 <Stack spacing={2} id="jobOpening">
                   {visibleJobs.map((job) => (
-                    <JobOpeningsPaper
+                    <motion.div
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.3 }}
                       key={job._id || job.id}
-                      className="border rounded-lg p-4 shadow hover:shadow-lg transition cursor-pointer"
-                      onClick={() => handleClick(job)}
                     >
-                      <Box>
-                        <Typography
-                          variant="body_3"
-                          color="custom.grey_700"
-                          display={"block"}
-                          className="jobTitle"
-                          marginBottom={"8px"}
-                          sx={{ cursor: "pointer" }}
-                        >
-                          {job.title}
-                        </Typography>
-                        <Typography
-                          variant="body_10"
-                          color="custom.white3"
-                          textTransform={"uppercase"}
-                          className="jobExperience"
-                        >
-                          {job.experience}
-                        </Typography>
-                      </Box>
-                      <IconButton className="icon">
-                        <ArrowRightBlack />
-                      </IconButton>
-                    </JobOpeningsPaper>
+                      <JobOpeningsPaper
+                        className="border rounded-lg p-4 shadow hover:shadow-lg transition cursor-pointer"
+                        onClick={() => handleClick(job)}
+                      >
+                        <Box>
+                          <Typography
+                            variant="body_3"
+                            color="custom.grey_700"
+                            display={"block"}
+                            className="jobTitle"
+                            marginBottom={"8px"}
+                            sx={{ cursor: "pointer" }}
+                          >
+                            {job.title}
+                          </Typography>
+                          <Typography
+                            variant="body_10"
+                            color="custom.white3"
+                            textTransform={"uppercase"}
+                            className="jobExperience"
+                          >
+                            {job.experience}
+                          </Typography>
+                        </Box>
+                        <ArrowDesign className="icon">
+                          <Image src={arrowRight} alt="Right Arrow" />
+                        </ArrowDesign>
+                      </JobOpeningsPaper>
+                    </motion.div>
                   ))}
 
                   {jobs.length > 4 && (
-                    <OutlineWhiteBtn
-                      marginTop={"40px !important"}
+                    // <OutlineWhiteBtn
+                    //   marginTop={"40px !important"}
+                    //   onClick={() => setShowAll((prev) => !prev)}
+                    // >
+                    //   {showAll ? "View Less" : "View More"}
+                    // </OutlineWhiteBtn>
+                    <DownArrow
+                      showall={showAll ? "true" : undefined}
+                      sx={{ marginTop: "40px !important" }}
                       onClick={() => setShowAll((prev) => !prev)}
+                      disableRipple
                     >
                       {showAll ? "View Less" : "View More"}
-                    </OutlineWhiteBtn>
+                      <ArrowDesign>
+                        <Image
+                          src={showAll ? arrowUp : arrowDown}
+                          alt="Right Arrow"
+                        />
+                      </ArrowDesign>
+                    </DownArrow>
                   )}
                 </Stack>
               </Box>

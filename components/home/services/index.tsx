@@ -9,11 +9,12 @@ import {
   useTheme,
 } from "@mui/material";
 import {
+  ArrowDesign,
   ChipUI2,
   GridContainerUI,
   IconButtonUI,
   OuterGrid1,
-  OutlineWhiteBtn,
+  RightTopArrow,
   ServiceGrid,
   SmallFullStop,
   SubTitlemarginBottom,
@@ -22,9 +23,9 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { LOTTIEANIMATION, SERVICES } from "@/lib/constanst";
 import { LottiePlayer } from "../lottiePlayer";
-import ArrowRightWhite from "@/components/common/SVGIcons/arrowRightWhite";
-import ArrowForwardIcon from "@/components/common/SVGIcons/arrowForwardIcon";
 import ScrollLottieHandler from "@/components/common/scroll-lottie-handler";
+import arrowRight from "@/public/assets/img/newRightArrow.svg";
+import Image from "next/image";
 
 export const products = [
   {
@@ -207,9 +208,10 @@ export const Services = () => {
   const router = useRouter();
   const theme = useTheme();
   const isMdView = useMediaQuery(theme.breakpoints.down("md"));
+  const isMdView1 = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Stack bgcolor={"custom.black2"}>
+    <Stack bgcolor={"custom.black7"}>
       <OuterGrid1 container spacing={5} justifyContent={"space-between"}>
         <Grid
           size={{ xs: 12, lg: 8.2, xl: 7.4 }}
@@ -226,9 +228,12 @@ export const Services = () => {
               justifyContent={"space-between"}
               alignItems={isMdView ? "flex-start" : "center"}
             >
-              <Stack width={isMdView ? "100%" : "80%"}>
+              <Stack
+                width={isMdView ? "100%" : "80%"}
+                marginBottom={isMdView ? "40px" : 0}
+              >
                 <Typography color="custom.grey_700" variant="body_4_600">
-                  SERVICES
+                  OUR SERVICES
                   <SmallFullStop />
                 </Typography>
                 <Typography
@@ -239,15 +244,17 @@ export const Services = () => {
                   Strategy, design, and tech in action
                 </Typography>
               </Stack>
-              <OutlineWhiteBtn
-                sx={{ marginTop: isMdView ? "48px" : "0" }}
-                onClick={() => router.push("/services")}
-              >
-                VIEW ALL <ArrowRightWhite />
-              </OutlineWhiteBtn>
+              <RightTopArrow onClick={() => router.push("/services")}>
+                <Typography variant="font_21" color="custom.white2">
+                  View all
+                </Typography>
+                <ArrowDesign>
+                  <Image src={arrowRight} alt="Right Arrow" />
+                </ArrowDesign>
+              </RightTopArrow>
             </SubTitlemarginBottom>
           </motion.div>
-          <GridContainerUI container spacing={isMdView ? 3 : 5}>
+          <GridContainerUI container spacing={1}>
             <ScrollLottieHandler />
             {products.map((product, index) => (
               <ServiceGrid size={{ xs: 12, md: 6, lg: 6 }} key={product.id}>
@@ -273,16 +280,17 @@ export const Services = () => {
                     <IconButtonUI
                       className="onHoverArrow"
                       aria-label="Go to Application Development"
-                      // onClick={() => router.push(`/services#service-${index}`)}
                     >
-                      <ArrowForwardIcon />
+                      <ArrowDesign>
+                        <Image src={arrowRight} alt="Right Arrow" />
+                      </ArrowDesign>
                     </IconButtonUI>
                     <Typography
                       color="custom.white2"
                       variant="body_12"
                       display={"block"}
                       className="servicesName"
-                      margin={isMdView ? "60px 0 24px" : "72px 0 24px"}
+                      margin={isMdView1 ? "60px 0 24px" : "72px 0 24px"}
                     >
                       {product.name}
                     </Typography>

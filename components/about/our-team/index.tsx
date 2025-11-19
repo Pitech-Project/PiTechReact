@@ -1,6 +1,6 @@
 "use client";
 
-import { Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import {
   Infromation,
@@ -11,51 +11,9 @@ import {
 } from "@/styles/MUI/common.styled";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-
-const industries = [
-  {
-    id: 1,
-    name: "Shyamal Swali",
-    image: "/assets/img/about-us/team-images/shamal-swali.jpg",
-    designation: "Director",
-  },
-  {
-    id: 2,
-    name: "Hiten Damania",
-    image: "/assets/img/about-us/team-images/hiten-damania.jpg",
-    designation: "Head of Delivery",
-  },
-  {
-    id: 3,
-    name: "Tarun Kapadia",
-    image: "/assets/img/about-us/team-images/tarun-kapadia.jpg",
-    designation: "Product Delivery Lead",
-  },
-  {
-    id: 4,
-    name: "Hemang Choksi",
-    image: "/assets/img/about-us/team-images/hemang-choski.jpg",
-    designation: "Lead Solution Architect",
-  },
-  {
-    id: 5,
-    name: "Sagar Shirke",
-    image: "/assets/img/about-us/team-images/sagar-shirke.jpg",
-    designation: "Product Implementation Lead",
-  },
-  {
-    id: 6,
-    name: "Firdaus Minocher",
-    image: "/assets/img/about-us/team-images/firdaus.jpg",
-    designation: "Business Process Strategist",
-  },
-  {
-    id: 7,
-    name: "Abhijit Wagh",
-    image: "/assets/img/about-us/team-images/abhijit.jpg",
-    designation: "Product Implementation Lead",
-  },
-];
+import { executiveteam, teammember } from "@/lib/teamMember";
+import Link from "next/link";
+import linkedin from "@/public/assets/img/about-us/linkedin.svg";
 
 const OurTeam = () => {
   useEffect(() => {
@@ -116,11 +74,11 @@ const OurTeam = () => {
   }, []);
 
   return (
-    <Stack bgcolor={"custom.black2"}>
+    <Stack bgcolor={"custom.black7"}>
       <OuterGrid container spacing={2}>
         <Grid
           size={{ xs: 12, lg: 9, xl: 8.3 }}
-          offset={{ xs: 0, lg: 2, xl: 2.3 }}
+          offset={{ xs: 0, lg: 2, xl: 1.95 }}
         >
           <SubTitlemarginBottom>
             <Typography color="custom.grey_700" variant="body_4_600">
@@ -136,44 +94,125 @@ const OurTeam = () => {
             </Typography>
           </SubTitlemarginBottom>
           <Grid container spacing={5}>
-            {industries.map((industry) => (
-              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={industry.id}>
+            {teammember.map((team) => (
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={team.id}>
                 <OurTeamUI className="equal-height">
                   <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.3 }}
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.5 }}
                   >
                     <Image
                       className="bgImg"
-                      src={industry.image}
-                      alt={industry.name}
+                      src={team.image}
+                      alt={team.name}
                       width={400}
                       height={300}
                     />
-                    <Infromation
-                      flexDirection={"row"}
-                      alignItems={"flex-start"}
-                      gap={2}
-                    >
-                      <Stack>
+                    <Infromation alignItems={"flex-start"}>
+                      <Stack
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="center"
+                        width="100%"
+                      >
                         <Typography
                           color="custom.white2"
                           variant="Caption2"
                           display={"block"}
                           marginBottom={"4px"}
                         >
-                          {industry.name}
+                          {team.name}
                         </Typography>
-                        <Typography
-                          className="designation"
-                          color="custom.white3"
-                          variant="body_3_500"
-                        >
-                          {industry.designation}
-                        </Typography>
+                        <Link href={team.linkedin}>
+                          <Image src={linkedin} alt="LinkedIn" />
+                        </Link>
                       </Stack>
+                      <Typography
+                        className="designation"
+                        color="custom.white3"
+                        variant="body_3_500"
+                      >
+                        {team.designation}
+                      </Typography>
+                    </Infromation>
+                  </motion.div>
+                </OurTeamUI>
+              </Grid>
+            ))}
+          </Grid>
+
+          <Box margin="140px 0 72px">
+            <Typography color="custom.grey_700" variant="body_6">
+              Executive Team
+            </Typography>
+          </Box>
+          <Grid container spacing={5}>
+            {executiveteam.map((exeteam) => (
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: exeteam.gridsize ? exeteam.gridsize : 4,
+                }}
+                key={exeteam.id}
+              >
+                <OurTeamUI>
+                  <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.5 }}
+                  >
+                    <Image
+                      className={exeteam.mobImage ? "bgImg deskimg" : "bgImg"}
+                      src={exeteam.image}
+                      alt={exeteam.name}
+                      width={400}
+                      height={300}
+                    />
+                    {exeteam.mobImage && (
+                      <Image
+                        className="mobImg"
+                        src={exeteam.mobImage}
+                        alt={exeteam.name}
+                        width={400}
+                        height={300}
+                      />
+                    )}
+                    <Infromation
+                      className="equal-height"
+                      alignItems={"flex-start"}
+                      justifyContent="space-between"
+                    >
+                      <Stack
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="center"
+                        width="100%"
+                      >
+                        <Typography
+                          color="custom.white2"
+                          variant="Caption2"
+                          display={"block"}
+                          marginBottom={"4px"}
+                        >
+                          {exeteam.name}
+                        </Typography>
+                        {exeteam.linkedin && (
+                          <Link href={exeteam.linkedin}>
+                            <Image src={linkedin} alt="LinkedIn" />
+                          </Link>
+                        )}
+                      </Stack>
+                      <Typography
+                        className="designation"
+                        color="custom.white3"
+                        variant="body_3_500"
+                      >
+                        {exeteam.designation}
+                      </Typography>
                     </Infromation>
                   </motion.div>
                 </OurTeamUI>

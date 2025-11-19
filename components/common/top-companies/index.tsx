@@ -20,6 +20,14 @@ import img13 from "../../../public/assets/img/top-companies/crownvet.png";
 import img14 from "../../../public/assets/img/top-companies/westwind.png";
 import img15 from "../../../public/assets/img/top-companies/honey-bees.svg";
 import img16 from "../../../public/assets/img/top-companies/sohfit.svg";
+import img17 from "../../../public/assets/img/top-companies/littlepplamsschool.svg";
+import img18 from "../../../public/assets/img/top-companies/adnd-logo.svg";
+import img19 from "../../../public/assets/img/top-companies/kizazi.svg";
+import img20 from "../../../public/assets/img/top-companies/chorus-logo-black.svg";
+import img21 from "../../../public/assets/img/top-companies/JadeLogoNew.svg";
+import img22 from "../../../public/assets/img/top-companies/rgd-logo.svg";
+import img23 from "../../../public/assets/img/top-companies/zaka-logo.svg";
+import img24 from "../../../public/assets/img/top-companies/amaya.svg";
 import {
   Box,
   styled,
@@ -52,6 +60,15 @@ const src1 = [
   { src: img14, width: undefined, height: undefined },
   { src: img15, width: 128, height: 128 },
   { src: img16, width: 222, height: 60 },
+
+  { src: img17, width: undefined, height: undefined },
+  { src: img18, width: undefined, height: undefined },
+  { src: img19, width: undefined, height: undefined },
+  { src: img20, width: undefined, height: undefined },
+  { src: img21, width: undefined, height: undefined },
+  { src: img22, width: undefined, height: undefined },
+  { src: img23, width: undefined, height: undefined },
+  { src: img24, width: undefined, height: undefined },
 ];
 
 const StyledSliderWrapper = styled(Box)(() => ({
@@ -75,7 +92,7 @@ const CompaniesSlider: React.FC<Props> = ({ homeSlider }) => {
     dots: false,
     arrows: false,
     infinite: true,
-    speed: 5000,
+    speed: 3000,
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,

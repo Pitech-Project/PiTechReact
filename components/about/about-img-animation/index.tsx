@@ -1,14 +1,40 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import DotImageAnimation from "@/components/common/dot-img-animation";
 
-const AboutImgAnimation = () => (
-  <DotImageAnimation
-    imageSrc="https://i.postimg.cc/gcVZR6b0/photo-1632373564064-9af5f2854b38.avif"
-    detailLevel={12}
-    minDotRadius={0.1}
-    maxDotRadius={4}
-    maxSpeed={15}
-    maxForce={0.8}
-  />
-);
+const AboutImgAnimation = () => {
+  const [imageSrc, setImageSrc] = useState("");
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth < 768;
+
+      setImageSrc(
+        isMobile
+          ? "/assets/img/banner-img/about-mobile.jpg"
+          : "/assets/img/banner-img/about-animation-banner.jpg",
+      );
+    };
+
+    handleResize(); // run once on mount
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (!imageSrc) return null;
+
+  return (
+    <DotImageAnimation
+      imageSrc={imageSrc}
+      detailLevel={10}
+      minDotRadius={0.1}
+      maxDotRadius={4}
+      maxSpeed={15}
+      maxForce={0.8}
+    />
+  );
+};
 
 export default AboutImgAnimation;

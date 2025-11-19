@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import {
   Grid,
+  Link,
   Stack,
   Typography,
   useMediaQuery,
@@ -10,15 +11,16 @@ import {
 } from "@mui/material";
 import {
   AppServices,
+  ArrowDesign,
   OuterGrid2,
-  OutlineBtn,
+  RightTopArrow,
   SmallFullStop,
   WebServicesGrid,
 } from "@/styles/MUI/common.styled";
 import { motion } from "framer-motion";
-import ArrowRightBlack from "../../../common/SVGIcons/arrowRightBlack";
-import { useRouter } from "next/navigation";
 import { SERVICES } from "@/lib/constanst";
+import Image from "next/image";
+import arrowRight from "@/public/assets/img/newRightArrow.svg";
 
 // 👇 Dynamically import browser-dependent components to prevent SSR errors
 const LottiePlayer = dynamic(
@@ -54,12 +56,12 @@ const services = [
     title: SERVICES.SERVICES7,
     img: (
       <LottiePlayer
-        src="https://lottie.host/dc3fde0d-22a3-4ad6-85aa-9ac38dcbe148/wZPuHWhSvN.lottie"
+        src="https://lottie.host/a6faa442-e735-4510-8513-c4dd37db9f58/7d6UfqymHl.lottie"
         hover
         autoplay={false}
         className="hoverLottie"
         height="80"
-        width="91"
+        width="105"
       />
     ),
   },
@@ -143,7 +145,6 @@ const services = [
 ];
 
 export const Service = () => {
-  const router = useRouter();
   const theme = useTheme();
   const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
   const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
@@ -185,14 +186,14 @@ export const Service = () => {
                   </Typography>
                 </motion.div>
               </Grid>
-              <Grid size={{ xs: 12, lg: 7 }} gap={5}>
+              <Grid size={{ xs: 12, lg: 6.4, xl: 7 }} gap={5}>
                 <motion.div
                   initial={{ opacity: 0, x: 100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 1, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
-                  <Stack gap={8}>
+                  <Stack gap={3.5}>
                     <Typography
                       color="custom.black"
                       display={"block"}
@@ -206,6 +207,16 @@ export const Service = () => {
                       infrastructure, everything we build is designed to support
                       your goals and grow with you.
                     </Typography>
+                    <Link href="/contact">
+                      <RightTopArrow disableRipple>
+                        <Typography variant="font_21" color="custom.black7">
+                          Connect with us
+                        </Typography>
+                        <ArrowDesign>
+                          <Image src={arrowRight} alt="Right Arrow" />
+                        </ArrowDesign>
+                      </RightTopArrow>
+                    </Link>
                   </Stack>
                 </motion.div>
               </Grid>
@@ -216,17 +227,8 @@ export const Service = () => {
             size={{ xs: 12, md: 12, lg: 9, xl: 9 }}
             offset={{ xs: 0, md: 0, lg: 2, xl: 2.3 }}
           >
-            <Grid
-              size={{ xs: 12 }}
-              margin={"91px 0 71px"}
-              sx={{
-                "dotlottie-player": {
-                  height: "80px !important",
-                  width: "91px !important",
-                },
-              }}
-            >
-              <WebServicesGrid container spacing={5} paddingLeft={"24px"}>
+            <WebServicesGrid size={{ xs: 12 }}>
+              <Grid container spacing={5} padding={{ xs: "0 20px", sm: 0 }}>
                 {services.map((service, index) => (
                   <Grid
                     size={{ xs: 12, sm: 4, md: 3, lg: 2.4, xl: 2.4 }}
@@ -249,21 +251,8 @@ export const Service = () => {
                     </AppServices>
                   </Grid>
                 ))}
-              </WebServicesGrid>
-
-              <Stack
-                flexDirection={"row"}
-                alignItems={"center"}
-                justifyContent={{ xs: "flex-start", sm: "center" }}
-              >
-                <OutlineBtn
-                  onClick={() => router.push("/contact")}
-                  marginTop={"30px"}
-                >
-                  GET IN TOUCH <ArrowRightBlack />
-                </OutlineBtn>
-              </Stack>
-            </Grid>
+              </Grid>
+            </WebServicesGrid>
           </Grid>
         </OuterGrid2>
       </Stack>

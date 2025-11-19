@@ -8,7 +8,6 @@ import {
   useTheme,
   useMediaQuery,
   Button,
-  Link,
 } from "@mui/material";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -17,7 +16,7 @@ import OurWork1 from "../../../public/assets/img/Our-Work/ibs.png";
 import OurWork2 from "../../../public/assets/img/Our-Work/citius.png";
 import OurWork3 from "../../../public/assets/img/Our-Work/taj-ipad.png";
 import {
-  DirectionBox,
+  ArrowDesign,
   OurWorkTitle,
   OuterGrid,
   OwlCarouselBox,
@@ -25,14 +24,16 @@ import {
   SmallFullStop,
   SubTitlemarginBottom,
   TestimonialBox,
+  WorkCompany,
+  WorkLink,
 } from "@/styles/MUI/common.styled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import ArrowForwardIconWhite from "@/components/common/SVGIcons/arrowForwardIconWhite";
 import ObservedSection from "@/components/common/ObservedSection";
 import { useRouter } from "next/navigation";
+import arrowRight from "@/public/assets/img/newRightArrow.svg";
 
 const logos = [
   {
@@ -75,10 +76,16 @@ export default function OurWorkCarousel() {
   const router = useRouter();
   return (
     <ObservedSection id="home2" bg="light">
-      <OuterGrid container spacing={2} marginRight={"0 !important"}>
+      <OuterGrid
+        className="workgrid"
+        container
+        spacing={2}
+        marginRight={"0 !important"}
+        paddingRight={"0 !important"}
+      >
         <Grid
           size={{ xs: 12, lg: 10, xl: 10 }}
-          offset={{ xs: 0, lg: 2, xl: 2.3 }}
+          offset={{ xs: 0, lg: 2, xl: 1.95 }}
           sx={{ mx: "auto" }}
         >
           <TestimonialBox
@@ -117,32 +124,38 @@ export default function OurWorkCarousel() {
                 justifyContent={isMdView ? "flex-end" : "space-between"}
                 marginTop={isMdView ? "24px" : "0"}
               >
-                <Button className="swiper-button-prev">
+                <Button disableRipple className="swiper-button-prev">
                   <svg
-                    width="24"
-                    height="12"
-                    viewBox="0 0 24 12"
+                    width="20"
+                    height="18"
+                    viewBox="0 0 20 18"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M6.66846 12L7.91164 10.8491L3.40689 6.79593L24 6.5V5.20407H3.40689L7.91164 1.15092L6.66846 0L-5.53131e-05 6L6.66846 12Z"
-                      fill="#f4f4f4"
-                    />
+                      d="M11.2857 1L19 9M19 9L11.2857 17M19 9H1"
+                      stroke="black"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    ></path>
                   </svg>
                 </Button>
-                <Button className="swiper-button-next">
+                <Button disableRipple className="swiper-button-next">
                   <svg
-                    width="24"
-                    height="12"
-                    viewBox="0 0 24 12"
+                    width="20"
+                    height="18"
+                    viewBox="0 0 20 18"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M17.3315 12L16.0884 10.8491L20.5931 6.79593L0 6.5V5.20407H20.5931L16.0884 1.15092L17.3315 0L24.0001 6L17.3315 12Z"
-                      fill="#f4f4f4"
-                    />
+                      d="M11.2857 1L19 9M19 9L11.2857 17M19 9H1"
+                      stroke="black"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    ></path>
                   </svg>
                 </Button>
               </PrevNext>
@@ -154,7 +167,7 @@ export default function OurWorkCarousel() {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
               }}
-              spaceBetween={20}
+              spaceBetween={30}
               slidesPerView={2.5}
               breakpoints={{
                 0: { slidesPerView: 1.2 },
@@ -165,21 +178,22 @@ export default function OurWorkCarousel() {
             >
               {logos.map((e, index) => (
                 <SwiperSlide key={e.id}>
-                  <Box key={e.id}>
-                    <Image
-                      src={e.img}
-                      alt={`Client Logo ${index + 1}`}
-                      style={{
-                        width: "100%",
-                        height: "auto",
-                        objectFit: "contain",
-                      }}
-                    />
-                    <Link
-                      onClick={() => router.push(`${e.url}`)}
-                      href={e.url}
-                      sx={{ textDecoration: "none" }}
-                    >
+                  <WorkLink
+                    onClick={() => router.push(`${e.url}`)}
+                    href={e.url}
+                    sx={{ textDecoration: "none" }}
+                  >
+                    <Box key={e.id}>
+                      <Image
+                        src={e.img}
+                        alt={`Client Logo ${index + 1}`}
+                        style={{
+                          width: "100%",
+                          height: "auto",
+                          objectFit: "contain",
+                        }}
+                      />
+
                       <OwlCarouselBox className="OurWorkBox">
                         <Box>
                           <OurWorkTitle
@@ -189,19 +203,19 @@ export default function OurWorkCarousel() {
                           >
                             {e.title}
                           </OurWorkTitle>
-                          <Typography
+                          <WorkCompany
                             variant="body_4_400"
                             color="custom.white3"
                           >
                             {e.description}
-                          </Typography>
+                          </WorkCompany>
                         </Box>
-                        <DirectionBox className="directionIcon">
-                          <ArrowForwardIconWhite />
-                        </DirectionBox>
+                        <ArrowDesign className="arrowDesign">
+                          <Image src={arrowRight} alt="Right Arrow" />
+                        </ArrowDesign>
                       </OwlCarouselBox>
-                    </Link>
-                  </Box>
+                    </Box>
+                  </WorkLink>
                 </SwiperSlide>
               ))}
             </Swiper>
