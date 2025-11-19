@@ -56,18 +56,18 @@ export const careerFormFields: FieldConfig[] = [
 
 export const SERVICES = {
   SERVICES1: "Tailored and templated apps that make an impact",
-  SERVICES7: "Harnessing Generative AI for Real-World Impact",
+  SERVICES7: "Harnessing generative AI for real-world impact",
   SERVICES2: "Strategic intelligence, real-time decisions",
-  SERVICES3: "Sleek interfaces compliment effortless journeys ",
+  SERVICES3: "Sleek interfaces complimenting effortless journeys ",
   SERVICES4: "Strategic mobile innovation built with precision",
   SERVICES5: "Web experiences that click",
-  SERVICES6: "Infrastructure that moves at the speed of business",
-  SERVICES8: "Connecting systems, creating seamless workflows.",
+  SERVICES6: "Infrastructure that scales, DevOps that delivers",
+  SERVICES8: "Connecting systems, creating seamless workflows",
 };
 
 export const LOTTIEANIMATION = {
   LottiePlayer1: `https://lottie.host/e099a1fa-cc41-4a4c-b468-45d1efaabd08/ZI74c8HxKR.lottie`,
-  LottiePlayer7: `https://lottie.host/e426f7e1-e5f9-453d-b638-c4271bd55b19/OUKW82oEhF.lottie`,
+  LottiePlayer7: `https://lottie.host/4973ca11-3386-4057-adac-5fa8098ac387/2ueAe6Xxwb.lottie`,
   LottiePlayer2: `https://lottie.host/5ddf6e19-2253-4413-a68a-4395b41fafd9/PyspVcKRLz.lottie`,
   LottiePlayer3:
     "https://lottie.host/8b9c39bd-c58f-4cf9-b147-492435685393/ScoJHZOyj9.lottie",
@@ -84,10 +84,16 @@ export const LOTTIEANIMATION = {
 export const caseStudy = [
   {
     id: "chanakya",
-    title: "chanakya | Fashion",
+    title: "chanakya | Fashion & LIFESTYLE",
     subTitle: "Threading technology into fashion",
     info: "Transforming a legacy fashion export house with a tailor-made ERP ecosystem across R&D, sampling, and production.",
-    tags: ["Mobile", "Tablet"],
+    tags: [
+      "Enterprise .NET + SQL",
+      "Data & Messaging",
+      "ETL & Data Pipelines",
+      "Database Integration & API",
+      "Xamarin",
+    ],
     img: casestudy1,
     isBgBlack: true,
   },
@@ -96,16 +102,27 @@ export const caseStudy = [
     title: "IBS intelligence | Fintec",
     subTitle: "Transforming fintech publishing",
     info: "Building a secure, scalable digital platform that centralizes premium fintech research, protects IP, and boosts subscription revenue.",
-    tags: ["Web", "Desktop", "Mobile", "Tablet"],
+    tags: [
+      "HTML5 & CSS3",
+      "WordPress",
+      "Woo Commerce",
+      "SEO & Performance Optimization",
+    ],
     img: casestudy2,
     isBgBlack: false,
   },
   {
     id: "citiusTech",
-    title: "citiustech | healthcare",
+    title: "citiustech | healthcare Technology",
     subTitle: "The strong and steady ERP evolution",
     info: "Transforming a simple timesheet tracker into a decade-strong ERP that streamlines people, processes, projects, and payments for IT services.",
-    tags: ["Web", "Desktop", "Mobile", "Tablet"],
+    tags: [
+      "Enterprise .NET + SQL",
+      "ETL & Data Pipelines",
+      "Database Integration & API",
+      "MVC",
+      "HTML5 & CSS3",
+    ],
     img: casestudy3,
     isBgBlack: false,
   },
@@ -114,7 +131,12 @@ export const caseStudy = [
     title: "taj | hospitality",
     subTitle: "A premium, car rental management system",
     info: "Powering 70+ Taj Hotels with a unified, luxury-grade car rental management system that streamlines bookings, fleet logistics, and guest service.",
-    tags: ["Mobile", "Tablet"],
+    tags: [
+      "Enterprise .NET + SQL",
+      "Database Integration & API",
+      "MVC",
+      "HTML5 & CSS3",
+    ],
     img: casestudy4,
     isBgBlack: true,
   },

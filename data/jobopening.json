@@ -33,9 +33,7 @@
     "title": "Project Coordinator",
     "experience": "3 - 5 YRS EXPERIENCE",
     "status": "PUBLISH",
-    "qualification": [
-      "3 to 5 Years Experience"
-    ],
+    "qualification": ["3 to 5 Years Experience"],
     "keyResponsibilities": [
       "Attend meetings and assist with determination of project documentation requirements.",
       "Provide project administration support, direct and monitor the requirements.",
@@ -200,9 +198,7 @@
     "title": "Build Release Engineer",
     "experience": "3 - 4 YRS EXPERIENCE",
     "status": "PUBLISH",
-    "qualification": [
-      "3 - 4 YRS OF EXPERIENCE"
-    ],
+    "qualification": ["3 - 4 YRS OF EXPERIENCE"],
     "keyResponsibilities": [
       "Oversee all builds and deployment of releases to production and non-production environments.",
       "Integrate submitted/changed code into a release branch in our source control system.",
@@ -492,9 +488,7 @@
     "title": "Senior Tester",
     "experience": "0 - 4 YRS EXPERIENCE",
     "status": "PUBLISH",
-    "qualification": [
-      "4+ YRS OF EXPERIENCE"
-    ],
+    "qualification": ["4+ YRS OF EXPERIENCE"],
     "keyResponsibilities": [
       "Excellent written and verbal communication skills",
       "Outstanding teamwork and collaboration skills",
@@ -551,9 +545,7 @@
     "title": "Scrum Master",
     "experience": "4 - 8 YRS EXPERIENCE",
     "status": "PUBLISH",
-    "qualification": [
-      "4 - 8 YRS OF EXPERIENCE"
-    ],
+    "qualification": ["4 - 8 YRS OF EXPERIENCE"],
     "keyResponsibilities": [
       "The Scrum Master will be responsible for facilitating and ensuring the effective implementation of the Scrum framework within our Agile teams. This role involves guiding, coaching, and mentoring the team to follow Scrum practices, remove impediments, and improve productivity. The Scrum Master will work closely with Product Owners, Development Teams, and other stakeholders to ensure successful project delivery.",
       "Facilitate Scrum Events: Plan and conduct daily stand-ups, sprint planning, sprint reviews, and retrospectives to ensure efficient team collaboration and project progress. Record minutes of meetings and track action items.",
@@ -640,13 +632,13 @@
       "MongoDB certification (e.g., MongoDB Certified Database Administrator)",
       "Experience with MongoDB databases. (Minimum of 3 years experience as DBA)",
       "Experience with other NoSQL DB (e.g. CosmoDB, DynamoDB, Cassandra etc)",
-      "Familiarity with containerization technologies (e.g., Docker, Kubernetes).."
+      "Familiarity with containerization technologies (e.g., Docker, Kubernetes)."
     ],
     "qualificationRaw": "<ul><li><span style=\"font-size: 15.2px;\">2 - 5 YRS OF EXPERIENCE</span></li><li><span style=\"font-size: 15.2px;\">Bachelor’s degree in computer science, Information Technology, or a related field.</span></li><li><span style=\"font-size: 15.2px;\">Strong experience with Azure Data Factory, Azure Synapse Analytics, and other Azure data services.</span></li><li><span style=\"font-size: 15.2px;\">Proficiency in SQL and data querying languages.</span></li><li><span style=\"font-size: 15.2px;\">Expertise in dimensional modeling and data warehousing concepts.</span></li><li><span style=\"font-size: 15.2px;\">Hands-on experience with ETL processes and tools.</span></li><li><span style=\"font-size: 15.2px;\">Familiarity with analytics and reporting tools, such as Power BI.</span></li><li><span style=\"font-size: 15.2px;\">Knowledge of cloud computing concepts and services, especially within the Microsoft Azure ecosystem.</span></li><li><span style=\"font-size: 15.2px;\">Strong problem-solving and troubleshooting skills.</span></li><li><span style=\"font-size: 15.2px;\">Certifications such as Microsoft Certified: Azure Data Engineer Associate are a plus..</span></li></ul>",
     "keyResponsibilitiesRaw": "<ul><li><span style=\"font-size: 15.2px;\">Data Modelling: Design and implement data models, including measures and dimensions, to support business intelligence and analytical reporting requirements.</span></li><li><span style=\"font-size: 15.2px;\">Azure Data Factory Development: Create, manage, and optimize data pipelines in Azure Data Factory to extract, transform, and load (ETL) data from various sources into the data warehouse.</span></li><li><span style=\"font-size: 15.2px;\">Dimensional Modelling: Develop and implement dimensional models for data warehousing, ensuring efficient storage and retrieval of data for analytical purposes.</span></li><li><span style=\"font-size: 15.2px;\">ETL Processes: Build and maintain ETL processes within Azure Data Factory to transform and cleanse data before loading it into the data warehouse.</span></li><li><span style=\"font-size: 15.2px;\">Integration with Analytics Services: Collaborate with data scientists and analysts to integrate Azure Data Factory with analytics services such as Azure Synapse Analytics, Azure Databricks, and Power BI.</span></li><li><span style=\"font-size: 15.2px;\">Data Quality and Governance: Implement data quality checks and governance measures to ensure the accuracy, completeness, and consistency of data stored in the data warehouse.</span></li><li><span style=\"font-size: 15.2px;\">Performance Tuning: Monitor and optimize data warehouse performance, including query performance and data loading processes, to meet performance and scalability requirements.</span></li><li><span style=\"font-size: 15.2px;\">Security and Compliance: Implement security measures for data access and ensure compliance with data governance policies and regulatory requirements.</span></li><li><span style=\"font-size: 15.2px;\">Documentation: Create and maintain documentation for data models, ETL processes, and data warehouse configurations.</span></li><li><span style=\"font-size: 15.2px;\">Collaboration: Work closely with business analysts, data scientists, and other stakeholders to understand reporting requirements and deliver effective data solutions.</span></li></ul>",
-    "goodToHaveRaw": "<ul><li>MongoDB certification (e.g., MongoDB Certified Database Administrator)</li><li>Experience with MongoDB databases. (Minimum of 3 years experience as DBA)</li><li>Experience with other NoSQL DB (e.g. CosmoDB, DynamoDB, Cassandra etc)</li><li>Familiarity with containerization technologies (e.g., Docker, Kubernetes)..</li></ul>",
+    "goodToHaveRaw": "<ul><li>MongoDB certification (e.g., MongoDB Certified Database Administrator)</li><li>Experience with MongoDB databases. (Minimum of 3 years experience as DBA)</li><li>Experience with other NoSQL DB (e.g. CosmoDB, DynamoDB, Cassandra etc)</li><li>Familiarity with containerization technologies (e.g., Docker, Kubernetes).</li></ul>",
     "slug": "azure-data-engineer-1760611116984",
     "createdAt": "2025-10-16T10:38:36.984Z",
-    "updatedAt": "2025-10-28T05:10:02.923Z"
+    "updatedAt": "2025-11-11T08:45:54.424Z"
   }
 ]

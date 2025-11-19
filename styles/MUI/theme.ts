@@ -52,6 +52,8 @@ declare module "@mui/material/styles" {
     font_14?: React.CSSProperties;
     font_19?: React.CSSProperties;
     font_20?: React.CSSProperties;
+    font_21?: React.CSSProperties;
+    secTitle?: React.CSSProperties;
   }
   interface TypographyVariantsOptions {
     overline_s?: React.CSSProperties;
@@ -101,12 +103,15 @@ declare module "@mui/material/styles" {
     font_14?: React.CSSProperties;
     font_19?: React.CSSProperties;
     font_20?: React.CSSProperties;
+    font_21?: React.CSSProperties;
+    secTitle?: React.CSSProperties;
   }
 
   interface BreakpointOverrides {
     containerlargedesktop: true;
     largescreen: true;
     smallDesktop: true;
+    tabletView: true;
     middlescreen: true;
     sm: true;
   }
@@ -160,6 +165,8 @@ declare module "@mui/material/Typography" {
     font_14: true;
     font_19: true;
     font_20: true;
+    font_21: true;
+    secTitle: true;
   }
 }
 
@@ -193,6 +200,8 @@ interface CustomPalette {
   black6?: string;
   light_green?: string;
   green?: string;
+  black7?: string;
+  errormsg?: string;
 }
 
 declare module "@mui/material/styles" {
@@ -207,6 +216,8 @@ declare module "@mui/material/styles" {
 const breakpoints = {
   largescreen: "1920px",
   smallDesktop: "1536px",
+  smallDesktop1: "1366px",
+  tabletView: "1280px",
   lg: "1199px",
   md: "991px",
   sm: "767px",
@@ -218,7 +229,7 @@ const body_3 = {
   lineHeight: "32px",
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     fontSize: "20px",
-    lineHeight: "28px",
+    lineHeight: "32px",
     "&.jobTitle": {
       fontSize: "24px",
       lineHeight: "32px",
@@ -238,13 +249,17 @@ const body_3 = {
 const overline_s = {
   fontWeight: 600,
   fontSize: "16px",
+  lineHeight: "18px",
   letterSpacing: "0.15px",
+};
+
+const font38 = {
+  fontSize: "38px",
+  lineHeight: "44px",
 };
 
 const body_2 = {
   fontWeight: 400,
-  fontSize: "32px",
-  lineHeight: "41.66px",
   letterSpacing: "0.15px",
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     fontSize: "25px",
@@ -285,9 +300,7 @@ const body_5 = {
 };
 
 const body_9 = {
-  fontWeight: 500,
-  fontSize: "24px",
-  lineHeight: "32px",
+  ...body_3,
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     fontSize: "22px",
     lineHeight: "30px",
@@ -356,9 +369,21 @@ const typography: ThemeOptions["typography"] = {
       letterSpacing: "-0.32px",
     },
   },
-  body_2,
+  body_2: {
+    ...font38,
+    fontWeight: 400,
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+      fontSize: 36,
+      lineHeight: "48px",
+    },
+    [`@media (max-width: ${breakpoints.smallDesktop1})`]: {
+      fontSize: 30,
+      lineHeight: "35px",
+    },
+  },
   body_2_500: {
     ...body_2,
+    ...font38,
     fontWeight: 500,
   },
 
@@ -380,7 +405,6 @@ const typography: ThemeOptions["typography"] = {
   body_3_600: {
     ...body_3,
     fontWeight: 600,
-    lineHeight: "32px",
     [`@media (max-width: ${breakpoints.smallDesktop})`]: {
       fontSize: "24px",
       lineHeight: "32px",
@@ -437,8 +461,7 @@ const typography: ThemeOptions["typography"] = {
       lineHeight: "28px",
     },
     [`@media (max-width: ${breakpoints.sm})`]: {
-      fontSize: "19px",
-      lineHeight: "28px",
+      fontSize: "19px !important",
     },
   },
 
@@ -469,6 +492,7 @@ const typography: ThemeOptions["typography"] = {
 
   body_4_500: {
     ...body_4,
+    lineHeight: "20px",
     letterSpacing: "1.6px",
     [`@media (max-width: ${breakpoints.smallDesktop})`]: {
       fontSize: "16px !important",
@@ -533,10 +557,10 @@ const typography: ThemeOptions["typography"] = {
   },
   body_8: {
     fontWeight: 400,
-    fontSize: "22px",
-    lineHeight: "34px",
+    fontSize: "24px",
+    lineHeight: "32px",
     [`@media (max-width: ${breakpoints.smallDesktop})`]: {
-      fontSize: "19px",
+      fontSize: "20px",
       lineHeight: "28px",
     },
   },
@@ -621,10 +645,18 @@ const typography: ThemeOptions["typography"] = {
 
   count: {
     fontWeight: 600,
-    fontSize: "40px",
+    fontSize: "38px",
     lineHeight: "44px",
-    letterSpacing: "0.15px",
+    letterSpacing: "0.16px",
     textAlign: "center",
+    [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+      fontSize: "36px",
+      lineHeight: "48px",
+    },
+    [`@media (max-width: ${breakpoints.smallDesktop1})`]: {
+      fontSize: "30px",
+      lineHeight: "35px",
+    },
     [`@media (max-width: ${breakpoints.lg})`]: {
       fontSize: "32px",
       lineHeight: "36px",
@@ -713,12 +745,15 @@ const typography: ThemeOptions["typography"] = {
     textUnderlineOffset: "4px",
   },
   font_38: {
-    fontSize: "38px",
-    lineHeight: "44px",
+    ...font38,
     fontWeight: 500,
     [`@media (max-width: ${breakpoints.smallDesktop})`]: {
       fontSize: "32px",
       lineHeight: "38px",
+    },
+    [`@media (max-width: ${breakpoints.tabletView})`]: {
+      fontSize: "34px",
+      lineHeight: "40px",
     },
     [`@media (max-width: ${breakpoints.sm})`]: {
       fontSize: "33px",
@@ -799,6 +834,27 @@ const typography: ThemeOptions["typography"] = {
       lineHeight: "25px",
     },
   },
+  font_21: {
+    fontSize: "21px",
+    lineHeight: "16px",
+    [`@media (max-width: ${breakpoints.tabletView})`]: {
+      fontSize: "18px",
+      lineHeight: "14px",
+    },
+  },
+  secTitle: {
+    fontSize: "24px",
+    lineHeight: "100%",
+    fontWeight: 700,
+    marginBottom: 8,
+    [`@media (max-width: ${breakpoints.lg})`]: {
+      fontSize: "28px",
+    },
+    [`@media (max-width: ${breakpoints.sm})`]: {
+      fontSize: "19px",
+      lineHeight: "28px",
+    },
+  },
 };
 
 export const lightTheme = createTheme({
@@ -846,6 +902,8 @@ export const lightTheme = createTheme({
       black6: "#000000",
       light_green: "#badbcc",
       green: "#0f5132",
+      black7: "#121212",
+      errormsg: "#ffaeae",
     },
   },
 
@@ -877,6 +935,21 @@ export const lightTheme = createTheme({
         "& div .grecaptcha-badge": {
           display: "none !important",
         },
+        "& .mySwiper .swiper-slide": {
+          height: "auto !important",
+          display: "flex !important",
+        },
+
+        "& .mySwiper .swiper-slide>.testimonial-boxUI": {
+          height: "auto ",
+          display: "flex",
+          flexDirection: "column",
+        },
+
+        "& .mySwiper .swiper-wrapper": {
+          alignItems: "stretch !important",
+        },
+
         "@media (max-width:1600px)": {
           "& span br.br-tag": {
             display: "none",
@@ -893,6 +966,9 @@ export const lightTheme = createTheme({
         "@media (max-width:599px)": {
           "& .mobileAnimationNone": {
             transform: "none !important",
+          },
+          "& .mySwiper .swiper-slide>.testimonial-boxUI": {
+            height: "fit-content",
           },
         },
       },

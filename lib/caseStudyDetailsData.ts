@@ -7,10 +7,11 @@ export const caseStudyData = {
       shortDesc:
         "Transforming a legacy fashion export house with a tailor-made ERP ecosystem across R&D, sampling, and production.",
       tags: [
-        "Microsoft MVC / .NET Framework v4.6 / C#",
-        "JavaScript / jQuery",
-        "Entity Framework + MSSQL",
-        "Android / Xamarin",
+        "Enterprise .NET + SQL",
+        "Data & Messaging",
+        "ETL & Data Pipelines",
+        "Database Integration & API",
+        "Xamarin",
       ],
       img: "/assets/img/case-studies/laptop-1.png",
       projectLogo: "/assets/img/top-companies/chanakya.svg",
@@ -19,7 +20,7 @@ export const caseStudyData = {
     projectInfo: {
       name: "Chanakya International Pvt. Ltd.",
       projectDetails: {
-        industry: "Chanakya International Pvt. Ltd.",
+        industry: "Fashion & Lifestyle",
         headquarters: "Mumbai, India",
       },
     },
@@ -32,12 +33,12 @@ export const caseStudyData = {
         "Production tracking lacked visibility into procurement and job order status.",
         "Excel-based systems were prone to errors and inefficiencies.",
       ],
-      background:
-        "With decades of excellence in intricate hand embroidery and high-fashion exports, Chanakya operates at the intersection of creativity and complexity. As global fashion demands accelerated, the need for a smarter, tech-enabled approach became critical.",
+      whatWeDid:
+        "To address Chanakya’s reliance on manual tracking and disconnected Excel sheets, we built a tailored ERP ecosystem covering research, sampling, and production. Our solutions were NEO, TRINITY, and MORPHEUS. A digitized swatch management system that streamlined rapid sampling orders, and introduced real-time visibility across the production cycle. By integrating smart search, QR-coded tracking, and actionable dashboards, we transformed their complex workflows into a seamless, efficient, and scalable digital process.",
     },
     piSolution: {
       details:
-        "Pi Techniques introduced a powerful, customized ERP system—divided into three purpose-built applications",
+        "Pi Techniques introduced a powerful, customized ERP system that was divided into three purpose-built applications",
       solutions: [
         {
           title: "NEO",
@@ -145,12 +146,12 @@ export const caseStudyData = {
     topSection: {
       title: "Transforming fintech\npublishing ",
       shortDesc:
-        "Building a secure, scalable digital platform that centralizes\npremium fintech research, protects IP, and boosts subscription revenue.",
+        "Building a secure, scalable digital platform that centralizes premium fintech research, protects IP, and boosts subscription revenue.",
       tags: [
-        "Microsoft MVC / .NET Framework v4.6 / C#",
-        "JavaScript / jQuery",
-        "Entity Framework + MSSQL",
-        "Android / Xamarin",
+        "HTML5 & CSS3",
+        "WordPress",
+        "Woo Commerce",
+        "SEO & Performance Optimization",
       ],
       img: "/assets/img/case-studies/laptop-2.png",
       projectLogo: "/assets/img/case-studies/ibs.svg",
@@ -159,7 +160,7 @@ export const caseStudyData = {
     projectInfo: {
       name: "IBS Intelligence",
       projectDetails: {
-        industry: "Information Technology",
+        industry: "Fintech",
         headquarters: "Mumbai, India",
         website: "chankaya.in",
       },
@@ -168,12 +169,12 @@ export const caseStudyData = {
       shortInfo:
         "IBS Intelligence offered high-value content such as the IBS Journal and Sales League Table but lacked a secure, unified platform for distribution. They needed to curb piracy, streamline digital access, and manage subscriptions efficiently—all while improving reach and monetization.",
       lists: [],
-      background:
-        "Pi Techniques designed and developed a centralized subscription-based eLibrary for IBS Intelligence, enabling instant access to premium fintech research, reports, and publications through a secure online store with integrated payment and preview capabilities.",
+      whatWeDid:
+        "Pi Techniques designed and developed a centralized subscription-based eLibrary for IBS Intelligence. For the users this enabled instant access to premium fintech research, reports, and publications through a secure online store with integrated payment and preview capabilities",
     },
     piSolution: {
       details:
-        "Pi Techniques introduced a powerful, customized ERP system—divided into three purpose-built applications",
+        "We created a fully functional subscription platform integrated with a scalable eLibrary, allowing users to browse, preview, and purchase digital content securely. The system also supported an events module for global fintech conferences, complete with advanced filtering by date, location, and topic. The implementation of online payments provided users immediate access to their purchases—eliminating delays and improving satisfaction.",
     },
     keyFeature: [
       {
@@ -247,10 +248,11 @@ export const caseStudyData = {
       shortDesc:
         "Transforming a simple timesheet tracker into a decade-strong ERP that streamlines people, processes, projects, and payments for IT services.",
       tags: [
-        "Microsoft MVC / .NET Framework v4.6 / C#",
-        "JavaScript / jQuery",
-        "Entity Framework + MSSQL",
-        "Android / Xamarin",
+        "Enterprise .NET + SQL",
+        "ETL & Data Pipelines",
+        "Database Integration & API",
+        "MVC",
+        "HTML5 & CSS3",
       ],
       img: "/assets/img/case-studies/laptop-3.png",
       projectLogo: "/assets/img/case-studies/citiustech.svg",
@@ -259,7 +261,7 @@ export const caseStudyData = {
     projectInfo: {
       name: "Citius Tech",
       projectDetails: {
-        industry: "Information Technology",
+        industry: "Healthcare Technology",
         headquarters: "Mumbai, India",
         website: "chankaya.in",
       },
@@ -268,12 +270,12 @@ export const caseStudyData = {
       shortInfo:
         "CitiusTech originally needed a simple solution to track employee work hours. However, as the organization scaled, so did its operational complexity. Off-the-shelf ERP systems lacked the flexibility and customization needed for their domain-specific processes — from resource deployment to performance evaluations, and client invoicing to project-level profitability tracking.",
       lists: [],
-      background:
+      whatWeDid:
         " We partnered with CitiusTech to build a scalable ERP platform from the ground up. Initially developed as a lightweight timesheet solution, the application has grown into a comprehensive enterprise suite tailored to IT services workflows. Built with .NET/C#, Entity Framework, and MSSQL, and extended to mobile platforms via Xamarin for Android and iOS, this platform now serves as the digital backbone of the client’s operations.",
     },
     piSolution: {
       details:
-        "We created a fully functional subscription platform integrated with a scalable eLibrary, allowing users to browse, preview, and purchase digital content securely. The system also supported an events module for global fintech conferences, complete with advanced filtering by date, location, and topic. The implementation of online payments provided users immediate access to their purchases—eliminating delays and improving satisfaction.",
+        "We approached the problem with a modular, agile delivery model, progressively evolving the product through multiple sprints and deep client engagement. The result was a tailored ERP that integrates multiple functions, maintains scalability, supports compliance and quality workflows, and adapts easily to new business needs. Our development team, along with dedicated UX and database specialists, ensured seamless integration across features, devices, and departments.",
     },
     keyFeature: [
       {
@@ -311,31 +313,31 @@ export const caseStudyData = {
         "Through a tailored ERP solution, Pi Techniques enabled the client to gain efficiency, clarity, and agility—unlocking faster decisions and scalable growth.",
       impact: [
         {
-          img: "assets/img/case-studies/impact-6.svg",
+          img: "assets/img/case-studies/long-term-impact1.svg",
           title: "Operational efficiency boost",
           subTitle:
             "End-to-end ERP automation reduced manual interventions across HR, invoicing, and project tracking.",
         },
         {
-          img: "assets/img/case-studies/impact-7.svg",
+          img: "assets/img/case-studies/long-term-impact2.svg",
           title: "Single source of truth",
           subTitle:
             "Centralized data repository improved accuracy and reduced duplication across departments.",
         },
         {
-          img: "assets/img/case-studies/impact-8.svg",
+          img: "assets/img/case-studies/long-term-impact3.svg",
           title: "Scalable growth",
           subTitle:
             "Platform evolved alongside the client’s business without disruptive re-platforming.",
         },
         {
-          img: "assets/img/case-studies/impact-9.svg",
+          img: "assets/img/case-studies/long-term-impact4.svg",
           title: "Faster decision-making",
           subTitle:
             "Real-time reporting and analytics empowered managers with actionable insights.",
         },
         {
-          img: "assets/img/case-studies/impact-10.svg",
+          img: "assets/img/case-studies/long-term-impact5.svg",
           title: "Cross-platform accessibility",
           subTitle:
             "Seamless mobile access improved adoption and on-the-go productivity.",
@@ -357,10 +359,10 @@ export const caseStudyData = {
       shortDesc:
         "Powering 70+ Taj Hotels with a unified, luxury-grade car rental management system that streamlines bookings, fleet logistics, and guest service.",
       tags: [
-        "Microsoft MVC / .NET Framework v4.6 / C#",
-        "JavaScript / jQuery",
-        "Entity Framework + MSSQL",
-        "Android / Xamarin",
+        "Enterprise .NET + SQL",
+        "Database Integration & API",
+        "MVC",
+        "HTML5 & CSS3",
       ],
       img: "/assets/img/case-studies/laptop-4.png",
       projectLogo: "/assets/img/case-studies/taj.svg",
@@ -378,7 +380,7 @@ export const caseStudyData = {
       shortInfo:
         "Taj Hotels was managing car rental operations using manual processes or disjointed systems, leading to inefficiencies in bookings, delays in driver assignments, lack of real-time tracking, and inconsistent billing practices across properties. They needed a unified platform that could work seamlessly across all hotel locations, without compromising on their premium service standards.",
       lists: [],
-      background:
+      whatWeDid:
         "We implemented AutoSultan, Pi’s proprietary car rental management platform, as a plug-and-play solution across more than 70 Taj Hotel locations in India. The deployment included backend configuration, multi-location customization, and ongoing support.",
     },
     piSolution: {
@@ -419,27 +421,27 @@ export const caseStudyData = {
         "By automating operations, Pi Techniques helped the client speed up bookings, cut errors, and deliver a seamless guest experience across locations.",
       impact: [
         {
-          img: "/assets/img/case-studies/impact-6.svg",
+          img: "/assets/img/case-studies/impact-16.svg",
           title: "Faster bookings ",
           subTitle: "40% quicker turnaround with automated scheduling.",
         },
         {
-          img: "/assets/img/case-studies/impact-7.svg",
+          img: "/assets/img/case-studies/impact-17.svg",
           title: "Error-free operations",
           subTitle: "60% fewer manual errors in billing and dispatch.",
         },
         {
-          img: "/assets/img/case-studies/impact-8.svg",
+          img: "/assets/img/case-studies/impact-18.svg",
           title: "Consistent service",
           subTitle: "Standardized guest experience across 70+ hotels.",
         },
         {
-          img: "/assets/img/case-studies/impact-9.svg",
+          img: "/assets/img/case-studies/impact-19.svg",
           title: "Smarter visibility",
           subTitle: "Centralized dashboards for fleet and revenue insights.",
         },
         {
-          img: "/assets/img/case-studies/impact-10.svg",
+          img: "/assets/img/case-studies/impact-20.svg",
           title: "Future-ready",
           subTitle: "Scalable system to support growth and new locations.",
         },

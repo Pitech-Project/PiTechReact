@@ -29,7 +29,7 @@ export const jobs: Job[] = [
       "Collaboration: Work closely with business analysts, data scientists, and other stakeholders to understand reporting requirements and deliver effective data solutions.",
     ],
     qualifications: [
-      "2 - 5 YRS OF EXPERIENCE",
+      "2 - 5 years of experience",
       "Bachelor’s degree in computer science, Information Technology, or a related field.",
       "Strong experience with Azure Data Factory, Azure Synapse Analytics, and other Azure data services.",
       "Proficiency in SQL and data querying languages.",
@@ -65,7 +65,7 @@ export const jobs: Job[] = [
       "Stay up-to-date with MongoDB best practices, updates, and emerging trends in NoSQL databases.",
     ],
     qualifications: [
-      "3 - 6 YRS OF EXPERIENCE",
+      "3 - 6 years of experience",
       "MongoDB certification (e.g., MongoDB Certified Database Administrator).",
       " Experience with MongoDB databases. (Minimum of 3 years experience as DBA)",
       "Experience with other NoSQL DB (e.g. CosmoDB, DynamoDB, Cassandra etc)",
@@ -91,7 +91,7 @@ export const jobs: Job[] = [
       "Continuous Improvement: Encourage and facilitate continuous improvement within the team. Implement process improvements based on retrospective feedback and best practices.",
       "Promote Agile Culture: Advocate for Agile principles and values within the organization. Help create an environment that embraces change, innovation, and continuous improvement.",
     ],
-    qualifications: ["4 - 8 YRS OF EXPERIENCE"],
+    qualifications: ["4 - 8 years of experience"],
     skills: [],
   },
   {
@@ -100,7 +100,7 @@ export const jobs: Job[] = [
     experience: "0 - 4 YRS OF EXPERIENCE",
     jobcode: "PI023",
     qualifications: [
-      "0 - 4 YRS OF EXPERIENCE",
+      "0 - 4 years of experience",
       "Experience in manual testing",
       "Experience in working in agile methodology",
       "Knowledge of testing life cycle and testing process",
@@ -115,7 +115,7 @@ export const jobs: Job[] = [
     title: "Senior Tester",
     experience: "4+ YRS OF EXPERIENCE",
     jobcode: "PI023",
-    qualifications: ["4+ YRS OF EXPERIENCE"],
+    qualifications: ["4+ years of experience"],
     skills: [
       "Strong experience in manual testing",
       "Experience in working in agile methodology. Involved in all meetings – sprint planning, daily scrum calls, etc.",
@@ -219,7 +219,7 @@ export const jobs: Job[] = [
       "Ability to work independently and meet project deadlines.",
     ],
     qualifications: [
-      "3 - 6 YRS OF EXPERIENCE",
+      "3 - 6 years of experience",
       "Experience with other front-end libraries and frameworks (e.g., Redux, Angular, Vue.js).",
       "Knowledge of GraphQL.",
       "Familiarity with containerization and orchestration (e.g., Docker, Kubernetes).",
@@ -263,7 +263,7 @@ export const jobs: Job[] = [
     experience: "1 - 3 YRS OF EXPERIENCE",
     jobcode: "PI023",
     qualifications: [
-      "1 - 3 YRS OF EXPERIENCE",
+      "1 - 3 years of experience",
       "WordPress, Joomla, Opencart, Shopify etc.",
       "Experience and good knowledge in responsive design frameworks like Bootstrap.",
       "Ability to handle tasks independently.",
@@ -309,7 +309,7 @@ export const jobs: Job[] = [
       "Deploy jsreport solutions on servers and manage ongoing maintenance.",
     ],
     qualifications: [
-      "1 - 3 YRS OF EXPERIENCE",
+      "1 - 3 years of experience",
       "Proven experience in web development using JavaScript, HTML, and CSS.",
       "Proficiency in Handlebars or similar templating engines.",
       "Strong understanding of JSON data structures and data binding techniques.",
@@ -340,7 +340,7 @@ export const jobs: Job[] = [
       "Work without supervision and report to the technical manager on a daily basis.",
     ],
     qualifications: [
-      "2 - 4 YRS OF EXPERIENCE",
+      "2 - 4 years of experience",
       "Good to have experience in creating application packages using Advanced Installer.",
       "Able to write custom action scripts for MSI packaging.",
       "Experience in PowerShell automation and VBScript automation.",
@@ -354,7 +354,7 @@ export const jobs: Job[] = [
   {
     slug: "Build_Release_Engineer",
     title: "Build Release Engineer",
-    experience: "3 - 4 YRS OF Experience ",
+    experience: "3 - 4 YRS OF EXPERIENCE",
     jobcode: "PI023",
     responsibilities: [
       "Oversee all builds and deployment of releases to production and non-production environments.",
@@ -384,7 +384,7 @@ export const jobs: Job[] = [
   {
     slug: "WCF_Developer_(.NET)",
     title: "WCF Developer (.NET)",
-    experience: "3+ Years Experience",
+    experience: "3+ YRS OF EXPERIENCE",
     jobcode: "PI023",
     responsibilities: [
       "Build and maintain high performance, scalable software systems.",
@@ -413,7 +413,7 @@ export const jobs: Job[] = [
   {
     slug: "SQL_Database_Developer",
     title: "SQL Database Developer",
-    experience: "3 to 5 Years Experience",
+    experience: "3 to 5 YRS OF EXPERIENCE",
     jobcode: "PI023",
     qualifications: [
       "At least 3+ years of SQL Server development experience in a fast-paced, collaborative IT work environment.",
@@ -434,7 +434,7 @@ export const jobs: Job[] = [
   {
     slug: "Mobile_Developer",
     title: "Mobile Developer",
-    experience: "2 to 4 Years Experience",
+    experience: "2 to 4 YRS OF EXPERIENCE",
     jobcode: "PI023",
     responsibilities: [
       "Support the entire application lifecycle (concept, design, support testing team, release, and support).",
@@ -446,7 +446,7 @@ export const jobs: Job[] = [
       "Should be flexible to design and build the apps on Xamarin Platforms.",
     ],
     qualifications: [
-      "2 to 4 Years Experience",
+      "2 to 4 years of experience",
       "Experience in mobile application development on iOS and/or Android and/or Xamarin platform.",
       "Hands on experience in cross-platform mobile application development technologies.",
       "Experience in consuming and understanding of web services (REST).",
@@ -465,7 +465,7 @@ export const jobs: Job[] = [
   {
     slug: "Database_Admin",
     title: "Database Admin",
-    experience: "4 to 6 Years Experience",
+    experience: "4 to 6 YRS OF EXPERIENCE",
     jobcode: "PI023",
     responsibilities: [
       "Manage SQL Server databases through multiple product lifecycle environments, from development to mission-critical production systems.",
@@ -496,7 +496,7 @@ export const jobs: Job[] = [
   {
     slug: "Project_Coordinator",
     title: "Project Coordinator",
-    experience: "3 to 5 Years Experience",
+    experience: "3 to 5 YRS OF EXPERIENCE",
     jobcode: "PI023",
     responsibilities: [
       "Attend meetings and assist with determination of project documentation requirements.",
@@ -525,7 +525,7 @@ export const jobs: Job[] = [
   {
     slug: "Technical_Writer",
     title: "Technical Writer",
-    experience: "3 - 5 YRS OF Experience",
+    experience: "3 - 5 YRS OF EXPERIENCE",
     jobcode: "PI023",
     responsibilities: [
       "Work with internal teams to obtain in depth understanding of the product and the documentation requirements.",
@@ -536,7 +536,7 @@ export const jobs: Job[] = [
       "Create and maintain the information architecture.",
     ],
     qualifications: [
-      "3 to 5 Years of Experience",
+      "3 to 5 years of experience",
       "Experience in technical writing of software documentation.",
       "Ability to quickly grasp complex technical concepts and make them easily understandable in text and pictures.",
       "Excellent written skills in English.",
