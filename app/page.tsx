@@ -2,7 +2,6 @@
 
 import { Box } from "@mui/material";
 import "@/styles/global/globals.css";
-import Count from "@/components/home/count";
 import { Services } from "@/components/home/services";
 import SmoothTextSlider from "@/components/common/top-companies";
 import WhoWeAre from "@/components/common/who-we-are";
@@ -22,7 +21,7 @@ export default function Home() {
       <ScrollToTopButton />
       <Box bgcolor={"custom.bgcolor"}>
         <HomeBanner />
-        <Count />
+        {/* <Count /> */}
         <WhoWeAre />
         <Services />
         <OurWorkCarousel />

@@ -18,8 +18,8 @@ export default function page() {
       <ScrollToTopButton />
       <CareersBanner />
       <Culture />
-      <Teams />
       <JobOpenings />
+      <Teams />
       <JobOpportunity />
     </SectionObserverProvider>
   );
