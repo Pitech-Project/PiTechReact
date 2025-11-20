@@ -383,13 +383,13 @@ export default function CareerForm({
                         >
                           <AttachedFile>
                             <Image src={AttachFile} alt="Attach File" />
-                            <Typography variant="body2" ml={2}>
+                            <Typography variant="font_14" lineHeight="14px" ml={1}>
                               {formData.resume.name}
                             </Typography>
                           </AttachedFile>
                           <CloseIcon
                             onClick={handleRemoveFile}
-                            sx={{ width: 18, cursor: "pointer" }}
+                            sx={{ width: "18px !important", cursor: "pointer" }}
                           />
                         </Stack>
                       )}
