@@ -1776,12 +1776,31 @@ export const FileUpload = styled(Box)(({ theme }) => ({
 
 export const AttachedFile = styled(Box)(({ theme }) => ({
   width: "fit-content",
-  backgroundColor: theme.palette.custom?.black,
-  color: theme.palette.custom?.white1,
+  backgroundColor: theme.palette.custom?.grey_1,
+  color: theme.palette.custom?.white2,
   padding: "8px 24px",
   borderRadius: "100px",
   display: "flex",
   alignItems: "center",
+  [`@media (max-width: ${breakpoints.smallDesktop})`]: {
+    padding: "4px 22px",
+    '& .MuiTypography-font_14':{
+      fontSize: 16,
+      lineHeight: "26px",
+    },
+  },
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    '& .MuiTypography-font_14':{
+      fontSize: 19,
+      lineHeight: "28px",
+    },
+  },
+  [`@media (max-width: ${breakpoints.tabletView})`]: {
+    '& .MuiTypography-font_14':{
+      fontSize: 14,
+      lineHeight: "20px",
+    },
+  },
 }));
 
 export const DrawerUI = styled(Drawer)(({ theme }) => ({

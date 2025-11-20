@@ -202,6 +202,7 @@ interface CustomPalette {
   green?: string;
   black7?: string;
   errormsg?: string;
+  grey_1?: string
 }
 
 declare module "@mui/material/styles" {
@@ -904,6 +905,7 @@ export const lightTheme = createTheme({
       green: "#0f5132",
       black7: "#121212",
       errormsg: "#ffaeae",
+      grey_1: "#58585a",
     },
   },
 
