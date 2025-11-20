@@ -13,7 +13,7 @@ const mainListItems = [
   {
     text: "Job List",
     icon: <WorkOutlineOutlinedIcon />,
-    url: "add-career",
+    url: "job-list",
   },
   {
     text: "Career Enquiries",

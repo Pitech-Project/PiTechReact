@@ -11,23 +11,19 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    // ✅ Add body class and style safely on mount
-    document.body.classList.add("page--add-career");
+    document.body.classList.add("page--job-list");
     document.body.style.backgroundColor = "#f4f4f4";
 
-    // ✅ Clean up on unmount
     return () => {
-      document.body.classList.remove("page--add-career");
+      document.body.classList.remove("page--job-list");
       document.body.style.backgroundColor = "";
     };
   }, []);
 
   return (
     <Box component="main">
-      {/* ✅ Fixed Header visible on all admin pages */}
       <Header />
 
-      {/* ✅ Page content */}
       <Box
         sx={{
           mt: { xs: 8, md: 0 },

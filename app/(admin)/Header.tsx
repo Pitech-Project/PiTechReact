@@ -21,8 +21,8 @@ const mainListItems = [
   {
     linkname: "Job List",
     icon: <WorkOutlineOutlinedIcon />,
-    url: "add-career",
-    related: ["add-job"], // 👈 any hidden pages that should keep this active
+    url: "job-list",
+    related: ["add-job"],
   },
   {
     linkname: "Career Enquiries",
@@ -50,9 +50,8 @@ export default function Header() {
   const noHeaderPaths = ["/login"];
   if (noHeaderPaths.includes(pathname)) return null;
 
-  // ✅ Check if the current page should make an item active
   const isItemActive = (item: any) => {
-    const current = pathname.replace("/", ""); // remove leading slash
+    const current = pathname.replace("/", "");
     return (
       current === item.url ||
       item.related?.some((r: string) => current.startsWith(r))

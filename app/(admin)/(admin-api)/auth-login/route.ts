@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       res.cookies.set("session", "LoggedIn", {
         httpOnly: true,
         path: "/",
-        maxAge: 60 * 60, // 1 hour
+        maxAge: 60 * 60,
       });
 
       return res;
@@ -38,6 +38,6 @@ export async function POST(req: Request) {
       { status: 500 },
     );
   } finally {
-    await client.close(); // Clean up the connection
+    await client.close();
   }
 }

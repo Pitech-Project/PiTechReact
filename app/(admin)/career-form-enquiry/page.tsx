@@ -11,8 +11,8 @@ const paginationModel = { page: 0, pageSize: 5 };
 
 export default function Page() {
   useEffect(() => {
-        document.title = "Career Enquiries - Pi Admin";
-      }, []);
+    document.title = "Career Enquiries - Pi Admin";
+  }, []);
   const [loading, setLoading] = useState(true);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [submissions, setSubmissions] = useState<any[]>([]);
@@ -24,23 +24,22 @@ export default function Page() {
       if (!res.ok) throw new Error("Failed to fetch submissions");
       const data = await res.json();
 
-     const dynamicColumns: GridColDef[] = Object.keys(data[0] || {})
-  .filter(
-    (key) =>
-      key !== "id" &&
-      key !== "_id" &&
-      key !== "resume" &&
-      key.toLowerCase() !== "fullname" // ⬅️ Exclude Full Name
-  )
-  .map((key) => ({
-    field: key,
-    headerName: key
-      .replace(/([A-Z])/g, " $1")
-      .replace(/^./, (str) => str.toUpperCase()),
-    flex: 1,
-    filterable: true,
-  }));
-
+      const dynamicColumns: GridColDef[] = Object.keys(data[0] || {})
+        .filter(
+          (key) =>
+            key !== "id" &&
+            key !== "_id" &&
+            key !== "resume" &&
+            key.toLowerCase() !== "fullname", // ⬅️ Exclude Full Name
+        )
+        .map((key) => ({
+          field: key,
+          headerName: key
+            .replace(/([A-Z])/g, " $1")
+            .replace(/^./, (str) => str.toUpperCase()),
+          flex: 1,
+          filterable: true,
+        }));
 
       // Add Sr. No and Resume columns
       setColumns([
