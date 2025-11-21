@@ -202,7 +202,7 @@ interface CustomPalette {
   green?: string;
   black7?: string;
   errormsg?: string;
-  grey_1?: string
+  grey_1?: string;
 }
 
 declare module "@mui/material/styles" {

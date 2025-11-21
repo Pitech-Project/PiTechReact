@@ -17,7 +17,12 @@ import { useJobs } from "@/src/constants/hooks/jobListAPI";
 import JobListHeader from "@/components/JobList/JobListHeader";
 import { useJobListColumns } from "@/components/JobList/jobListColumns";
 import { AppStrings, SnackbarVariants } from "@/src/constants/appStrings";
-import { OuterBox, snackbarStyle, StyledPaper, TableContainerSX } from "@/styles/MUI/AdminJobsPage.styles";
+import {
+  OuterBox,
+  snackbarStyle,
+  StyledPaper,
+  TableContainerSX,
+} from "@/styles/MUI/AdminJobsPage.styles";
 
 function JobListContent() {
   const router = useRouter();

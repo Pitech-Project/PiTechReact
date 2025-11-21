@@ -26,7 +26,14 @@ import "@/styles/global/admin.css";
 import { JOB_EDITOR_FIELDS } from "@/src/constants/jobEditorFields";
 import { useJobAPI, JobFormData } from "@/src/constants/hooks/addJobAPI";
 import { AppStrings, SnackbarVariants } from "@/src/constants/appStrings";
-import { ButtonAdmin, editorStyle, OuterBox, snackbarStyle, StyledPaper, SubmitBox } from "@/styles/MUI/AdminJobsPage.styles";
+import {
+  ButtonAdmin,
+  editorStyle,
+  OuterBox,
+  snackbarStyle,
+  StyledPaper,
+  SubmitBox,
+} from "@/styles/MUI/AdminJobsPage.styles";
 
 function AddJobForm() {
   const searchParams = useSearchParams();

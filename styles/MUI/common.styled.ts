@@ -1422,6 +1422,8 @@ export const OurTeamUI = styled(Box)(({ theme }) => ({
     height: "auto",
   },
   "& .mobImg": {
+    borderTopLeftRadius: "16px",
+    borderTopRightRadius: "16px",
     width: "100% !important",
     height: "auto",
     display: "none",
@@ -1784,19 +1786,19 @@ export const AttachedFile = styled(Box)(({ theme }) => ({
   alignItems: "center",
   [`@media (max-width: ${breakpoints.smallDesktop})`]: {
     padding: "4px 22px",
-    '& .MuiTypography-font_14':{
+    "& .MuiTypography-font_14": {
       fontSize: 16,
       lineHeight: "26px",
     },
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
-    '& .MuiTypography-font_14':{
+    "& .MuiTypography-font_14": {
       fontSize: 19,
       lineHeight: "28px",
     },
   },
   [`@media (max-width: ${breakpoints.tabletView})`]: {
-    '& .MuiTypography-font_14':{
+    "& .MuiTypography-font_14": {
       fontSize: 14,
       lineHeight: "20px",
     },
