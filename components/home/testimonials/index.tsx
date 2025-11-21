@@ -80,6 +80,17 @@ const testimonials: TestimonialItem[] = [
     text: `"Pi Techniques has been a true partner in our digital transformation journey. Their ability to understand our complex requirements and translate them into simple, scalable solutions has been invaluable. They don’t just deliver technology — they help us think ahead."
                            `,
   },
+  {
+    name: "St. Jude India ChildCare Centres",
+    role: (
+      <>
+        Anil Nair, <i>CEO</i>
+      </>
+    ),
+    image: ProfileImg,
+    text: `"Our website plays a crucial role in telling the stories of the cancer warriors and families we care for. With Pi Techniques leading our website redesign, we got not just a sleek design transformation but a meaningful enhancement in how we showcase our cause and its impact. They blended creativity with clarity, improving the user experience while staying true to our core values. We’re grateful for their support and expertise."
+                           `,
+  },
 ];
 
 const TestimonialSection: React.FC = () => {

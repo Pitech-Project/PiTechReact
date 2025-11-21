@@ -17,59 +17,56 @@ import linkedin from "@/public/assets/img/about-us/linkedin.svg";
 
 const OurTeam = () => {
   useEffect(() => {
+    const parents = Array.from(
+      document.querySelectorAll<HTMLElement>(".equal-height-parent"),
+    );
+    const items = Array.from(
+      document.querySelectorAll<HTMLElement>(".equal-height"),
+    );
+
+    if (!parents.length || !items.length) return;
+
+    const resetHeights = () =>
+      items.forEach((el) => (el.style.height = "auto"));
+
     const applyEqualHeights = () => {
-      const items = Array.from(
-        document.querySelectorAll<HTMLElement>(".equal-height"),
-      );
-      if (items.length === 0) return;
+      resetHeights();
 
-      // Reset heights before recalculating
-      items.forEach((item) => (item.style.height = "auto"));
+      const rows = new Map<number, HTMLElement[]>();
 
-      // Group by row (using offsetTop instead of getBoundingClientRect)
-      const rowTops: Record<number, HTMLElement[]> = {};
-      items.forEach((item) => {
-        const top = Math.round(item.offsetTop);
-        if (!rowTops[top]) rowTops[top] = [];
-        rowTops[top].push(item);
+      parents.forEach((parent, index) => {
+        const top = Math.round(parent.getBoundingClientRect().top);
+        if (!rows.has(top)) rows.set(top, []);
+        rows.get(top)!.push(items[index]);
       });
 
-      // Apply equal heights
-      Object.values(rowTops).forEach((rowItems) => {
-        const maxHeight = Math.max(
-          ...rowItems.map((item) => item.offsetHeight),
-        );
-        rowItems.forEach((item) => {
-          item.style.height = `${maxHeight}px`;
-        });
+      rows.forEach((rowItems) => {
+        if (rowItems.length <= 1) return;
+
+        const heights = rowItems.map((el) => el.offsetHeight);
+        const max = Math.max(...heights);
+        const min = Math.min(...heights);
+
+        if (max === min) return; // all same → skip
+
+        rowItems.forEach((el) => (el.style.height = `${max}px`));
       });
     };
 
-    // Helper: run after animations + image load
-    const delayApply = () => {
-      clearTimeout((window as any).__eqTimeout);
-      (window as any).__eqTimeout = setTimeout(applyEqualHeights, 800);
-    };
+    const observer = new ResizeObserver(applyEqualHeights);
+    parents.forEach((p) => observer.observe(p));
 
-    // Run once after mount
-    delayApply();
+    window.addEventListener("resize", applyEqualHeights);
 
-    // Re-run after resize
-    window.addEventListener("resize", delayApply);
+    const imgs = document.querySelectorAll("img");
+    imgs.forEach((img) => img.addEventListener("load", applyEqualHeights));
 
-    // Re-run when all images finish loading
-    const images = document.querySelectorAll("img");
-    let loaded = 0;
-    images.forEach((img) => {
-      if (img.complete) loaded++;
-      else img.addEventListener("load", delayApply);
-    });
-    if (loaded === images.length) delayApply();
+    setTimeout(applyEqualHeights, 200);
 
     return () => {
-      window.removeEventListener("resize", delayApply);
-      images.forEach((img) => img.removeEventListener("load", delayApply));
-      clearTimeout((window as any).__eqTimeout);
+      observer.disconnect();
+      window.removeEventListener("resize", applyEqualHeights);
+      imgs.forEach((img) => img.removeEventListener("load", applyEqualHeights));
     };
   }, []);
 
@@ -95,8 +92,12 @@ const OurTeam = () => {
           </SubTitlemarginBottom>
           <Grid container spacing={5}>
             {teammember.map((team) => (
-              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={team.id}>
-                <OurTeamUI className="equal-height">
+              <Grid
+                size={{ xs: 12, sm: 6, md: 4 }}
+                key={team.id}
+                className="equal-height-parent"
+              >
+                <OurTeamUI>
                   <motion.div
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -110,7 +111,11 @@ const OurTeam = () => {
                       width={400}
                       height={300}
                     />
-                    <Infromation alignItems={"flex-start"}>
+                    <Infromation
+                      alignItems={"flex-start"}
+                      className="equal-height"
+                      justifyContent={"space-between"}
+                    >
                       <Stack
                         direction="row"
                         justifyContent="space-between"
@@ -157,6 +162,7 @@ const OurTeam = () => {
                   md: exeteam.gridsize ? exeteam.gridsize : 4,
                 }}
                 key={exeteam.id}
+                className="equal-height-parent"
               >
                 <OurTeamUI>
                   <motion.div

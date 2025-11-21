@@ -383,7 +383,11 @@ export default function CareerForm({
                         >
                           <AttachedFile>
                             <Image src={AttachFile} alt="Attach File" />
-                            <Typography variant="font_14" lineHeight="14px" ml={1}>
+                            <Typography
+                              variant="font_14"
+                              lineHeight="14px"
+                              ml={1}
+                            >
                               {formData.resume.name}
                             </Typography>
                           </AttachedFile>

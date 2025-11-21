@@ -3,8 +3,13 @@
 import { InputLabel, MenuItem, Select, Typography } from "@mui/material";
 import { Add, ClearAll } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
-import { ButtonAdmin, ClearButton, FilterBox, FilterFormControl, HeaderBox } from "@/styles/MUI/AdminJobsPage.styles";
-
+import {
+  ButtonAdmin,
+  ClearButton,
+  FilterBox,
+  FilterFormControl,
+  HeaderBox,
+} from "@/styles/MUI/AdminJobsPage.styles";
 
 interface JobListHeaderProps {
   jobs: any[];
